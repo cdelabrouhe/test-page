@@ -1,0 +1,84 @@
+{
+ "candidat": "hollande",
+ "etat_programme": "Livre-programme « Unir. Nouveau monde, nouvelle gauche » (3 septembre 2026, 80 propositions) ; seules les mesures sur les retraites et la fiscalité sont détaillées dans la presse consultée. Décision de candidature annoncée en décembre 2026.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "hol-ret",
+   "theme": "retraites",
+   "intitule": "Âge légal d'environ 63 ans au 1er janvier 2028, puis allongement de la durée de cotisation via un mécanisme d'ajustement piloté par les partenaires sociaux",
+   "detail": "Âge pivot corrigé en permanence selon l'espérance de vie ; part de capitalisation gérée par les partenaires sociaux.",
+   "chiffres": "63 ans (2028)",
+   "sources": [
+    "lcp-hollande"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 63,
+    "annee": 2028,
+    "duree_cotisation_evolutive": true,
+    "capitalisation_partielle": true
+   }
+  },
+  {
+   "id": "hol-index",
+   "theme": "retraites",
+   "intitule": "Limiter l'indexation des pensions à 1 % pendant cinq ans ; désindexation partielle envisageable au-delà d'un seuil de revenus",
+   "detail": "Équivaudrait à un report d'un an de l'âge de départ selon le texte (non chiffré).",
+   "chiffres": "1 % / 5 ans",
+   "sources": [
+    "lcp-hollande"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "indexation_pensions_pct": 1,
+    "duree_annees": 5
+   }
+  },
+  {
+   "id": "hol-cot",
+   "theme": "travail",
+   "intitule": "Baisser les cotisations salariales pour rapprocher le salaire net du brut",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "lcp-hollande"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "baisse_cotisations_salariales": true
+   }
+  },
+  {
+   "id": "hol-tva",
+   "theme": "fiscalite-menages",
+   "intitule": "TVA normale portée progressivement de 20 % à 24 % ; taux de 5,5 % ramené à 0 % pour l'énergie, les carburants et les produits de première nécessité",
+   "detail": "Finance la baisse des cotisations, avec une contribution sur une partie des grosses successions.",
+   "chiffres": "20 % → 24 % ; 5,5 % → 0 %",
+   "sources": [
+    "lcp-hollande"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "tva_normale_pct": 24,
+    "tva_reduite_energie_pct": 0
+   }
+  },
+  {
+   "id": "hol-succ",
+   "theme": "fiscalite-menages",
+   "intitule": "Contribution sur une partie des grosses successions",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "lcp-hollande"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  }
+ ]
+}

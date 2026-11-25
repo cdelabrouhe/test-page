@@ -1,0 +1,126 @@
+{
+ "candidat": "asselineau",
+ "etat_programme": "Programme officiel de l'UPR (173 mesures recensées, 42 relevées ici).",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "ass-eur",
+   "theme": "europe",
+   "intitule": "Sortie de l'UE, de l'euro et de l'OTAN par l'article 50 ; économie de 12 Md€ par an sur les coûts d'appartenance",
+   "detail": null,
+   "chiffres": "12 Md€/an",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ass-smic",
+   "theme": "travail",
+   "intitule": "Hausse du SMIC brut de 24 % sur le quinquennat ; baisse de 50 % des charges patronales pour les PME",
+   "detail": null,
+   "chiffres": "+24 % ; −50 %",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "smic_hausse_pct": 24
+   }
+  },
+  {
+   "id": "ass-fisc",
+   "theme": "fiscalite-menages",
+   "intitule": "Baisse de la TVA sur les produits courants ; hausse sur le très grand luxe ; deux tranches supplémentaires de l'impôt sur le revenu au-delà de 250 000 € et 500 000 € ; impôt exceptionnel sur quelques dizaines de très grandes fortunes",
+   "detail": null,
+   "chiffres": "250 000 € ; 500 000 €",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "tranche_250k": true,
+    "tranche_500k": true
+   }
+  },
+  {
+   "id": "ass-aah",
+   "theme": "sante",
+   "intitule": "Revalorisation de l'AAH de 20 % et fin de la prise en compte du revenu du conjoint ; réouverture de 30 000 lits d'hôpital ; +15 % du budget hospitalier",
+   "detail": null,
+   "chiffres": "+20 % AAH ; 30 000 lits ; +15 %",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "aah_hausse_pct": 20,
+    "deconjugalisation": true
+   }
+  },
+  {
+   "id": "ass-inst",
+   "theme": "institutions",
+   "intitule": "RIC ; 500 députés ; sénateurs réduits à environ 100 ; Cour constitutionnelle remplaçant le Conseil constitutionnel",
+   "detail": null,
+   "chiffres": "500 députés ; ~100 sénateurs",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ass-immi",
+   "theme": "immigration",
+   "intitule": "Sortie de Schengen ; taux effectif d'expulsions d'au moins 75 % ; fin des travailleurs détachés",
+   "detail": null,
+   "chiffres": "75 %",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ass-sec",
+   "theme": "securite",
+   "intitule": "+20 % des budgets de la justice et de la police ; peines planchers pour les récidivistes ; perpétuité incompressible pour les terroristes",
+   "detail": null,
+   "chiffres": "+20 %",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ass-edu",
+   "theme": "education",
+   "intitule": "Rétablir le cadre national du baccalauréat ; au moins 80 % du temps scolaire du primaire aux savoirs fondamentaux ; interdiction des téléphones en cours",
+   "detail": null,
+   "chiffres": "80 %",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ass-ecol",
+   "theme": "environnement",
+   "intitule": "TVA supprimée sur les circuits courts et le bio français ; 70 % de rail pour le ferroutage ; écotaxe sur les poids lourds étrangers",
+   "detail": null,
+   "chiffres": "70 %",
+   "sources": [
+    "v27-asselineau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

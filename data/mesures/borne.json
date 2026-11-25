@@ -1,0 +1,32 @@
+{
+ "candidat": "borne",
+ "etat_programme": "Pas de programme publié : quelques positions publiques seulement. Candidature non déclarée.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "bor-inst",
+   "theme": "institutions",
+   "intitule": "Septennat non renouvelable, avec un Conseil des ministres présidé par le Premier ministre",
+   "detail": null,
+   "chiffres": "7 ans",
+   "sources": [
+    "info-borne"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "bor-ret",
+   "theme": "retraites",
+   "intitule": "Suspension de la réforme des retraites jusqu'au débat de la présidentielle (position d'octobre 2025)",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "lalibre-borne"
+   ],
+   "fiabilite": "presse",
+   "simulable": false,
+   "divergence": "Position antérieure à la campagne, à confirmer."
+  }
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "candidat": "bouamrane",
+ "etat_programme": "Priorités de la campagne de Karim Bouamrane (karimbouamrane2027.org) : 30 mesures recensées, 24 relevées ici, très générales.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "bou-fonds",
+   "theme": "finances-publiques",
+   "intitule": "Fonds souverain de 100 Md€ financé en grande partie par un impôt d'environ 2 Md€ sur les fortunes immobilières",
+   "detail": null,
+   "chiffres": "100 Md€ ; 2 Md€",
+   "sources": [
+    "v27-bouamrane"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bou-trav",
+   "theme": "travail",
+   "intitule": "Faire en sorte que le travail rémunère suffisamment pour vivre dignement ; simplifier l'action publique",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bouamrane"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bou-sec",
+   "theme": "securite",
+   "intitule": "Lutte contre le narcotrafic ; protection des enfants et des femmes, grande cause nationale ; augmentation de l'effort de défense",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bouamrane"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bou-immi",
+   "theme": "immigration",
+   "intitule": "Trois axes : accueil digne de ceux qui ont le droit de rester, action sur les causes des migrations, reconduite des personnes en situation irrégulière",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bouamrane"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bou-ecol",
+   "theme": "environnement",
+   "intitule": "Transition juste : rénovation des logements modestes, emplois durables ; réduction des dépendances énergétique, industrielle, numérique et alimentaire",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bouamrane"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bou-sante",
+   "theme": "sante",
+   "intitule": "Accès à des soins de qualité, lutte contre les déserts médicaux, préparation au vieillissement",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bouamrane"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

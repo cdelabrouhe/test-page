@@ -607,5 +607,54 @@
   "media": "Paris Match Belgique",
   "date": "2026-10-14",
   "url": "https://www.parismatch.be/actualites/monde/2026/10/14/france-natacha-polony-annonce-sa-candidature-a-lelection-presidentielle-OUVKQKV6MBFQZCJKLBGST2N4CY/"
+ },
+ {
+  "id": "lcp-hollande",
+  "titre": "François Hollande propose la retraite à 63 ans et dira « en décembre » s'il est candidat",
+  "media": "LCP",
+  "date": "2026-09-03",
+  "url": "https://lcp.fr/actualites/presidentielle-francois-hollande-propose-la-retraite-a-63-ans-et-dira-en-decembre-s-il"
+ },
+ {
+  "id": "euronews-hollande",
+  "titre": "Nouveau livre de Hollande, un manifeste sous forme de programme pour la présidentielle",
+  "media": "Euronews",
+  "date": "2026-09-03",
+  "url": "https://fr.euronews.com/2026/09/03/presidentielle-francois-hollande-devoile-son-plan-pour-la-france-dans-un-livre-sans-se-dec"
+ },
+ {
+  "id": "info-borne",
+  "titre": "Borne claque la porte de Renaissance",
+  "media": "info.fr",
+  "date": "2026-05-08",
+  "url": "https://info.fr/borne-demission-renaissance-attal-presidentielle/"
+ },
+ {
+  "id": "lalibre-borne",
+  "titre": "Élisabeth Borne ouvre la porte à une « suspension » de la réforme des retraites",
+  "media": "La Libre",
+  "date": "2025-10-07",
+  "url": "https://www.lalibre.be/international/europe/2025/10/07/elisabeth-borne-ouvre-la-porte-a-une-suspension-de-la-reforme-des-retraites-EQAS6A7YV5ARRGXEVYU3UMELCA/"
+ },
+ {
+  "id": "v27-asselineau",
+  "titre": "Programme de François Asselineau pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/asselineau/programme"
+ },
+ {
+  "id": "v27-batho",
+  "titre": "Programme de Delphine Batho pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/batho/programme"
+ },
+ {
+  "id": "v27-bouamrane",
+  "titre": "Programme de Karim Bouamrane pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/bouamrane/programme"
  }
 ]

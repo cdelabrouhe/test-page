@@ -1,0 +1,67 @@
+{
+ "candidat": "batho",
+ "etat_programme": "Priorités de Génération Écologie (delphinebatho.fr/priorites) : 25 mesures recensées, 17 relevées ici, sans chiffrage.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "bat-ecol",
+   "theme": "environnement",
+   "intitule": "Conditionner les aides agricoles à l'agriculture biologique ; sortie des fossiles et sobriété (rénovation des logements) ; géothermie et autoconsommation collective",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-batho"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bat-sante",
+   "theme": "sante",
+   "intitule": "Retirer les pesticides cancérigènes ; Nutri-Score obligatoire ; régulation de l'installation des médecins et centres de santé ; Défenseur de la santé humaine et animale",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-batho"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bat-eco",
+   "theme": "finances-publiques",
+   "intitule": "Boussole fondée sur l'empreinte écologique et un indice de santé sociale ; pluriannualité budgétaire pour la sortie des fossiles",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-batho"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bat-inst",
+   "theme": "institutions",
+   "intitule": "Pleine santé et habitabilité dans la Constitution ; loi de séparation des lobbies et de l'État ; recentrage de l'État sur les missions essentielles",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-batho"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bat-sec",
+   "theme": "securite",
+   "intitule": "Loi de programmation budgétaire pour les pompiers et ministère de la sécurité civile",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-batho"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}
