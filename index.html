@@ -44,6 +44,12 @@ h1{font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0 0 12px;font-weight:8
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .panel{position:relative;border:2px solid var(--ink);background:var(--bg);padding:52px 16px 16px;display:flex;flex-direction:column;gap:6px}
 .panel .n{position:absolute;top:0;left:0;background:var(--ink);color:var(--bg);font-weight:800;font-stretch:115%;font-size:18px;min-width:44px;height:36px;display:grid;place-items:center;padding:0 8px;font-variant-numeric:tabular-nums}
+.fam{margin:36px 0 14px;font-size:22px;font-weight:800;font-stretch:108%;color:var(--blue);display:flex;align-items:baseline;gap:10px}
+.fam:first-child{margin-top:0}
+.fam small{font-size:14px;font-weight:600;color:var(--mute)}
+.ph{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--soft);border:2px solid var(--line);display:grid;place-items:center;font-weight:800;font-stretch:112%;font-size:24px;color:var(--blue);flex:none}
+.ph.ini{letter-spacing:.02em}
+.photo-credit{font-size:11px;color:var(--mute)}
 .panel h3{margin:0;font-size:20px;line-height:1.15;font-weight:800;font-stretch:108%}
 .party{color:var(--mute);font-size:15px}
 .tag{align-self:flex-start;font-size:13px;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--blue);font-weight:600}
@@ -91,8 +97,8 @@ footer li{margin-bottom:6px}
    <input id="q" type="search" placeholder="Rechercher un nom ou un parti" aria-label="Rechercher un nom ou un parti">
    <div class="chips" id="chips" role="group" aria-label="Filtrer par statut"></div>
   </div>
-  <div class="grid" id="grid"></div>
-  <p class="note">Ordre alphabétique des noms ; la numérotation des panneaux n'a aucune valeur officielle (l'ordre officiel est tiré au sort par le Conseil constitutionnel).</p>
+  <div id="grid"></div>
+  <p class="note">Candidats regroupés par famille politique, dans l'ordre usuel de la gauche vers la droite, puis par ordre alphabétique des noms dans chaque famille. <span id="nf"></span> La numérotation des panneaux n'a aucune valeur officielle (l'ordre officiel est tiré au sort par le Conseil constitutionnel).</p>
  </div>
 </main>
 
@@ -133,7 +139,10 @@ function card(c,i){
  const tag=`<span class="tag${c.statut==='sous_condition'?' cond':''}">${esc(D.statuts[c.statut])}</span>`;
  const date=c.statut==='retire'&&c.date_retrait?'Retrait : '+fdate(c.date_retrait):c.date_annonce?'Annonce : '+fdate(c.date_annonce):'Date d’annonce non précisée';
  const src=(c.sources||[]).map(id=>S[id]?`<a href="${esc(S[id].url)}" target="_blank" rel="noopener">${esc(S[id].media)}</a>`:'').join('');
+ const ini=c.nom.split(/[\s-]+/).filter(w=>/^[A-ZÉÈÀ]/.test(w)&&!['de','du','la'].includes(w)).map(w=>w[0]).slice(0,2).join('');
+ const av=c.photo?`<img class="ph" src="${esc(c.photo)}" alt="Portrait de ${esc(c.nom)}" width="72" height="72" loading="lazy">`:`<span class="ph ini" role="img" aria-label="Pas de photo pour ${esc(c.nom)}">${esc(ini)}</span>`;
  return `<article class="panel${cls}"><span class="n">${i+1}</span>
+  ${av}${c.photo&&c.photo_credit?`<span class="photo-credit">${esc(c.photo_credit)}</span>`:''}
   <h3>${esc(c.nom)}</h3><span class="party">${esc(c.parti)}</span>${tag}
   ${c.processus?`<span class="proc">${esc(c.processus)}</span>`:''}
   ${c.precision?`<p class="prec">${esc(c.precision)}</p>`:''}
@@ -141,14 +150,22 @@ function card(c,i){
   <div class="meta">${esc(date)}<br>${src}</div></article>`;
 }
 function draw(){
- const list=D.candidats.filter(match).sort((a,b)=>key(a.nom).localeCompare(key(b.nom),'fr'));
- grid.innerHTML=list.length?list.map(card).join(''):'<div class="empty">Aucun résultat pour cette recherche.</div>';
+ const all=D.candidats.slice().sort((a,b)=>key(a.nom).localeCompare(key(b.nom),'fr'));
+ const num=new Map(all.map((c,i)=>[c.id,i+1]));
+ const list=all.filter(match);
+ let h='';
+ for(const [f,nom] of Object.entries(D.familles)){
+  const g=list.filter(c=>(c.famille||'divers')===f);
+  if(g.length)h+=`<h2 class="fam" id="f-${f}">${esc(nom)}<small>${g.length}</small></h2><div class="grid">${g.map(c=>card(c,num.get(c.id)-1)).join('')}</div>`;
+ }
+ grid.innerHTML=h||'<div class="empty">Aucun résultat pour cette recherche.</div>';
  document.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===filter));
 }
 function init(d,s){
  D=d;s.forEach(x=>S[x.id]=x);
  const C=D.candidats,n=f=>C.filter(f).length;
  const counts={traite:n(c=>c.traite),pressenti:n(c=>c.statut==='pressenti'),retire:n(c=>c.statut==='retire'),tous:C.length};
+ document.getElementById('nf').textContent=D.note_familles;
  document.getElementById('lede').textContent=D.avertissement+' Vérifiée le '+fdate(D.verifie_le)+'.';
  document.getElementById('stats').innerHTML=
   `<span><b>${counts.traite}</b>personnalités traitées</span><span><b>${n(c=>c.statut==='sous_condition')}</b>dont sous condition</span><span><b>${counts.pressenti}</b>pressentis</span><span><b>${counts.retire}</b>retraits ou éliminations</span>`;
@@ -163,7 +180,7 @@ function init(d,s){
  chips.innerHTML=FILTERS.map(([f,l])=>`<button type="button" class="chip" data-f="${f}" aria-pressed="false">${l}<small>${counts[f]}</small></button>`).join('');
  chips.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;filter=b.dataset.f;try{history.replaceState(null,'','#'+filter)}catch(_){location.hash=filter}draw()});
  document.getElementById('q').addEventListener('input',e=>{q=e.target.value.trim().toLocaleLowerCase('fr').normalize('NFD').replace(/[̀-ͯ]/g,'');draw()});
- document.getElementById('rules').innerHTML=Object.values(D.regles_inclusion).map(r=>`<li>${esc(r)}</li>`).join('')+'<li>Aucun classement politique : candidats présentés par ordre alphabétique, chaque statut sourcé.</li>';
+ document.getElementById('rules').innerHTML=Object.values(D.regles_inclusion).map(r=>`<li>${esc(r)}</li>`).join('')+'<li>Familles : classement par étiquette partisane, sans jugement sur les programmes ; au sein d\'une famille, ordre alphabétique ; chaque statut est sourcé.</li>';
  document.getElementById('src').innerHTML=s.map(x=>`<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.titre)}</a> — ${esc(x.media)}, ${esc(fdate(x.date))}</li>`).join('');
  draw();
 }

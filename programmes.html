@@ -54,6 +54,7 @@ select:focus,input:focus,.chip:focus-visible{outline:3px solid var(--blue);outli
  <div class="chips" id="chips" role="group" aria-label="Candidats"></div>
 </div>
 <div class="cols" id="cols"></div>
+<p class="note" id="hid" aria-live="polite"></p>
 <p class="note">Les mesures sont classées d'après leur source : « programme officiel » (site ou document du candidat), « presse » (déclarations rapportées) ou « recensement tiers » (site qui compile). Un programme peut évoluer : la date de vérification figure sur chaque colonne. Aucune appréciation n'est portée ici sur la valeur des mesures ; l'évaluation (précédents, financement, avis d'experts) viendra dans une étape distincte.</p>
 </div></main>
 <script>
@@ -75,11 +76,15 @@ function mcard(m){
 function draw(){
  document.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',sel.has(b.dataset.id)));
  const list=WAVE.filter(id=>sel.has(id));
- cols.innerHTML=list.map(id=>{
+ const vus=list.filter(id=>data[id].mesures.some(m=>theme==='tous'||m.theme===theme));
+ const caches=list.filter(id=>!vus.includes(id));
+ cols.innerHTML=vus.map(id=>{
   const d=data[id],c=cands.find(x=>x.id===id);
   const ms=d.mesures.filter(m=>theme==='tous'||m.theme===theme);
   return `<section class="col"><h2>${esc(c.nom)}</h2><p class="state">${esc(c.parti)} · vérifié le ${esc(d.verifie_le)}<br>${esc(d.etat_programme)}</p>
-  ${ms.length?ms.map(mcard).join(''):'<div class="empty">Aucune mesure relevée sur ce thème à ce stade.</div>'}</section>`}).join('')||'<div class="empty">Sélectionne au moins un candidat.</div>';
+  ${ms.map(mcard).join('')}</section>`}).join('')||(list.length?'<div class="empty">Aucune mesure relevée sur ce thème à ce stade pour les candidats sélectionnés.</div>':'<div class="empty">Sélectionne au moins un candidat.</div>');
+ const hid=document.getElementById('hid');
+ hid.textContent=caches.length?'Masqués faute de mesure relevée sur ce thème à ce stade : '+caches.map(id=>cands.find(x=>x.id===id).nom).join(', ')+'. Cela ne signifie pas qu\'ils n\'ont pas de position : seulement qu\'aucune n\'a été relevée ici.':'';
 }
 Promise.all([fetch('data/themes.json').then(r=>r.json()),fetch('data/candidats.json').then(r=>r.json()),fetch('data/sources.json').then(r=>r.json()),...WAVE.map(id=>fetch('data/mesures/'+id+'.json').then(r=>r.json()))])
 .then(([t,c,s,...ms])=>{

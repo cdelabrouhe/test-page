@@ -13,7 +13,7 @@ Test en local : `python3 -m http.server` puis http://localhost:8000
 5. Évaluation de chaque mesure : précédents (France/étranger), effets étudiés, coût et financement, avis d'experts, contraintes, niveau de connaissance (pas de probabilité chiffrée : décision de neutralité). **Fait pour 3 sujets** (âge de la retraite, SMIC, TVA) dans `data/evaluations.json` et `evaluations.html`. À étendre.
 
 ## Décisions de méthode
-- **Neutralité** : candidats en ordre alphabétique, aucune mesure sans source, aucun score global par candidat, aucun avis éditorial.
+- **Neutralité** : candidats regroupés par famille (champ `famille` de `candidats.json`, d'après l'étiquette du parti ; « divers » pour sans-étiquette, souverainistes et mouvements sans famille établie) puis en ordre alphabétique, aucune mesure sans source, aucun score global par candidat, aucun avis éditorial.
 - **Qui est traité** : tous les candidats déclarés (utile pour d'éventuelles primaires) et les pressentis ; seule Marine Le Pen est forcée dans la liste (incertitude judiciaire). Les candidats retirés restent dans l'historique mais pas dans le simulateur.
 - **Programmes** : collectés dans tous les cas, même pour un candidat non officiellement déclaré. Si aucun programme n'existe, on relève les propositions rapportées par la presse, et `etat_programme` le dit.
 - **Fiabilité de chaque mesure** (`fiabilite`) : `programme_officiel`, `presse`, `recensement_tiers`. Les contradictions entre sources vont dans `divergence` ; une mesure datant d'une campagne précédente est signalée.
@@ -22,7 +22,7 @@ Test en local : `python3 -m http.server` puis http://localhost:8000
 - **Mise à jour de la liste des candidats** : manuelle, lancée par l'utilisateur (skill `maj-candidats-2027`), avec validation avant publication. Pas de tâche automatique.
 
 ## Format des données
-- `candidats.json` : `id`, `nom`, `parti`, `statut` (declare, sous_condition, pressenti, retire), `traite`, `force`.
+- `candidats.json` : `id`, `nom`, `parti`, `statut` (declare, sous_condition, pressenti, retire), `famille` (extreme_gauche, gauche, ecologiste, centre, droite, extreme_droite, divers), `traite`, `force`, et en option `photo` (chemin d'une image locale, ex. `img/candidats/attal.jpg`) avec `photo_credit` (auteur et licence) ; sans photo, la page affiche les initiales.
 - `mesures/<id>.json` : `candidat`, `etat_programme`, `verifie_le`, `mesures[]` (`id`, `theme`, `intitule`, `detail`, `chiffres`, `sources[]`, `fiabilite`, `simulable`, `parametres`, `divergence`).
 - `sources.json` : `id`, `titre`, `media`, `date`, `url`.
 
