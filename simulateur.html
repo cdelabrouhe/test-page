@@ -40,7 +40,22 @@ select:focus,input:focus,.chip:focus-visible{outline:3px solid var(--blue);outli
 
 fieldset{border:2px solid var(--line);padding:14px 16px;margin:0 0 16px}legend{font-weight:700;padding:0 6px}
 .form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
-.form label{display:flex;flex-direction:column;font-size:14px;font-weight:600;gap:4px}.form small{font-weight:400;color:var(--mute)}
+[hidden]{display:none!important}
+.gdesc{margin:0 0 12px;color:var(--mute);font-size:14px;max-width:75ch}
+legend .tag{margin-left:8px;font-weight:600}
+.sg+.sg{margin-top:14px}
+h3.sub{margin:0 0 8px;font-size:13px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.04em}
+.champ{position:relative;display:flex;flex-direction:column;gap:4px;font-size:14px}
+.champ.sous{margin-left:12px;padding-left:10px;border-left:3px solid var(--line)}
+.lab{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.lab label{font-weight:600;line-height:1.3;padding-top:3px}
+.tip{flex:none;position:relative;width:24px;height:24px;border-radius:50%;border:2px solid var(--blue);background:transparent;color:var(--blue);font:700 14px/1 Archivo,system-ui,sans-serif;cursor:help;padding:0}
+.tip::before{content:"";position:absolute;inset:-10px}
+.tip:hover,.tip[aria-expanded=true]{background:var(--blue);color:var(--bg)}
+.tip:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.tipbox{position:absolute;z-index:30;left:0;top:30px;width:min(340px,calc(100vw - 32px));background:var(--bg);color:var(--ink);border:2px solid var(--blue);border-radius:4px;padding:10px 12px;box-shadow:0 6px 18px rgb(0 0 0/.25);font-size:13px;line-height:1.45;font-weight:400}
+.tipbox p{margin:0}.tipbox p+p{margin-top:6px}.tipbox .sert{color:var(--mute)}.tipbox .sert strong{color:var(--ink)}
+.warn{margin:12px 0 0;color:var(--red);font-size:13px;font-weight:600}
 .res{border:2px solid var(--ink);padding:14px 16px;margin-bottom:16px}.res h2{margin:0 0 8px;font-size:22px;font-stretch:108%}
 .dom{border-top:1px solid var(--line);padding:8px 0;font-size:14px}.dom h3{margin:0;font-size:14px;color:var(--mute);font-weight:600}
 .val{font-size:18px;font-weight:700}.pos{color:#0a6b2d}.neg{color:#b3261e}
@@ -52,61 +67,70 @@ details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px
 <p class="lede">Douze domaines pour l'instant : salaire minimum, âge de départ à la retraite, pensions, TVA et énergie, heures supplémentaires, impôt sur le revenu, famille, logement, patrimoine, épargne et successions, minima sociaux et étudiants, enseignants et agents publics, transports et péages. Tout est calculé dans ton navigateur : rien n'est envoyé ni enregistré. Pas de note globale, pas de classement : les candidats sont par ordre alphabétique.</p>
 </div></header>
 <main class="band" style="padding-top:0"><div class="wrap">
-<form id="f"><fieldset><legend>Ta situation</legend><div class="form">
-<label>Tu es<select id="statut"><option value="salarie">Salarié du privé</option><option value="fonctionnaire">Agent public (hors enseignant)</option><option value="enseignant">Enseignant</option><option value="recherche">Personnel de la recherche</option><option value="retraite">Retraité</option><option value="etudiant">Étudiant</option><option value="sans_emploi">Sans emploi</option></select><small>Choisis ce qui te décrit le mieux : les champs ci-dessous servent selon ce choix.</small></label>
-<label>Année de naissance<input type="number" id="naiss" min="1940" max="2008" value="1985"></label>
-<label>Début de carrière (année)<input type="number" id="debut" min="1960" max="2026" value="2008"></label>
-<label>Salaire net mensuel (€)<input type="number" id="net" min="0" step="10" value="1800"></label>
-<label>Années sans trimestre validé<input type="number" id="vide" min="0" max="30" value="0"><small>Chômage non indemnisé, inactivité. Le chômage indemnisé valide en général des trimestres : ne le compte pas.</small></label>
-<label>Quotité de travail (%)<input type="number" id="quot" min="10" max="100" value="100"></label>
-<label>Dépenses mensuelles à TVA 20 % (€)<input type="number" id="dep" min="0" step="50" value="1000"><small>Hors alimentation, loyer, santé. Valeur d'exemple : modifie-la.</small></label>
-<label>Électricité par mois (€)<input type="number" id="elec" min="0" value="90"></label>
-<label>Gaz par mois (€)<input type="number" id="gaz" min="0" value="40"></label>
-<label>Carburant par mois (litres)<input type="number" id="carb" min="0" value="80"></label>
-<label>Heures supplémentaires par semaine<input type="number" id="hs" min="0" max="20" value="0"></label>
-</div></fieldset>
-<fieldset><legend>Ton foyer et tes projets (facultatif)</legend><div class="form">
-<label>En couple<select id="couple"><option value="0">Non</option><option value="1">Oui</option></select></label>
-<label>Salaire net mensuel du conjoint (€)<input type="number" id="conj" min="0" step="10" value="0"></label>
-<label>Enfants à charge<input type="number" id="enf" min="0" max="10" value="0"></label>
-<label>Naissances prévues d'ici 2032<input type="number" id="nais" min="0" max="5" value="0"></label>
-<label>Bénéficiaire de l'AAH<select id="aah"><option value="0">Non</option><option value="1">Oui</option></select></label>
-<label>APL perçues par mois (€)<input type="number" id="apl" min="0" value="0"></label>
-<label>Achat d'un logement ancien : prix (€)<input type="number" id="prix" min="0" step="1000" value="0"></label>
-<label>Héritage attendu en ligne directe (€)<input type="number" id="her" min="0" step="10000" value="0"></label>
-<label>Patrimoine net total (€)<input type="number" id="pat" min="0" step="10000" value="0"></label>
-</div></fieldset>
-<fieldset><legend>Retraite, aides, études, patrimoine, dépenses (facultatif)</legend><div class="form">
-<label>Pension nette mensuelle (€)<input type="number" id="pension" min="0" step="10" value="0"><small>Retraités seulement.</small></label>
-<label>Salaire net mensuel en cumul emploi-retraite (€)<input type="number" id="cumul" min="0" step="50" value="0"></label>
-<label>Inflation annuelle supposée (%)<input type="number" id="infl" min="0" max="10" step="0.1" placeholder="1,9 puis 1,6"><small>Vide : prévisions de la Banque de France (septembre 2026). Sert au gel ou à la limitation des pensions.</small></label>
-<label>Handicap : taux d'incapacité d'au moins 80 %<select id="inc80"><option value="0">Non</option><option value="1">Oui</option></select><small>Avec « bénéficiaire de l'AAH » ci-dessus.</small></label>
-<label>RSA, prime d'activité, ASS perçus par mois (€)<input type="number" id="minima" min="0" step="10" value="0"></label>
-<label>Boursier<select id="bours"><option value="0">Non</option><option value="1">Oui</option></select></label>
-<label>Bourse mensuelle (€)<input type="number" id="bourse" min="0" step="10" value="0"></label>
-<label>Niveau d'études<select id="niv"><option value="L1L2">Licence 1 ou 2</option><option value="L3">Licence 3 ou autre</option><option value="master">Master</option></select></label>
-<label>18-24 ans sans diplôme ni emploi<select id="sdne"><option value="0">Non</option><option value="1">Oui</option></select></label>
-<label>Dont patrimoine immobilier net (€)<input type="number" id="immo" min="0" step="10000" value="0"><small>Pour l'ISF : l'IFI actuel ne porte que sur l'immobilier.</small></label>
-<label>Dont résidence principale (valeur, €)<input type="number" id="rp" min="0" step="10000" value="0"></label>
-<label>Plus-values annuelles sur valeurs mobilières (€)<input type="number" id="pv" min="0" step="500" value="0"></label>
-<label>Donation reçue d'un parent (€)<input type="number" id="don" min="0" step="10000" value="0"><small>Sans donation de ce parent depuis 15 ans.</small></label>
-<label>Prix du carburant payé (€/L)<input type="number" id="prixc" min="0" step="0.01" value="0"><small>Pour les mesures de blocage des prix.</small></label>
-<label>Loyer mensuel hors charges (€)<input type="number" id="loyer" min="0" step="10" value="0"></label>
-<label>Abonnement de transport en commun par mois (€)<input type="number" id="abo" min="0" step="5" value="0"></label>
-<label>Péages d'autoroute par mois (€)<input type="number" id="peages" min="0" step="5" value="0"></label>
-<label>Traitement indiciaire brut mensuel (€)<input type="number" id="trait" min="0" step="10" value="0"><small>Ligne « traitement indiciaire » de la fiche de paie, agents publics seulement.</small></label>
-</div></fieldset></form>
+<form id="f" autocomplete="off" aria-label="Ta situation"></form>
 <p id="etat" class="note"></p>
 <div id="out"></div>
-<p class="note">Ce simulateur ne couvre qu'une partie des mesures, et seulement celles qui sont chiffrées dans les sources. « Non estimable » veut dire que le programme est trop imprécis, pas qu'il n'a aucun effet. Les hypothèses sont détaillées sous chaque résultat. Références : IFI 2026 (seuil de 1,3 M€, barème de 0,5 % à 1,5 %), flat tax à 31,4 %, plafond du chèque énergie de 11 000 € par unité de consommation, AAH 1 041,59 € et RSA 651,69 € au 1er avril 2026, ASPA 1 043,59 € au 1er janvier 2026, inflation 2027-2028 de la Banque de France (septembre 2026), droits d'inscription 2026-2027, SMIC annoncé au 1er décembre 2026 (1 502 € net par mois, après 1 477,93 € net depuis le 1er juin 2026), âge légal figé à 62 ans 9 mois jusqu'en 2028 (LFSS 2026), barème de l'impôt sur le revenu 2026 (revenus 2025), droits de succession en ligne directe. Les champs « facultatif » ne servent qu'à ces calculs : laisse 0 si tu n'es pas concerné. Résultat indicatif, pas un conseil.</p>
+<p class="note">Ce simulateur ne couvre qu'une partie des mesures, et seulement celles qui sont chiffrées dans les sources. « Non estimable » veut dire que le programme est trop imprécis, pas qu'il n'a aucun effet. Les hypothèses sont détaillées sous chaque résultat. Références : IFI 2026 (seuil de 1,3 M€, barème de 0,5 % à 1,5 %), flat tax à 31,4 %, plafond du chèque énergie de 11 000 € par unité de consommation, AAH 1 041,59 € et RSA 651,69 € au 1er avril 2026, ASPA 1 043,59 € au 1er janvier 2026, inflation 2027-2028 de la Banque de France (septembre 2026), droits d'inscription 2026-2027, SMIC annoncé au 1er décembre 2026 (1 502 € net par mois, après 1 477,93 € net depuis le 1er juin 2026), âge légal figé à 62 ans 9 mois jusqu'en 2028 (LFSS 2026), barème de l'impôt sur le revenu 2026 (revenus 2025), droits de succession en ligne directe. Chaque point d'interrogation (au survol, au clavier ou au toucher) explique ce qu'il faut saisir et à quoi la donnée sert. Les champs qui ne te concernent pas peuvent rester à 0, et certains ne s'affichent que selon ta situation. Résultat indicatif, pas un conseil.</p>
 </div></main>
 <script src="js/engine.js"></script>
+<script src="js/champs.js"></script>
 <script>
 {
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $=id=>document.getElementById(id);let C=[],MS={};
 const eur=n=>(n>=0?'+':'−')+Math.abs(n).toLocaleString('fr-FR',{maximumFractionDigits:0})+' €';
-function profil(){const v=id=>+$(id).value||0;return{statut:$('statut').value,anneeNaissance:v('naiss'),anneeDebutCarriere:v('debut')||null,anneesSansTrimestre:v('vide'),salaireNetMensuel:v('net'),quotite:v('quot')||100,depensesTvaNormale:v('dep'),electriciteMois:v('elec'),energieMois:v('gaz'),carburantLitres:v('carb'),heuresSupSemaine:v('hs'),couple:v('couple')===1,salaireConjointNetMensuel:v('conj'),enfants:v('enf'),naissances:v('nais'),aah:v('aah')===1,aplMensuelle:v('apl'),prixAchat:v('prix'),heritage:v('her'),patrimoine:v('pat'),pensionNette:v('pension'),salaireCumulNet:v('cumul'),inflationHyp:$('infl').value===''?null:+$('infl').value,incapacite80:v('inc80')===1,minimaMensuels:v('minima'),boursier:v('bours')===1,bourseMensuelle:v('bourse'),niveauEtudes:$('niv').value,jeuneSansDiplomeNiEmploi:v('sdne')===1,traitementIndiciaire:v('trait'),patrimoineImmo:v('immo'),patrimoineRP:v('rp'),plusValuesAnnuelles:v('pv'),donationRecue:v('don'),prixCarburantLitre:v('prixc'),loyerMensuel:v('loyer'),abonnementTransportMois:v('abo'),peagesMois:v('peages')}}
+function profil(){return Champs.profil(lire())}
+function lire(){const v={};for(const c of Champs.CHAMPS)v[c.id]=$(c.id).value;return v}
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e};
+let ouvert=null;
+function fermer(){if(ouvert){ouvert.b.setAttribute('aria-expanded','false');ouvert.box.hidden=true;ouvert=null}}
+function placer(box){box.style.transform='';const r=box.getBoundingClientRect(),vw=document.documentElement.clientWidth;let dx=0;if(r.right>vw-8)dx=vw-8-r.right;if(r.left+dx<8)dx=8-r.left;if(dx)box.style.transform='translateX('+dx+'px)'}
+function ouvrir(b,box,fixe){if(ouvert&&ouvert.box!==box)fermer();box.hidden=false;b.setAttribute('aria-expanded','true');ouvert={b,box,fixe:!!fixe||(ouvert&&ouvert.box===box&&ouvert.fixe)};placer(box)}
+function champ(c){
+ const d=el('div','champ'+(c.imbrique?' sous':''));d.id='c-'+c.id;
+ const lab=el('div','lab'),l=el('label','',c.label);l.htmlFor=c.id;
+ const b=el('button','tip','?');b.type='button';b.setAttribute('aria-label','Aide : '+c.label);b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls',c.id+'-tip');
+ lab.append(l,b);
+ let inp;
+ if(c.options){inp=document.createElement('select');for(const [v,t] of c.options)inp.append(new Option(t,v));inp.value=c.val}
+ else{inp=document.createElement('input');inp.type='number';for(const k of ['min','max','step'])if(c[k]!==undefined)inp.setAttribute(k,c[k]);inp.value=c.val;if(c.ph)inp.placeholder=c.ph}
+ inp.id=c.id;inp.setAttribute('aria-describedby',c.id+'-tip');
+ const box=el('div','tipbox');box.id=c.id+'-tip';box.setAttribute('role','tooltip');box.hidden=true;
+ const p2=el('p','sert'),st=el('strong','','Sert à : ');p2.append(st,document.createTextNode(c.sert));
+ box.append(el('p','',c.tip),p2);
+ b.addEventListener('mouseenter',()=>{if(!ouvert||ouvert.box!==box)ouvrir(b,box,false)});
+ b.addEventListener('mouseleave',()=>{if(ouvert&&ouvert.box===box&&!ouvert.fixe)fermer()});
+ b.addEventListener('focus',()=>{if(b.dataset.mute)return;if(!ouvert||ouvert.box!==box)ouvrir(b,box,false)});
+ b.addEventListener('blur',()=>{if(ouvert&&ouvert.box===box&&!ouvert.fixe)fermer()});
+ b.addEventListener('click',e=>{e.stopPropagation();if(ouvert&&ouvert.box===box&&ouvert.fixe)fermer();else{if(ouvert)fermer();ouvrir(b,box,true)}});
+ d.append(lab,inp,box);return d;
+}
+function rendre(){
+ const f=$('f');
+ for(const g of Champs.GROUPES){
+  const fs=el('fieldset'),lg=el('legend','',g.titre);fs.id='g-'+g.id;
+  if(g.facultatif)lg.append(el('span','tag','facultatif'));
+  fs.append(lg);if(g.desc)fs.append(el('p','gdesc',g.desc));
+  let sg=null,grid=null,cur;
+  for(const c of Champs.CHAMPS.filter(x=>x.groupe===g.id)){
+   if(!sg||c.sous!==cur){cur=c.sous;sg=el('div','sg');if(cur)sg.append(el('h3','sub',cur));grid=el('div','form');sg.append(grid);fs.append(sg)}
+   grid.append(champ(c));
+  }
+  if(Champs.CONTROLES[g.id]){const w=el('p','warn');w.id='warn-'+g.id;w.setAttribute('role','status');w.hidden=true;fs.append(w)}
+  f.append(fs);
+ }
+}
+function majVisibilite(){
+ const v=lire();
+ for(const c of Champs.CHAMPS)$('c-'+c.id).hidden=!Champs.visible(c,v);
+ for(const sg of document.querySelectorAll('#f .sg'))sg.hidden=![...sg.querySelectorAll('.champ')].some(x=>!x.hidden);
+ for(const fs of document.querySelectorAll('#f fieldset'))fs.hidden=![...fs.querySelectorAll('.champ')].some(x=>!x.hidden);
+ for(const [g,fn] of Object.entries(Champs.CONTROLES)){const m=fn(v),w=$('warn-'+g);w.textContent=m||'';w.hidden=!m}
+}
+function maj(){majVisibilite();draw()}
+document.addEventListener('click',fermer);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ouvert){const b=ouvert.b;fermer();if(document.activeElement!==b){b.dataset.mute='1';b.focus();delete b.dataset.mute}}});
+rendre();majVisibilite();
 function eff(d,e){
  let h='<div class="dom"><h3>'+esc(d.titre)+'</h3>';
  if(e.statut==='calcule'){
@@ -134,7 +158,7 @@ Promise.all([fetch('data/candidats.json').then(r=>r.json())]).then(([c])=>{
   ids.forEach((id,i)=>{if(ds[i])MS[id]=ds[i]});
   C=c.candidats.filter(x=>MS[x.id]);
   $('etat').textContent=C.length+' candidats dont le programme a été relevé.';
-  document.querySelectorAll('#f input,#f select').forEach(i=>i.addEventListener('input',draw));
+  $('f').addEventListener('input',maj);$('f').addEventListener('change',maj);
   $('f').addEventListener('submit',e=>e.preventDefault());draw();
  });
 }).catch(()=>{$('out').innerHTML='<p class="empty">Données indisponibles.</p>'});
