@@ -1,0 +1,237 @@
+{
+ "candidat": "retailleau",
+ "etat_programme": "Pas de programme complet unique : projet publié sous forme de notes thématiques par Les Républicains et précisé en interview.",
+ "mesures": [
+  {
+   "id": "ret-35h",
+   "theme": "travail",
+   "intitule": "Sortir des 35 heures : temps de travail annualisé à 1 623 h ; « zéro cotisation, zéro impôt » au-delà de 1 607 h",
+   "detail": "Heures au-delà du seuil exonérées de cotisations salariales et patronales et d'impôt sur le revenu, hors CSG et CRDS. Exemple du candidat : +230 €/mois pour 2 115 € net.",
+   "chiffres": "1 623 h/an ; +230 €/mois (exemple)",
+   "sources": [
+    "ps-35h",
+    "votons-retailleau"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "seuil_annuel_h": 1607,
+    "duree_annuelle_h": 1623,
+    "exoneration_cotisations": true,
+    "exoneration_ir": true,
+    "csg_crds_maintenues": true
+   },
+   "divergence": "En novembre 2026, le candidat évoque une semaine de 37,5 h avec exonération au-delà de la 36e heure (Le Parisien, via Quartz)."
+  },
+  {
+   "id": "ret-plafond",
+   "theme": "famille",
+   "intitule": "Plafonner le total des aides sociales d'un foyer à 70 % du SMIC net",
+   "detail": "Exemple du candidat : un couple avec deux enfants passerait de 2 375 € à 1 685 € d'aides.",
+   "chiffres": "70 % du SMIC net",
+   "sources": [
+    "ps-35h",
+    "pm-retailleau"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "plafond_aides_pct_smic_net": 70
+   }
+  },
+  {
+   "id": "ret-ria",
+   "theme": "famille",
+   "intitule": "Revenu d'incitation à l'activité : fusion du RSA, de la prime d'activité et de l'ASS, avec 15 h d'activité obligatoires",
+   "detail": "Allocation fusionnée réduite de 30 %. Notes LR : « RIA socle » de 300 €/mois sans revenu, « RIA insertion » de 250 €/mois.",
+   "chiffres": "−30 % ; 15 h/semaine ; 300 € et 250 €/mois",
+   "sources": [
+    "ps-35h",
+    "votons-retailleau"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "fusion": [
+     "rsa",
+     "prime_activite",
+     "ass"
+    ],
+    "baisse_pct": 30,
+    "ria_socle": 300,
+    "ria_insertion": 250,
+    "heures_activite_hebdo": 15
+   },
+   "divergence": "Le montant précis diffère selon les sources (baisse de 30 % vs montants forfaitaires)."
+  },
+  {
+   "id": "ret-chomage",
+   "theme": "travail",
+   "intitule": "Assurance chômage : fin de l'indemnisation après un troisième refus d'offre ; encadrement strict des ruptures conventionnelles",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "ps-35h"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ret-ret-age",
+   "theme": "retraites",
+   "intitule": "Âge minimal de départ à 63 ans (avec décote), taux plein à 65 ans, lié ensuite à l'espérance de vie",
+   "detail": null,
+   "chiffres": "63 ans / 65 ans",
+   "sources": [
+    "lcp-ret-retailleau",
+    "ps-ret-candidats"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_minimal": 63,
+    "age_taux_plein": 65,
+    "indexation_esperance_vie": true
+   }
+  },
+  {
+   "id": "ret-ret-capi",
+   "theme": "retraites",
+   "intitule": "Part de capitalisation pour les nouveaux entrants sur le marché du travail",
+   "detail": "25 à 30 % de leur retraite « dans un premier temps », rendement d'au moins 4 %.",
+   "chiffres": "25-30 % ; rendement ≥ 4 %",
+   "sources": [
+    "ps-ret-candidats",
+    "lcp-ret-retailleau"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ret-cumul",
+   "theme": "retraites",
+   "intitule": "Cumul emploi-retraite sans cotisations chômage ni retraite",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "ps-35h",
+    "votons-retailleau"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "cumul_sans_cotisations": true
+   }
+  },
+  {
+   "id": "ret-immi-presta",
+   "theme": "immigration",
+   "intitule": "Prestations familiales conditionnées à cinq ans de résidence régulière et d'activité pour les étrangers",
+   "detail": null,
+   "chiffres": "5 ans",
+   "sources": [
+    "votons-retailleau",
+    "lr-notes"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "condition_residence_annees": 5,
+    "public": "etrangers"
+   }
+  },
+  {
+   "id": "ret-immi-sol",
+   "theme": "immigration",
+   "intitule": "Supprimer le droit du sol et fixer des quotas migratoires par la loi",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "boussole-retailleau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ret-entr",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Baisser de 40 Md€ les impôts de production (−60 %), fonds « France Production » de 600 M€/an, suppression de 50 règles dès l'élection",
+   "detail": null,
+   "chiffres": "40 Md€ ; 600 M€/an",
+   "sources": [
+    "votons-retailleau",
+    "lr-notes"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "ret-apprenti",
+   "theme": "travail",
+   "intitule": "Rétablir une aide de 6 000 € à l'embauche d'un apprenti",
+   "detail": null,
+   "chiffres": "6 000 €",
+   "sources": [
+    "pm-retailleau"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ret-fisc",
+   "theme": "fiscalite-menages",
+   "intitule": "Flat tax et baisse des prélèvements ; refus de toute nouvelle taxe sur le patrimoine, les successions ou les grandes fortunes",
+   "detail": "Paramètres de la flat tax non précisés.",
+   "chiffres": null,
+   "sources": [
+    "monvote-retailleau"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ret-edu",
+   "theme": "education",
+   "intitule": "Enseignants : +135 € net/mois en début de carrière, jusqu'à 300 € en milieu ; examen d'entrée en sixième ; groupes de niveau",
+   "detail": null,
+   "chiffres": "+135 à +300 € net/mois",
+   "sources": [
+    "votons-retailleau",
+    "lr-notes"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_nette_mensuelle_min": 135,
+    "hausse_nette_mensuelle_max": 300
+   }
+  },
+  {
+   "id": "ret-logement",
+   "theme": "logement",
+   "intitule": "Plan « Mieux se loger, et moins cher » : choc d'offre, relance de l'investissement locatif, fin de l'encadrement des loyers",
+   "detail": null,
+   "chiffres": "Besoin estimé : 450 000 logements/an",
+   "sources": [
+    "jda-retailleau"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ret-ener",
+   "theme": "environnement",
+   "intitule": "Commander 8 EPR2 supplémentaires ; abroger le volet électricité de la PPE 3 et suspendre les nouveaux appels d'offres solaire et éolien en mer ; supprimer le ZAN",
+   "detail": null,
+   "chiffres": "8 EPR2",
+   "sources": [
+    "votons-retailleau",
+    "lr-notes"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

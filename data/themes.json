@@ -1,0 +1,18 @@
+[
+{"id":"fiscalite-menages","nom":"Fiscalité des ménages","sous_themes":["Impôt sur le revenu","CSG / CRDS","TVA","Droits de succession et donation","Taxe foncière","ISF / IFI","Fiscalité de l'épargne"]},
+{"id":"fiscalite-entreprises","nom":"Fiscalité des entreprises","sous_themes":["Impôt sur les sociétés","Impôts de production","Cotisations patronales","Aides aux entreprises"]},
+{"id":"retraites","nom":"Retraites","sous_themes":["Âge légal","Durée de cotisation","Montant des pensions","Régimes spéciaux","Retraite des indépendants"]},
+{"id":"travail","nom":"Travail et salaires","sous_themes":["SMIC","Temps de travail","Assurance chômage","Heures supplémentaires","Fonction publique"]},
+{"id":"famille","nom":"Famille et prestations","sous_themes":["Allocations familiales","Quotient familial","Garde d'enfants","Congés parentaux","Minima sociaux"]},
+{"id":"logement","nom":"Logement","sous_themes":["APL","Construction","Encadrement des loyers","Accession à la propriété","Rénovation"]},
+{"id":"sante","nom":"Santé","sous_themes":["Hôpital","Déserts médicaux","Remboursements","Dépendance et grand âge"]},
+{"id":"education","nom":"Éducation et recherche","sous_themes":["École","Collège et lycée","Université","Rémunération des enseignants","Recherche"]},
+{"id":"defense","nom":"Défense","sous_themes":["Budget militaire","Service militaire / national","OTAN","Industrie de défense"]},
+{"id":"securite","nom":"Sécurité et justice","sous_themes":["Police et gendarmerie","Prisons","Peines","Moyens de la justice"]},
+{"id":"immigration","nom":"Immigration","sous_themes":["Titres de séjour","Asile","Nationalité","Intégration"]},
+{"id":"environnement","nom":"Environnement et énergie","sous_themes":["Nucléaire","Renouvelables","Climat","Carburants et transports","Prix de l'énergie"]},
+{"id":"europe","nom":"Europe et international","sous_themes":["Traités européens","Rapport à l'UE","Diplomatie","Commerce international"]},
+{"id":"finances-publiques","nom":"Finances publiques","sous_themes":["Dette","Déficit","Dépenses publiques"]},
+{"id":"institutions","nom":"Institutions","sous_themes":["Référendum","Mode de scrutin","Décentralisation","Durée du mandat"]},
+{"id":"autres","nom":"Agriculture, numérique, culture","sous_themes":["Agriculture","Numérique et IA","Culture","Outre-mer"]}
+]

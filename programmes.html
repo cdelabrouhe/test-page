@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Programmes — présidentielle 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: fiche de lecture rigoureuse. IDEA: le dossier de presse comparé, thème par thème.
+   PICTURE: la matrice thèmes × candidats. COLOUR and TYPE: mêmes que la page candidats.
+   LAYOUT: titre, filtres, vue par thème (colonnes candidats) ou par candidat. */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#0d1020);--ink:light-dark(#141420,#eceef8);--mute:light-dark(#5d6070,#a3a7bd);--line:light-dark(#d9dbe4,#2c3150);--blue:light-dark(#000091,#9aa8ff);--soft:light-dark(#f3f4fa,#161a33);--red:light-dark(#e1000f,#ff6f6f)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--blue)}
+.band{padding:clamp(24px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header.band{border-top:10px solid var(--blue);padding-bottom:16px}
+h1{font-size:clamp(30px,4.6vw,48px);line-height:1.05;margin:0 0 10px;font-weight:800;font-stretch:112%;color:var(--blue);text-wrap:balance}
+.lede{margin:0;color:var(--mute);max-width:70ch}
+nav a{font-weight:600;margin-right:16px}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:20px 0}
+select,input{font:inherit;font-size:16px;min-height:44px;padding:8px 12px;border:2px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+select:focus,input:focus,.chip:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border:2px solid var(--blue);border-radius:999px;background:transparent;color:var(--blue);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--blue);color:var(--bg)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:16px;align-items:start}
+.col h2{font-size:20px;margin:0 0 4px;font-stretch:108%}
+.col .state{font-size:13px;color:var(--mute);margin:0 0 12px}
+.m{border:2px solid var(--ink);padding:12px 14px;margin-bottom:12px;background:var(--bg)}
+.m h3{margin:0 0 6px;font-size:16px;line-height:1.3;font-weight:700}
+.m p{margin:0 0 6px;font-size:14px;line-height:1.45}
+.fig{font-weight:700;color:var(--red);font-size:14px}
+.th{display:inline-block;font-size:12px;background:var(--soft);color:var(--blue);border-radius:999px;padding:1px 9px;margin-bottom:6px;font-weight:600}
+.fia{font-size:12px;color:var(--mute)}
+.div{font-size:13px;border-left:3px solid var(--red);padding-left:8px;margin:6px 0}
+.src a{font-size:12px;margin-right:8px;white-space:nowrap}
+.sim{font-size:12px;color:var(--blue);font-weight:700}
+.empty{color:var(--mute);border:2px dashed var(--line);padding:14px;font-size:14px}
+.note{font-size:13px;color:var(--mute);margin-top:24px;max-width:75ch}
+</style>
+</head>
+<body>
+<header class="band"><div class="wrap">
+<nav><a href="index.html">Candidats</a><a href="programmes.html" aria-current="page">Programmes</a></nav>
+<h1>Ce que proposent les candidats</h1>
+<p class="lede" id="lede">Mesures relevées dans les programmes et les déclarations publiques, classées par thème, chacune avec sa source. Première vague : Attal, Retailleau, Lisnard et Philippe.</p>
+</div></header>
+<main class="band" style="padding-top:0"><div class="wrap">
+<div class="tools">
+ <label>Thème <select id="theme" aria-label="Thème"></select></label>
+ <div class="chips" id="chips" role="group" aria-label="Candidats"></div>
+</div>
+<div class="cols" id="cols"></div>
+<p class="note">Les mesures sont classées d'après leur source : « programme officiel » (site ou document du candidat), « presse » (déclarations rapportées) ou « recensement tiers » (site qui compile). Un programme peut évoluer : la date de vérification figure sur chaque colonne. Aucune appréciation n'est portée ici sur la valeur des mesures ; l'évaluation (précédents, financement, avis d'experts) viendra dans une étape distincte.</p>
+</div></main>
+<script>
+{
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const FIA={programme_officiel:'Programme officiel',presse:'Presse',recensement_tiers:'Recensement tiers'};
+const WAVE=['attal','retailleau','lisnard','philippe'];
+let themes=[],cands=[],data={},S={},theme='tous',sel=new Set(WAVE);
+const cols=document.getElementById('cols');
+function mcard(m){
+ return `<article class="m"><span class="th">${esc(themes.find(t=>t.id===m.theme)?.nom||m.theme)}</span>
+ <h3>${esc(m.intitule)}</h3>
+ ${m.detail?`<p>${esc(m.detail)}</p>`:''}
+ ${m.chiffres?`<p class="fig">${esc(m.chiffres)}</p>`:''}
+ ${m.divergence?`<p class="div">${esc(m.divergence)}</p>`:''}
+ <p class="fia">${esc(FIA[m.fiabilite]||'')}${m.simulable?' · <span class="sim">calculable dans le simulateur</span>':''}</p>
+ <p class="src">${m.sources.map(id=>S[id]?`<a href="${esc(S[id].url)}" target="_blank" rel="noopener">${esc(S[id].media)}</a>`:'').join('')}</p></article>`;
+}
+function draw(){
+ document.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',sel.has(b.dataset.id)));
+ const list=WAVE.filter(id=>sel.has(id));
+ cols.innerHTML=list.map(id=>{
+  const d=data[id],c=cands.find(x=>x.id===id);
+  const ms=d.mesures.filter(m=>theme==='tous'||m.theme===theme);
+  return `<section class="col"><h2>${esc(c.nom)}</h2><p class="state">${esc(c.parti)} · vérifié le ${esc(d.verifie_le)}<br>${esc(d.etat_programme)}</p>
+  ${ms.length?ms.map(mcard).join(''):'<div class="empty">Aucune mesure relevée sur ce thème à ce stade.</div>'}</section>`}).join('')||'<div class="empty">Sélectionne au moins un candidat.</div>';
+}
+Promise.all([fetch('data/themes.json').then(r=>r.json()),fetch('data/candidats.json').then(r=>r.json()),fetch('data/sources.json').then(r=>r.json()),...WAVE.map(id=>fetch('data/mesures/'+id+'.json').then(r=>r.json()))])
+.then(([t,c,s,...ms])=>{
+ themes=t;cands=c.candidats;s.forEach(x=>S[x.id]=x);WAVE.forEach((id,i)=>data[id]=ms[i]);
+ const used=new Set(ms.flatMap(d=>d.mesures.map(m=>m.theme)));
+ document.getElementById('theme').innerHTML='<option value="tous">Tous les thèmes</option>'+t.filter(x=>used.has(x.id)).map(x=>`<option value="${esc(x.id)}">${esc(x.nom)}</option>`).join('');
+ document.getElementById('theme').addEventListener('change',e=>{theme=e.target.value;draw()});
+ document.getElementById('chips').innerHTML=WAVE.map(id=>`<button type="button" class="chip" data-id="${id}" aria-pressed="true">${esc(cands.find(x=>x.id===id).nom)}</button>`).join('');
+ document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;sel.has(b.dataset.id)?sel.delete(b.dataset.id):sel.add(b.dataset.id);draw()});
+ draw();
+}).catch(()=>{cols.innerHTML='<div class="empty">Les données n’ont pas pu être chargées.</div>'});
+}
+</script>
+</body>
+</html>

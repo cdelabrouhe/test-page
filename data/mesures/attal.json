@@ -1,0 +1,284 @@
+{
+ "candidat": "attal",
+ "etat_programme": "Pas de document unique : 154 mesures publiées par thèmes sur le site de campagne (« chantiers capitaux »), programme économique présenté le 28 octobre 2026.",
+ "mesures": [
+  {
+   "id": "attal-ret-age",
+   "theme": "retraites",
+   "intitule": "Supprimer l'âge légal : départ fondé sur la seule durée de cotisation",
+   "detail": "Décote et surcote selon la durée cotisée ; aucun nouvel âge de départ fixé.",
+   "chiffres": null,
+   "sources": [
+    "senioractu-attal",
+    "lcp-retraites-qui",
+    "attal-prog"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_legal": null,
+    "critere": "duree_cotisation",
+    "duree_requise": null
+   }
+  },
+  {
+   "id": "attal-ret-capi",
+   "theme": "retraites",
+   "intitule": "Ajouter une part de retraite par capitalisation, fléchée vers l'innovation",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "attal-prog",
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-ret-gel",
+   "theme": "retraites",
+   "intitule": "Année blanche pour les pensions en 2028, sauf les petites retraites",
+   "detail": "Pas de revalorisation des pensions pendant un an ; le seuil des « petites retraites » épargnées n'est pas précisé.",
+   "chiffres": "2028",
+   "sources": [
+    "senioractu-attal"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "annee": 2028,
+    "revalorisation_pct": 0,
+    "seuil_exemption": null
+   }
+  },
+  {
+   "id": "attal-fam-babybond",
+   "theme": "famille",
+   "intitule": "1 000 € placés par l'État à chaque naissance",
+   "detail": "Épargne (« baby bond ») versée dans un fonds d'investissement.",
+   "chiffres": "1 000 € par enfant ; coût annoncé 660 M€/an",
+   "sources": [
+    "attal-prog",
+    "senioractu-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "montant_par_naissance": 1000
+   }
+  },
+  {
+   "id": "attal-fam-mono",
+   "theme": "famille",
+   "intitule": "Familles monoparentales : pension alimentaire versée automatiquement et défiscalisée, carte famille monoparentale",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "attal-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "pension_alimentaire_defiscalisee": true
+   }
+  },
+  {
+   "id": "attal-fisc-stab",
+   "theme": "fiscalite-menages",
+   "intitule": "Aucune hausse d'impôts pendant cinq ans ; fiscalité stable dix ans pour artisans, commerçants et chefs d'entreprise",
+   "detail": null,
+   "chiffres": "5 ans / 10 ans",
+   "sources": [
+    "attal-prog",
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-sal-net",
+   "theme": "travail",
+   "intitule": "Augmenter le salaire net en réduisant les cotisations salariales, sans hausse du coût pour l'employeur",
+   "detail": "Montant non chiffré à ce stade.",
+   "chiffres": null,
+   "sources": [
+    "attal-travail",
+    "attal-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "baisse_cotisations_salariales": null
+   }
+  },
+  {
+   "id": "attal-fin-eco",
+   "theme": "finances-publiques",
+   "intitule": "150 Md€ d'économies sur cinq ans, dont environ deux tiers sur le modèle social",
+   "detail": null,
+   "chiffres": "150 Md€",
+   "sources": [
+    "votons-attal",
+    "senioractu-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-fp",
+   "theme": "finances-publiques",
+   "intitule": "100 000 agents publics de moins (État et collectivités), sans licenciement",
+   "detail": null,
+   "chiffres": "−100 000 postes",
+   "sources": [
+    "attal-prog",
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-ener-prix",
+   "theme": "environnement",
+   "intitule": "Stabilité garantie des prix de l'électricité sur cinq ans, autour d'un prix cible",
+   "detail": "Contrats moins chers pour les industries exposées.",
+   "chiffres": "~75 €/MWh ; < 50 €/MWh pour l'industrie exposée",
+   "sources": [
+    "attal-prog",
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-eau",
+   "theme": "environnement",
+   "intitule": "Bouclier tarifaire sur le prix de l'eau ; dépistage automatique des PFAS ; réparation des 500 réseaux les plus vétustes",
+   "detail": null,
+   "chiffres": "500 réseaux",
+   "sources": [
+    "attal-prog",
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-nucl",
+   "theme": "environnement",
+   "intitule": "Sécuriser le programme de 14 EPR, avec un réacteur construit par an",
+   "detail": null,
+   "chiffres": "14 EPR",
+   "sources": [
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-edu-classes",
+   "theme": "education",
+   "intitule": "Moins de 20 élèves par classe ; groupes de niveau en maths et français au collège ; certificat d'études en fin de CM2",
+   "detail": null,
+   "chiffres": "< 20 élèves",
+   "sources": [
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-edu-salaires",
+   "theme": "education",
+   "intitule": "Revaloriser les enseignants de 200 € net par mois, jusqu'à 500 € en milieu de carrière",
+   "detail": null,
+   "chiffres": "+200 à +500 € net/mois",
+   "sources": [
+    "lhemicycle-attal"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_nette_mensuelle_min": 200,
+    "hausse_nette_mensuelle_max": 500
+   }
+  },
+  {
+   "id": "attal-num-15",
+   "theme": "education",
+   "intitule": "Référendum sur l'interdiction des réseaux sociaux avant 15 ans",
+   "detail": null,
+   "chiffres": "15 ans",
+   "sources": [
+    "votons-attal",
+    "attal-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-immi",
+   "theme": "immigration",
+   "intitule": "Quotas d'immigration votés tous les deux ans par métier et origine, système à points, regroupement familial durci",
+   "detail": null,
+   "chiffres": "tous les 2 ans",
+   "sources": [
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-secu",
+   "theme": "securite",
+   "intitule": "Comparution immédiate pour les mineurs récidivistes ; perpétuité réelle pour les prédateurs sexuels les plus dangereux",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "votons-attal",
+    "attal-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-inst",
+   "theme": "institutions",
+   "intitule": "350 députés et 200 sénateurs ; suppression d'un échelon de collectivité ; journée référendaire annuelle",
+   "detail": null,
+   "chiffres": "350 / 200",
+   "sources": [
+    "votons-attal",
+    "attal-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-def",
+   "theme": "defense",
+   "intitule": "Nouveau Livre blanc de la défense dès 2027 ; réduire au moins de moitié la dépendance aux équipements militaires non européens",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "votons-attal"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "attal-ia",
+   "theme": "autres",
+   "intitule": "Plan « France 2040 » : 200 Md€ pour l'intelligence artificielle ; former tous les salariés à l'IA d'ici 2030",
+   "detail": null,
+   "chiffres": "200 Md€",
+   "sources": [
+    "attal-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

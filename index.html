@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Présidentielle 2027 — candidats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: civique, sobre, factuel — un service public d'information, pas un tract.
+   IDEA: les panneaux d'affichage électoral numérotés devant la mairie.
+   PICTURE: la grille de panneaux elle-même, chaque candidat sur son panneau.
+   COLOUR and TYPE: papier blanc, bleu République, un rouge pour ce qui va changer ; Archivo large.
+   LAYOUT: titre + compte à rebours, calendrier en ligne, filtres, grille, puis méthode et sources. */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#0d1020);--ink:light-dark(#141420,#eceef8);--mute:light-dark(#5d6070,#a3a7bd);--line:light-dark(#d9dbe4,#2c3150);--blue:light-dark(#000091,#9aa8ff);--soft:light-dark(#f3f4fa,#161a33);--red:light-dark(#e1000f,#ff6f6f)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--blue)}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header.band{border-top:10px solid var(--blue);padding-bottom:24px}
+.top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:end}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0 0 12px;font-weight:800;font-stretch:112%;text-wrap:balance;color:var(--blue)}
+.lede{margin:0;color:var(--mute);max-width:62ch}
+.count{text-align:right}
+.count b{display:block;font-size:clamp(56px,9vw,96px);line-height:.9;font-weight:800;font-stretch:120%;color:var(--red);font-variant-numeric:tabular-nums}
+.count span{color:var(--mute);font-size:14px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 28px;margin:28px 0 0;padding:16px 0 0;border-top:2px solid var(--ink);font-size:15px}
+.stats b{font-size:22px;font-weight:800;margin-right:6px;font-variant-numeric:tabular-nums}
+.cal{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;margin:0;padding:0;list-style:none;border-block:1px solid var(--line)}
+.cal li{flex:1 0 170px;scroll-snap-align:start;padding:14px 16px;border-left:1px solid var(--line)}
+.cal li:first-child{border-left:0}
+.cal time{display:block;font-weight:800;font-stretch:112%;white-space:nowrap}
+.cal li.next time{color:var(--red)}
+.cal p{margin:2px 0 0;font-size:14px;color:var(--mute);line-height:1.35}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:24px}
+.tools input{flex:1 1 240px;font:inherit;font-size:16px;padding:10px 14px;min-height:44px;border:2px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+.tools input:focus,.chip:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border:2px solid var(--blue);border-radius:999px;background:transparent;color:var(--blue);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--blue);color:var(--bg)}
+.chip small{font-size:13px;opacity:.8;margin-left:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.panel{position:relative;border:2px solid var(--ink);background:var(--bg);padding:52px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.panel .n{position:absolute;top:0;left:0;background:var(--ink);color:var(--bg);font-weight:800;font-stretch:115%;font-size:18px;min-width:44px;height:36px;display:grid;place-items:center;padding:0 8px;font-variant-numeric:tabular-nums}
+.panel h3{margin:0;font-size:20px;line-height:1.15;font-weight:800;font-stretch:108%}
+.party{color:var(--mute);font-size:15px}
+.tag{align-self:flex-start;font-size:13px;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--blue);font-weight:600}
+.tag.cond{background:transparent;border:1px dashed var(--blue)}
+.proc{color:var(--red);font-size:14px;font-weight:600}
+.prec{margin:0;font-size:14px;line-height:1.45}
+.meta{margin-top:auto;padding-top:8px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.meta a{margin-right:8px;white-space:nowrap}
+.panel.out{border-color:var(--line);opacity:.8}
+.panel.out .n{background:var(--line);color:var(--ink)}
+.panel.pre{border-style:dashed}
+.force{font-size:12px;color:var(--mute)}
+.empty{padding:32px;text-align:center;color:var(--mute);border:2px dashed var(--line)}
+.note{font-size:13px;color:var(--mute);margin:12px 0 0}
+footer.band{background:var(--soft);margin-top:48px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px}
+footer h2{font-size:22px;margin:0 0 12px;color:var(--blue);font-stretch:108%}
+footer ul{margin:0;padding-left:18px;font-size:15px}
+footer li{margin-bottom:6px}
+#src li{font-size:14px}
+@media(max-width:600px){.top{grid-template-columns:1fr}.count{text-align:left}}
+@media(prefers-reduced-motion:no-preference){.panel{animation:up .35s ease both}@keyframes up{from{opacity:0;transform:translateY(6px)}}}
+</style>
+</head>
+<body>
+<header class="band">
+ <div class="wrap">
+  <nav style="margin-bottom:16px"><a href="index.html" aria-current="page" style="font-weight:600;margin-right:16px">Candidats</a><a href="programmes.html" style="font-weight:600">Programmes</a></nav>
+  <div class="top">
+   <div>
+    <h1>Qui est candidat à la présidentielle 2027&nbsp;?</h1>
+    <p class="lede" id="lede">Liste provisoire des candidatures annoncées, sourcée et mise à jour au fil de la campagne.</p>
+   </div>
+   <div class="count" aria-live="polite"><b id="days">—</b><span>jours avant le 1er tour</span></div>
+  </div>
+  <div class="stats" id="stats"></div>
+ </div>
+</header>
+
+<section aria-label="Calendrier"><div class="wrap"><ol class="cal" id="cal"></ol></div></section>
+
+<main class="band">
+ <div class="wrap">
+  <div class="tools">
+   <input id="q" type="search" placeholder="Rechercher un nom ou un parti" aria-label="Rechercher un nom ou un parti">
+   <div class="chips" id="chips" role="group" aria-label="Filtrer par statut"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="note">Ordre alphabétique des noms ; la numérotation des panneaux n'a aucune valeur officielle (l'ordre officiel est tiré au sort par le Conseil constitutionnel).</p>
+ </div>
+</main>
+
+<footer class="band">
+ <div class="wrap cols">
+  <div>
+   <h2>Règles de la liste</h2>
+   <ul id="rules"></ul>
+  </div>
+  <div>
+   <h2>Sources</h2>
+   <ul id="src"></ul>
+  </div>
+ </div>
+</footer>
+
+<script>
+{
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MOIS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+const fdate=d=>{if(!d)return '';const [y,m,j]=d.split('-');return (j?(+j===1?'1er':+j)+' ':'')+(m?MOIS[+m-1]+' ':'')+y};
+const key=n=>n.split(' ').slice(1).join(' ').replace(/^de /,'');
+const FILTERS=[['traite','Traités'],['pressenti','Pressentis'],['retire','Retirés'],['tous','Tous']];
+let D,S={},filter='traite',q='';
+try{const h=location.hash.slice(1);if(FILTERS.some(f=>f[0]===h))filter=h}catch(e){}
+
+const grid=document.getElementById('grid');
+function match(c){
+ if(filter==='traite'&&!c.traite)return false;
+ if(filter==='pressenti'&&c.statut!=='pressenti')return false;
+ if(filter==='retire'&&c.statut!=='retire')return false;
+ if(!q)return true;
+ const t=(c.nom+' '+c.parti).toLocaleLowerCase('fr').normalize('NFD').replace(/[̀-ͯ]/g,'');
+ return t.includes(q);
+}
+function card(c,i){
+ const cls=c.statut==='retire'?' out':c.statut==='pressenti'?' pre':'';
+ const tag=`<span class="tag${c.statut==='sous_condition'?' cond':''}">${esc(D.statuts[c.statut])}</span>`;
+ const date=c.statut==='retire'&&c.date_retrait?'Retrait : '+fdate(c.date_retrait):c.date_annonce?'Annonce : '+fdate(c.date_annonce):'Date d’annonce non précisée';
+ const src=(c.sources||[]).map(id=>S[id]?`<a href="${esc(S[id].url)}" target="_blank" rel="noopener">${esc(S[id].media)}</a>`:'').join('');
+ return `<article class="panel${cls}"><span class="n">${i+1}</span>
+  <h3>${esc(c.nom)}</h3><span class="party">${esc(c.parti)}</span>${tag}
+  ${c.processus?`<span class="proc">${esc(c.processus)}</span>`:''}
+  ${c.precision?`<p class="prec">${esc(c.precision)}</p>`:''}
+  ${c.force?`<span class="force">Toujours inclus (règle de la liste)</span>`:''}
+  <div class="meta">${esc(date)}<br>${src}</div></article>`;
+}
+function draw(){
+ const list=D.candidats.filter(match).sort((a,b)=>key(a.nom).localeCompare(key(b.nom),'fr'));
+ grid.innerHTML=list.length?list.map(card).join(''):'<div class="empty">Aucun résultat pour cette recherche.</div>';
+ document.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===filter));
+}
+function init(d,s){
+ D=d;s.forEach(x=>S[x.id]=x);
+ const C=D.candidats,n=f=>C.filter(f).length;
+ const counts={traite:n(c=>c.traite),pressenti:n(c=>c.statut==='pressenti'),retire:n(c=>c.statut==='retire'),tous:C.length};
+ document.getElementById('lede').textContent=D.avertissement+' Vérifiée le '+fdate(D.verifie_le)+'.';
+ document.getElementById('stats').innerHTML=
+  `<span><b>${counts.traite}</b>personnalités traitées</span><span><b>${n(c=>c.statut==='sous_condition')}</b>dont sous condition</span><span><b>${counts.pressenti}</b>pressentis</span><span><b>${counts.retire}</b>retraits ou éliminations</span>`;
+ const today=new Date();today.setHours(0,0,0,0);
+ const d1=new Date('2027-04-18T00:00:00');
+ document.getElementById('days').textContent=Math.max(0,Math.round((d1-today)/864e5));
+ let nextDone=false;
+ document.getElementById('cal').innerHTML=D.calendrier.map(e=>{
+  const past=new Date(e.date+'T23:59:59')<today;const nx=!past&&!nextDone;if(nx)nextDone=true;
+  return `<li class="${nx?'next':''}"><time datetime="${esc(e.date)}">${esc(fdate(e.date))}</time><p>${esc(e.libelle)}</p></li>`}).join('');
+ const chips=document.getElementById('chips');
+ chips.innerHTML=FILTERS.map(([f,l])=>`<button type="button" class="chip" data-f="${f}" aria-pressed="false">${l}<small>${counts[f]}</small></button>`).join('');
+ chips.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;filter=b.dataset.f;try{history.replaceState(null,'','#'+filter)}catch(_){location.hash=filter}draw()});
+ document.getElementById('q').addEventListener('input',e=>{q=e.target.value.trim().toLocaleLowerCase('fr').normalize('NFD').replace(/[̀-ͯ]/g,'');draw()});
+ document.getElementById('rules').innerHTML=Object.values(D.regles_inclusion).map(r=>`<li>${esc(r)}</li>`).join('')+'<li>Aucun classement politique : candidats présentés par ordre alphabétique, chaque statut sourcé.</li>';
+ document.getElementById('src').innerHTML=s.map(x=>`<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.titre)}</a> — ${esc(x.media)}, ${esc(fdate(x.date))}</li>`).join('');
+ draw();
+}
+Promise.all([fetch('data/candidats.json').then(r=>r.json()),fetch('data/sources.json').then(r=>r.json())])
+ .then(([d,s])=>init(d,s))
+ .catch(()=>{grid.innerHTML='<div class="empty">Les données n’ont pas pu être chargées.</div>'});
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(D&&FILTERS.some(f=>f[0]===h)){filter=h;draw()}});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+{
+ "candidat": "philippe",
+ "etat_programme": "Volume 1 présenté le 18 novembre 2026 (142 propositions) ; volume 2 (santé, culture, sport, institutions) annoncé pour janvier 2027.",
+ "mesures": [
+  {
+   "id": "ph-ret-age",
+   "theme": "retraites",
+   "intitule": "Âge de départ porté à 65 ans et durée de cotisation à 45 ans, en moins de dix ans",
+   "detail": "Départs anticipés maintenus (carrières longues, handicap, incapacité). Selon le candidat, un tiers des actifs pourraient encore partir entre 60 et 64 ans.",
+   "chiffres": "65 ans ; 45 annuités",
+   "sources": [
+    "fa-philippe",
+    "pm-philippe",
+    "votons-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 65,
+    "duree_cotisation_annees": 45,
+    "transition_max_annees": 10,
+    "departs_anticipes_maintenus": true
+   }
+  },
+  {
+   "id": "ph-ret-capi",
+   "theme": "retraites",
+   "intitule": "Capitalisation collective pour tous les salariés ; plan d'épargne retraite abondé de 500 € par l'État au premier emploi",
+   "detail": null,
+   "chiffres": "500 €",
+   "sources": [
+    "pm-philippe",
+    "votons-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "abondement_premier_emploi": 500
+   }
+  },
+  {
+   "id": "ph-35h",
+   "theme": "travail",
+   "intitule": "Fin des 35 heures : heures au-delà de 35 h exonérées de cotisations salariales et d'impôt, sans cotisations patronales au-delà de la 37e heure",
+   "detail": "Estimation du candidat : environ +1 000 €/an pour un salarié au SMIC qui fait 2 heures de plus par semaine.",
+   "chiffres": "+1 000 €/an (exemple SMIC)",
+   "sources": [
+    "fa-philippe",
+    "votons-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "exoneration_salariale_ir_au_dela_h_hebdo": 35,
+    "exoneration_patronale_au_dela_h_hebdo": 37
+   }
+  },
+  {
+   "id": "ph-fam-alloc",
+   "theme": "famille",
+   "intitule": "Allocation familiale unique de 350 €/mois dès le premier enfant, dégressive selon les revenus",
+   "detail": "Fusion des dispositifs existants ; barème de dégressivité non précisé.",
+   "chiffres": "350 €/mois",
+   "sources": [
+    "pm-philippe",
+    "votons-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "montant_mensuel": 350,
+    "des_enfant": 1,
+    "degressive_revenus": true
+   }
+  },
+  {
+   "id": "ph-fam-fisc",
+   "theme": "famille",
+   "intitule": "Prêt à taux zéro à la naissance ; allègement d'impôt pendant les trois premières années de l'enfant (classes moyennes)",
+   "detail": "Montants non précisés.",
+   "chiffres": null,
+   "sources": [
+    "pm-philippe",
+    "fa-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "ptz_naissance": true,
+    "allegement_ir_annees": 3
+   }
+  },
+  {
+   "id": "ph-notaire",
+   "theme": "logement",
+   "intitule": "Suppression des frais de notaire pour les acheteurs de moins de 35 ans",
+   "detail": null,
+   "chiffres": "< 35 ans",
+   "sources": [
+    "fa-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_max_acheteur": 35,
+    "frais_notaire_supprimes": true
+   }
+  },
+  {
+   "id": "ph-fisc",
+   "theme": "fiscalite-menages",
+   "intitule": "Aucun nouvel impôt pendant cinq ans",
+   "detail": null,
+   "chiffres": "5 ans",
+   "sources": [
+    "pm-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ph-entr",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Baisser de 50 Md€ les impôts de production, compensés par 50 Md€ d'aides publiques en moins",
+   "detail": null,
+   "chiffres": "50 Md€",
+   "sources": [
+    "pm-philippe",
+    "votons-philippe",
+    "fa-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ph-deficit",
+   "theme": "finances-publiques",
+   "intitule": "Déficit ramené entre 2 % et 2,5 % du PIB, avec une « double règle d'or » constitutionnelle adoptée par référendum",
+   "detail": null,
+   "chiffres": "< 2,5 % du PIB",
+   "sources": [
+    "fa-philippe",
+    "pm-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ph-fp",
+   "theme": "finances-publiques",
+   "intitule": "250 000 postes de fonctionnaires en moins en cinq ans ; statut réservé aux fonctions essentielles ; privatisation de France Travail ; une trentaine d'agences fusionnées ou supprimées",
+   "detail": null,
+   "chiffres": "−250 000 postes",
+   "sources": [
+    "fa-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ph-edu",
+   "theme": "education",
+   "intitule": "Enseignants +20 % en moyenne sur le quinquennat ; autonomie des écoles ; classes réduites en maternelle ; interdiction stricte du portable",
+   "detail": null,
+   "chiffres": "+20 %",
+   "sources": [
+    "fa-philippe",
+    "pm-philippe",
+    "votons-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_pct": 20
+   }
+  },
+  {
+   "id": "ph-secu",
+   "theme": "securite",
+   "intitule": "Peines planchers ; état d'urgence contre le narcotrafic ; pouvoirs de sanction pour les maires ; suppression du juge d'application des peines",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "pm-philippe",
+    "votons-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ph-def",
+   "theme": "defense",
+   "intitule": "Montée en puissance des armées : réservistes de 45 000 à 250 000, service militaire volontaire de 3 000 à 50 000 places/an",
+   "detail": null,
+   "chiffres": "250 000 réservistes ; 50 000 places",
+   "sources": [
+    "votons-philippe"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false,
+   "divergence": "Un autre compte rendu parle du « rétablissement d'un service national obligatoire » : à vérifier dans le programme."
+  },
+  {
+   "id": "ph-immi",
+   "theme": "immigration",
+   "intitule": "Diviser par deux les titres de séjour ; suspendre le regroupement familial pendant le quinquennat ; dénoncer l'accord de 1968 avec l'Algérie",
+   "detail": null,
+   "chiffres": "÷2",
+   "sources": [
+    "fa-philippe",
+    "votons-philippe"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "ph-ener",
+   "theme": "environnement",
+   "intitule": "8 EPR supplémentaires en plus des 6 prévus ; fonds unique d'adaptation au climat de 2 Md€/an",
+   "detail": null,
+   "chiffres": "8 EPR ; 2 Md€/an",
+   "sources": [
+    "votons-philippe"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

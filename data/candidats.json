@@ -1,0 +1,879 @@
+{
+ "verifie_le": "2026-11-25",
+ "avertissement": "Liste provisoire : aucune candidature n'est officielle avant la publication de la liste par le Conseil constitutionnel, une fois les 500 parrainages réunis.",
+ "regles_inclusion": {
+  "traites": "Tous les candidats déclarés (y compris sous condition) et les pressentis : programme collecté et intégré au simulateur, notamment pour éclairer le vote aux primaires.",
+  "forces": "Marine Le Pen est toujours traitée, même en cas d'incertitude judiciaire.",
+  "pressentis": "Traités comme les déclarés : propositions collectées et intégrées au simulateur, même sans candidature annoncée.",
+  "retires": "Conservés dans l'historique, retirés du simulateur."
+ },
+ "statuts": {
+  "declare": "Candidature annoncée",
+  "sous_condition": "Annoncée sous condition",
+  "pressenti": "Pressenti",
+  "retire": "Retiré ou éliminé"
+ },
+ "calendrier": [
+  {
+   "date": "2026-12-13",
+   "libelle": "Vote des adhérents des Écologistes sur la candidature de Marine Tondelier",
+   "sources": [
+    "ps-declares",
+    "lcp-1110"
+   ]
+  },
+  {
+   "date": "2026-12-16",
+   "libelle": "Décision attendue de la Cour de cassation sur le pourvoi de Marine Le Pen (date citée par LCP)",
+   "sources": [
+    "lcp-1110"
+   ]
+  },
+  {
+   "date": "2027-01-31",
+   "libelle": "Primaire ouverte de la droite et du centre : 1er tour proposé (31 janv.), 2d tour le 7 févr., dates non encore arrêtées",
+   "sources": [
+    "ps-primaire",
+    "lcp-primaire"
+   ]
+  },
+  {
+   "date": "2027-03-12",
+   "libelle": "Fin du dépôt des parrainages (18 h)",
+   "sources": [
+    "ps-decompte"
+   ]
+  },
+  {
+   "date": "2027-03-16",
+   "libelle": "Publication attendue de la liste officielle par le Conseil constitutionnel",
+   "sources": [
+    "r2027"
+   ]
+  },
+  {
+   "date": "2027-04-18",
+   "libelle": "Premier tour",
+   "sources": [
+    "infogouv"
+   ]
+  },
+  {
+   "date": "2027-05-02",
+   "libelle": "Second tour",
+   "sources": [
+    "infogouv"
+   ]
+  }
+ ],
+ "candidats": [
+  {
+   "id": "arthaud",
+   "nom": "Nathalie Arthaud",
+   "parti": "Lutte ouvrière",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": "Quatrième candidature consécutive.",
+   "sources": [
+    "lcp-1110",
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "asselineau",
+   "nom": "François Asselineau",
+   "parti": "Union populaire républicaine",
+   "statut": "declare",
+   "date_annonce": "2026-03",
+   "precision": "Campagne lancée en mars 2026 ; recalé en 2022 faute de parrainages.",
+   "sources": [
+    "lcp-1110",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "attal",
+   "nom": "Gabriel Attal",
+   "parti": "Renaissance",
+   "statut": "declare",
+   "date_annonce": "2026-05-22",
+   "precision": "Favorable à une primaire de la droite et du centre.",
+   "processus": "Primaire droite-centre en préparation (avec Retailleau et Lisnard)",
+   "sources": [
+    "ps-decompte",
+    "lcp-primaire"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "batho",
+   "nom": "Delphine Batho",
+   "parti": "Génération écologie",
+   "statut": "declare",
+   "date_annonce": "2025-11-25",
+   "precision": null,
+   "sources": [
+    "francevote",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "becht",
+   "nom": "Olivier Becht",
+   "parti": "Apparenté Renaissance",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": "Classé « indécis » par LCP, « en lice » par d'autres recensements.",
+   "sources": [
+    "r2027",
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "bertrand",
+   "nom": "Xavier Bertrand",
+   "parti": "Les Républicains / Nous France",
+   "statut": "declare",
+   "date_annonce": "2024-02",
+   "precision": "Intention affichée dès février 2024. Sources divergentes : LCP le classe parmi les candidats potentiels, décision attendue d'ici fin 2026.",
+   "sources": [
+    "francevote",
+    "r2027",
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "billetdoux",
+   "nom": "Augustin Billetdoux",
+   "parti": "Sans étiquette",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "bouamrane",
+   "nom": "Karim Bouamrane",
+   "parti": "Parti socialiste",
+   "statut": "declare",
+   "date_annonce": "2026-06",
+   "precision": "Candidature annoncée en juin 2026 ; statut à confirmer depuis la primaire socialiste du 11 octobre remportée par Raphaël Glucksmann.",
+   "sources": [
+    "r2027",
+    "francevote",
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "branco",
+   "nom": "Juan Branco",
+   "parti": "Les Ruches",
+   "statut": "declare",
+   "date_annonce": "2025-12",
+   "precision": null,
+   "sources": [
+    "francevote",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "cazeneuve",
+   "nom": "Bernard Cazeneuve",
+   "parti": "La Convention",
+   "statut": "declare",
+   "date_annonce": "2026-07-16",
+   "precision": null,
+   "sources": [
+    "francevote",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "cheve",
+   "nom": "Joël Chevé",
+   "parti": "La France adulte",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": "Cité par LCP uniquement.",
+   "sources": [
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "collovati",
+   "nom": "Christian Collovati",
+   "parti": "Non précisé",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": "Cité par LCP uniquement.",
+   "sources": [
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "dupont-aignan",
+   "nom": "Nicolas Dupont-Aignan",
+   "parti": "Debout la France",
+   "statut": "declare",
+   "date_annonce": "2025-03-08",
+   "precision": "Quatrième candidature.",
+   "sources": [
+    "francevote",
+    "ps-declares"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "durif",
+   "nom": "Sylvain Durif",
+   "parti": "Elvita",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "r2027",
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "egger",
+   "nom": "Clara Egger",
+   "parti": "Solution démocratique",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "glucksmann",
+   "nom": "Raphaël Glucksmann",
+   "parti": "Place publique",
+   "statut": "declare",
+   "date_annonce": "2026-08-23",
+   "precision": "Vainqueur de la primaire sociale-démocrate du 11 octobre 2026.",
+   "sources": [
+    "lcp-1110",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "kazib",
+   "nom": "Anasse Kazib",
+   "parti": "Révolution permanente",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "lalanne",
+   "nom": "Francis Lalanne",
+   "parti": "France Libre",
+   "statut": "declare",
+   "date_annonce": "2026-08-19",
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "lassalle",
+   "nom": "Jean Lassalle",
+   "parti": "Résistons !",
+   "statut": "sous_condition",
+   "date_annonce": "2026-07",
+   "precision": "Candidature conditionnelle évoquée en juillet 2026.",
+   "sources": [
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "le-pen",
+   "nom": "Marine Le Pen",
+   "parti": "Rassemblement national",
+   "statut": "sous_condition",
+   "date_annonce": "2026-07-07",
+   "precision": "Annoncée après sa condamnation en appel ; pourvoi en cassation en cours.",
+   "processus": "Décision de la Cour de cassation attendue",
+   "sources": [
+    "ps-decompte",
+    "lcp-1110"
+   ],
+   "force": true,
+   "traite": true
+  },
+  {
+   "id": "legendre",
+   "nom": "Jean-François Legendre",
+   "parti": "À nous maintenant",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "lisnard",
+   "nom": "David Lisnard",
+   "parti": "Nouvelle Énergie",
+   "statut": "declare",
+   "date_annonce": "2026-03-31",
+   "precision": null,
+   "processus": "Primaire droite-centre en préparation (avec Attal et Retailleau)",
+   "sources": [
+    "francevote",
+    "lcp-primaire"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "markovic",
+   "nom": "Mira Markovic",
+   "parti": "Parti animaliste",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "mathieu",
+   "nom": "Benoît Mathieu",
+   "parti": "Sans étiquette",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "melenchon",
+   "nom": "Jean-Luc Mélenchon",
+   "parti": "La France insoumise",
+   "statut": "declare",
+   "date_annonce": "2026-05-03",
+   "precision": "Quatrième candidature. Soutien de Génération.s annoncé le 23 novembre 2026.",
+   "sources": [
+    "lcp-melenchon",
+    "p2027-fiches"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "mikolajczak",
+   "nom": "Antoine Mikolajczak",
+   "parti": "Équinoxe",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "mlekuz",
+   "nom": "Manolo Mlekuz",
+   "parti": "Trajectoire",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "philippe",
+   "nom": "Édouard Philippe",
+   "parti": "Horizons",
+   "statut": "declare",
+   "date_annonce": "2024-09-03",
+   "precision": "Refuse de participer à une primaire de la droite et du centre.",
+   "sources": [
+    "francevote",
+    "lcp-primaire"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "philippot",
+   "nom": "Florian Philippot",
+   "parti": "Les Patriotes",
+   "statut": "declare",
+   "date_annonce": "2026-05-09",
+   "precision": null,
+   "sources": [
+    "francevote",
+    "ps-declares"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "platret",
+   "nom": "Gilles Platret",
+   "parti": "Divers droite",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": "Classé « indécis » par LCP.",
+   "sources": [
+    "r2027",
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "polony",
+   "nom": "Natacha Polony",
+   "parti": "Nous sommes la France",
+   "statut": "declare",
+   "date_annonce": "2026-10-14",
+   "precision": null,
+   "sources": [
+    "ps-declares",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "retailleau",
+   "nom": "Bruno Retailleau",
+   "parti": "Les Républicains",
+   "statut": "declare",
+   "date_annonce": "2026-02-12",
+   "precision": "Désigné par les militants LR en avril 2026.",
+   "processus": "Primaire droite-centre en préparation (avec Attal et Lisnard)",
+   "sources": [
+    "francevote",
+    "ps-declares",
+    "lcp-primaire"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "riner",
+   "nom": "Teddy Riner",
+   "parti": "Sans étiquette",
+   "statut": "declare",
+   "date_annonce": "2026-11-09",
+   "precision": null,
+   "sources": [
+    "tle-sondage",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "rohou",
+   "nom": "Erwan Rohou",
+   "parti": "Mouvement écologiste indépendant",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "roussel",
+   "nom": "Fabien Roussel",
+   "parti": "Parti communiste français",
+   "statut": "declare",
+   "date_annonce": null,
+   "precision": "Candidature approuvée par la conférence nationale du PCF.",
+   "sources": [
+    "lcp-1110",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "labib",
+   "nom": "Selma Labib",
+   "parti": "NPA-Révolutionnaires",
+   "statut": "declare",
+   "date_annonce": "2026-06-17",
+   "precision": null,
+   "sources": [
+    "francevote",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "tondelier",
+   "nom": "Marine Tondelier",
+   "parti": "Les Écologistes",
+   "statut": "declare",
+   "date_annonce": "2025-10-22",
+   "precision": null,
+   "processus": "Vote des adhérents le 13 décembre 2026",
+   "sources": [
+    "francevote",
+    "ps-declares"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "villepin",
+   "nom": "Dominique de Villepin",
+   "parti": "La France humaniste",
+   "statut": "declare",
+   "date_annonce": "2026-11-20",
+   "precision": "Programme de 258 propositions publié.",
+   "sources": [
+    "lcp-1110",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "zemmour",
+   "nom": "Éric Zemmour",
+   "parti": "Reconquête",
+   "statut": "declare",
+   "date_annonce": "2026-09-17",
+   "precision": null,
+   "sources": [
+    "ps-declares",
+    "ps-decompte"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "barrot",
+   "nom": "Jean-Noël Barrot",
+   "parti": "Mouvement démocrate",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "berge",
+   "nom": "Aurore Bergé",
+   "parti": "Renaissance",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "borne",
+   "nom": "Élisabeth Borne",
+   "parti": "Non précisé",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": "Dit avoir « des idées à porter au débat » (début novembre).",
+   "sources": [
+    "lcp-1110"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "breton",
+   "nom": "Thierry Breton",
+   "parti": "Divers droite",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": "Ne « ferme pas la porte » (début novembre).",
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "hollande",
+   "nom": "François Hollande",
+   "parti": "Parti socialiste",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": "Décision annoncée pour décembre ou janvier.",
+   "sources": [
+    "lcp-1110",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "lagarde",
+   "nom": "Christine Lagarde",
+   "parti": "Divers droite",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": "Pourrait plutôt être nommée à la tête du Forum économique mondial.",
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "le-maire",
+   "nom": "Bruno Le Maire",
+   "parti": "Renaissance",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": "A présenté 50 propositions le 12 novembre.",
+   "sources": [
+    "lcp-1110",
+    "francevote"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "pigasse",
+   "nom": "Matthieu Pigasse",
+   "parti": "Sans étiquette",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": "Ne ferme aucune porte ; soutient une alliance de gauche.",
+   "sources": [
+    "lcp-1110",
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "villiers",
+   "nom": "Philippe de Villiers",
+   "parti": "Droite souverainiste",
+   "statut": "pressenti",
+   "date_annonce": null,
+   "precision": null,
+   "sources": [
+    "r2027"
+   ],
+   "force": false,
+   "traite": true
+  },
+  {
+   "id": "ruffin",
+   "nom": "François Ruffin",
+   "parti": "Debout !",
+   "statut": "retire",
+   "date_annonce": "2025-04-01",
+   "date_retrait": "2026-11-21",
+   "precision": "Retrait le 21 novembre 2026.",
+   "sources": [
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "faure",
+   "nom": "Olivier Faure",
+   "parti": "Parti socialiste",
+   "statut": "retire",
+   "date_annonce": null,
+   "date_retrait": "2026-10-11",
+   "precision": "Éliminé à la primaire du 11 octobre 2026 (2e).",
+   "sources": [
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "royal",
+   "nom": "Ségolène Royal",
+   "parti": "Parti socialiste",
+   "statut": "retire",
+   "date_annonce": "2026-07-10",
+   "date_retrait": "2026-10-11",
+   "precision": "Éliminée à la primaire du 11 octobre 2026 (3e).",
+   "sources": [
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "maurel",
+   "nom": "Emmanuel Maurel",
+   "parti": "Gauche républicaine et socialiste",
+   "statut": "retire",
+   "date_annonce": null,
+   "date_retrait": "2026-10-11",
+   "precision": "Éliminé à la primaire du 11 octobre 2026 (4e).",
+   "sources": [
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "guedj",
+   "nom": "Jérôme Guedj",
+   "parti": "Parti socialiste",
+   "statut": "retire",
+   "date_annonce": "2026-02-05",
+   "date_retrait": "2026-10-11",
+   "precision": "Éliminé à la primaire du 11 octobre 2026 (5e).",
+   "sources": [
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "brun",
+   "nom": "Philippe Brun",
+   "parti": "Parti socialiste",
+   "statut": "retire",
+   "date_annonce": "2026-06-30",
+   "date_retrait": null,
+   "precision": "Écarté de la primaire socialiste.",
+   "sources": [
+    "francevote"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "massard",
+   "nom": "Lydie Massard",
+   "parti": "Union démocratique bretonne",
+   "statut": "retire",
+   "date_annonce": null,
+   "date_retrait": "2026-09-09",
+   "precision": "Retrait le 9 septembre 2026.",
+   "sources": [
+    "r2027"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "autain",
+   "nom": "Clémentine Autain",
+   "parti": "L'Après",
+   "statut": "retire",
+   "date_annonce": null,
+   "date_retrait": "2026-07-11",
+   "precision": "Retrait le 11 juillet 2026.",
+   "sources": [
+    "r2027",
+    "francevote"
+   ],
+   "force": false,
+   "traite": false
+  },
+  {
+   "id": "lucas-lundy",
+   "nom": "Benjamin Lucas-Lundy",
+   "parti": "Génération.s",
+   "statut": "retire",
+   "date_annonce": null,
+   "date_retrait": "2026-07-07",
+   "precision": "Retrait le 7 juillet 2026 ; Génération.s soutient désormais Jean-Luc Mélenchon.",
+   "sources": [
+    "r2027",
+    "p2027-fiches"
+   ],
+   "force": false,
+   "traite": false
+  }
+ ]
+}

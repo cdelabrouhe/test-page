@@ -1,0 +1,204 @@
+{
+ "candidat": "lisnard",
+ "etat_programme": "Programme Nouvelle Énergie publié en ligne (245 mesures selon les recensements), réforme des retraites détaillée annoncée pour décembre ou janvier.",
+ "mesures": [
+  {
+   "id": "lis-eco",
+   "theme": "finances-publiques",
+   "intitule": "200 Md€ d'économies sur le quinquennat, dont 80 Md€ dès la première année",
+   "detail": "Répartition annoncée : 120 Md€ rendus en salaire net, 40 Md€ de baisse des impôts de production, 40 Md€ pour la dette.",
+   "chiffres": "200 Md€ (120 / 40 / 40)",
+   "sources": [
+    "repere-lisnard",
+    "votons-lisnard"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "lis-net",
+   "theme": "travail",
+   "intitule": "Baisser de 120 Md€ les cotisations pour augmenter le salaire net",
+   "detail": "Environ 400 € net de plus par mois en moyenne, selon le candidat.",
+   "chiffres": "~ +400 € net/mois en moyenne",
+   "sources": [
+    "lhemicycle-lisnard",
+    "repere-lisnard"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "enveloppe_md": 120,
+    "hausse_moyenne_mensuelle_nette": 400
+   }
+  },
+  {
+   "id": "lis-ret",
+   "theme": "retraites",
+   "intitule": "Relever l'âge de départ, puis affecter 3 points de cotisation à la capitalisation",
+   "detail": "Durée de cotisation citée : 43,5 ans. Si les comptes restent déséquilibrés, revalorisation sous l'inflation des pensions au-dessus de 2 200 €/mois. Réforme détaillée annoncée pour décembre-janvier.",
+   "chiffres": "3 points ; 43,5 ans ; seuil 2 200 €/mois",
+   "sources": [
+    "em-lisnard"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_legal": null,
+    "duree_cotisation_annees": 43.5,
+    "points_capitalisation": 3,
+    "seuil_sous_indexation": 2200
+   },
+   "divergence": "Le programme en ligne évoque un âge légal à 65 ans et d'autres parts de capitalisation (un tiers, 40 %) : chiffres à confirmer lors de la présentation détaillée."
+  },
+  {
+   "id": "lis-ret-socle",
+   "theme": "retraites",
+   "intitule": "Socle de pension minimale de 1 000 €/mois par répartition, sans condition, dès 65 ans",
+   "detail": null,
+   "chiffres": "1 000 €/mois",
+   "sources": [
+    "votons-lisnard",
+    "ne-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "pension_minimale": 1000,
+    "age": 65
+   }
+  },
+  {
+   "id": "lis-entr",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Supprimer la C3S (et si besoin la CVAE) ; impôt sur les sociétés de 25 % à 20 %",
+   "detail": null,
+   "chiffres": "11,5 Md€ ; IS 20 %",
+   "sources": [
+    "votons-lisnard",
+    "presi-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "lis-capital",
+   "theme": "fiscalite-menages",
+   "intitule": "Plafonner la taxation des plus-values à 22 % ; refus de tout ISF",
+   "detail": null,
+   "chiffres": "22 %",
+   "sources": [
+    "presi-lisnard"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "taux_max_plus_values": 22
+   }
+  },
+  {
+   "id": "lis-travail",
+   "theme": "travail",
+   "intitule": "Contrat de travail unique ; charges patronales négatives pour l'embauche de personnes au RSA depuis plus de 2 ans ; accords d'entreprise sur la durée du travail",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "votons-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "lis-etat",
+   "theme": "finances-publiques",
+   "intitule": "Supprimer la moitié des agences et opérateurs de l'État (dont les ARS) ; gouvernement de 12 ministres ; non-remplacement d'une partie des départs de fonctionnaires",
+   "detail": null,
+   "chiffres": "12 ministres",
+   "sources": [
+    "votons-lisnard",
+    "monvote-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "lis-sante",
+   "theme": "sante",
+   "intitule": "Doubler le nombre d'étudiants en médecine d'ici 2030 ; maisons de santé dans chaque canton ; liberté d'installation des médecins",
+   "detail": null,
+   "chiffres": "×2 d'ici 2030",
+   "sources": [
+    "votons-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "lis-immi",
+   "theme": "immigration",
+   "intitule": "Diviser par huit les titres de séjour ; fin de l'automaticité du droit du sol ; remplacer l'AME par une aide d'urgence ; revenir sur l'accord franco-algérien de 1968",
+   "detail": null,
+   "chiffres": "÷8 ; 700 M€ d'économies (AME)",
+   "sources": [
+    "votons-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "lis-edu",
+   "theme": "education",
+   "intitule": "Libre choix de l'école avec chèque-éducation ; enseignants +20 % en cinq ans ; certificat de fin de primaire",
+   "detail": null,
+   "chiffres": "+20 % en 5 ans",
+   "sources": [
+    "votons-lisnard",
+    "voteren-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_pct": 20
+   }
+  },
+  {
+   "id": "lis-secu",
+   "theme": "securite",
+   "intitule": "Majorité pénale à 16 ans ; peines planchers ; doubler les effectifs des juridictions correctionnelles ; 20 000 places de prison",
+   "detail": null,
+   "chiffres": "16 ans ; 20 000 places",
+   "sources": [
+    "votons-lisnard",
+    "voteren-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "lis-logement",
+   "theme": "logement",
+   "intitule": "Supprimer le DPE et les interdictions de louer ; réformer la loi SRU ; baisser la fiscalité immobilière",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "jda-lisnard"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lis-ener",
+   "theme": "environnement",
+   "intitule": "Prolonger les réacteurs nucléaires jusqu'à 60 ans, EPR de nouvelle génération et petits réacteurs",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "votons-lisnard"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}
