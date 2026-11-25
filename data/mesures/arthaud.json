@@ -77,7 +77,10 @@
     "v27-arthaud"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "transports_gratuits": true
+   }
   },
   {
    "id": "art-immi",

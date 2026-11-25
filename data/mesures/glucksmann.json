@@ -65,7 +65,12 @@
     "wikiglu"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "contribution_pct": 5,
+    "seuil_patrimoine_meur": 100,
+    "annee_unique": true
+   }
   },
   {
    "id": "glu-ret",
@@ -116,7 +121,8 @@
    "simulable": true,
    "parametres": {
     "cheque_energie_bas": 500,
-    "cheque_energie_moyen": 200
+    "cheque_energie_moyen": 200,
+    "baisse_carburant_cts": 20
    }
   },
   {

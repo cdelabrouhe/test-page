@@ -150,6 +150,7 @@
       else hyp.push('Dépenses à TVA normale non renseignées.');
       hyp.push('Hausse de TVA supposée entièrement répercutée sur les prix, sans modification de ta consommation.');
     }
+    const nonCalc = [];
     const lePenE = first(ms, 'tva_energie_pct');
     if (lePenE) {
       src.push(lePenE.m.id);
@@ -165,9 +166,25 @@
     const carb = first(ms, 'baisse_carburant_cts');
     if (carb && L > 0) { src.push(carb.m.id); lignes.push({ libelle: 'Carburant −' + carb.v + ' cts/L sur ' + L + ' L/mois', mensuel: L * carb.v / 100 }); hyp.push('Baisse du prix supposée intégralement visible à la pompe.'); }
     const hol = first(ms, 'tva_reduite_energie_pct');
-    const nonCalc = [];
     if (hol) { src.push(hol.m.id); nonCalc.push('TVA réduite à ' + hol.v + ' % sur l\'énergie et les produits de première nécessité : le texte ne dit pas quels produits sont concernés, donc non calculée.'); }
-    for (const [k, txt] of [['prix_carburant_max', 'Prix maximal du carburant : dépend du prix du marché, non calculé.'], ['taxe_flottante_carburants', 'Taxe flottante sur les carburants : dépend du cours du pétrole, non calculée.'], ['tva_sociale', 'TVA sociale : taux non précisé, non calculée.']]) {
+    const pcm = first(ms, 'prix_carburant_max');
+    if (pcm) {
+      src.push(pcm.m.id);
+      if (L > 0 && p.prixCarburantLitre > 0) {
+        const g = L * Math.max(0, p.prixCarburantLitre - pcm.v);
+        lignes.push({ libelle: 'Prix du carburant bloqué à ' + String(pcm.v).replace('.', ',') + ' €/L (tu paies ' + String(p.prixCarburantLitre).replace('.', ',') + ' €/L)', mensuel: g });
+        hyp.push('Mesure relevée dans une source de 2022. Prix bloqué lu comme un plafond appliqué à la pompe, sans effet sur ta consommation.');
+      } else nonCalc.push('Prix du carburant bloqué à ' + String(pcm.v).replace('.', ',') + ' €/L : renseigne le prix que tu paies au litre pour voir l\'effet.');
+    }
+    const chq = first(ms, 'cheque_energie_bas');
+    if (chq) {
+      src.push(chq.m.id);
+      const nbp = 1 + (p.couple ? 1 : 0) + (p.enfants || 0), uc = 1 + (nbp >= 2 ? 0.5 : 0) + Math.max(0, nbp - 2) * 0.3;
+      const rfrUc = irFoyer(p).revenuImposable / uc;
+      const moyen = first(ms, 'cheque_energie_moyen');
+      nonCalc.push('Chèque énergie de ' + chq.v + ' € (6 millions de foyers) ou ' + (moyen ? moyen.v : '') + ' € (10 millions de foyers de classes moyennes) : les seuils de revenu ne sont pas précisés, donc non calculé. Ton revenu estimé par unité de consommation est d\'environ ' + Math.round(rfrUc).toLocaleString('fr-FR') + ' € ; le chèque énergie actuel (48 à 277 €) est réservé aux foyers sous ' + REF.chequeEnergie.plafondRfrUc.toLocaleString('fr-FR') + ' €.');
+    }
+    for (const [k, txt] of [['taxe_flottante_carburants', 'Taxe flottante sur les carburants : dépend du cours du pétrole, non calculée.'], ['tva_sociale', 'TVA sociale : taux non précisé, non calculée.']]) {
       const f = first(ms, k); if (f) { src.push(f.m.id); nonCalc.push(txt); }
     }
     if (!lignes.length && !nonCalc.length) return est('aucune_mesure', { message: 'Aucune mesure sur la TVA ou les prix de l\'énergie.' });
@@ -240,6 +257,12 @@
       source: 'impots.gouv.fr, droits de succession en ligne directe' },
     fraisAcquisitionAncien: 0.075, plancherIFI: 1300000
   });
+  Object.assign(REF, {
+    fortune: { seuil: 1300000, bareme: [[800000, 0], [1300000, 0.005], [2570000, 0.007], [5000000, 0.01], [10000000, 0.0125], [Infinity, 0.015]], decoteJusqua: 1400000, decoteForfait: 17500, decoteTaux: 0.0125,
+      source: 'IFI 2026 : seuil de 1,3 M€, barème de 0,5 % à 1,5 % dès 800 000 €, abattement de 30 % sur la résidence principale (service-public.gouv.fr F138 et F563) ; décote entre 1,3 et 1,4 M€ : formule à confirmer' },
+    pfu: { taux: 0.314, source: 'prélèvement forfaitaire unique 31,4 % depuis le 1er janvier 2026 (LFSS 2026), 30 % pour l\'assurance-vie et quelques revenus' },
+    chequeEnergie: { plafondRfrUc: 11000, source: 'plafond de 11 000 € de revenu fiscal de référence par unité de consommation (campagne 2026)' }
+  });
   const progressif = (x, bareme) => { let prev = 0, tot = 0; for (const [lim, t] of bareme) { if (x > prev) tot += (Math.min(x, lim) - prev) * t; prev = lim; } return tot; };
   function irFoyer(p, opts) {
     const plafDemi = (opts && opts.plafondDemiPart) || REF.ir.plafondDemiPart;
@@ -308,28 +331,69 @@
       src.push(notaire.m.id);
       if (age < amax) { unique += p.prixAchat * REF.fraisAcquisitionAncien; lignes.push('frais de notaire supprimés (' + Math.round(REF.fraisAcquisitionAncien * 1000) / 10 + ' % du prix)'); hyp.push('Frais estimés à ' + REF.fraisAcquisitionAncien * 100 + ' % du prix d\'un logement ancien ; la mesure ne précise pas si les droits de mutation sont inclus. Âge calculé en 2027.'); }
     }
+    const gel = first(ms, 'gel_loyers');
+    if (gel && p.loyerMensuel > 0) {
+      const r = indexCumul(p, 5, () => 0), g = p.loyerMensuel * (r.statuQuo - 1);
+      mensuel += g; src.push(gel.m.id); lignes.push('loyers gelés pendant cinq ans');
+      hyp.push('Loyer supposé indexé chaque année sur l\'inflation de l\'année précédente sans le gel (' + (typeof p.inflationHyp === 'number' && p.inflationHyp >= 0 ? String(p.inflationHyp).replace('.', ',') + ' % par an, ta valeur' : '1,9 % puis 1,6 % par an, Banque de France, septembre 2026') + ') ; l\'indice de référence des loyers suit en pratique l\'inflation avec un décalage. Écart sur ton loyer mensuel en 2032. Les autres mesures de Kazib (plafonnement, expropriation) ne sont pas chiffrées.');
+    }
     if (!mensuel && !unique) return est('aucune_mesure', { message: 'Aucune mesure calculable sur le logement pour ta situation.' });
     const parts = [];
-    if (mensuel) parts.push('+' + r2(mensuel) + ' € par mois d\'APL');
+    if (mensuel) parts.push('+' + r2(mensuel) + ' € par mois' + (apl && p.aplMensuelle > 0 ? ' d\'APL' : (gel ? ' de loyer en moins (en 2032)' : '')));
     if (unique) parts.push('jusqu\'à ' + Math.round(unique).toLocaleString('fr-FR') + ' € économisés à l\'achat');
     return est('calcule', { valeurMensuelle: r2(mensuel), valeurAnnuelle: r2(mensuel * 12), valeurUnique: Math.round(unique), message: parts.join(' ; '), formule: lignes.join(' ; '), hypotheses: hyp, mesures: src });
   }
 
   /* ---------- Patrimoine et succession ---------- */
+  function impotFortune(assiette) {
+    const F = REF.fortune;
+    if (!(assiette > F.seuil)) return 0;
+    let imp = progressif(assiette, F.bareme);
+    if (assiette < F.decoteJusqua) imp = Math.max(0, imp - Math.max(0, F.decoteForfait - F.decoteTaux * assiette));
+    return Math.round(imp);
+  }
   function effetPatrimoine(p, ms) {
-    const succ = first(ms, 'exoneration_succession_ligne_directe_eur'), isf = first(ms, 'isf_retabli'), herit = first(ms, 'seuil_heritage_meur');
-    const src = [], hyp = []; let gain = 0, calc = false; const textes = [];
+    const succ = first(ms, 'exoneration_succession_ligne_directe_eur'), isfAny = first(ms, 'isf_retabli'), herit = first(ms, 'seuil_heritage_meur');
+    const isf16 = flat(ms, 'bareme_2016')[0] || null, pv = first(ms, 'taux_max_plus_values'), don = first(ms, 'abattement_donation_supp');
+    const donLP = first(ms, 'abattement_donation'), contrib = first(ms, 'contribution_pct'), plaf = first(ms, 'plafond_heritage_meur');
+    const src = [], hyp = [], lignes = [], ind = []; let unique = 0, annuel = 0;
+    const eurs = n => Math.round(n).toLocaleString('fr-FR');
     if (succ && p.heritage > 0) {
       const act = progressif(Math.max(0, p.heritage - REF.succession.abattementLigneDirecte), REF.succession.bareme);
-      const cand = progressif(Math.max(0, p.heritage - succ.v), REF.succession.bareme);
-      gain = act - cand; calc = true; src.push(succ.m.id);
-      hyp.push('Part reçue en ligne directe, abattement actuel de 100 000 €. La mesure est lue comme un abattement de ' + succ.v.toLocaleString('fr-FR') + ' € par héritier.');
-      textes.push(gain > 0 ? 'Droits de succession ramenés de ' + Math.round(act).toLocaleString('fr-FR') + ' € à ' + Math.round(cand).toLocaleString('fr-FR') + ' €' : 'Pas d\'effet : ton héritage reste sous le seuil.');
+      const cand = progressif(Math.max(0, p.heritage - succ.v), REF.succession.bareme), g = act - cand;
+      unique += g; src.push(succ.m.id);
+      hyp.push('Part reçue en ligne directe, abattement actuel de 100 000 €. La mesure est lue comme un abattement de ' + eurs(succ.v) + ' € par héritier.');
+      lignes.push(g > 0 ? 'Droits de succession ramenés de ' + eurs(act) + ' € à ' + eurs(cand) + ' €' : 'Pas d\'effet : ton héritage reste sous le seuil.');
     }
-    const ind = [];
-    if (isf && p.patrimoine >= REF.plancherIFI) { src.push(isf.m.id); ind.push('Rétablissement de l\'ISF : avec un patrimoine net de ' + Math.round(p.patrimoine).toLocaleString('fr-FR') + ' €, tu pourrais être concerné ; seuil et taux ne sont pas relevés de façon uniforme, donc non calculé.'); }
+    if (isf16 && p.patrimoine > 0) {
+      src.push(isf16.m.id);
+      const rp = p.patrimoineRP || 0, imm = p.patrimoineImmo || 0;
+      const isf = impotFortune(p.patrimoine - 0.3 * rp), ifi = impotFortune(imm - 0.3 * rp), d = isf - ifi;
+      annuel -= d;
+      lignes.push(d > 0 ? 'ISF rétabli : ' + eurs(d) + ' € d\'impôt en plus par an (ISF ' + eurs(isf) + ' € au lieu de ' + eurs(ifi) + ' € d\'IFI)' : 'ISF rétabli : pas d\'effet, ton patrimoine reste sous le seuil de 1,3 M€ ou ton impôt ne change pas.');
+      hyp.push('Barème de l\'ISF 2016 (identique à celui de l\'IFI actuel : 0,5 % à 1,5 %, seuil de 1,3 M€) appliqué à ton patrimoine net total, au lieu du seul patrimoine immobilier aujourd\'hui. Abattement de 30 % sur la résidence principale dans les deux cas ; plafonnement et réductions non pris en compte.');
+      if (isf16.m.divergence) hyp.push('Les sources divergent : un autre relevé parle d\'un impôt unique sur le patrimoine dès 2,2 M€ ; ce calcul suit la version « barème 2016 ».');
+    } else if (isfAny && p.patrimoine >= REF.plancherIFI) {
+      src.push(isfAny.m.id); ind.push('Rétablissement de l\'ISF : avec un patrimoine net de ' + eurs(p.patrimoine) + ' €, tu pourrais être concerné ; seuil et taux ne sont pas relevés de façon uniforme, donc non calculé.');
+    }
+    if (pv && p.plusValuesAnnuelles > 0) {
+      src.push(pv.m.id);
+      const g = Math.max(0, REF.pfu.taux - pv.v / 100) * p.plusValuesAnnuelles; annuel += g;
+      lignes.push(g > 0 ? 'Plus-values taxées à ' + pv.v + ' % au lieu de ' + String(REF.pfu.taux * 100).replace('.', ',') + ' % : ' + eurs(g) + ' € par an en moins' : 'Pas d\'effet : tes plus-values sont déjà taxées à moins de ' + pv.v + ' %.');
+      hyp.push('Plus-values mobilières taxées aujourd\'hui au prélèvement forfaitaire unique de ' + String(REF.pfu.taux * 100).replace('.', ',') + ' % (12,8 % d\'impôt et 18,6 % de prélèvements sociaux) ; le plafond est lu comme un taux global, prélèvements sociaux compris. Les plus-values immobilières, taxées autrement, ne sont pas comptées.');
+    }
+    if (don && p.donationRecue > 0) {
+      src.push(don.m.id);
+      const base = REF.succession.abattementLigneDirecte, act = progressif(Math.max(0, p.donationRecue - base), REF.succession.bareme), cand = progressif(Math.max(0, p.donationRecue - base - don.v), REF.succession.bareme);
+      unique += act - cand;
+      lignes.push(act - cand > 0 ? 'Donation de ' + eurs(p.donationRecue) + ' € : droits ramenés de ' + eurs(act) + ' € à ' + eurs(cand) + ' €' : 'Donation : pas d\'effet, elle reste sous l\'abattement actuel.');
+      hyp.push('« Plafond relevé de ' + eurs(don.v) + ' € » lu comme un abattement de ' + eurs(base + don.v) + ' € par parent et par enfant, renouvelable tous les ' + don.m.parametres.delai_donation_annees + ' ans (15 ans aujourd\'hui). Donation d\'un seul parent, sans donation dans les 15 dernières années. Le barème des donations en ligne directe est celui des successions.');
+    }
+    if (donLP && p.donationRecue > 0) { src.push(donLP.m.id); ind.push('Abattement de donation de ' + eurs(donLP.v) + ' € renouvelable tous les ' + donLP.m.parametres.periodicite_annees + ' ans au lieu de 15 : le montant exonéré ne change pas, il peut être reçu plus souvent.'); }
+    if (contrib && p.patrimoine >= contrib.m.parametres.seuil_patrimoine_meur * 1e6) { src.push(contrib.m.id); ind.push('Contribution exceptionnelle de ' + contrib.v + ' % (une seule année) au-delà de ' + contrib.m.parametres.seuil_patrimoine_meur + ' M€ : ton patrimoine serait concerné ; la source ne dit pas si le taux porte sur la totalité ou sur la fraction au-dessus du seuil.'); }
     if (herit && p.heritage > herit.v * 1e6) { src.push(herit.m.id); ind.push('Taxation accrue des héritages supérieurs à ' + herit.v + ' M€ : ton héritage serait concerné ; taux non précisé.'); }
-    if (calc) return est('calcule', { valeurUnique: Math.round(gain), valeurAnnuelle: 0, message: textes.join(' ') + (ind.length ? ' — ' + ind.join(' ') : ''), formule: 'droits(héritage − abattement actuel) − droits(héritage − seuil du candidat)', hypotheses: hyp, mesures: src, indications: ind });
+    if (plaf && p.heritage > plaf.v * 1e6) { src.push(plaf.m.id); ind.push('Héritage maximal plafonné à ' + plaf.v + ' M€ : ton héritage serait concerné ; mécanisme non précisé.'); }
+    if (lignes.length) return est('calcule', { valeurUnique: Math.round(unique), valeurAnnuelle: Math.round(annuel), valeurMensuelle: r2(annuel / 12), message: lignes.join(' ; ') + (ind.length ? ' — ' + ind.join(' ') : ''), formule: 'impôt actuel − impôt avec la mesure', hypotheses: hyp, mesures: src, indications: ind });
     if (ind.length) return est('indication', { message: ind.join(' '), mesures: src });
     return est('aucune_mesure', { message: 'Aucune mesure calculable sur le patrimoine pour ta situation.' });
   }
@@ -513,6 +577,25 @@
     return r;
   }
 
+  /* ---------- Transports et déplacements ---------- */
+  function effetTransports(p, ms) {
+    const gr = first(ms, 'transports_gratuits'), pe = first(ms, 'peages_supprimes_annee');
+    if (!gr && !pe) return est('aucune_mesure', { message: 'Aucune mesure sur les transports ou les péages.' });
+    const lignes = [], hyp = [], src = [];
+    if (gr && p.abonnementTransportMois > 0) {
+      const part = ACTIFS.includes(p.statut) ? 0.5 : 1;
+      lignes.push({ libelle: 'Transports en commun gratuits', mensuel: p.abonnementTransportMois * part }); src.push(gr.m.id);
+      hyp.push(part === 0.5 ? 'L\'employeur rembourse déjà la moitié de l\'abonnement : seul le reste à ta charge disparaît (abonnement saisi : ' + p.abonnementTransportMois + ' € par mois).' : 'Abonnement entièrement à ta charge supprimé.');
+      hyp.push('Mesure sans calendrier ni périmètre précisés : lue comme une gratuité sur le réseau qui te concerne. Le financement des réseaux n\'est pas pris en compte.');
+    }
+    if (pe && p.peagesMois > 0) {
+      lignes.push({ libelle: 'Péages d\'autoroute supprimés d\'ici ' + pe.v, mensuel: p.peagesMois }); src.push(pe.m.id);
+      hyp.push('Suppression complète d\'ici ' + pe.v + ', donc après la fin du quinquennat : le gain n\'est pas immédiat. Ta dépense de péages est supposée inchangée.');
+    }
+    if (!lignes.length) return est('aucune_mesure', { message: 'Renseigne ton abonnement de transport ou tes péages pour voir l\'effet.' });
+    return resultat(lignes, hyp, src, []);
+  }
+
   /* ---------- Orchestration ---------- */
   const DOMAINES = [
     { id: 'salaire', titre: 'Salaire minimum et salaires', fn: effetSalaire },
@@ -522,10 +605,11 @@
     { id: 'ir', titre: 'Impôt sur le revenu', fn: effetIR },
     { id: 'famille', titre: 'Famille et naissance', fn: effetFamille },
     { id: 'logement', titre: 'Logement', fn: effetLogement },
-    { id: 'patrimoine', titre: 'Patrimoine et succession', fn: effetPatrimoine },
+    { id: 'patrimoine', titre: 'Patrimoine, épargne, successions et donations', fn: effetPatrimoine },
     { id: 'pension', titre: 'Pensions des retraités', fn: effetPension },
     { id: 'minima', titre: 'Minima sociaux, handicap, jeunes et étudiants', fn: effetMinima },
-    { id: 'fonction', titre: 'Enseignants et agents publics', fn: effetFonction }
+    { id: 'fonction', titre: 'Enseignants et agents publics', fn: effetFonction },
+    { id: 'transports', titre: 'Transports et péages', fn: effetTransports }
   ];
 
   function simuler(profil, candidats, mesuresParCandidat) {
@@ -540,5 +624,5 @@
     return res;
   }
 
-  return { REF, DOMAINES, simuler, irFoyer, effetIR, effetFamille, effetLogement, effetPatrimoine, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, effetPension, effetMinima, effetFonction, annoncesGain };
+  return { REF, DOMAINES, simuler, irFoyer, effetIR, effetFamille, effetLogement, effetPatrimoine, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, effetPension, effetMinima, effetFonction, effetTransports, annoncesGain };
 });

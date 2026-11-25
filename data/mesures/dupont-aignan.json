@@ -382,7 +382,11 @@
     "v27-nda-eco"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "abattement_donation_supp": 100000,
+    "delai_donation_annees": 10
+   }
   },
   {
    "id": "nda-logement",
@@ -420,7 +424,10 @@
     "v27-nda-clim"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "peages_supprimes_annee": 2030
+   }
   },
   {
    "id": "nda-edu2",

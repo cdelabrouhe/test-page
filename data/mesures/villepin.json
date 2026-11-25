@@ -49,7 +49,8 @@
    "simulable": true,
    "parametres": {
     "isf_retabli": true,
-    "seuil_patrimoine_meur": 2.2
+    "seuil_patrimoine_meur": 2.2,
+    "bareme_2016": true
    },
    "divergence": "Les sources divergent sur la forme exacte (ISF 2016 ou impôt unique dès 2,2 M€)."
   },
