@@ -49,13 +49,21 @@ t('profil par défaut = valeurs d\'avant la refonte', () => {
     salaireNetMensuel: 1800, quotite: 100, heuresSupSemaine: 0, traitementIndiciaire: 0, anneeDebutCarriere: 2008, anneesSansTrimestre: 0, pensionNette: 0, salaireCumulNet: 0,
     aah: false, incapacite80: false, minimaMensuels: 0, boursier: false, bourseMensuelle: 0, niveauEtudes: 'L1L2', jeuneSansDiplomeNiEmploi: false,
     occupation: 'locataire', loyerMensuel: 0, aplMensuelle: 0, prixAchat: 0, patrimoine: 0, patrimoineImmo: 0, patrimoineRP: 0, plusValuesAnnuelles: 0, heritage: 0, donationRecue: 0,
-    depensesTvaNormale: 1000, electriciteMois: 90, energieMois: 40, carburantLitres: 80, prixCarburantLitre: 0, abonnementTransportMois: 0, peagesMois: 0, inflationHyp: null });
+    depensesTvaNormale: 1000, electriciteMois: 90, energieMois: 40, carburantLitres: 80, prixCarburantLitre: 0, abonnementTransportMois: 0, peagesMois: 0, inflationHyp: null,
+    moisCongeParental: 0, pensionAlimentaireRecueAn: 0, arretsMaladieAn: 0, depassementsAn: 0 });
 });
 t('un champ masqué compte comme non renseigné', () => {
   const v = { ...defauts(), statut: 'retraite', net: '2000', pension: '1500', bours: '1', bourse: '300', trait: '2500', hs: '5' };
   const p = C.profil(v);
   assert.strictEqual(p.pensionNette, 1500); assert.strictEqual(p.salaireNetMensuel, 0); assert.strictEqual(p.heuresSupSemaine, 0);
   assert.strictEqual(p.boursier, false); assert.strictEqual(p.bourseMensuelle, 0); assert.strictEqual(p.traitementIndiciaire, 0); assert.strictEqual(p.quotite, 100); assert.strictEqual(p.anneeDebutCarriere, null);
+});
+t('champs du 25 novembre 2026 : affichage', () => {
+  const vis = (id, v) => C.visible(C.CHAMPS.find(c => c.id === id), { ...defauts(), ...v });
+  assert.strictEqual(vis('cpar', {}), false); assert.strictEqual(vis('cpar', { nais: '1' }), true); assert.strictEqual(vis('cpar', { nais: '1', statut: 'retraite' }), false);
+  assert.strictEqual(vis('palim', {}), false); assert.strictEqual(vis('palim', { enf: '2', statut: 'sans_emploi' }), true);
+  assert.strictEqual(vis('arrets', {}), false); assert.strictEqual(vis('arrets', { statut: 'enseignant' }), true);
+  assert.strictEqual(vis('depass', {}), true);
 });
 t('affichage selon la situation', () => {
   const vis = (statut, id, extra) => C.visible(C.CHAMPS.find(c => c.id === id), { ...defauts(), statut, ...extra });

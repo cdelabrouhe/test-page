@@ -49,6 +49,9 @@
       sert: 'les sommes versées ou placées à la naissance (Attal, Dupont-Aignan).' },
 
     /* ---------- Revenus d'activité ---------- */
+    { id: 'cpar', groupe: 'foyer', cle: 'moisCongeParental', type: 'nombre', val: 0, min: 0, max: 36, pour: ACTIFS, quand: v => +v.nais > 0, label: 'Congé parental à temps plein prévu (mois)',
+      tip: 'Nombre de mois pendant lesquels tu comptes arrêter complètement de travailler pour t\'occuper de l\'enfant à naître, après le congé maternité ou paternité. Mets 0 si tu n\'en prévois pas.',
+      sert: 'le congé parental rémunéré (Dupont-Aignan), comparé à la PreParE versée aujourd\'hui.' },
     { id: 'net', groupe: 'revenus', cle: 'salaireNetMensuel', type: 'nombre', val: 1800, min: 0, step: 10, pour: TRAVAILLENT, label: 'Salaire net mensuel (€)',
       tip: 'Ce que tu reçois réellement chaque mois : après cotisations sociales et CSG, avant impôt sur le revenu (ligne « net avant impôt sur le revenu » de la fiche de paie). Hors primes exceptionnelles et heures supplémentaires. À temps partiel, indique ce que tu touches vraiment.',
       sert: 'la comparaison avec un salaire minimum, l\'impôt sur le revenu, le taux horaire des heures supplémentaires et les hausses de salaire des enseignants.' },
@@ -65,6 +68,12 @@
       label: 'Salaire net mensuel de ton conjoint (€)',
       tip: 'Ce que ton conjoint touche chaque mois en salaire : après cotisations sociales, avant impôt sur le revenu. Mets 0 s\'il ne travaille pas.',
       sert: 'l\'impôt sur le revenu du foyer.' },
+    { id: 'palim', groupe: 'revenus', cle: 'pensionAlimentaireRecueAn', type: 'nombre', val: 0, min: 0, step: 100, quand: v => +v.enf > 0, label: 'Pension alimentaire reçue pour tes enfants, par an (€)',
+      tip: 'Total sur l\'année de la pension que l\'autre parent te verse pour l\'entretien et l\'éducation de vos enfants, telle que tu la déclares aux impôts. Mets 0 si tu n\'en reçois pas ou si c\'est toi qui la verses.',
+      sert: 'la défiscalisation de la pension alimentaire pour le parent qui la reçoit (Attal).' },
+    { id: 'arrets', groupe: 'revenus', cle: 'arretsMaladieAn', type: 'nombre', val: 0, min: 0, max: 20, pour: PUBLICS, label: 'Arrêts maladie par an',
+      tip: 'Nombre moyen d\'arrêts de maladie ordinaire que tu as chaque année. Chaque nouvel arrêt compte, quelle que soit sa durée ; un arrêt prolongé sans interruption compte pour un. Mets 0 si tu n\'en as pas.',
+      sert: 'le nombre de jours de carence non payés (Zemmour).' },
 
     /* ---------- Carrière et retraite ---------- */
     { id: 'debut', groupe: 'carriere', cle: 'anneeDebutCarriere', type: 'nombre', val: 2008, min: 1960, max: 2026, pour: NON_RETRAITES, repli: null, label: 'Année de début de carrière',
@@ -161,6 +170,9 @@
     { id: 'peages', groupe: 'depenses', cle: 'peagesMois', type: 'nombre', val: 0, min: 0, step: 5, sous: 'Carburant et déplacements', label: 'Péages d\'autoroute par mois (€)',
       tip: 'Dépense moyenne de péages par mois : le total de l\'année divisé par 12.',
       sert: 'la suppression des péages d\'ici 2030 (Dupont-Aignan).' },
+    { id: 'depass', groupe: 'depenses', cle: 'depassementsAn', type: 'nombre', val: 0, min: 0, step: 10, sous: 'Santé', label: 'Dépassements d\'honoraires restant à ta charge par an (€)',
+      tip: 'Total sur l\'année de ce que ton foyer paie lui-même au-delà du tarif de la Sécurité sociale (médecins en secteur 2, par exemple), après le remboursement de ta complémentaire santé. Mets 0 si tu n\'en as pas.',
+      sert: 'l\'interdiction ou le plafonnement des dépassements d\'honoraires (Tondelier).' },
 
     /* ---------- Hypothèse de calcul ---------- */
     { id: 'infl', groupe: 'hypothese', cle: 'inflationHyp', type: 'nombre_facultatif', val: '', min: 0, max: 10, step: 0.1, ph: '1,9 puis 1,6', label: 'Inflation annuelle supposée (%)',

@@ -108,8 +108,11 @@
     "v27-zemmour"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false,
-   "divergence": "Source de 2024 (européennes)."
+   "simulable": true,
+   "divergence": "Source de 2024 (européennes).",
+   "parametres": {
+    "jours_carence_fp": 3
+   }
   }
  ]
 }

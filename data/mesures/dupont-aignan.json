@@ -369,8 +369,12 @@
     "v27-nda-eco"
    ],
    "fiabilite": "programme_officiel",
-   "simulable": false,
-   "divergence": "La page officielle ne précise ni montant ni durée du congé parental ; le relevé tiers cite 75 % du SMIC pendant 3 ans."
+   "simulable": true,
+   "divergence": "La page officielle ne précise ni montant ni durée du congé parental ; le relevé tiers cite 75 % du SMIC pendant 3 ans.",
+   "parametres": {
+    "conge_parental_pct_smic": 75,
+    "conge_parental_duree_mois": 36
+   }
   },
   {
    "id": "nda-donation",

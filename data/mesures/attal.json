@@ -74,12 +74,13 @@
    "detail": null,
    "chiffres": null,
    "sources": [
-    "attal-prog"
+    "attal-prog",
+    "lcp-attal-pa"
    ],
    "fiabilite": "programme_officiel",
    "simulable": true,
    "parametres": {
-    "pension_alimentaire_defiscalisee": true
+    "pension_alimentaire_defiscalisee_beneficiaire": true
    }
   },
   {

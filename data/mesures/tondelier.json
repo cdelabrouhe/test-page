@@ -231,7 +231,11 @@
     "v27-ton-sante"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "depassements_interdits_moitie_modeste": true,
+    "depassements_plafond_pct": 50
+   }
   },
   {
    "id": "ton-bio",

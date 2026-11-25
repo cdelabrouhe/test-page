@@ -287,8 +287,10 @@
     const hits = [];
     const qf = first(ms, 'plafond_demi_part');
     const lm = first(ms, 'famille_nombreuse_exoneree_ir'), lp = flat(ms, 'exoneration_ir').filter(x => x.m.parametres.age_max)[0] || null;
-    if (!lm && !lp && !qf) return est('aucune_mesure', { message: 'Aucune mesure simulable sur l\'impôt sur le revenu.' });
-    if (!(p.salaireNetMensuel > 0)) return est('non_estimable', { message: 'Renseigne ton salaire net mensuel.' });
+    const pa = first(ms, 'pension_alimentaire_defiscalisee_beneficiaire'), pal = p.pensionAlimentaireRecueAn || 0;
+    if (!lm && !lp && !qf && !pa) return est('aucune_mesure', { message: 'Aucune mesure simulable sur l\'impôt sur le revenu.' });
+    if (pa && !lm && !lp && !qf && !(pal > 0)) return est('aucune_mesure', { message: 'Mesure pour le parent qui reçoit une pension alimentaire pour ses enfants : renseigne son montant si c\'est ton cas.', mesures: [pa.m.id] });
+    if (!(p.salaireNetMensuel > 0) && !(pa && pal > 0)) return est('non_estimable', { message: 'Renseigne ton salaire net mensuel.' });
     const ir = irFoyer(p), src = [], hyp = HYP_IR.slice();
     let gain = 0, lib = [];
     if (lm) { src.push(lm.m.id); if ((p.enfants || 0) >= lm.v) { gain = ir.impot; lib.push('impôt supprimé pour les familles d\'au moins ' + lm.v + ' enfants'); } }
@@ -296,8 +298,16 @@
       if (age < lp.m.parametres.age_max && !p.couple) { gain = ir.impot; lib.push('exonération pour les moins de ' + lp.m.parametres.age_max + ' ans'); hyp.push('Âge calculé en 2027. Mesure du programme de 2022, non confirmée pour 2027 ; lue comme une exonération totale.'); }
       else if (age < lp.m.parametres.age_max) return est('non_estimable', { message: 'Foyer en couple : l\'application de l\'exonération au foyer n\'est pas précisée.', mesures: src }); }
     if (qf && (p.enfants || 0) > 0) { src.push(qf.m.id); const ir2 = irFoyer(p, { plafondDemiPart: qf.v }); const g = Math.max(0, ir.impot - ir2.impot); if (g > 0) { gain = Math.max(gain, g); lib.push('plafond du quotient familial relevé à ' + qf.v + ' € par demi-part'); hyp.push('Seul le plafond du quotient familial est modifié ; les autres paramètres du barème sont inchangés.'); } else src.push(qf.m.id); }
-    if (!lib.length) return est('calcule', { valeurAnnuelle: 0, valeurMensuelle: 0, message: 'Pas d\'effet pour ta situation.', mesures: src });
-    hyp.push('Ton impôt actuel estimé : ' + ir.impot + ' € par an (' + ir.parts + ' parts).');
+    let irActuel = ir.impot;
+    if (pa && pal > 0) {
+      src.push(pa.m.id);
+      const avec = irFoyer(p, { revenuAnnuelSupp: pal }).impot, g = Math.max(0, avec - ir.impot);
+      irActuel = avec;
+      hyp.push('Aujourd\'hui, la pension alimentaire reçue pour tes enfants (' + fmt(pal) + ' € par an) s\'ajoute à ton revenu imposable, après l\'abattement de 10 % des pensions (son plafond n\'est pas appliqué) ; avec la mesure, elle n\'est plus imposée. Le parent qui la verse n\'est pas concerné par ce calcul.');
+      if (g > 0) { gain = Math.max(gain, g); lib.push('pension alimentaire reçue retirée du revenu imposable'); }
+    }
+    if (!lib.length) return est('calcule', { valeurAnnuelle: 0, valeurMensuelle: 0, message: 'Pas d\'effet pour ta situation.', hypotheses: pa && pal > 0 ? hyp : undefined, mesures: src });
+    hyp.push('Ton impôt actuel estimé : ' + irActuel + ' € par an (' + ir.parts + ' parts).');
     return est('calcule', { valeurAnnuelle: Math.round(gain), valeurMensuelle: r2(gain / 12), message: gain > 0 ? '+' + Math.round(gain).toLocaleString('fr-FR') + ' € par an d\'impôt en moins (' + lib.join(' ; ') + ')' : 'Pas d\'effet : ton impôt estimé est déjà nul ou non modifié.',
       formule: lib.join(' ; '), hypotheses: hyp, mesures: src });
   }
@@ -306,16 +316,31 @@
   function effetFamille(p, ms) {
     const nais = p.naissances || 0, src = [], lignes = [], hyp = [];
     const cap = first(ms, 'capital_naissance'), baby = first(ms, 'montant_par_naissance');
-    const alloc = first(ms, 'montant_mensuel');
-    let unique = 0;
+    const alloc = first(ms, 'montant_mensuel'), cp = first(ms, 'conge_parental_pct_smic');
+    let unique = 0, conge = 0, congeTexte = '';
+    if (cp && (p.moisCongeParental || 0) > 0) {
+      const P = cp.m.parametres, R = REF.prepare;
+      const mois = Math.min(p.moisCongeParental, P.conge_parental_duree_mois || R.dureeMaxMois);
+      const rang1 = !(p.enfants > 0), payes = Math.min(mois, rang1 ? R.dureeRang1Mois : R.dureeMaxMois);
+      const mensuelCand = REF.smic.netMensuel * cp.v / 100;
+      conge = mois * mensuelCand - payes * R.tauxPlein;
+      src.push(cp.m.id);
+      congeTexte = '+' + fmt(conge) + ' € sur ' + mois + ' mois de congé parental (' + fmt(mensuelCand) + ' € par mois au lieu de ' + (payes ? fmt(R.tauxPlein) + ' € de PreParE' + (payes < mois ? ' pendant ' + payes + ' mois, puis rien' : '') : 'rien') + ')';
+      lignes.push('congé parental rémunéré à ' + cp.v + ' % du SMIC');
+      hyp.push('Congé parental à temps plein pour un enfant à naître, ' + (rang1 ? 'ton premier : la PreParE est versée aujourd\'hui 6 mois au plus par parent' : 'qui n\'est pas ton premier : la PreParE est versée aujourd\'hui jusqu\'à ses 3 ans') + ' (' + fmt(R.tauxPlein) + ' € par mois à taux plein, sous condition d\'activité antérieure).');
+      hyp.push(cp.v + ' % du SMIC lus comme ' + cp.v + ' % du SMIC net actuel (' + fmt(REF.smic.netMensuel) + ' €) ; calculé sur le SMIC brut, ce serait ' + fmt(REF.smic.brutMensuel * cp.v / 100) + ' € par mois avant cotisations. Durée de 3 ans au plus.');
+      if (cp.m.divergence) hyp.push('Source à confirmer : ' + cp.m.divergence);
+    }
     if (cap && nais > 0) { unique += cap.v * nais; src.push(cap.m.id); lignes.push(nais + ' × ' + cap.v + ' € de capital, bloqué jusqu\'à la retraite'); }
     if (baby && nais > 0) { unique += baby.v * nais; src.push(baby.m.id); lignes.push(nais + ' × ' + baby.v + ' € placés à la naissance'); }
     const mensuel = 0; // l'AAH est traitée dans le domaine « minima sociaux, handicap, jeunes »
     if (unique > 0) hyp.push('Le capital est placé et non versé : tu n\'en disposes pas immédiatement.');
-    if (mensuel || unique) {
+    if (mensuel || unique || conge) {
       const parts = []; if (mensuel) parts.push('+' + mensuel + ' € par mois d\'AAH'); if (unique) parts.push('+' + unique.toLocaleString('fr-FR') + ' € placés pour les enfants à naître (épargne, pas du revenu disponible)');
-      return est('calcule', { valeurMensuelle: mensuel, valeurAnnuelle: mensuel * 12, valeurUnique: unique, message: parts.join(' ; '), formule: lignes.join(' ; '), hypotheses: hyp, mesures: src });
+      if (conge) parts.push(congeTexte);
+      return est('calcule', { valeurMensuelle: mensuel, valeurAnnuelle: mensuel * 12, valeurUnique: Math.round(unique + conge), message: parts.join(' ; '), formule: lignes.join(' ; '), hypotheses: hyp, mesures: src });
     }
+    if (cp && nais > 0) return est('indication', { message: 'Congé parental rémunéré à ' + cp.v + ' % du SMIC pendant 3 ans au plus : renseigne la durée de congé parental que tu prévois pour voir l\'effet.', mesures: [cp.m.id] });
     if (alloc && ((p.enfants || 0) > 0 || nais > 0)) return est('indication', { message: 'Allocation familiale unique de ' + alloc.v + ' €/mois dès le premier enfant, dégressive selon les revenus. Barème non précisé : ton montant ne peut pas être calculé.', mesures: [alloc.m.id] });
     return est('aucune_mesure', { message: 'Aucune mesure calculable sur la famille pour ta situation.' });
   }
@@ -407,7 +432,13 @@
       source: 'Banque de France, projections intermédiaires du 15 septembre 2026 (document PDF : 1,9 % en 2027, 1,6 % en 2028) ; 1,6 % prolongé ensuite par hypothèse' },
     pointIndice: { mensuel: 4.92278, source: 'valeur mensuelle du point, gelée depuis le 1er juillet 2023 (DGAFP)' },
     retenuesFP: { pensionCivile: 0.111, csgCrds: 0.0953, source: 'retenue pour pension civile 11,10 % depuis 2020 (retraitesdeletat.gouv.fr, service-public.gouv.fr F468) ; CSG-CRDS 9,7 % sur 98,25 % du traitement' },
-    fraisInscription: { licence: 178, master: 255, source: 'droits d\'inscription 2026-2027 (service-public.gouv.fr A17481) ; boursiers exonérés' }
+    fraisInscription: { licence: 178, master: 255, source: 'droits d\'inscription 2026-2027 (service-public.gouv.fr A17481) ; boursiers exonérés' },
+    prepare: { tauxPlein: 459.69, dureeRang1Mois: 6, dureeMaxMois: 36,
+      source: 'PreParE à taux plein au 1er avril 2026 : 459,69 € par mois (barème CAF) ; versée 6 mois par parent pour un premier enfant, jusqu\'aux 3 ans de l\'enfant à partir du deuxième' },
+    carenceFP: { jours: 1, tauxMaintien: 0.9,
+      source: 'un jour de carence par arrêt de maladie ordinaire, puis traitement maintenu à 90 % pendant trois mois depuis le 1er mars 2025 (loi de finances pour 2025 ; Conseil d\'État, mars 2026)' },
+    niveauVieMedian: { annuel: 26740, annee: 2024,
+      source: 'niveau de vie médian 2024 : 26 740 € par an et par unité de consommation (Insee, enquête Revenus fiscaux et sociaux, Insee Première n° 2117)' }
   });
   const age2027 = p => REF.anneeRef + 1 - p.anneeNaissance;
   const fmt = n => Math.round(n).toLocaleString('fr-FR');
@@ -543,7 +574,8 @@
   function effetFonction(p, ms) {
     const pi = first(ms, 'point_indice_pct');
     const cibles = ms.filter(m => m.parametres && ['enseignants', 'recherche'].includes(m.parametres.public));
-    if (!pi && !cibles.length) return est('aucune_mesure', { message: 'Aucune mesure sur la rémunération des agents publics.' });
+    const car = first(ms, 'jours_carence_fp');
+    if (!pi && !cibles.length && !car) return est('aucune_mesure', { message: 'Aucune mesure sur la rémunération des agents publics.' });
     if (!['fonctionnaire', 'enseignant', 'recherche'].includes(p.statut)) return est('aucune_mesure', { message: 'Mesures réservées aux agents publics.' });
     const lignes = [], hyp = [], src = [], ind = [];
     let max = null;
@@ -571,6 +603,16 @@
         hyp.push('Hausse appliquée à ton salaire net actuel, primes comprises, et atteinte en fin de quinquennat ; aucune autre évolution de carrière.' + (P.hausse_nette ? '' : ' Le texte ne dit pas brut ou net : appliquée au net.'));
       } else ind.push('Renseigne ton salaire net mensuel.');
     }
+    if (car) {
+      src.push(car.m.id);
+      const C = REF.carenceFP, arrets = p.arretsMaladieAn || 0, net = p.salaireNetMensuel || 0, jours = car.v - C.jours;
+      if (arrets > 0 && net > 0) {
+        const perteAn = arrets * jours * C.tauxMaintien * net / 30;
+        lignes.push({ libelle: car.v + ' jours de carence au lieu de ' + C.jours + ' (' + arrets + ' arrêt' + (arrets > 1 ? 's' : '') + ' par an)', mensuel: -perteAn / 12 });
+        hyp.push('Chaque arrêt de maladie ordinaire perd ' + jours + ' jours de plus, payés aujourd\'hui à 90 % ; journée estimée à 1/30 de ton salaire net. Arrêts supposés d\'au moins ' + car.v + ' jours.');
+      } else if (net > 0) ind.push(car.v + ' jours de carence au lieu de ' + C.jours + ' : renseigne ton nombre d\'arrêts maladie par an pour voir l\'effet.');
+      if (car.m.divergence) hyp.push(car.m.divergence);
+    }
     if (!lignes.length) return ind.length ? est('indication', { message: ind.join(' '), mesures: src }) : est('aucune_mesure', { message: 'Aucune mesure pour ton métier.' });
     const r = resultat(lignes, hyp, src, ind, 0);
     if (max) r.message = r.message.replace(' € par mois', ' € par mois (jusqu\'à +' + fmt(r.valeurMensuelle + max) + ' €)');
@@ -597,6 +639,25 @@
   }
 
   /* ---------- Orchestration ---------- */
+  /* ---------- Santé ---------- */
+  function effetSante(p, ms) {
+    const dep = first(ms, 'depassements_interdits_moitie_modeste');
+    if (!dep) return est('aucune_mesure', { message: 'Aucune mesure calculable sur les frais de santé.' });
+    const plaf = dep.m.parametres.depassements_plafond_pct, montant = p.depassementsAn || 0, src = [dep.m.id];
+    if (!(montant > 0)) return est('indication', { message: 'Dépassements d\'honoraires interdits pour la moitié des ménages les moins aisés' + (plaf ? ', plafonnés à ' + plaf + ' % du tarif de la Sécurité sociale pour les autres' : '') + ' : renseigne ce qu\'ils te coûtent par an pour voir l\'effet.', mesures: src });
+    const couple = !!p.couple, enf = p.enfants || 0;
+    const revenus = ((p.salaireNetMensuel || 0) + (couple ? (p.salaireConjointNetMensuel || 0) : 0) + (p.pensionNette || 0) + (p.aah || 0) + (p.minimaMensuels || 0)) * 12;
+    const uc = 1 + (couple ? 0.5 : 0) + 0.3 * enf;
+    const nv = Math.max(0, revenus - irFoyer(p).impot) / uc, N = REF.niveauVieMedian;
+    const hyp = ['Niveau de vie estimé à ' + fmt(nv) + ' € par an et par unité de consommation : revenus saisis moins l\'impôt sur le revenu estimé, divisés par ' + String(r2(uc)).replace('.', ',') + ' unité(s) (1 pour le premier adulte, 0,5 pour le conjoint, 0,3 par enfant supposé de moins de 14 ans). Aides au logement, allocations familiales et revenus du patrimoine non comptés.',
+      'Comparé au niveau de vie médian de ' + N.annee + ' (' + fmt(N.annuel) + ' €, Insee), dernier connu.'];
+    if (nv < N.annuel) {
+      hyp.push('Montant saisi = ce qui reste à ta charge après ta complémentaire santé ; supposé entièrement supprimé.');
+      return est('calcule', { valeurAnnuelle: Math.round(montant), valeurMensuelle: r2(montant / 12), message: '+' + fmt(montant) + ' € par an : plus de dépassements d\'honoraires pour la moitié des ménages les moins aisés, dont tu fais partie', formule: 'dépassements interdits sous le niveau de vie médian', hypotheses: hyp, mesures: src });
+    }
+    return est('indication', { message: 'Ton niveau de vie estimé dépasse la médiane : tes dépassements seraient plafonnés à ' + plaf + ' % du tarif de la Sécurité sociale. Ce tarif n\'étant pas saisi, l\'effet n\'est pas calculé.', hypotheses: hyp, mesures: src });
+  }
+
   const DOMAINES = [
     { id: 'salaire', titre: 'Salaire minimum et salaires', fn: effetSalaire },
     { id: 'retraite', titre: 'Âge de départ à la retraite', fn: effetRetraite },
@@ -609,7 +670,8 @@
     { id: 'pension', titre: 'Pensions des retraités', fn: effetPension },
     { id: 'minima', titre: 'Minima sociaux, handicap, jeunes et étudiants', fn: effetMinima },
     { id: 'fonction', titre: 'Enseignants et agents publics', fn: effetFonction },
-    { id: 'transports', titre: 'Transports et péages', fn: effetTransports }
+    { id: 'transports', titre: 'Transports et péages', fn: effetTransports },
+    { id: 'sante', titre: 'Santé', fn: effetSante }
   ];
 
   function simuler(profil, candidats, mesuresParCandidat) {
@@ -624,5 +686,5 @@
     return res;
   }
 
-  return { REF, DOMAINES, simuler, irFoyer, effetIR, effetFamille, effetLogement, effetPatrimoine, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, effetPension, effetMinima, effetFonction, effetTransports, annoncesGain };
+  return { REF, DOMAINES, simuler, irFoyer, effetIR, effetFamille, effetLogement, effetPatrimoine, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, effetPension, effetMinima, effetFonction, effetTransports, effetSante, annoncesGain };
 });
