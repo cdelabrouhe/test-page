@@ -204,7 +204,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "divers"
+   "famille": "gauche"
   },
   {
    "id": "cazeneuve",
@@ -262,7 +262,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "divers"
+   "famille": "droite"
   },
   {
    "id": "durif",
@@ -459,7 +459,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "divers"
+   "famille": "centre"
   },
   {
    "id": "mlekuz",
@@ -642,7 +642,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "divers"
+   "famille": "centre"
   },
   {
    "id": "zemmour",
@@ -942,5 +942,5 @@
   "extreme_droite": "Extrême droite",
   "divers": "Divers"
  },
- "note_familles": "Classement par étiquette de parti ou de mouvement, selon les familles usuelles (nuances politiques du ministère de l'Intérieur) : il décrit l'appartenance partisane, pas le contenu des programmes. Sont rangés en « Divers » les candidats sans étiquette, les souverainistes et les mouvements sans famille établie. Un rattachement peut être discuté : il ne vaut pas jugement."
+ "note_familles": "Classement par étiquette de parti ou de mouvement, d'après les familles usuelles (nuances du ministère de l'Intérieur) et, pour les petits candidats, le libellé du site votons-2027.fr : il décrit l'appartenance partisane, pas le contenu des programmes. Sont rangés en « Divers » les candidats sans étiquette ou « ni droite ni gauche » (Riner, Polony), les souverainistes sans rattachement établi (Asselineau, Philippot) et ceux dont aucune source fiable ne donne le positionnement. Les sources divergent parfois (votons-2027.fr classe par exemple Mélenchon à l'extrême gauche) : un rattachement peut être discuté et ne vaut pas jugement."
 }
