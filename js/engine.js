@@ -10,7 +10,7 @@
   /* ---------- Règles actuelles (référence), avec leur source ---------- */
   const REF = {
     anneeRef: 2026,
-    smic: { brutMensuel: 1867.02, netMensuel: 1477.93, source: 'service-public.gouv.fr (F2300, SMIC au 1er juin 2026)' },
+    smic: { brutMensuel: 1896.89, netMensuel: 1502, source: 'SMIC annoncé au 1er décembre 2026 (+1,6 % : 1 502 € net, LCP) ; au 1er juin 2026 : 1 867,02 € brut et 1 477,93 € net (service-public.gouv.fr)' },
     // Âge légal et durée requise par génération (LFSS 2026 : gel à 62 ans 9 mois jusqu'en janvier 2028)
     retraite: {
       // [génération: [ageLegalAnnees, ageLegalMois, trimestresTauxPlein]]

@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Évaluations — présidentielle 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet"><style>
+/* VOICE: fiche de lecture rigoureuse. IDEA: le dossier de presse comparé, thème par thème.
+   PICTURE: la matrice thèmes × candidats. COLOUR and TYPE: mêmes que la page candidats.
+   LAYOUT: titre, filtres, vue par thème (colonnes candidats) ou par candidat. */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#0d1020);--ink:light-dark(#141420,#eceef8);--mute:light-dark(#5d6070,#a3a7bd);--line:light-dark(#d9dbe4,#2c3150);--blue:light-dark(#000091,#9aa8ff);--soft:light-dark(#f3f4fa,#161a33);--red:light-dark(#e1000f,#ff6f6f)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--blue)}
+.band{padding:clamp(24px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header.band{border-top:10px solid var(--blue);padding-bottom:16px}
+h1{font-size:clamp(30px,4.6vw,48px);line-height:1.05;margin:0 0 10px;font-weight:800;font-stretch:112%;color:var(--blue);text-wrap:balance}
+.lede{margin:0;color:var(--mute);max-width:70ch}
+nav a{font-weight:600;margin-right:16px}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:20px 0}
+select,input{font:inherit;font-size:16px;min-height:44px;padding:8px 12px;border:2px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+select:focus,input:focus,.chip:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border:2px solid var(--blue);border-radius:999px;background:transparent;color:var(--blue);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--blue);color:var(--bg)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:16px;align-items:start}
+.col h2{font-size:20px;margin:0 0 4px;font-stretch:108%}
+.col .state{font-size:13px;color:var(--mute);margin:0 0 12px}
+.m{border:2px solid var(--ink);padding:12px 14px;margin-bottom:12px;background:var(--bg)}
+.m h3{margin:0 0 6px;font-size:16px;line-height:1.3;font-weight:700}
+.m p{margin:0 0 6px;font-size:14px;line-height:1.45}
+.fig{font-weight:700;color:var(--red);font-size:14px}
+.th{display:inline-block;font-size:12px;background:var(--soft);color:var(--blue);border-radius:999px;padding:1px 9px;margin-bottom:6px;font-weight:600}
+.fia{font-size:12px;color:var(--mute)}
+.div{font-size:13px;border-left:3px solid var(--red);padding-left:8px;margin:6px 0}
+.src a{font-size:12px;margin-right:8px;white-space:nowrap}
+.sim{font-size:12px;color:var(--blue);font-weight:700}
+.empty{color:var(--mute);border:2px dashed var(--line);padding:14px;font-size:14px}
+.note{font-size:13px;color:var(--mute);margin-top:24px;max-width:75ch}
+
+fieldset{border:2px solid var(--line);padding:14px 16px;margin:0 0 16px}legend{font-weight:700;padding:0 6px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.form label{display:flex;flex-direction:column;font-size:14px;font-weight:600;gap:4px}.form small{font-weight:400;color:var(--mute)}
+.res{border:2px solid var(--ink);padding:14px 16px;margin-bottom:16px}.res h2{margin:0 0 8px;font-size:22px;font-stretch:108%}
+.dom{border-top:1px solid var(--line);padding:8px 0;font-size:14px}.dom h3{margin:0;font-size:14px;color:var(--mute);font-weight:600}
+.val{font-size:18px;font-weight:700}.pos{color:#0a6b2d}.neg{color:#b3261e}
+details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px;padding:1px 9px;background:var(--soft);color:var(--blue);font-weight:600}
+
+h2.f{font-size:26px;margin:36px 0 8px;font-stretch:108%;color:var(--blue)}h3{font-size:17px;margin:18px 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px;margin:16px 0}
+.grid div{border:2px solid var(--line);padding:10px 12px;font-size:14px}.grid b{display:block;margin-bottom:2px}
+.it{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin:0 0 10px;font-size:15px}.it .k{font-weight:700}
+.cand a{margin-right:10px;font-size:14px;white-space:nowrap}.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.three div{background:var(--soft);padding:10px 12px;font-size:14px}.three b{display:block;color:var(--blue)}
+</style></head><body>
+<header class="band"><div class="wrap"><nav><a href="index.html">Candidats</a><a href="programmes.html">Programmes</a><a href="simulateur.html">Simulateur</a><a href="evaluations.html" aria-current="page">Évaluations</a><a href="methode.html">Méthode</a></nav><h1>Évaluer les mesures</h1>
+<p class="lede" id="av">Chargement…</p></div></header>
+<main class="band" style="padding-top:0"><div class="wrap">
+<h2 style="font-size:20px">La grille</h2><p class="note" style="margin-top:0">Chaque mesure est examinée selon les mêmes six critères.</p>
+<div class="grid" id="grille"></div><div id="fiches"></div>
+<p class="note">Les sources sont des documents publics (institutions, centres de recherche, think tanks, presse) ; leur type est indiqué à côté de chaque avis, sans que le comparateur en retienne un plus qu'un autre. Les montants sont ceux des auteurs cités, à leur date.</p>
+</div></main>
+<script>
+{
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);let S={};
+const src=a=>(a||[]).map(i=>S[i]?'<a href="'+esc(S[i].url)+'" rel="noopener">'+esc(S[i].media+(S[i].date?' ('+S[i].date.slice(0,4)+')':''))+'</a>':'').join(' ');
+const items=(l,fn)=>l.map(x=>'<div class="it">'+fn(x)+'</div>').join('')||'<p class="empty">Rien dans les sources consultées.</p>';
+fetch('data/evaluations.json').then(r=>r.json()).then(async E=>{
+ const [sr,cr]=await Promise.all([fetch('data/sources.json').then(r=>r.json()),fetch('data/candidats.json').then(r=>r.json())]);
+ sr.forEach(s=>S[s.id]=s);$('av').textContent=E.avertissement;
+ $('grille').innerHTML=E.grille.map(g=>'<div><b>'+esc(g.titre)+'</b>'+esc(g.question)+'</div>').join('');
+ const C=cr.candidats;const MS={};
+ await Promise.all(C.map(c=>fetch('data/mesures/'+c.id+'.json').then(r=>r.ok?r.json():null).then(d=>{if(d)MS[c.id]=d}).catch(()=>{})));
+ $('fiches').innerHTML=E.fiches.map(f=>{
+  const li=[];Object.keys(MS).sort().forEach(id=>MS[id].mesures.forEach(m=>{if(m.parametres&&f.cles.some(k=>k in m.parametres))li.push([C.find(c=>c.id===id).nom,m])}));
+  return '<section><h2 class="f">'+esc(f.titre)+'</h2>'+
+  '<h3>Candidats concernés</h3><p class="cand">'+(li.map(([n,m])=>'<span title="'+esc(m.intitule)+'">'+esc(n)+'</span>').join(', ')||'Aucun')+'</p>'+
+  '<h3>Précédents</h3>'+items(f.precedents,p=>'<span class="k">'+esc(p.lieu)+(p.annee?', '+esc(p.annee):'')+'</span> — '+esc(p.resume)+' <span class="src">'+src(p.sources)+'</span>')+
+  '<h3>Effets étudiés</h3>'+items(f.effets,p=>'<span class="k">'+esc(p.theme)+'</span> — '+esc(p.resume)+' <span class="src">'+src(p.sources)+'</span>')+
+  '<h3>Coût et financement</h3>'+items(f.couts,p=>'<span class="k">'+esc(p.auteur)+'</span> '+esc(p.resume)+' <span class="src">'+src(p.sources)+'</span>')+
+  '<h3>Avis d\'experts</h3>'+items(f.avis,p=>'<span class="k">'+esc(p.organisation)+'</span> <span class="tag">'+esc(p.type)+'</span> — '+esc(p.position)+' <span class="src">'+src(p.sources)+'</span>')+
+  '<h3>Contraintes de mise en œuvre</h3>'+items(f.contraintes,p=>esc(p.resume)+' <span class="src">'+src(p.sources)+'</span>')+
+  '<h3>Niveau de connaissance</h3><div class="three"><div><b>Établi</b>'+esc(f.connaissance.etabli)+'</div><div><b>Débattu</b>'+esc(f.connaissance.debattu)+'</div><div><b>Inconnu</b>'+esc(f.connaissance.inconnu)+'</div></div></section>';
+ }).join('');
+}).catch(()=>{$('fiches').innerHTML='<p class="empty">Données indisponibles.</p>'});
+}
+</script></body></html>

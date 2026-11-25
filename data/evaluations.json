@@ -1,0 +1,450 @@
+{
+ "verifie_le": "2026-11-25",
+ "avertissement": "Chaque fiche rassemble des faits et des avis sourcés, sans note globale ni verdict. Les avis sont présentés avec le type de leur auteur. Quand une information n'a pas été trouvée dans les sources consultées, la fiche le dit. Cette première version couvre trois sujets et s'appuie sur une recherche limitée : elle n'est pas exhaustive.",
+ "grille": [
+  {
+   "id": "precedents",
+   "titre": "Précédents",
+   "question": "Une mesure comparable a-t-elle déjà été appliquée, en France ou ailleurs, et qu'a-t-on observé ?"
+  },
+  {
+   "id": "effets",
+   "titre": "Effets étudiés",
+   "question": "Que disent les études sur les effets (emploi, prix, pouvoir d'achat, inégalités) ? Les résultats convergent-ils ?"
+  },
+  {
+   "id": "couts",
+   "titre": "Coût et financement",
+   "question": "Quel coût estimé, par qui, et comment la mesure serait-elle financée ?"
+  },
+  {
+   "id": "avis",
+   "titre": "Avis d'experts",
+   "question": "Quels organismes publics, centres de recherche, think tanks, syndicats ou organisations patronales se sont exprimés, et dans quel sens ?"
+  },
+  {
+   "id": "contraintes",
+   "titre": "Contraintes de mise en œuvre",
+   "question": "Y a-t-il des obstacles juridiques (droit européen, constitutionnel) ou pratiques ?"
+  },
+  {
+   "id": "connaissance",
+   "titre": "Niveau de connaissance",
+   "question": "Ce qui est établi, ce qui est débattu, ce qui n'est pas connu. Il n'y a pas de « probabilité de réussite » chiffrée : les sources ne permettent pas d'en donner une honnête."
+  }
+ ],
+ "fiches": [
+  {
+   "id": "age-retraite",
+   "titre": "Âge de départ à la retraite : relever, maintenir ou abaisser",
+   "cles": [
+    "age_legal",
+    "age_minimal",
+    "duree_cotisation_annees",
+    "depart_anticipe_age"
+   ],
+   "precedents": [
+    {
+     "lieu": "France",
+     "annee": "1982",
+     "resume": "La retraite à 60 ans est instaurée en 1982 et appliquée à partir du 1er avril 1983.",
+     "sources": [
+      "ev-atterres"
+     ]
+    },
+    {
+     "lieu": "France",
+     "annee": "2010 à 2023",
+     "resume": "Les réformes successives ont relevé l'âge légal de 60 à 62 ans, puis à 64 ans ; la loi de financement de la Sécurité sociale pour 2026 en suspend la montée en charge.",
+     "sources": [
+      "ev-meilleurtaux",
+      "ev-cor-ra"
+     ]
+    },
+    {
+     "lieu": "Allemagne",
+     "annee": "2012-2031",
+     "resume": "L'âge de départ est repoussé par la loi à 67 ans, de façon progressive entre 2012 et 2031.",
+     "sources": [
+      "ev-ps-europe"
+     ]
+    },
+    {
+     "lieu": "Italie",
+     "annee": "2011-2021",
+     "resume": "Âge de 67 ans pour les hommes en 2011, puis tentatives d'assouplissement, et nouvelle hausse décidée en 2021.",
+     "sources": [
+      "ev-ps-europe"
+     ]
+    },
+    {
+     "lieu": "OCDE",
+     "annee": "depuis 2023",
+     "resume": "Plus de la moitié des pays de l'OCDE prévoient de relever l'âge normal de la retraite pour les futurs pensionnés.",
+     "sources": [
+      "ev-ocde-pag"
+     ]
+    }
+   ],
+   "effets": [
+    {
+     "theme": "Emploi des seniors",
+     "resume": "Le taux d'emploi des plus de 60 ans a augmenté à la suite des réformes ; entre 2010 et 2020, les Français ont travaillé en moyenne 1,7 année de plus.",
+     "sources": [
+      "ev-vp-retraites",
+      "ev-meilleurtaux"
+     ]
+    },
+    {
+     "theme": "Situations de fragilité",
+     "resume": "Les ouvriers qualifiés ont passé en moyenne 0,8 année de plus « ni en emploi, ni en retraite » entre 60 et 62 ans (d'après un compte rendu du rapport de la Cour des comptes). L'Unédic notait aussi une hausse des allocataires indemnisés après 60 ans depuis la réforme de 2010.",
+     "sources": [
+      "ev-meilleurtaux",
+      "ev-cor-unedic"
+     ]
+    },
+    {
+     "theme": "Comparaison internationale",
+     "resume": "L'OCDE relie le relèvement de l'âge d'ouverture des droits et le durcissement des départs anticipés à la hausse du taux d'emploi des seniors.",
+     "sources": [
+      "ev-ocde-emploi"
+     ]
+    }
+   ],
+   "couts": [
+    {
+     "auteur": "COR (projet de rapport 2026, d'après Groupama)",
+     "resume": "Scénario illustratif d'un report progressif de l'âge de départ : 64,4 ans en 2030, 65,8 ans en 2045 et 67,6 ans en 2070.",
+     "sources": [
+      "ev-groupama-cor"
+     ]
+    },
+    {
+     "auteur": "Direction générale du Trésor",
+     "resume": "Parmi les leviers de financement alternatifs, une hausse durable des cotisations dégraderait l'activité (−0,2 point à 5 ans, −0,3 point à 20 ans) et l'emploi.",
+     "sources": [
+      "ev-tresor"
+     ]
+    },
+    {
+     "auteur": "Aucun chiffrage indépendant du coût d'un retour à 60 ans n'a été trouvé dans les sources consultées.",
+     "resume": "",
+     "sources": []
+    }
+   ],
+   "avis": [
+    {
+     "organisation": "Cour des comptes",
+     "type": "institution publique",
+     "position": "Constate la hausse du taux d'emploi des seniors après les réformes et analyse les effets des paramètres du système sur l'emploi et la compétitivité.",
+     "sources": [
+      "ev-vp-retraites"
+     ]
+    },
+    {
+     "organisation": "OCDE",
+     "type": "organisation internationale",
+     "position": "Favorable à un allongement de la vie active et à la hausse de l'emploi des seniors.",
+     "sources": [
+      "ev-ocde-emploi"
+     ]
+    },
+    {
+     "organisation": "OFCE",
+     "type": "centre de recherche",
+     "position": "Un numéro de sa revue (2024) examine les limites d'une réforme qui repose sur le seul paramètre de l'âge pour prolonger la vie active.",
+     "sources": [
+      "ev-ofce-184"
+     ]
+    },
+    {
+     "organisation": "Économistes atterrés",
+     "type": "collectif d'économistes",
+     "position": "Replace les réformes dans l'histoire depuis 1982 et plaide pour un débat sur d'autres solutions que le report de l'âge.",
+     "sources": [
+      "ev-atterres"
+     ]
+    }
+   ],
+   "contraintes": [
+    {
+     "resume": "Le calendrier légal actuel est gelé à 62 ans et 9 mois jusqu'en janvier 2028 par la loi de financement de la Sécurité sociale pour 2026 ; toute autre trajectoire exige une loi.",
+     "sources": [
+      "ev-cor-ra"
+     ]
+    }
+   ],
+   "connaissance": {
+    "etabli": "Les reports d'âge ont accru l'emploi des seniors en France et dans la plupart des pays de l'OCDE.",
+    "debattu": "Le poids des effets négatifs pour certaines catégories (carrières longues, métiers pénibles), et l'efficacité du seul levier de l'âge.",
+    "inconnu": "Le coût net d'un retour à 60 ans n'est pas chiffré dans les sources consultées."
+   }
+  },
+  {
+   "id": "smic",
+   "titre": "Hausse du SMIC ou des salaires minimaux",
+   "cles": [
+    "smic_net_mensuel",
+    "smic_brut_mensuel",
+    "smic_mensuel",
+    "smic_hausse_pct",
+    "revenu_min_net",
+    "hausse_salaires"
+   ],
+   "precedents": [
+    {
+     "lieu": "France",
+     "annee": "1981",
+     "resume": "Hausse de 10 % du SMIC en 1981, évoquée comme la plus forte hausse depuis plus de 40 ans avant celle proposée en 2024.",
+     "sources": [
+      "ev-moneyvox-smic"
+     ]
+    },
+    {
+     "lieu": "Allemagne",
+     "annee": "2015",
+     "resume": "Introduction d'un salaire minimum national. Les premières évaluations citées par le groupe d'experts français relèvent un effet sur les salaires limité par une application différée et des ajustements de durée du travail, et des effets à court terme limités sur l'emploi et les prix.",
+     "sources": [
+      "ev-smic-2016"
+     ]
+    }
+   ],
+   "effets": [
+    {
+     "theme": "Emploi",
+     "resume": "Les estimations divergent. Une estimation datant de 2000 évoquait 290 000 emplois détruits pour une hausse de 10 % ; l'économiste Éric Heyer estimait qu'un SMIC à 1 600 € pourrait générer 142 000 emplois par la demande ; Bercy chiffrait à 20 000 les emplois supprimés pour la hausse de 1,6 % de décembre 2026.",
+     "sources": [
+      "ev-mont-budget",
+      "ev-moneyvox-smic",
+      "ev-lcp-smic"
+     ]
+    },
+    {
+     "theme": "Rapport du groupe d'experts sur le SMIC",
+     "resume": "Les effets sur l'emploi des hausses du salaire minimum peuvent ne pas être univoques selon le niveau de départ, certaines études trouvant des effets positifs ; ces résultats ne sont pas automatiquement transposables.",
+     "sources": [
+      "ev-smic-2019"
+     ]
+    },
+    {
+     "theme": "Coût du travail et allègements",
+     "resume": "Compte tenu des allègements de cotisations, une hausse de 1 % du SMIC augmente le coût du travail de 0,7 % au premier décile mais le diminue pour les deuxième à cinquième déciles, selon une étude de l'OFCE de 2012.",
+     "sources": [
+      "ev-ofce-2012"
+     ]
+    },
+    {
+     "theme": "Ciblage",
+     "resume": "Le groupe d'experts a montré qu'une revalorisation de la prime d'activité réduit davantage la pauvreté qu'un relèvement du SMIC de même valeur (100 € nets par mois) ; l'effet d'une hausse du SMIC sur le revenu disponible est atténué par le système socio-fiscal.",
+     "sources": [
+      "ev-smic-2019"
+     ]
+    }
+   ],
+   "couts": [
+    {
+     "auteur": "Institut Montaigne (2024)",
+     "resume": "Un SMIC à 1 600 € net (+14 %) coûterait 19 Md€ par an (17 Md€ en estimation basse), avec 10,5 Md€ de charge additionnelle d'ici 2027 en cas d'indexation sur l'inflation. Le chiffrage initial du Nouveau Front populaire (3,5 Md€) ne portait que sur l'effet prix immédiat.",
+     "sources": [
+      "ev-mont-nfp",
+      "ev-mont-budget"
+     ]
+    },
+    {
+     "auteur": "Fondation IFRAP (2026)",
+     "resume": "Pour la hausse de 1,6 % : le coût annuel d'un salarié au SMIC augmente de près de 1 000 €, pour moins de 9 € nets supplémentaires par mois, du fait de la baisse des allègements de charges.",
+     "sources": [
+      "ev-ifrap-smic"
+     ]
+    },
+    {
+     "auteur": "France Stratégie",
+     "resume": "Environ 50 Md€ par an sont consacrés aux allègements du coût du travail, en lien avec le niveau du SMIC.",
+     "sources": [
+      "ev-strat-smic"
+     ]
+    }
+   ],
+   "avis": [
+    {
+     "organisation": "Groupe d'experts sur le SMIC",
+     "type": "institution publique",
+     "position": "Recommande de tenir compte des effets sur l'emploi des moins qualifiés et suggère de modifier la formule de revalorisation.",
+     "sources": [
+      "ev-smic-2019"
+     ]
+    },
+    {
+     "organisation": "Medef",
+     "type": "organisation patronale",
+     "position": "Estime qu'un SMIC à 1 600 € gèlerait des millions de projets d'embauche (cité par Politis).",
+     "sources": [
+      "ev-politis"
+     ]
+    },
+    {
+     "organisation": "Économiste interrogé par Politis",
+     "type": "presse partisane (économistes hétérodoxes)",
+     "position": "Soutient que dans la plupart des entreprises la hausse du SMIC réduirait les coûts salariaux.",
+     "sources": [
+      "ev-politis"
+     ]
+    },
+    {
+     "organisation": "Fondation Jean-Jaurès",
+     "type": "think tank",
+     "position": "Propose une hausse progressive jusqu'à 1 600 € accompagnée d'un recentrage des exonérations de charges.",
+     "sources": [
+      "ev-jj-smic"
+     ]
+    },
+    {
+     "organisation": "Institut de l'entreprise",
+     "type": "think tank",
+     "position": "Souligne que le SMIC a progressé de 37 % en euros constants depuis 2000, contre environ 20 % pour la productivité horaire.",
+     "sources": [
+      "ev-idep"
+     ]
+    }
+   ],
+   "contraintes": [
+    {
+     "resume": "Le coût pour les finances publiques passe en grande partie par les allègements de cotisations employeurs, qui représentent environ 50 Md€ par an et évoluent avec le SMIC.",
+     "sources": [
+      "ev-strat-smic"
+     ]
+    }
+   ],
+   "connaissance": {
+    "etabli": "Une hausse du SMIC augmente les salaires les plus bas ; son coût pour les finances publiques passe en grande partie par les allègements de cotisations.",
+    "debattu": "L'ampleur des effets sur l'emploi : les estimations vont de milliers de créations à des centaines de milliers de destructions selon les hypothèses et les auteurs.",
+    "inconnu": "Pas d'étude identifiée sur une hausse aussi forte que +14 % à +35 % en France dans les sources consultées."
+   }
+  },
+  {
+   "id": "tva",
+   "titre": "TVA : hausse du taux normal, baisse sur l'énergie",
+   "cles": [
+    "hausse_tva_points",
+    "tva_normale_pct",
+    "tva_energie_pct",
+    "tva_reduite_energie_pct"
+   ],
+   "precedents": [
+    {
+     "lieu": "Allemagne",
+     "annee": "2007",
+     "resume": "Hausse de 3 points du taux normal de TVA, de 16 % à 19 %, au 1er janvier 2007.",
+     "sources": [
+      "ev-ofce-tva"
+     ]
+    },
+    {
+     "lieu": "France",
+     "annee": "2014",
+     "resume": "Hausse du taux normal de TVA, avec des recettes supplémentaires attendues de 5,2 Md€ selon le projet de loi de finances pour 2014.",
+     "sources": [
+      "ev-insee-tva-ew"
+     ]
+    },
+    {
+     "lieu": "Allemagne",
+     "annee": "2020",
+     "resume": "Baisse temporaire de la TVA : les baisses ont été répercutées sur les prix à la pompe à hauteur d'environ 83 % pour le diesel, 61 % pour l'E10 et 40 % pour l'E5.",
+     "sources": [
+      "ev-de-pass"
+     ]
+    }
+   ],
+   "effets": [
+    {
+     "theme": "Niveau de vie",
+     "resume": "Selon l'Insee, après trois ans, une hausse de 3 points du taux normal (de 20 % à 23 %) laisserait le niveau de vie des ménages inférieur de 5,0 Md€ en termes réels à ce qu'il aurait été sans hausse, et augmenterait légèrement les inégalités et la pauvreté. L'étude est une microsimulation, sous hypothèses de diffusion aux prix.",
+     "sources": [
+      "ev-insee-tva",
+      "ev-insee-tva-ew"
+     ]
+    },
+    {
+     "theme": "Compétitivité",
+     "resume": "Une amélioration de compétitivité est visible après les transferts de charges sociales vers la TVA en France (1995) et en Allemagne (2007), selon COE-Rexecode ; ces épisodes combinaient plusieurs mesures.",
+     "sources": [
+      "ev-rexecode"
+     ]
+    },
+    {
+     "theme": "Baisse de la TVA sur l'énergie",
+     "resume": "Le gouvernement soutenait en 2023 que les baisses de TVA donnent rarement lieu à une baisse des prix ou qu'elle reste très limitée ; l'étude allemande de 2020 trouve une répercussion rapide mais incomplète, très variable selon le carburant. L'Institut Montaigne juge l'effet sur la consommation incertain.",
+     "sources": [
+      "ev-an-tva",
+      "ev-de-pass",
+      "ev-mont-tva22"
+     ]
+    }
+   ],
+   "couts": [
+    {
+     "auteur": "Institut Montaigne",
+     "resume": "Le coût d'une baisse de la TVA de 20 % à 5,5 % sur l'énergie pourrait être amoindri si la consommation augmente, et accru si les cours mondiaux montent.",
+     "sources": [
+      "ev-mont-tva22"
+     ]
+    },
+    {
+     "auteur": "Fondation Jean-Jaurès",
+     "resume": "Qualifie la baisse de la TVA à 5,5 % sur l'énergie de très coûteuse pour les finances publiques.",
+     "sources": [
+      "ev-jj-tva"
+     ]
+    }
+   ],
+   "avis": [
+    {
+     "organisation": "Insee",
+     "type": "institution publique",
+     "position": "Montre, par microsimulation, qu'une hausse de la TVA pèse légèrement plus sur les ménages modestes à moyen terme.",
+     "sources": [
+      "ev-insee-tva"
+     ]
+    },
+    {
+     "organisation": "COE-Rexecode",
+     "type": "institut d'études économiques",
+     "position": "Relève une amélioration de compétitivité après les transferts de charges vers la TVA en France et en Allemagne.",
+     "sources": [
+      "ev-rexecode"
+     ]
+    },
+    {
+     "organisation": "Fondation Jean-Jaurès",
+     "type": "think tank",
+     "position": "Juge la baisse de TVA sur l'énergie ni efficace ni équitable pour les ménages modestes.",
+     "sources": [
+      "ev-jj-tva"
+     ]
+    },
+    {
+     "organisation": "Gouvernement (réponse à une question écrite, 2023)",
+     "type": "institution publique",
+     "position": "Estime que la baisse de la TVA sur les carburants n'est pas assurée d'être répercutée aux consommateurs.",
+     "sources": [
+      "ev-an-tva"
+     ]
+    }
+   ],
+   "contraintes": [
+    {
+     "resume": "Selon Public Sénat, une baisse de la TVA à 5,5 % sur les carburants se heurterait au droit européen en vigueur.",
+     "sources": [
+      "ev-ps-regle"
+     ]
+    }
+   ],
+   "connaissance": {
+    "etabli": "La TVA est payée par tous les ménages ; une hausse est répercutée en grande partie sur les prix.",
+    "debattu": "La répercussion des baisses de TVA sur les prix, l'effet net d'un transfert vers la TVA sur l'emploi et la compétitivité.",
+    "inconnu": "Le chiffrage de la baisse de TVA sur l'énergie (taux de répercussion et consommation) n'est pas disponible dans les sources consultées."
+   }
+  }
+ ]
+}

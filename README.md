@@ -10,7 +10,7 @@ Test en local : `python3 -m http.server` puis http://localhost:8000
 2. Liste des thèmes (`data/themes.json`).
 3. Programmes / mesures par candidat et par thème (`data/mesures/<id>.json`).
 4. Simulateur : un citoyen saisit sa situation et voit ce que chaque programme changerait pour lui. **Fait pour 8 domaines** (salaire minimum, retraite, TVA/énergie, heures sup, impôt sur le revenu, famille, logement, patrimoine/succession). `js/engine.js` (moteur pur, testé par `node js/engine.test.js`) et `simulateur.html`.
-5. Évaluation de chaque mesure : précédents (France/étranger), probabilité de réussite, financement, avis d'experts. **À faire.**
+5. Évaluation de chaque mesure : précédents (France/étranger), effets étudiés, coût et financement, avis d'experts, contraintes, niveau de connaissance (pas de probabilité chiffrée : décision de neutralité). **Fait pour 3 sujets** (âge de la retraite, SMIC, TVA) dans `data/evaluations.json` et `evaluations.html`. À étendre.
 
 ## Décisions de méthode
 - **Neutralité** : candidats en ordre alphabétique, aucune mesure sans source, aucun score global par candidat, aucun avis éditorial.
@@ -27,7 +27,7 @@ Test en local : `python3 -m http.server` puis http://localhost:8000
 - `sources.json` : `id`, `titre`, `media`, `date`, `url`.
 
 ## État de la collecte (25 novembre 2026)
-27 candidats ont des mesures (vagues 1 à 5). Programmes souvent partiels : voir `etat_programme` de chaque fichier.
+27 candidats ont des mesures (vagues 1 à 6 ; la vague 6 a complété Dupont-Aignan, Philippot, Tondelier et Bertrand depuis les pages thématiques de votons-2027.fr). Programmes souvent partiels : voir `etat_programme` de chaque fichier.
 Sans fiche : Barrot, Bergé, Billetdoux, Breton, Cheve, Collovati, Durif, Egger (programme de 82 mesures signalé, non relevé), Lagarde, Lalanne, Lassalle, Legendre, Markovic, Mathieu, Mikolajczak, Mlekuz, Pigasse, Platret, Riner, Rohou, Villiers.
 
 ## Publication

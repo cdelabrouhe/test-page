@@ -810,5 +810,229 @@
   "media": "votons-2027.fr (relevé de nousfrance.fr)",
   "date": "2026-11",
   "url": "https://votons-2027.fr/candidats/bertrand/programme/immigration"
+ },
+ {
+  "id": "ev-vp-retraites",
+  "titre": "Financement des retraites : quels leviers de réforme à l'avenir ? (rapport de la Cour des comptes, 10 avril 2025)",
+  "media": "Vie-publique.fr",
+  "date": "2025-04",
+  "url": "https://www.vie-publique.fr/en-bref/298187-financement-des-retraites-quel-leviers-de-reformes-lavenir"
+ },
+ {
+  "id": "ev-atterres",
+  "titre": "En attendant le prochain coup de grisou contre les retraites (historique des réformes)",
+  "media": "Les Économistes atterrés",
+  "date": "2026-07",
+  "url": "https://www.atterres.org/wp-content/uploads/2026/07/En-attendant-le-prochain-coup-de-grisou-contre-les-retraites.pdf"
+ },
+ {
+  "id": "ev-meilleurtaux",
+  "titre": "Réforme des retraites : la Cour des comptes tire la sonnette d'alarme (compte rendu du rapport d'avril 2025)",
+  "media": "Meilleurtaux Placement",
+  "date": "2025-04",
+  "url": "https://placement.meilleurtaux.com/retraite/actualites/2025-avril/reforme-retraites-cour-comptes-tire-sonnette-alarme.html"
+ },
+ {
+  "id": "ev-ps-europe",
+  "titre": "Retraites : que font nos voisins européens ?",
+  "media": "Public Sénat",
+  "date": "",
+  "url": "https://www.publicsenat.fr/actualites/societe/retraites-que-font-nos-voisins-europeens-231454"
+ },
+ {
+  "id": "ev-ocde-pag",
+  "titre": "Panorama des pensions 2025 : réformes récentes",
+  "media": "OCDE",
+  "date": "2025-11",
+  "url": "https://www.oecd.org/fr/publications/2025/11/pensions-at-a-glance-2025_76510fe4/full-report/recent-pension-reforms_146d2687.html"
+ },
+ {
+  "id": "ev-ocde-emploi",
+  "titre": "Perspectives de l'emploi de l'OCDE 2025 : travailleurs âgés",
+  "media": "OCDE",
+  "date": "2025-07",
+  "url": "https://www.oecd.org/fr/publications/2025/07/oecd-employment-outlook-2025_5345f034/full-report/component-7.html"
+ },
+ {
+  "id": "ev-ofce-184",
+  "titre": "Réforme des retraites et emploi des seniors (Revue de l'OFCE n° 184)",
+  "media": "OFCE",
+  "date": "2024",
+  "url": "https://ofce.sciences-po.fr/pdf/revue/184/revue-184.pdf"
+ },
+ {
+  "id": "ev-tresor",
+  "titre": "Chiffrage de leviers de financement des retraites (modèle Mésange)",
+  "media": "Direction générale du Trésor, document du COR",
+  "date": "2026-03",
+  "url": "https://www.cor-retraites.fr/sites/default/files/2026-03/Doc_03_DG%20Tr%C3%A9sor_mod%C3%A8le_r%C3%A9sultats.pdf"
+ },
+ {
+  "id": "ev-groupama-cor",
+  "titre": "Vers un départ à la retraite à 67,6 ans ? Projet de rapport du COR",
+  "media": "Groupama (compte rendu)",
+  "date": "2026",
+  "url": "https://manouvellevie.groupama.fr/s-informer-retraite/tout-savoir-age-depart-retraite/vers-une-retraite-a-67-6-ans-ce-que-dit-le-rapport-du-cor-2026"
+ },
+ {
+  "id": "ev-cor-unedic",
+  "titre": "Compte rendu de la réunion du COR de janvier 2022 (chômage des seniors après la réforme de 2010)",
+  "media": "SNES (compte rendu syndical)",
+  "date": "2022-01",
+  "url": "https://www.reims.snes.edu/IMG/pdf/compterenducorreunionjanvier2022.pdf"
+ },
+ {
+  "id": "ev-smic-2016",
+  "titre": "Salaire minimum interprofessionnel de croissance, rapport du groupe d'experts (5 décembre 2016)",
+  "media": "Vie-publique.fr",
+  "date": "2016-12",
+  "url": "https://www.vie-publique.fr/rapport/38036-salaire-minimum-interprofessionnel-de-croissance-5-decembre-2016"
+ },
+ {
+  "id": "ev-smic-2019",
+  "titre": "Salaire minimum interprofessionnel de croissance, rapport du groupe d'experts",
+  "media": "Vie-publique.fr",
+  "date": "2019",
+  "url": "https://www.vie-publique.fr/sites/default/files/rapport/pdf/272396_0.pdf"
+ },
+ {
+  "id": "ev-mont-nfp",
+  "titre": "Augmenter le Smic à 1 600 € net (chiffrage du Nouveau Front populaire)",
+  "media": "Institut Montaigne",
+  "date": "2024",
+  "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/augmenter-le-smic-a-1600-e-net"
+ },
+ {
+  "id": "ev-mont-budget",
+  "titre": "Budget 2025 : améliorer la rémunération du travail",
+  "media": "Institut Montaigne",
+  "date": "2024",
+  "url": "https://www.institutmontaigne.org/expressions/budget-2025-ameliorer-la-remuneration-du-travail-volonte-partagee-action-limitee"
+ },
+ {
+  "id": "ev-moneyvox-smic",
+  "titre": "SMIC à 1 600 euros : les pour et les contre",
+  "media": "MoneyVox",
+  "date": "2024",
+  "url": "https://www.moneyvox.fr/votre-argent/actualites/98673/smic-a-1-600-euros-les-pour-et-les-contre"
+ },
+ {
+  "id": "ev-politis",
+  "titre": "La hausse du Smic réduirait les coûts salariaux",
+  "media": "Politis",
+  "date": "2024-07",
+  "url": "https://www.politis.fr/articles/2024/07/la-hausse-du-smic-reduirait-les-couts-salariaux/"
+ },
+ {
+  "id": "ev-idep",
+  "titre": "Effet d'une hausse du SMIC et du coût du travail (note de contexte)",
+  "media": "Institut de l'entreprise (IDEP)",
+  "date": "2026-06",
+  "url": "https://www.institut-entreprise.fr/wp-content/uploads/2026/06/Effet-dune-hausse-du-SMIC-et-du-cout-du-travail-Note-de-contexte-IDEP.pdf"
+ },
+ {
+  "id": "ev-ifrap-smic",
+  "titre": "SMIC : ce que va coûter en plus aux entreprises une hausse de 1,6 %",
+  "media": "Fondation IFRAP",
+  "date": "2026",
+  "url": "https://www.ifrap.org/emploi-et-politiques-sociales/smic-ce-que-va-couter-en-plus-aux-entreprises-une-hausse-16"
+ },
+ {
+  "id": "ev-lcp-smic",
+  "titre": "Hausse du Smic : 20 000 emplois pourraient être supprimés, selon Bercy",
+  "media": "LCP",
+  "date": "2026",
+  "url": "https://lcp.fr/actualites/hausse-du-smic-20000-emplois-pourraient-etre-supprimes-selon-bercy-445296"
+ },
+ {
+  "id": "ev-ofce-2012",
+  "titre": "Revue de l'OFCE 2012 : hausse du Smic et allègements de cotisations",
+  "media": "OFCE",
+  "date": "2012",
+  "url": "https://www.ofce.sciences-po.fr/pdf/revue/12-2012-1.pdf"
+ },
+ {
+  "id": "ev-jj-smic",
+  "titre": "Pour une hausse progressive du Smic jusqu'à 1 600 euros accompagnée d'une réduction des exonérations sociales",
+  "media": "Fondation Jean-Jaurès",
+  "date": "2024",
+  "url": "https://www.jean-jaures.org/publication/pour-une-hausse-progressive-du-smic-jusqua-1600-euros-accompagnee-dune-reduction-des-exonerations-sociales/"
+ },
+ {
+  "id": "ev-strat-smic",
+  "titre": "Synthèse du séminaire sur le salaire minimum (septembre 2016)",
+  "media": "France Stratégie",
+  "date": "2016-09",
+  "url": "https://strategie.gouv.fr/files/files/Publications/2017%20SP/2017-07-07%20-%20Les%20exon%C3%A9rations%20g%C3%A9n%C3%A9rales%20de%20cotisations%20-%20Rapport%202017%20du%20COSAPE/fs-synthese-seminaire-salaire-minimum-septembre2016-final.pdf"
+ },
+ {
+  "id": "ev-insee-tva",
+  "titre": "À moyen terme, une hausse de la TVA augmente légèrement les inégalités de niveau de vie et la pauvreté",
+  "media": "Insee Analyses",
+  "date": "2019",
+  "url": "https://www.insee.fr/fr/statistiques/3713290"
+ },
+ {
+  "id": "ev-insee-tva-ew",
+  "titre": "Effets de moyen terme d'une hausse de TVA (André et Biotteau, version anglaise)",
+  "media": "Insee, Économie et Statistique",
+  "date": "2019",
+  "url": "https://www.insee.fr/en/statistiques/fichier/5347210/01-ES522-523_Andre-Biotteau_EN.pdf"
+ },
+ {
+  "id": "ev-ofce-tva",
+  "titre": "TVA « sociale » : que retenir de l'expérience allemande ?",
+  "media": "OFCE (Clair et net)",
+  "date": "2007-07",
+  "url": "https://ofce.sciences-po.fr/pdf/clair&net/clair&net-20.pdf"
+ },
+ {
+  "id": "ev-rexecode",
+  "titre": "Expériences passées de transfert de charges sociales vers la fiscalité",
+  "media": "COE-Rexecode",
+  "date": "2012-02",
+  "url": "https://rexecode.fr/media/documents/etudes-publiques/experiences-passees-de-transfert-de-charges-sociales-vers-la-fiscalite-note-d-actualite-fevrier-2012"
+ },
+ {
+  "id": "ev-mont-tva22",
+  "titre": "Baisser la TVA de 20 à 5,5 % pour les carburants, l'électricité, le gaz et le fioul domestique (proposition 2022)",
+  "media": "Institut Montaigne",
+  "date": "2022",
+  "url": "https://www.institutmontaigne.org/presidentielle-2022/legislatives-2022/rassemblement-national/baisser-la-tva-de-20-a-55-pour-les-carburants-lelectricite-le-gaz-et-le-fioul-domestique-2/"
+ },
+ {
+  "id": "ev-jj-tva",
+  "titre": "Programme du RN : la baisse de la TVA à 5,5 % sur l'énergie, une mesure coûteuse et inefficace pour le pouvoir d'achat",
+  "media": "Fondation Jean-Jaurès",
+  "date": "2024",
+  "url": "https://www.jean-jaures.org/publication/programme-du-rn-la-baisse-de-la-tva-a-55-sur-lenergie-une-mesure-couteuse-et-inefficace-pour-le-pouvoir-dachat/"
+ },
+ {
+  "id": "ev-an-tva",
+  "titre": "Réponse du gouvernement à une question écrite sur la TVA des carburants",
+  "media": "Assemblée nationale",
+  "date": "2023",
+  "url": "https://questions.assemblee-nationale.fr/dyn/16/questions/QANR5L16QE11358.pdf"
+ },
+ {
+  "id": "ev-de-pass",
+  "titre": "Are temporary value-added tax reductions passed on to consumers? Evidence from Germany's stimulus",
+  "media": "arXiv (étude universitaire)",
+  "date": "2020",
+  "url": "https://arxiv.org/pdf/2008.08511"
+ },
+ {
+  "id": "ev-ps-regle",
+  "titre": "Carburants : que cache la « règle d'or » promise par Sébastien Lecornu",
+  "media": "Public Sénat",
+  "date": "2026",
+  "url": "https://www.publicsenat.fr/actualites/economie/carburants-que-cache-la-regle-dor-promise-par-sebastien-lecornu"
+ },
+ {
+  "id": "ev-cor-ra",
+  "titre": "Rapport annuel du COR de juin 2026 : âge légal et loi de financement de la Sécurité sociale pour 2026",
+  "media": "Conseil d'orientation des retraites",
+  "date": "2026-06",
+  "url": "https://www.cor-retraites.fr/sites/default/files/2026-06/RA_Part1_Chap2.pdf"
  }
 ]
