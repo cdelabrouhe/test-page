@@ -10,17 +10,17 @@
   /* ---------- Règles actuelles (référence), avec leur source ---------- */
   const REF = {
     anneeRef: 2026,
-    smic: { brutMensuel: 1896.89, netMensuel: 1502, source: 'SMIC annoncé au 1er décembre 2026 (+1,6 % : 1 502 € net, LCP) ; au 1er juin 2026 : 1 867,02 € brut et 1 477,93 € net (service-public.gouv.fr)' },
+    smic: { brutMensuel: 1896.89, netMensuel: 1502, source: 'SMIC au 1er décembre 2026 : hausse de 1,6 % annoncée par le gouvernement le 9 novembre 2026 (code.travail.gouv.fr), soit 1 502 € net ; montant brut estimé, le décret n\'était pas encore paru au Journal officiel au 25 novembre 2026. Au 1er juin 2026 : 1 867,02 € brut et 1 477,93 € net (info.gouv.fr)' },
     // Âge légal et durée requise par génération (LFSS 2026 : gel à 62 ans 9 mois jusqu'en janvier 2028)
     retraite: {
       // [génération: [ageLegalAnnees, ageLegalMois, trimestresTauxPlein]]
       parGeneration: {
-        1960: [62, 0, 167], 1961: [62, 3, 169], 1962: [62, 6, 169], 1963: [62, 9, 170], 1964: [62, 9, 170],
+        1960: [62, 0, 167], 1961: [62, 0, 168], 1962: [62, 6, 169], 1963: [62, 9, 170], 1964: [62, 9, 170],
         1965: [63, 0, 171], 1966: [63, 3, 172], 1967: [63, 6, 172], 1968: [63, 9, 172]
       },
       defaut: [64, 0, 172], // générations 1969 et suivantes
       avant1960: [62, 0, 167],
-      source: 'service-public.gouv.fr (A18825), LFSS 2026 — pour 1965, valeurs avril-décembre (les nés au 1er trimestre partent à 62 ans 9 mois)'
+      source: 'service-public.gouv.fr (A18825), LFSS 2026 — pour 1965, valeurs avril-décembre (les nés au 1er trimestre partent à 62 ans 9 mois avec 170 trimestres) ; pour 1961, valeurs janvier-août (les nés du 1er septembre au 31 décembre 1961 partent à 62 ans 3 mois avec 169 trimestres)'
     },
     tva: { normal: 20, reduit: 5.5, source: 'taux en vigueur (CGI)' },
     heuresSup: { majoration1: 25, majoration2: 50, seuilMajoration2: 8, plafondIRNet: 7500, reductionCotis: 11.31, tauxCsgCrds: 0.0953,
@@ -251,17 +251,17 @@
     ir: { tranches: [[11600, 0], [29579, 0.11], [84577, 0.30], [181917, 0.41], [Infinity, 0.45]],
       plafondDemiPart: 1807, plafondParentIsole: 4262, decote: { seul: [1982, 897], couple: [3277, 1483], taux: 0.4525 },
       abattementSalaires: 0.10,
-      source: 'service-public.gouv.fr (F1419), loi de finances pour 2026 : barème revalorisé de 0,9 % ; plafond du quotient familial et décote selon BOFiP (avril 2026)' },
+      source: 'service-public.gouv.fr (F1419), loi de finances pour 2026 : barème revalorisé de 0,9 % ; plafond du quotient familial (1 807 € par demi-part) et décote (897 € / 1 483 €, 45,25 %) selon BOFiP (actualité du 7 avril 2026) ; les montants du PLF 2027 ne sont pas encore en vigueur' },
     succession: { abattementLigneDirecte: 100000,
       bareme: [[8072, 0.05], [12109, 0.10], [15932, 0.15], [552324, 0.20], [902838, 0.30], [1805677, 0.40], [Infinity, 0.45]],
-      source: 'impots.gouv.fr, droits de succession en ligne directe' },
+      source: 'service-public.gouv.fr (F35794), droits de succession en ligne directe ; abattement de 100 000 € par parent et par enfant' },
     fraisAcquisitionAncien: 0.075, plancherIFI: 1300000
   });
   Object.assign(REF, {
     fortune: { seuil: 1300000, bareme: [[800000, 0], [1300000, 0.005], [2570000, 0.007], [5000000, 0.01], [10000000, 0.0125], [Infinity, 0.015]], decoteJusqua: 1400000, decoteForfait: 17500, decoteTaux: 0.0125,
-      source: 'IFI 2026 : seuil de 1,3 M€, barème de 0,5 % à 1,5 % dès 800 000 €, abattement de 30 % sur la résidence principale (service-public.gouv.fr F138 et F563) ; décote entre 1,3 et 1,4 M€ : formule à confirmer' },
+      source: 'IFI 2026 : seuil de 1,3 M€, barème de 0,5 % à 1,5 % dès 800 000 €, abattement de 30 % sur la résidence principale (service-public.gouv.fr F138 et F563) ; décote entre 1,3 et 1,4 M€ : 17 500 € − 1,25 % du patrimoine net taxable (service-public.gouv.fr F138)' },
     pfu: { taux: 0.314, source: 'prélèvement forfaitaire unique 31,4 % depuis le 1er janvier 2026 (LFSS 2026), 30 % pour l\'assurance-vie et quelques revenus' },
-    chequeEnergie: { plafondRfrUc: 11000, source: 'plafond de 11 000 € de revenu fiscal de référence par unité de consommation (campagne 2026)' }
+    chequeEnergie: { plafondRfrUc: 11000, source: 'plafond de 11 000 € de revenu fiscal de référence par unité de consommation (campagne 2026, energie-info.fr, médiateur national de l\'énergie)' }
   });
   const progressif = (x, bareme) => { let prev = 0, tot = 0; for (const [lim, t] of bareme) { if (x > prev) tot += (Math.min(x, lim) - prev) * t; prev = lim; } return tot; };
   function irFoyer(p, opts) {
@@ -400,14 +400,14 @@
 
   /* ---------- Références 2026 : minima, pensions, fonction publique ---------- */
   Object.assign(REF, {
-    aah: { max: 1041.59, source: 'AAH à taux plein au 1er avril 2026 (décret n° 2026-229 du 30 mars 2026)' },
-    rsa: { seul: 651.69, source: 'RSA personne seule au 1er avril 2026 (décret n° 2026-220 du 30 mars 2026)' },
-    aspa: { seul: 1043.59, source: 'ASPA personne seule au 1er janvier 2026 (Cnav)' },
+    aah: { max: 1041.59, source: 'AAH à taux plein au 1er avril 2026 (décret n° 2026-229 du 30 mars 2026) : revalorisation de 0,8 % (service-public.gouv.fr A15599)' },
+    rsa: { seul: 651.69, source: 'RSA personne seule au 1er avril 2026 (décret n° 2026-220 du 30 mars 2026, barème CAF)' },
+    aspa: { seul: 1043.59, source: 'ASPA personne seule au 1er janvier 2026 (solidarites.gouv.fr)' },
     inflation: { parAnnee: { 2027: 1.9, 2028: 1.6 }, defaut: 1.6,
-      source: 'Banque de France, projections du 15 septembre 2026 (1,9 % en 2027, 1,6 % en 2028) ; 1,6 % prolongé ensuite par hypothèse' },
+      source: 'Banque de France, projections intermédiaires du 15 septembre 2026 (document PDF : 1,9 % en 2027, 1,6 % en 2028) ; 1,6 % prolongé ensuite par hypothèse' },
     pointIndice: { mensuel: 4.92278, source: 'valeur mensuelle du point, gelée depuis le 1er juillet 2023 (DGAFP)' },
-    retenuesFP: { pensionCivile: 0.111, csgCrds: 0.0953, source: 'retenue pour pension civile 11,10 % ; CSG-CRDS 9,7 % sur 98,25 % du traitement' },
-    fraisInscription: { licence: 178, master: 255, source: 'droits d\'inscription 2026-2027 (service-public.gouv.fr, universités) ; boursiers exonérés' }
+    retenuesFP: { pensionCivile: 0.111, csgCrds: 0.0953, source: 'retenue pour pension civile 11,10 % depuis 2020 (retraitesdeletat.gouv.fr, service-public.gouv.fr F468) ; CSG-CRDS 9,7 % sur 98,25 % du traitement' },
+    fraisInscription: { licence: 178, master: 255, source: 'droits d\'inscription 2026-2027 (service-public.gouv.fr A17481) ; boursiers exonérés' }
   });
   const age2027 = p => REF.anneeRef + 1 - p.anneeNaissance;
   const fmt = n => Math.round(n).toLocaleString('fr-FR');
