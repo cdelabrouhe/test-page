@@ -1,0 +1,221 @@
+{
+ "candidat": "le-pen",
+ "etat_programme": "Pas de programme 2027 publié en un seul document à ce jour : positions établies par des déclarations dates et un contre-budget ; certaines mesures datent du programme de 2022 (signalées).",
+ "mesures": [
+  {
+   "id": "lp-ret",
+   "theme": "retraites",
+   "intitule": "Abroger la réforme au 1er janvier 2028 : âge légal 62 ans avec 42 ans de cotisation ; départ à 60 ans avec 160 trimestres pour un premier emploi avant 20 ans",
+   "detail": "Réforme soumise à référendum s'il n'y a pas de majorité absolue à l'Assemblée. Coût estimé par le RN : 10,1 Md€.",
+   "chiffres": "62 ans / 42 ans ; 60 ans / 160 trimestres ; 10,1 Md€",
+   "sources": [
+    "baro-lepen",
+    "repere-lepen",
+    "e2027-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 62,
+    "duree_cotisation_annees": 42,
+    "depart_anticipe_age": 60,
+    "depart_anticipe_trimestres": 160
+   },
+   "divergence": "Un autre recensement parle d'un âge légal entre 60 et 62 ans selon l'âge d'entrée dans la vie active, avec 40 à 42 annuités."
+  },
+  {
+   "id": "lp-capi",
+   "theme": "retraites",
+   "intitule": "Pilier de capitalisation obligatoire pour tous les actifs, alimenté par au moins 12 Md€ par an redirigés",
+   "detail": "Retraites maintenues indexées sur l'inflation ; minimum vieillesse à 1 000 € selon un autre relevé.",
+   "chiffres": "≥ 12 Md€/an",
+   "sources": [
+    "baro-lepen",
+    "votons-lepen-ret"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lp-regle",
+   "theme": "finances-publiques",
+   "intitule": "Règle d'or budgétaire inscrite dans la Constitution par référendum : déficit plafonné à 4,9 % du PIB en 2027, 2,9 % en 2032, 2,4 % en 2033",
+   "detail": "140 Md€ d'économies nettes en 2032 par rapport à 2026, 30 Md€ de baisses d'impôts, dette à 112 % du PIB en 2032.",
+   "chiffres": "4,9 % / 2,9 % / 2,4 % ; 140 Md€",
+   "sources": [
+    "baro-lepen",
+    "repere-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": false,
+   "divergence": "Un autre recensement cite un plan d'économies de 125 Md€."
+  },
+  {
+   "id": "lp-sal",
+   "theme": "travail",
+   "intitule": "Exonérer de charges les hausses de salaire de 10 % pendant cinq ans ; refus d'imposer une hausse du SMIC aux employeurs",
+   "detail": "Mesure 2022 apparentée : charges patronales supprimées sur les hausses jusqu'à 3 SMIC.",
+   "chiffres": "10 % ; 5 ans",
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "hausse_salaire_exoneree_pct": 10,
+    "duree_annees": 5
+   }
+  },
+  {
+   "id": "lp-ir30",
+   "theme": "fiscalite-menages",
+   "intitule": "Exonérer d'impôt sur le revenu les moins de 30 ans (programme 2022)",
+   "detail": null,
+   "chiffres": "< 30 ans",
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "age_max": 30,
+    "exoneration_ir": true
+   },
+   "divergence": "Mesure du programme de 2022, non confirmée pour 2027."
+  },
+  {
+   "id": "lp-tva",
+   "theme": "fiscalite-menages",
+   "intitule": "TVA ramenée de 20 % à 5,5 % sur carburants, fioul, gaz et électricité (programme 2022)",
+   "detail": null,
+   "chiffres": "5,5 %",
+   "sources": [
+    "lhemicycle-lepen"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "tva_energie_pct": 5.5
+   },
+   "divergence": "Mesure du programme de 2022, non confirmée pour 2027."
+  },
+  {
+   "id": "lp-ifi",
+   "theme": "fiscalite-menages",
+   "intitule": "Remplacer l'IFI par un impôt sur la fortune financière ; supprimer les droits de succession en ligne directe pour les foyers modestes et moyens, abattement de donation de 100 000 € tous les 10 ans",
+   "detail": null,
+   "chiffres": "100 000 €",
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "abattement_donation": 100000,
+    "periodicite_annees": 10
+   }
+  },
+  {
+   "id": "lp-immi",
+   "theme": "immigration",
+   "intitule": "Référendum constitutionnel sur l'immigration en début de mandat : priorité nationale, suppression du droit du sol, quotas annuels, asile restreint",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "baro-lepen",
+    "e2027-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lp-prio",
+   "theme": "famille",
+   "intitule": "Réserver le logement social et les APL aux Français ; priorité d'accès aux logements étudiants pour les jeunes Français",
+   "detail": "Mesure liée à la « priorité nationale ».",
+   "chiffres": null,
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "apl_reservees_francais": true
+   }
+  },
+  {
+   "id": "lp-ame",
+   "theme": "sante",
+   "intitule": "Transformer l'AME en aide médicale d'urgence (AMU)",
+   "detail": "Économie annoncée : 1,3 Md€.",
+   "chiffres": "1,3 Md€",
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lp-log",
+   "theme": "logement",
+   "intitule": "Abroger la loi SRU, vendre une partie des HLM, convertir des bureaux en logements ; DPE indicatif ; prêt « 100 % Rénov » à taux zéro",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lp-ener",
+   "theme": "environnement",
+   "intitule": "Arrêter les subventions aux éoliennes et panneaux solaires intermittents ; relancer nucléaire et hydroélectricité",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lp-secu",
+   "theme": "securite",
+   "intitule": "85 000 places de prison, peines planchers (programme 2022) ; expulsion des familles délinquantes des HLM pendant trois ans",
+   "detail": null,
+   "chiffres": "85 000 places",
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Les premières mesures datent du programme de 2022."
+  },
+  {
+   "id": "lp-ukr",
+   "theme": "europe",
+   "intitule": "Aide à l'Ukraine maintenue six mois après l'élection puis arrêtée ; primauté de la Constitution sur le droit européen ; contribution nette au budget de l'UE remise en cause",
+   "detail": null,
+   "chiffres": "6 mois",
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lp-inst",
+   "theme": "institutions",
+   "intitule": "Élection des députés à la proportionnelle avec prime majoritaire ; référendum d'initiative citoyenne (programme 2022)",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "baro-lepen"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

@@ -1,0 +1,226 @@
+{
+ "candidat": "villepin",
+ "etat_programme": "« Réussir à nouveau » : 258 propositions en 25 chapitres, publié le 20 novembre 2026. Relevé partiel : les chiffres viennent de la presse quand le texte officiel n'en donne pas.",
+ "mesures": [
+  {
+   "id": "vil-csg",
+   "theme": "travail",
+   "intitule": "Basculer plus de 200 Md€ de cotisations vers une CSG universelle pour augmenter le salaire net",
+   "detail": "Gain annoncé : 200 € net/mois en moyenne pour un salarié, dont 100 € au SMIC. Le journal précise qu'il s'agit d'une projection du mouvement, sans financement évalué de façon indépendante.",
+   "chiffres": "> 200 Md€ ; +200 €/mois (+100 € au SMIC)",
+   "sources": [
+    "varactu-villepin",
+    "isoloir-villepin"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "cotisations_transferees_md": 200,
+    "gain_moyen_mensuel": 200,
+    "gain_smic_mensuel": 100
+   },
+   "divergence": "Le texte officiel ne contient pas de proposition intitulée « CSG universelle » dans l'extrait consulté."
+  },
+  {
+   "id": "vil-fisc",
+   "theme": "fiscalite-menages",
+   "intitule": "Passer de plus de 400 taxes à neuf impôts ; supprimer les niches fiscales sur cinq ans",
+   "detail": null,
+   "chiffres": "9 impôts ; 5 ans",
+   "sources": [
+    "vill-prog",
+    "varactu-villepin",
+    "capital-villepin"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "vil-isf",
+   "theme": "fiscalite-menages",
+   "intitule": "Rétablir l'ISF selon un barème proche de celui de 2016",
+   "detail": "Un autre relevé parle d'un impôt unique sur le patrimoine à partir de 2,2 M€.",
+   "chiffres": "barème 2016 ; seuil 2,2 M€",
+   "sources": [
+    "vill-prog",
+    "varactu-villepin"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "isf_retabli": true,
+    "seuil_patrimoine_meur": 2.2
+   },
+   "divergence": "Les sources divergent sur la forme exacte (ISF 2016 ou impôt unique dès 2,2 M€)."
+  },
+  {
+   "id": "vil-succ",
+   "theme": "fiscalite-menages",
+   "intitule": "Transmettre jusqu'à 1 M€ sans droits de succession, en ligne directe",
+   "detail": null,
+   "chiffres": "1 M€",
+   "sources": [
+    "varactu-villepin",
+    "m442-villepin"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "exoneration_succession_ligne_directe_eur": 1000000
+   }
+  },
+  {
+   "id": "vil-prod",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Supprimer les impôts de production",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "vill-prog",
+    "capital-villepin"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "vil-ret",
+   "theme": "retraites",
+   "intitule": "Retraite en trois étages obligatoires, par points, sans âge légal mais avec une durée de cotisation ; gestion confiée aux partenaires sociaux après un an de négociation",
+   "detail": "Autoroutes : leurs bénéfices seraient affectés aux retraites ; épargne publique à rendement fixe avec 15 Md€ de versements annuels visés.",
+   "chiffres": "15 Md€/an (épargne publique)",
+   "sources": [
+    "vill-prog",
+    "isoloir-villepin",
+    "m442-villepin",
+    "capital-villepin"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "age_legal": null,
+    "critere": "duree_cotisation"
+   }
+  },
+  {
+   "id": "vil-elec",
+   "theme": "environnement",
+   "intitule": "Baisser de 15 % les factures d'électricité, notamment en changeant les mécanismes de tarification",
+   "detail": null,
+   "chiffres": "−15 %",
+   "sources": [
+    "varactu-villepin",
+    "vill-prog"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "baisse_facture_elec_pct": 15
+   }
+  },
+  {
+   "id": "vil-log",
+   "theme": "logement",
+   "intitule": "Construire 500 000 logements par an ; Banque publique du logement ; Garantie locative universelle",
+   "detail": null,
+   "chiffres": "500 000/an",
+   "sources": [
+    "varactu-villepin",
+    "vill-prog"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "vil-def",
+   "theme": "finances-publiques",
+   "intitule": "Déficit public sous 3 % du PIB d'ici 2031 ; règle pluriannuelle fixée par loi organique ; commission d'enquête sur la dégradation des comptes",
+   "detail": null,
+   "chiffres": "< 3 % en 2031",
+   "sources": [
+    "capital-villepin",
+    "vill-prog"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "vil-sante",
+   "theme": "sante",
+   "intitule": "Plafonner le reste à charge annuel selon le revenu ; 100 000 places d'EHPAD et de logements intermédiaires",
+   "detail": null,
+   "chiffres": "100 000 places",
+   "sources": [
+    "vill-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "vil-edu",
+   "theme": "education",
+   "intitule": "Revaloriser d'au moins 10 % les métiers pédagogiques",
+   "detail": null,
+   "chiffres": "≥ 10 %",
+   "sources": [
+    "vill-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_pct_min": 10
+   }
+  },
+  {
+   "id": "vil-immi",
+   "theme": "immigration",
+   "intitule": "Augmenter fortement les réadmissions, spécialiser la moitié des centres de rétention, enregistrement biométrique obligatoire des étrangers sans titre",
+   "detail": null,
+   "chiffres": "50 % des CRA",
+   "sources": [
+    "vill-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "vil-defe",
+   "theme": "defense",
+   "intitule": "Pérenniser l'effort de la loi de programmation militaire ; consolider les filières de défense ; DARPA européenne",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "vill-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "vil-inst",
+   "theme": "institutions",
+   "intitule": "Consultation populaire contraignante à partir de 5 millions de signatures ; droit de vote à 16 ans ; référendums réguliers ; rétablir l'ENA",
+   "detail": null,
+   "chiffres": "5 millions de signatures ; 16 ans",
+   "sources": [
+    "varactu-villepin",
+    "vill-prog"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "vil-ia",
+   "theme": "autres",
+   "intitule": "Soumettre la consommation de tokens d'IA des entreprises à la CSG",
+   "detail": "Taux non précisé.",
+   "chiffres": null,
+   "sources": [
+    "vill-prog",
+    "m442-villepin"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

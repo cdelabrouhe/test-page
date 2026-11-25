@@ -1,0 +1,128 @@
+{
+ "candidat": "le-maire",
+ "etat_programme": "« Une autre France » : 50 propositions présentées le 12 novembre 2026 ; Bruno Le Maire ne s'est pas déclaré candidat à ce jour.",
+ "mesures": [
+  {
+   "id": "lm-cot",
+   "theme": "travail",
+   "intitule": "Baisser de 50 Md€ les cotisations salariales pour augmenter le salaire net, compensé surtout par +3 points de TVA, une taxation du numérique et des importations carbonées",
+   "detail": "Gain annoncé : +200 € par mois pour le salaire médian ; objectif à terme d'un salaire médian net de 4 000 €.",
+   "chiffres": "50 Md€ ; TVA +3 pts ; +200 €/mois",
+   "sources": [
+    "pm-lemaire",
+    "qz-lemaire",
+    "tf-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "baisse_cotisations_salariales_md": 50,
+    "hausse_tva_points": 3,
+    "gain_median_mensuel": 200
+   }
+  },
+  {
+   "id": "lm-ret",
+   "theme": "retraites",
+   "intitule": "Âge de départ à 65 ans et durée de cotisation à 45 ans, ajustées à l'espérance de vie ; capitalisation obligatoire",
+   "detail": null,
+   "chiffres": "65 ans ; 45 ans",
+   "sources": [
+    "pm-lemaire",
+    "capital-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 65,
+    "duree_cotisation_annees": 45,
+    "indexation_esperance_vie": true
+   }
+  },
+  {
+   "id": "lm-desindex",
+   "theme": "retraites",
+   "intitule": "Désindexer de l'inflation les pensions, les prestations sociales et certains barèmes fiscaux",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "pm-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "desindexation_pensions": true,
+    "desindexation_prestations": true
+   }
+  },
+  {
+   "id": "lm-chom",
+   "theme": "travail",
+   "intitule": "Limiter le chômage indemnisé à douze mois ; restreindre l'indemnisation des moins de 55 ans",
+   "detail": null,
+   "chiffres": "12 mois",
+   "sources": [
+    "capital-lemaire",
+    "pm-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": false,
+   "divergence": "Les deux articles décrivent la mesure différemment (durée de 12 mois ou restriction pour les moins de 55 ans)."
+  },
+  {
+   "id": "lm-fisc",
+   "theme": "fiscalite-menages",
+   "intitule": "Prélèvements exceptionnels sur les très hauts revenus et sur le patrimoine immobilier supérieur à 10 M€ ; suppression de l'impôt sur le revenu pour les familles d'au moins trois enfants",
+   "detail": null,
+   "chiffres": "> 10 M€ ; ≥ 3 enfants",
+   "sources": [
+    "pm-lemaire",
+    "qz-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "famille_nombreuse_exoneree_ir": 3,
+    "seuil_patrimoine_immo_meur": 10
+   },
+   "divergence": "Le Monde décrit ces impôts comme « temporaires » ; un autre article les dit « exceptionnels » sans durée."
+  },
+  {
+   "id": "lm-jeunes",
+   "theme": "famille",
+   "intitule": "Prêt garanti pour les jeunes",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "capital-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lm-ref",
+   "theme": "institutions",
+   "intitule": "Au moins cinq référendums pendant le quinquennat, dont une révision constitutionnelle avec référendum d'initiative citoyenne ; abroger l'article 49-3",
+   "detail": null,
+   "chiffres": "≥ 5 référendums",
+   "sources": [
+    "pm-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "lm-dep",
+   "theme": "finances-publiques",
+   "intitule": "Geler certaines dépenses publiques (montants non précisés)",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "pm-lemaire"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

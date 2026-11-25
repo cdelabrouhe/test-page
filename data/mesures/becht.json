@@ -1,0 +1,71 @@
+{
+ "candidat": "becht",
+ "etat_programme": "« Le Projet France — Refonder ou périr », présenté dans un livre. Aucun programme chiffré publié : seules des orientations générales sont disponibles dans la presse.",
+ "mesures": [
+  {
+   "id": "bec-ener",
+   "theme": "environnement",
+   "intitule": "Énergie « 100 % française et 100 % décarbonée », avec des carburants de synthèse fabriqués à partir d'électricité et de carbone capté ; indépendance énergétique et baisse du coût de l'électricité",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cp-becht",
+    "of-becht",
+    "sud-becht"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bec-social",
+   "theme": "famille",
+   "intitule": "Contrat social universel accompagnant chaque Français de la naissance au décès",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "of-becht",
+    "cp-becht"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "bec-secu",
+   "theme": "securite",
+   "intitule": "Centres de réhabilitation encadrés par d'anciens militaires, où les délinquants travaillent pour rembourser le coût de leurs infractions",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cp-becht"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bec-inst",
+   "theme": "institutions",
+   "intitule": "« Fédéralisme à la française » donnant plus de pouvoir aux acteurs locaux",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cp-becht"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bec-modele",
+   "theme": "finances-publiques",
+   "intitule": "Refondation complète du modèle économique, social et de l'État (« refonte radicale du système »)",
+   "detail": "Aucune mesure chiffrée n'a été relevée.",
+   "chiffres": null,
+   "sources": [
+    "cnews-becht",
+    "cp-becht"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

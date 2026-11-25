@@ -292,5 +292,215 @@
   "media": "MonVote2027 (recensement)",
   "date": "2026-11-21",
   "url": "https://monvote2027.fr/candidat/philippe"
+ },
+ {
+  "id": "lac-site",
+  "titre": "L'Avenir en commun, édition 2027 : le programme",
+  "media": "Site officiel L'Avenir en commun",
+  "date": "2026-11",
+  "url": "https://www.lavenirencommun.org/"
+ },
+ {
+  "id": "lac-retraites",
+  "titre": "Garantir une retraite digne",
+  "media": "Site officiel L'Avenir en commun",
+  "date": "2026-11",
+  "url": "https://www.lavenirencommun.org/programme/economie-travail-et-logement/retraites/"
+ },
+ {
+  "id": "lcp-melenchon-prog",
+  "titre": "Ce qui change dans le nouveau programme de Jean-Luc Mélenchon",
+  "media": "LCP",
+  "date": "2026-11",
+  "url": "https://lcp.fr/actualites/presidentielle-2027-ce-qui-change-dans-le-nouveau-programme-de-jean-luc-melenchon-444841"
+ },
+ {
+  "id": "of-melenchon",
+  "titre": "Le programme de Jean-Luc Mélenchon, l'Avenir en commun, promet beaucoup, sans financement précis",
+  "media": "Ouest-France",
+  "date": "2026-11",
+  "url": "https://www.ouest-france.fr/elections/presidentielle/presidentielle-2027-le-programme-de-jean-luc-melenchon-lavenir-en-commun-promet-beaucoup-sans-financement-precis-0abf0f40-d9ec-11f1-81f5-8e32b0872d76"
+ },
+ {
+  "id": "lemag-melenchon",
+  "titre": "L'Avenir en commun de Jean-Luc Mélenchon multiplie les engagements économiques",
+  "media": "Le Mag Finances",
+  "date": "2026-11",
+  "url": "https://www.lemagfinances.fr/presidentielle-2027-mesures-economiques-melenchon/"
+ },
+ {
+  "id": "isoloir-melenchon",
+  "titre": "Programme de Jean-Luc Mélenchon 2027 : résumé en 54 mesures",
+  "media": "Isoloir 2027 (recensement)",
+  "date": "2026-11",
+  "url": "https://isoloir2027.fr/programme/jean-luc-melenchon"
+ },
+ {
+  "id": "baro-lepen",
+  "titre": "Marine Le Pen : son programme pour la présidentielle 2027",
+  "media": "Baromètre citoyen 2027 (recensement)",
+  "date": "2026-11",
+  "url": "https://barometre-2027.fr/programmes/marine-le-pen"
+ },
+ {
+  "id": "repere-lepen",
+  "titre": "Programme de Marine Le Pen 2027, thème par thème",
+  "media": "Repère 2027 (recensement)",
+  "date": "2026-11",
+  "url": "https://repere2027.fr/programmes/marine-le-pen/"
+ },
+ {
+  "id": "lhemicycle-lepen",
+  "titre": "Marine Le Pen : programme, sondages et actualité",
+  "media": "L'Hémicycle (recensement)",
+  "date": "2026-11-24",
+  "url": "https://lhemicycle.com/candidat/marine-le-pen/"
+ },
+ {
+  "id": "votons-lepen-ret",
+  "titre": "Programme de Marine Le Pen (RN) sur les retraites",
+  "media": "votons-2027.fr",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/le-pen/programme/retraite"
+ },
+ {
+  "id": "e2027-lepen",
+  "titre": "Marine Le Pen et la présidentielle 2027 : propositions et programme",
+  "media": "election2027.eu (recensement)",
+  "date": "2026-11",
+  "url": "https://www.election2027.eu/candidats/marine-le-pen-1/"
+ },
+ {
+  "id": "vill-prog",
+  "titre": "Réussir à nouveau : le programme de Dominique de Villepin pour 2027",
+  "media": "Site de campagne de Dominique de Villepin",
+  "date": "2026-11-20",
+  "url": "https://lafrancehumaniste.fr/programme/reussir-a-nouveau/"
+ },
+ {
+  "id": "varactu-villepin",
+  "titre": "Dominique de Villepin se lance dans la course à l'Élysée avec 258 propositions",
+  "media": "Varactu",
+  "date": "2026-11-21",
+  "url": "https://www.varactu.fr/dominique-de-villepin-se-lance-dans-la-course-a-lelysee-avec-258-propositions/"
+ },
+ {
+  "id": "capital-villepin",
+  "titre": "Dominique de Villepin candidat : ISF, dividendes, déficit, son programme économique",
+  "media": "Capital (via Shango)",
+  "date": "2026-11",
+  "url": "https://www.shango.media/capital-dominique-de-villepin-candidat-isf-dividendes-deficit-son-programme-economique-12069997"
+ },
+ {
+  "id": "isoloir-villepin",
+  "titre": "Programme de Dominique de Villepin 2027 : 54 mesures connues",
+  "media": "Isoloir 2027 (recensement)",
+  "date": "2026-11",
+  "url": "https://isoloir2027.fr/programme/dominique-de-villepin"
+ },
+ {
+  "id": "m442-villepin",
+  "titre": "Autoroutes rendues à l'État, nouvelle élection à 50 % de votes blancs, retour de l'ISF : les 258 propositions de Villepin",
+  "media": "Le Média en 442",
+  "date": "2026-11",
+  "url": "https://lemediaen442.fr/autoroutes-rendues-a-letat-nouvelle-election-a-50-de-votes-blancs-retour-de-lisf-les-258-propositions-de-dominique-de-villepin/"
+ },
+ {
+  "id": "ttc-villepin",
+  "titre": "Programme de Dominique de Villepin pour la présidentielle 2027",
+  "media": "Trouve ton candidat (recensement)",
+  "date": "2026-11-21",
+  "url": "https://trouvetoncandidat.fr/programme/dominique-de-villepin/"
+ },
+ {
+  "id": "wikiglu",
+  "titre": "Programme 2027 de Raphaël Glucksmann : les propositions par thème (synthèse non officielle)",
+  "media": "WikiGlucksmann (compilation tierce)",
+  "date": "2026-11-14",
+  "url": "https://www.wikiglucksmann.fr/programme.html"
+ },
+ {
+  "id": "baro-glu",
+  "titre": "Raphaël Glucksmann : son programme pour la présidentielle 2027",
+  "media": "Baromètre citoyen 2027 (recensement)",
+  "date": "2026-11",
+  "url": "https://barometre-2027.fr/programmes/raphael-glucksmann"
+ },
+ {
+  "id": "lhemicycle-glu",
+  "titre": "Raphaël Glucksmann : programme, sondages et actualité",
+  "media": "L'Hémicycle (recensement)",
+  "date": "2026-11-22",
+  "url": "https://lhemicycle.com/candidat/raphael-glucksmann/"
+ },
+ {
+  "id": "cp27-glu",
+  "titre": "Raphaël Glucksmann — Programme Présidentielle 2027",
+  "media": "candidats-presidentielle-2027.fr (recensement)",
+  "date": "2026-11",
+  "url": "https://candidats-presidentielle-2027.fr/candidat/raphael-glucksmann"
+ },
+ {
+  "id": "bouss-glu",
+  "titre": "Raphaël Glucksmann : programme et positions",
+  "media": "Boussole politique (recensement)",
+  "date": "2026-11",
+  "url": "https://boussolepolitique.fr/candidats-presidentielle-2027/raphael-glucksmann"
+ },
+ {
+  "id": "pm-lemaire",
+  "titre": "Bruno Le Maire : hausse de TVA, retraite à 65 ans et référendums parmi ses 50 propositions",
+  "media": "Politique Matin",
+  "date": "2026-11-12",
+  "url": "https://www.politiquematin.fr/bruno-le-maire-50-propositions-tva-retraites-referendums-20261112"
+ },
+ {
+  "id": "qz-lemaire",
+  "titre": "Bruno Le Maire présente son projet sans annoncer sa candidature",
+  "media": "Quartz (d'après l'AFP et Le Monde)",
+  "date": "2026-11-13",
+  "url": "https://fr.qz.com/bruno-le-maire-presente-projet-autre-france-candidature-111326"
+ },
+ {
+  "id": "capital-lemaire",
+  "titre": "Projet de Bruno Le Maire : chômage limité à 12 mois, retraite à 65 ans (Capital)",
+  "media": "Titres Presse (d'après Capital)",
+  "date": "2026-11",
+  "url": "https://www.titrespresse.com/28836262603/bruno-maire-projet"
+ },
+ {
+  "id": "tf-lemaire",
+  "titre": "Bruno Le Maire présente 50 propositions « pour une autre France »",
+  "media": "Time France",
+  "date": "2026-11-13",
+  "url": "https://www.timefrance.fr/politique/bruno-le-maire-presente-50-propositions-pour-une-autre-france-sans-se-declarer-candidat/"
+ },
+ {
+  "id": "cp-becht",
+  "titre": "Olivier Becht (sans étiquette, centre)",
+  "media": "candidatspresidentielles2027.fr (recensement)",
+  "date": "2026-11",
+  "url": "https://www.candidatspresidentielles2027.fr/candidats/olivier-becht"
+ },
+ {
+  "id": "of-becht",
+  "titre": "Olivier Becht, ancien ministre du Commerce extérieur, est candidat à l'élection",
+  "media": "Ouest-France",
+  "date": "2026-09-24",
+  "url": "https://www.ouest-france.fr/elections/presidentielle/presidentielle-2027-olivier-becht-ancien-ministre-du-commerce-exterieur-est-candidat-a-lelection-21252890-b800-11f1-b8f7-5b3ca074ea4b"
+ },
+ {
+  "id": "sud-becht",
+  "titre": "Qui est Olivier Becht, cet ancien ministre qui se lance dans la course à l'Élysée ?",
+  "media": "Sud Radio",
+  "date": "2026-10",
+  "url": "https://www.sudradio.fr/politique/qui-est-olivier-becht-cet-ancien-ministre-qui-se-lance-dans-la-course-a-lelysee"
+ },
+ {
+  "id": "cnews-becht",
+  "titre": "Défenseur d'une « refonte radicale du système », le candidat Olivier Becht entame son tour de France",
+  "media": "CNews",
+  "date": "2026-11-12",
+  "url": "https://www.cnews.fr/france/2026-11-12/presidentielle-2027-defenseur-dune-refonte-radicale-du-systeme-le-candidat"
  }
 ]

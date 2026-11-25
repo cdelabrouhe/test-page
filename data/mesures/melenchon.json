@@ -1,0 +1,237 @@
+{
+ "candidat": "melenchon",
+ "etat_programme": "« L'Avenir en commun », édition 2027 (6e édition, 6 novembre 2026) : programme complet publié, 1 069 mesures selon le site officiel. Relevé partiel ci-dessous (mesures phares).",
+ "mesures": [
+  {
+   "id": "mel-smic",
+   "theme": "travail",
+   "intitule": "SMIC porté immédiatement à 1 700 € net, salaires indexés sur l'inflation dans le privé et le public",
+   "detail": "Mesure prise par décret selon la presse ; le point d'indice des fonctionnaires serait aussi augmenté de 10 %.",
+   "chiffres": "1 700 € net/mois ; point d'indice +10 %",
+   "sources": [
+    "lac-site",
+    "of-melenchon",
+    "lemag-melenchon"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "smic_net_mensuel": 1700,
+    "indexation_inflation": true,
+    "point_indice_pct": 10
+   }
+  },
+  {
+   "id": "mel-ret",
+   "theme": "retraites",
+   "intitule": "Abroger la réforme de 2023 et rétablir la retraite à 60 ans à taux plein après 40 annuités",
+   "detail": "Budget indiqué sur le site du programme : 9 Md€ de dépenses en 2027.",
+   "chiffres": "60 ans ; 40 annuités ; 9 Md€ (2027)",
+   "sources": [
+    "lac-site",
+    "lac-retraites"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 60,
+    "duree_cotisation_annees": 40,
+    "abrogation_reforme_2023": true
+   }
+  },
+  {
+   "id": "mel-35h",
+   "theme": "travail",
+   "intitule": "Rétablir immédiatement les 35 heures légales ; heures supplémentaires majorées de 25 % (4 premières) puis 50 % ; 32 heures pour les métiers pénibles ou de nuit",
+   "detail": null,
+   "chiffres": "35 h ; +25 % / +50 % ; 32 h",
+   "sources": [
+    "lac-site"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "duree_legale_h": 35,
+    "majoration_hs_1": 25,
+    "majoration_hs_2": 50
+   }
+  },
+  {
+   "id": "mel-ft",
+   "theme": "travail",
+   "intitule": "Abroger la loi France Travail et ses 15 heures d'activité obligatoires ; garantie d'emploi pour les chômeurs de longue durée",
+   "detail": "La garantie d'emploi proposerait un poste au moins au SMIC revalorisé dans un secteur d'urgence.",
+   "chiffres": "15 h supprimées",
+   "sources": [
+    "of-melenchon",
+    "isoloir-melenchon"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "mel-ir",
+   "theme": "fiscalite-menages",
+   "intitule": "Impôt sur le revenu rétabli à 14 tranches ; flat tax supprimée ; prélèvements sociaux étendus aux revenus du capital",
+   "detail": "Taux et seuils des tranches non relevés dans les sources consultées.",
+   "chiffres": "14 tranches",
+   "sources": [
+    "lemag-melenchon",
+    "isoloir-melenchon"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "nb_tranches": 14,
+    "flat_tax_supprimee": true
+   }
+  },
+  {
+   "id": "mel-isf",
+   "theme": "fiscalite-menages",
+   "intitule": "ISF rétabli avec volet climatique ; taxe Zucman maintenue ; héritage maximal plafonné à 12 M€",
+   "detail": "Taux et seuils non relevés.",
+   "chiffres": "12 M€ (héritage)",
+   "sources": [
+    "lemag-melenchon"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "isf_retabli": true,
+    "plafond_heritage_meur": 12
+   }
+  },
+  {
+   "id": "mel-apl",
+   "theme": "logement",
+   "intitule": "APL augmentées de 10 % ; garantie d'autonomie fixée au seuil de pauvreté (1 337 €) ; écart de salaires limité à 1 pour 20 dans les entreprises",
+   "detail": null,
+   "chiffres": "+10 % ; 1 337 € ; 1 pour 20",
+   "sources": [
+    "lemag-melenchon"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "apl_hausse_pct": 10,
+    "garantie_autonomie": 1337
+   }
+  },
+  {
+   "id": "mel-log",
+   "theme": "logement",
+   "intitule": "Construire 200 000 logements publics par an et 30 000 logements pour jeunes en cinq ans",
+   "detail": null,
+   "chiffres": "200 000/an ; 30 000 / 5 ans",
+   "sources": [
+    "lac-site"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "mel-nucl",
+   "theme": "environnement",
+   "intitule": "Sortie progressive du nucléaire : pas de prolongation au-delà de 60 ans, arrêt du programme EPR2",
+   "detail": "Objectifs climat cités : −65 % d'émissions d'ici 2033, 100 % d'énergies renouvelables au plus tard en 2060.",
+   "chiffres": "60 ans ; −65 % (2033) ; 100 % renouvelable (2060)",
+   "sources": [
+    "lac-site",
+    "lemag-melenchon"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "mel-sante",
+   "theme": "sante",
+   "intitule": "Reconstruire l'hôpital public et agir contre les déserts médicaux",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "lac-site"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "mel-edu",
+   "theme": "education",
+   "intitule": "Accès sans sélection à la formation de son choix pour tout bachelier ; fin de Parcoursup ; droit de poursuivre en master",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "lac-site"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "mel-ser",
+   "theme": "defense",
+   "intitule": "Service militaire volontaire remplacé par une conscription « citoyenne écologique » de neuf mois rémunérée au SMIC",
+   "detail": null,
+   "chiffres": "9 mois",
+   "sources": [
+    "of-melenchon",
+    "lemag-melenchon"
+   ],
+   "fiabilite": "presse",
+   "simulable": false,
+   "divergence": "Le programme de 2022 prévoyait neuf mois de conscription pour les moins de 25 ans."
+  },
+  {
+   "id": "mel-immi",
+   "theme": "immigration",
+   "intitule": "Politique migratoire « humaniste et réaliste » ; restrictions sur l'Aide médicale d'État relevées par la presse",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "of-melenchon",
+    "lac-site"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "mel-inst",
+   "theme": "institutions",
+   "intitule": "Convoquer une assemblée constituante pour passer à une VIe République (référendum)",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "lac-site",
+    "isoloir-melenchon"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "mel-agri",
+   "theme": "autres",
+   "intitule": "500 000 créations d'emplois agricoles",
+   "detail": null,
+   "chiffres": "500 000 emplois",
+   "sources": [
+    "of-melenchon"
+   ],
+   "fiabilite": "presse",
+   "simulable": false
+  },
+  {
+   "id": "mel-fin",
+   "theme": "finances-publiques",
+   "intitule": "Financement 2027 annoncé : 106,4 Md€ de recettes nouvelles pour 81,7 Md€ de dépenses nouvelles ; gel de la part de la dette détenue par la BCE",
+   "detail": "Reste 24,7 Md€ pour réduire le déficit en 2027 selon le site. Chiffres limités à l'année 2027, pas à tout le programme.",
+   "chiffres": "106,4 Md€ / 81,7 Md€",
+   "sources": [
+    "lac-site",
+    "lemag-melenchon"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}

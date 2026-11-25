@@ -1,0 +1,182 @@
+{
+ "candidat": "glucksmann",
+ "etat_programme": "Programme en cours de publication par Place publique (« Acte I », livrets thématiques) ; la plupart des mesures ci-dessous sont relevées dans des synthèses non officielles et des déclarations datées.",
+ "mesures": [
+  {
+   "id": "glu-smic",
+   "theme": "travail",
+   "intitule": "SMIC porté à 1 700 € net avec une conférence salariale et une CSG progressive",
+   "detail": "Le projet de Place publique évoquait plutôt 1 600 € net sous deux ans ; autre déclaration : +100 € immédiatement.",
+   "chiffres": "1 700 € net (autres sources : 1 600 €)",
+   "sources": [
+    "wikiglu",
+    "baro-glu",
+    "bouss-glu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "smic_net_mensuel": 1700
+   },
+   "divergence": "Les montants diffèrent entre sources (1 600 € ou 1 700 € net)."
+  },
+  {
+   "id": "glu-csg",
+   "theme": "travail",
+   "intitule": "Baisser la CSG sur les salaires et la rendre progressive",
+   "detail": "Gain annoncé : 86 € au SMIC et 100 € pour 2 000 €/mois ; financé par une taxation accrue des hauts patrimoines et des grands héritages.",
+   "chiffres": "+86 € au SMIC",
+   "sources": [
+    "wikiglu",
+    "lhemicycle-glu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "csg_salaires_progressive": true,
+    "gain_smic_mensuel": 86,
+    "gain_2000_mensuel": 100
+   }
+  },
+  {
+   "id": "glu-herit",
+   "theme": "fiscalite-menages",
+   "intitule": "Taxer davantage les héritages supérieurs à 2 M€ (1 % des plus gros) pour reverser 15 Md€ sur les salaires nets",
+   "detail": null,
+   "chiffres": "> 2 M€ ; 15 Md€",
+   "sources": [
+    "lhemicycle-glu",
+    "baro-glu"
+   ],
+   "fiabilite": "presse",
+   "simulable": true,
+   "parametres": {
+    "seuil_heritage_meur": 2,
+    "recettes_md": 15
+   }
+  },
+  {
+   "id": "glu-patri",
+   "theme": "fiscalite-menages",
+   "intitule": "Contribution exceptionnelle de 5 % sur les patrimoines supérieurs à 100 M€, une seule année, pour un fonds climat",
+   "detail": "Recettes estimées : 50 Md€. Une taxation européenne des ultra-riches est aussi défendue.",
+   "chiffres": "5 % ; > 100 M€ ; 50 Md€",
+   "sources": [
+    "wikiglu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "glu-ret",
+   "theme": "retraites",
+   "intitule": "Abroger la réforme de 2023, retour à 62 ans sans capitalisation, départs anticipés pour carrières hachées et métiers pénibles ; pilotage par un Haut Conseil où les partenaires sociaux sont majoritaires",
+   "detail": null,
+   "chiffres": "62 ans",
+   "sources": [
+    "wikiglu",
+    "lhemicycle-glu",
+    "baro-glu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 62,
+    "abrogation_reforme_2023": true,
+    "capitalisation": false
+   },
+   "divergence": "Une source évoque une modulation selon la santé et l'espérance de vie en bonne santé, sans âge unique."
+  },
+  {
+   "id": "glu-min",
+   "theme": "retraites",
+   "intitule": "Pension minimale garantie à 1 200 € ; allocation enfant universelle dès le premier enfant",
+   "detail": null,
+   "chiffres": "1 200 €",
+   "sources": [
+    "cp27-glu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source unique, de type recensement : à confirmer."
+  },
+  {
+   "id": "glu-ener",
+   "theme": "environnement",
+   "intitule": "200 Md€ d'investissement public sur le quinquennat pour sortir des énergies fossiles ; chèque énergie de 500 € pour 6 M de foyers et 200 € pour 10 M de foyers de classes moyennes",
+   "detail": "Aussi : leasing social d'un million de voitures électriques à 100 €/mois ; un million de pompes à chaleur à 1 €/jour ; carburant à −20 centimes le litre financé par les superprofits.",
+   "chiffres": "200 Md€ ; 500 € / 200 € ; −20 cts/L",
+   "sources": [
+    "wikiglu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "cheque_energie_bas": 500,
+    "cheque_energie_moyen": 200
+   }
+  },
+  {
+   "id": "glu-edu",
+   "theme": "education",
+   "intitule": "Rénover 4 000 écoles primaires par an ; annuler les suppressions de postes prévues en 2027 ; supprimer Parcoursup ; gratification minimale de 1 000 €/mois pour les stages de plus de deux mois",
+   "detail": null,
+   "chiffres": "4 000 écoles/an ; 1 000 €/mois",
+   "sources": [
+    "wikiglu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "glu-sante",
+   "theme": "sante",
+   "intitule": "Mettre fin à la tarification à l'acte à l'hôpital ; dépistages gratuits à 16 et 20 ans",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "wikiglu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "glu-def",
+   "theme": "defense",
+   "intitule": "Service national obligatoire (déclaration de novembre 2025) ; service civique de dix mois évoqué en mai 2026",
+   "detail": null,
+   "chiffres": "10 mois",
+   "sources": [
+    "wikiglu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Deux déclarations aux formules différentes : à clarifier."
+  },
+  {
+   "id": "glu-immi",
+   "theme": "immigration",
+   "intitule": "Régulariser 300 000 travailleurs sans papiers ; abroger la loi immigration de 2024 ; convention citoyenne sur l'immigration",
+   "detail": null,
+   "chiffres": "300 000",
+   "sources": [
+    "wikiglu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "glu-eur",
+   "theme": "europe",
+   "intitule": "« Buy European Act » réservant les marchés publics aux produits européens ; taxation européenne des superprofits ; impôt européen sur les grandes fortunes",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "wikiglu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ],
+ "verifie_le": "2026-11-25"
+}
