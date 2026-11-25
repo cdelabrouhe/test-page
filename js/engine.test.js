@@ -1,0 +1,18 @@
+const E=require('./engine.js'),fs=require('fs'),assert=require('assert');
+const M=id=>JSON.parse(fs.readFileSync('data/mesures/'+id+'.json','utf8')).mesures;
+let n=0;const t=(nom,f)=>{f();n++;console.log('ok',nom)};
+t('règle 1966',()=>assert.deepStrictEqual(E.regleActuelle(1966),{ageMois:759,trimestres:172}));
+t('règle 1980',()=>assert.strictEqual(E.regleActuelle(1980).ageMois,768));
+const p={statut:'salarie',salaireNetMensuel:1500,quotite:100,anneeNaissance:1985,anneeDebutCarriere:2008,depensesTvaNormale:1000,electriciteMois:100,energieMois:50,carburantLitres:100,heuresSupSemaine:8};
+t('salaire Glucksmann',()=>{const r=E.effetSalaire(p,M('glucksmann'));console.log(r.statut,r.message);assert(['calcule','aucune_mesure'].includes(r.statut))});
+t('salaire Mélenchon: 1500→1700',()=>{const r=E.effetSalaire(p,M('melenchon'));assert.strictEqual(r.statut,'calcule');assert.strictEqual(r.valeurMensuelle,200)});
+t('salaire déjà au-dessus',()=>{const r=E.effetSalaire({...p,salaireNetMensuel:3000},M('melenchon'));assert.strictEqual(r.valeurMensuelle,0)});
+t('retraite Mélenchon 60',()=>{const r=E.effetRetraite(p,M('melenchon'));console.log(r.message);assert(r.deltaMois<0)});
+t('retraite Le Maire 65',()=>{const r=E.effetRetraite(p,M('le-maire'));console.log(r.message);assert(r.deltaMois>0)});
+t('TVA Le Maire',()=>{const r=E.effetTVA(p,M('le-maire'));console.log(r.message);assert(r.valeurMensuelle<0)});
+t('TVA Le Pen',()=>{const r=E.effetTVA(p,M('le-pen'));console.log(r.message);assert(r.valeurMensuelle>0)});
+t('HS Mélenchon',()=>{const r=E.effetHS(p,M('melenchon'));console.log(r.message);assert.strictEqual(r.statut,'calcule')});
+t('simuler tout',()=>{const ids=fs.readdirSync('data/mesures').map(f=>f.replace('.json',''));const mp={};ids.forEach(i=>mp[i]=JSON.parse(fs.readFileSync('data/mesures/'+i+'.json','utf8')));
+ const r=E.simuler(p,ids.map(i=>({id:i,nom:i})),mp);assert.strictEqual(r.length,ids.length);
+ r.forEach(c=>console.log(c.id.padEnd(14),Object.values(c.effets).map(e=>e.statut[0]+(e.statut==='calcule'?'✓':'')).join(' ')))});
+console.log(n,'tests');
