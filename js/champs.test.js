@@ -48,7 +48,7 @@ t('profil par défaut = valeurs d\'avant la refonte', () => {
   assert.deepStrictEqual(p, { statut: 'salarie', anneeNaissance: 1985, couple: false, salaireConjointNetMensuel: 0, enfants: 0, naissances: 0,
     salaireNetMensuel: 1800, quotite: 100, heuresSupSemaine: 0, traitementIndiciaire: 0, anneeDebutCarriere: 2008, anneesSansTrimestre: 0, pensionNette: 0, salaireCumulNet: 0,
     aah: false, incapacite80: false, minimaMensuels: 0, boursier: false, bourseMensuelle: 0, niveauEtudes: 'L1L2', jeuneSansDiplomeNiEmploi: false,
-    loyerMensuel: 0, aplMensuelle: 0, prixAchat: 0, patrimoine: 0, patrimoineImmo: 0, patrimoineRP: 0, plusValuesAnnuelles: 0, heritage: 0, donationRecue: 0,
+    occupation: 'locataire', loyerMensuel: 0, aplMensuelle: 0, prixAchat: 0, patrimoine: 0, patrimoineImmo: 0, patrimoineRP: 0, plusValuesAnnuelles: 0, heritage: 0, donationRecue: 0,
     depensesTvaNormale: 1000, electriciteMois: 90, energieMois: 40, carburantLitres: 80, prixCarburantLitre: 0, abonnementTransportMois: 0, peagesMois: 0, inflationHyp: null });
 });
 t('un champ masqué compte comme non renseigné', () => {
@@ -65,6 +65,16 @@ t('affichage selon la situation', () => {
   assert(!vis('salarie', 'conj', { couple: '0' })); assert(vis('salarie', 'conj', { couple: '1' }));
   assert(!vis('salarie', 'inc80', { aah: '0' })); assert(vis('salarie', 'inc80', { aah: '1' }));
   assert(!vis('etudiant', 'bourse', { bours: '0' })); assert(vis('etudiant', 'bourse', { bours: '1' }));
+});
+t('propriétaire : loyer et aide au logement masqués et mis à 0 sans le dire', () => {
+  const v = { ...defauts(), loyer: '800', apl: '150' };
+  assert.strictEqual(C.profil(v).loyerMensuel, 800);
+  const w = { ...v, occ: 'proprietaire' }, vis = id => C.visible(C.CHAMPS.find(c => c.id === id), w);
+  assert(!vis('loyer') && !vis('apl') && vis('occ'));
+  const p = C.profil(w); assert.strictEqual(p.loyerMensuel, 0); assert.strictEqual(p.aplMensuelle, 0); assert.strictEqual(p.occupation, 'proprietaire');
+});
+t('le salaire du conjoint est dans les revenus d\'activité', () => {
+  assert.strictEqual(C.CHAMPS.find(c => c.id === 'conj').groupe, 'revenus');
 });
 t('contrôles de cohérence', () => {
   assert(C.CONTROLES.patrimoine({ pat: '500000', immo: '800000' })); assert.strictEqual(C.CONTROLES.patrimoine({ pat: '900000', immo: '800000' }), null);

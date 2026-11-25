@@ -20,7 +20,7 @@
     { id: 'carriere', titre: 'Carrière et retraite', desc: 'Pour l\'âge de départ à la retraite et le montant des pensions.' },
     { id: 'aides', titre: 'Aides sociales et handicap', desc: 'Les prestations que tu reçois déjà. Laisse 0 si tu n\'es pas concerné.', facultatif: true },
     { id: 'etudes', titre: 'Études et jeunesse', desc: 'Bourses, droits d\'inscription et aides aux jeunes.' },
-    { id: 'logement', titre: 'Logement', desc: 'Ton loyer, ton aide au logement et un éventuel achat.', facultatif: true },
+    { id: 'logement', titre: 'Logement', desc: 'Locataire ou propriétaire de ta résidence principale, ton loyer et ton aide au logement si tu loues, et un éventuel achat.', facultatif: true },
     { id: 'patrimoine', titre: 'Patrimoine, épargne et transmission', desc: 'Ce que tu possèdes, ce que ça te rapporte et ce que tu reçois de ta famille.', facultatif: true },
     { id: 'depenses', titre: 'Dépenses courantes', desc: 'Valeurs d\'exemple : remplace-les par les tiennes (moyenne mensuelle sur l\'année).' },
     { id: 'hypothese', titre: 'Hypothèse de calcul', desc: 'Un seul réglage, pour les mesures qui jouent sur plusieurs années.', facultatif: true }
@@ -41,10 +41,6 @@
     { id: 'couple', groupe: 'foyer', cle: 'couple', type: 'oui_non', val: '0', options: OUINON, label: 'En couple',
       tip: 'Oui si tu fais ta déclaration d\'impôts en commun avec ton conjoint (mariage ou PACS). En concubinage, chacun déclare séparément : réponds Non.',
       sert: 'le nombre de parts de ton foyer fiscal pour l\'impôt sur le revenu.' },
-    { id: 'conj', groupe: 'foyer', cle: 'salaireConjointNetMensuel', type: 'nombre', val: 0, min: 0, step: 10, quand: v => v.couple === '1', imbrique: true,
-      label: 'Salaire net mensuel de ton conjoint (€)',
-      tip: 'Ce que ton conjoint touche chaque mois en salaire : après cotisations sociales, avant impôt sur le revenu. Mets 0 s\'il ne travaille pas.',
-      sert: 'l\'impôt sur le revenu du foyer.' },
     { id: 'enf', groupe: 'foyer', cle: 'enfants', type: 'nombre', val: 0, min: 0, max: 10, label: 'Enfants à charge',
       tip: 'Nombre d\'enfants rattachés à ton foyer fiscal : mineurs, ou majeurs de moins de 21 ans (25 ans s\'ils étudient).',
       sert: 'le quotient familial de l\'impôt sur le revenu, l\'exonération des familles nombreuses (Le Maire), l\'allocation familiale et l\'estimation du chèque énergie.' },
@@ -65,6 +61,10 @@
     { id: 'trait', groupe: 'revenus', cle: 'traitementIndiciaire', type: 'nombre', val: 0, min: 0, step: 10, pour: PUBLICS, label: 'Traitement indiciaire brut mensuel (€)',
       tip: 'La ligne « traitement indiciaire brut » de ta fiche de paie : ton indice majoré multiplié par la valeur du point d\'indice. N\'inclus ni primes ni indemnités.',
       sert: 'la hausse du point d\'indice (Mélenchon).' },
+    { id: 'conj', groupe: 'revenus', cle: 'salaireConjointNetMensuel', type: 'nombre', val: 0, min: 0, step: 10, quand: v => v.couple === '1',
+      label: 'Salaire net mensuel de ton conjoint (€)',
+      tip: 'Ce que ton conjoint touche chaque mois en salaire : après cotisations sociales, avant impôt sur le revenu. Mets 0 s\'il ne travaille pas.',
+      sert: 'l\'impôt sur le revenu du foyer.' },
 
     /* ---------- Carrière et retraite ---------- */
     { id: 'debut', groupe: 'carriere', cle: 'anneeDebutCarriere', type: 'nombre', val: 2008, min: 1960, max: 2026, pour: NON_RETRAITES, repli: null, label: 'Année de début de carrière',
@@ -106,10 +106,13 @@
       sert: 'l\'avance jeunesse de 3 000 € (Cazeneuve).' },
 
     /* ---------- Logement ---------- */
-    { id: 'loyer', groupe: 'logement', cle: 'loyerMensuel', type: 'nombre', val: 0, min: 0, step: 10, sous: 'Ton logement actuel', label: 'Loyer mensuel hors charges (€)',
-      tip: 'Le loyer que tu verses chaque mois à ton propriétaire, hors charges et avant déduction de ton aide au logement. Mets 0 si tu es propriétaire.',
+    { id: 'occ', groupe: 'logement', cle: 'occupation', type: 'choix', val: 'locataire', options: [['locataire', 'Locataire'], ['proprietaire', 'Propriétaire']], sous: 'Ta résidence principale', label: 'Tu es…',
+      tip: 'Locataire : tu paies un loyer pour le logement où tu vis (y compris en colocation ou en location meublée). Propriétaire : tu possèdes ton logement, même si tu rembourses encore un crédit. Si tu es logé gratuitement (chez tes parents, par exemple), choisis Locataire et laisse le loyer à 0.',
+      sert: 'afficher ou non les questions sur le loyer et l\'aide au logement.' },
+    { id: 'loyer', groupe: 'logement', cle: 'loyerMensuel', type: 'nombre', val: 0, min: 0, step: 10, sous: 'Ta résidence principale', quand: v => v.occ === 'locataire', label: 'Loyer mensuel hors charges (€)',
+      tip: 'Le loyer que tu verses chaque mois à ton propriétaire, hors charges et avant déduction de ton aide au logement.',
       sert: 'le gel des loyers (Kazib).' },
-    { id: 'apl', groupe: 'logement', cle: 'aplMensuelle', type: 'nombre', val: 0, min: 0, sous: 'Ton logement actuel', label: 'Aide au logement par mois (€)',
+    { id: 'apl', groupe: 'logement', cle: 'aplMensuelle', type: 'nombre', val: 0, min: 0, sous: 'Ta résidence principale', quand: v => v.occ === 'locataire', label: 'Aide au logement par mois (€)',
       tip: 'Montant que la CAF ou la MSA te verse chaque mois pour ton logement (APL, ALS ou ALF), visible sur ton relevé de paiement. Mets 0 si tu n\'en perçois pas.',
       sert: 'les hausses de l\'APL (Mélenchon, Tondelier) et le plafond des aides.' },
     { id: 'prix', groupe: 'logement', cle: 'prixAchat', type: 'nombre', val: 0, min: 0, step: 1000, sous: 'Un achat de logement', label: 'Prix d\'un logement ancien que tu comptes acheter (€)',

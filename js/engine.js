@@ -192,7 +192,7 @@
     const total = lignes.reduce((s, l) => s + l.mensuel, 0);
     return est('calcule', {
       valeurMensuelle: r2(total), valeurAnnuelle: r2(total * 12), lignes: lignes.map(l => ({ libelle: l.libelle, mensuel: r2(l.mensuel) })),
-      message: (total >= 0 ? '+' : '') + r2(total) + ' € par mois sur tes dépenses' + (nonCalc.length ? ' (hors : ' + nonCalc.length + ' mesure non calculée)' : ''),
+      message: (total >= 0 ? 'Gain de ' : 'Perte de ') + Math.abs(r2(total)) + ' € par mois sur tes dépenses' + (nonCalc.length ? ' (hors : ' + nonCalc.length + ' mesure non calculée)' : ''),
       formule: 'dépense × (nouveau taux ÷ ancien taux − 1)', hypotheses: hyp.concat(nonCalc), mesures: src
     });
   }
