@@ -32,3 +32,10 @@ Sans fiche : Barrot, Bergé, Billetdoux, Breton, Cheve, Collovati, Durif, Egger 
 
 ## Publication
 GitHub Pages (dépôt public, branche `main`, racine) et copie privée sur un artifact claude.ai.
+
+## Points à garder en tête pour une nouvelle session
+- **Pas de mise à jour automatique.** L'utilisateur lance lui-même le skill `maj-candidats-2027` pour mettre à jour la liste des candidats ; ne pas créer de tâche planifiée pour cela.
+- **À vérifier avant toute communication large :**
+  - le SMIC du simulateur (1 502 € net au 1er décembre 2026, +1,6 %) ne repose que sur un article de LCP, à confirmer sur une source officielle ;
+  - plusieurs avis des fiches d'évaluation (`data/evaluations.json`) viennent de comptes rendus secondaires, par exemple le rapport de la Cour des comptes d'avril 2025 lu à travers un article, ou le projet de rapport du COR 2026 lu à travers Groupama : retourner aux documents d'origine ;
+  - le plafond du quotient familial utilisé par le moteur (1 807 € par demi-part) est déduit de l'indexation de 0,9 %, pas lu directement dans une source.
