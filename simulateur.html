@@ -56,6 +56,7 @@ details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px
 <label>Année de naissance<input type="number" id="naiss" min="1940" max="2008" value="1985"></label>
 <label>Début de carrière (année)<input type="number" id="debut" min="1960" max="2026" value="2008"></label>
 <label>Salaire net mensuel (€)<input type="number" id="net" min="0" step="10" value="1800"></label>
+<label>Années sans trimestre validé<input type="number" id="vide" min="0" max="30" value="0"><small>Chômage non indemnisé, inactivité. Le chômage indemnisé valide en général des trimestres : ne le compte pas.</small></label>
 <label>Quotité de travail (%)<input type="number" id="quot" min="10" max="100" value="100"></label>
 <label>Dépenses mensuelles à TVA 20 % (€)<input type="number" id="dep" min="0" step="50" value="1000"><small>Hors alimentation, loyer, santé. Valeur d'exemple : modifie-la.</small></label>
 <label>Électricité par mois (€)<input type="number" id="elec" min="0" value="90"></label>
@@ -73,7 +74,7 @@ details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $=id=>document.getElementById(id);let C=[],MS={};
 const eur=n=>(n>=0?'+':'−')+Math.abs(n).toLocaleString('fr-FR',{maximumFractionDigits:0})+' €';
-function profil(){const v=id=>+$(id).value||0;return{statut:'salarie',anneeNaissance:v('naiss'),anneeDebutCarriere:v('debut')||null,salaireNetMensuel:v('net'),quotite:v('quot')||100,depensesTvaNormale:v('dep'),electriciteMois:v('elec'),energieMois:v('gaz'),carburantLitres:v('carb'),heuresSupSemaine:v('hs')}}
+function profil(){const v=id=>+$(id).value||0;return{statut:'salarie',anneeNaissance:v('naiss'),anneeDebutCarriere:v('debut')||null,anneesSansTrimestre:v('vide'),salaireNetMensuel:v('net'),quotite:v('quot')||100,depensesTvaNormale:v('dep'),electriciteMois:v('elec'),energieMois:v('gaz'),carburantLitres:v('carb'),heuresSupSemaine:v('hs')}}
 function eff(d,e){
  let h='<div class="dom"><h3>'+esc(d.titre)+'</h3>';
  if(e.statut==='calcule'){
@@ -87,9 +88,11 @@ function eff(d,e){
 }
 function draw(){
  const r=Engine.simuler(profil(),C,MS);
- $('out').innerHTML=r.map(c=>'<section class="res"><h2>'+esc(c.nom)+'</h2>'+Engine.DOMAINES.map(d=>eff(d,c.effets[d.id])).join('')+
-  (c.annonces.length?'<div class="dom"><h3>Gains annoncés par le candidat (non personnalisés)</h3><ul>'+c.annonces.map(a=>'<li>'+esc(a.intitule)+(a.chiffres?' — '+esc(a.chiffres):'')+'</li>').join('')+'</ul></div>':'')+
-  '<p class="fia">'+c.nbMesures+' mesures relevées · <a href="programmes.html">voir le programme</a></p></section>').join('');
+ const utile=c=>Engine.DOMAINES.some(d=>c.effets[d.id].statut==='calcule');
+ const oui=r.filter(utile),non=r.filter(c=>!utile(c));
+ $('out').innerHTML=oui.map(c=>'<section class="res"><h2>'+esc(c.nom)+'</h2>'+Engine.DOMAINES.filter(d=>c.effets[d.id].statut==='calcule').map(d=>eff(d,c.effets[d.id])).join('')+
+  '<p class="fia"><a href="programmes.html">voir le programme</a></p></section>').join('')+
+  (non.length?'<p class="note" style="margin-top:8px"><strong>Rien d\'intéressant à dire pour ces candidats</strong> (aucune mesure chiffrée dans ces quatre domaines) : '+non.map(c=>esc(c.nom)).join(', ')+'.</p>':'');
 }
 Promise.all([fetch('data/candidats.json').then(r=>r.json())]).then(([c])=>{
  const ids=(c.candidats||[]).map(x=>x.id);

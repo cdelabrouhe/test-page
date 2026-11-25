@@ -91,7 +91,8 @@
   function effetRetraite(p, ms) {
     if (!(p.anneeNaissance > 1940)) return est('non_estimable', { message: 'Renseigne ton année de naissance.' });
     const act = regleActuelle(p.anneeNaissance);
-    const debut = p.anneeDebutCarriere;
+    const debutBrut = p.anneeDebutCarriere;
+    const debut = debutBrut ? debutBrut + (p.anneesSansTrimestre || 0) : null; // années sans trimestre validé repoussent la durée requise
     const hyp = ['Carrière continue à temps plein, sans trimestre manquant ni majoré.'];
     const ageLegalP = first(ms, 'age_legal'), ageMin = first(ms, 'age_minimal'), duree = first(ms, 'duree_cotisation_annees');
     const anticipe = first(ms, 'depart_anticipe_age');
@@ -111,13 +112,14 @@
     if (duree) src.push(duree.m.id);
     let departCand = Math.max(p.anneeNaissance + ageMoisCand / 12, debut ? debut + dureeCand : 0);
     const notes = [];
-    if (anticipe && debut && debut - p.anneeNaissance < 20) {
+    if (anticipe && debutBrut && debutBrut - p.anneeNaissance < 20) {
       const dep2 = Math.max(p.anneeNaissance + anticipe.v, debut + 160 / 4);
       if (dep2 < departCand) { departCand = dep2; notes.push('Départ anticipé : carrière commencée avant 20 ans.'); }
     }
     const ageRet = a => a - p.anneeNaissance;
     const deltaMois = Math.round((departCand - departActuel) * 12);
     const ageDepartActuel = ageRet(departActuel) * 12, ageDepartCand = ageRet(departCand) * 12;
+    if (p.anneesSansTrimestre) hyp.push(p.anneesSansTrimestre + ' an(s) sans trimestre validé : la durée de cotisation requise est repoussée d\'autant.');
     if (!debut) hyp.push('Année de début de carrière non renseignée : seul l\'âge légal est comparé.');
     const retr = [];
     const retailleauTP = first(ms, 'age_taux_plein');
