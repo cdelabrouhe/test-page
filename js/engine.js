@@ -199,12 +199,119 @@
       mesures: hits.map(x => x[0].m.id), hypotheses: hits.map(x => x[1]) });
   }
 
+
+  /* ---------- Impôt sur le revenu (barème 2026, revenus 2025) ---------- */
+  Object.assign(REF, {
+    ir: { tranches: [[11600, 0], [29579, 0.11], [84577, 0.30], [181917, 0.41], [Infinity, 0.45]],
+      plafondDemiPart: 1807, plafondParentIsole: 4262, decote: { seul: [1982, 897], couple: [3277, 1483], taux: 0.4525 },
+      abattementSalaires: 0.10,
+      source: 'service-public.gouv.fr (F1419), loi de finances pour 2026 : barème revalorisé de 0,9 % ; plafond du quotient familial et décote selon BOFiP (avril 2026)' },
+    succession: { abattementLigneDirecte: 100000,
+      bareme: [[8072, 0.05], [12109, 0.10], [15932, 0.15], [552324, 0.20], [902838, 0.30], [1805677, 0.40], [Infinity, 0.45]],
+      source: 'impots.gouv.fr, droits de succession en ligne directe' },
+    fraisAcquisitionAncien: 0.075, plancherIFI: 1300000
+  });
+  const progressif = (x, bareme) => { let prev = 0, tot = 0; for (const [lim, t] of bareme) { if (x > prev) tot += (Math.min(x, lim) - prev) * t; prev = lim; } return tot; };
+  function irFoyer(p) {
+    const couple = !!p.couple, enf = p.enfants || 0;
+    const rev = ((p.salaireNetMensuel || 0) + (couple ? (p.salaireConjointNetMensuel || 0) : 0)) * 12 * (1 - REF.ir.abattementSalaires);
+    const base = couple ? 2 : 1;
+    let parts = base; for (let i = 1; i <= enf; i++) parts += i <= 2 ? 0.5 : 1;
+    const brutAvec = progressif(rev / parts, REF.ir.tranches) * parts;
+    const brutBase = progressif(rev / base, REF.ir.tranches) * base;
+    const demis = (parts - base) * 2;
+    let maxAvantage = demis * REF.ir.plafondDemiPart;
+    if (!couple && enf > 0) maxAvantage += REF.ir.plafondParentIsole - REF.ir.plafondDemiPart; // parent isolé : 1re demi-part plafonnée à 4 262 €
+    let brut = Math.max(brutAvec, brutBase - maxAvantage);
+    const [seuil, forf] = couple ? REF.ir.decote.couple : REF.ir.decote.seul;
+    if (brut < seuil) brut = Math.max(0, brut - (forf - REF.ir.decote.taux * brut));
+    return { impot: Math.max(0, Math.round(brut)), revenuImposable: Math.round(rev), parts };
+  }
+  const HYP_IR = ['Revenu net imposable estimé à 90 % du salaire net annuel (abattement de 10 %), sans autre revenu, déduction ni réduction d\'impôt.'];
+
+  function effetIR(p, ms) {
+    const hits = [];
+    const lm = first(ms, 'famille_nombreuse_exoneree_ir'), lp = flat(ms, 'exoneration_ir').filter(x => x.m.parametres.age_max)[0] || null;
+    if (!lm && !lp) return est('aucune_mesure', { message: 'Aucune mesure simulable sur l\'impôt sur le revenu.' });
+    if (!(p.salaireNetMensuel > 0)) return est('non_estimable', { message: 'Renseigne ton salaire net mensuel.' });
+    const ir = irFoyer(p), src = [], hyp = HYP_IR.slice();
+    let gain = 0, lib = [];
+    if (lm) { src.push(lm.m.id); if ((p.enfants || 0) >= lm.v) { gain = ir.impot; lib.push('impôt supprimé pour les familles d\'au moins ' + lm.v + ' enfants'); } }
+    if (lp) { src.push(lp.m.id); const age = REF.anneeRef + 1 - p.anneeNaissance;
+      if (age < lp.m.parametres.age_max && !p.couple) { gain = ir.impot; lib.push('exonération pour les moins de ' + lp.m.parametres.age_max + ' ans'); hyp.push('Âge calculé en 2027. Mesure du programme de 2022, non confirmée pour 2027 ; lue comme une exonération totale.'); }
+      else if (age < lp.m.parametres.age_max) return est('non_estimable', { message: 'Foyer en couple : l\'application de l\'exonération au foyer n\'est pas précisée.', mesures: src }); }
+    if (!lib.length) return est('calcule', { valeurAnnuelle: 0, valeurMensuelle: 0, message: 'Pas d\'effet pour ta situation.', mesures: src });
+    hyp.push('Ton impôt actuel estimé : ' + ir.impot + ' € par an (' + ir.parts + ' parts).');
+    return est('calcule', { valeurAnnuelle: ir.impot, valeurMensuelle: r2(ir.impot / 12), message: ir.impot > 0 ? '+' + ir.impot + ' € par an (impôt estimé supprimé)' : 'Tu ne paies pas d\'impôt estimé : pas d\'effet.',
+      formule: lib.join(' ; '), hypotheses: hyp, mesures: src });
+  }
+
+  /* ---------- Famille ---------- */
+  function effetFamille(p, ms) {
+    const nais = p.naissances || 0, src = [], lignes = [], hyp = [];
+    const cap = first(ms, 'capital_naissance'), baby = first(ms, 'montant_par_naissance');
+    const alloc = first(ms, 'montant_mensuel'), aah = first(ms, 'aah_hausse');
+    let unique = 0;
+    if (cap && nais > 0) { unique += cap.v * nais; src.push(cap.m.id); lignes.push(nais + ' × ' + cap.v + ' € de capital, bloqué jusqu\'à la retraite'); }
+    if (baby && nais > 0) { unique += baby.v * nais; src.push(baby.m.id); lignes.push(nais + ' × ' + baby.v + ' € placés à la naissance'); }
+    let mensuel = 0;
+    if (aah && p.aah) { mensuel = aah.v; src.push(aah.m.id); lignes.push('hausse de l\'AAH de ' + aah.v + ' €/mois'); hyp.push('Hausse de l\'AAH lue comme mensuelle et nette.'); }
+    if (unique > 0) hyp.push('Le capital est placé et non versé : tu n\'en disposes pas immédiatement.');
+    if (mensuel || unique) {
+      const parts = []; if (mensuel) parts.push('+' + mensuel + ' € par mois d\'AAH'); if (unique) parts.push('+' + unique.toLocaleString('fr-FR') + ' € placés pour les enfants à naître (épargne, pas du revenu disponible)');
+      return est('calcule', { valeurMensuelle: mensuel, valeurAnnuelle: mensuel * 12, valeurUnique: unique, message: parts.join(' ; '), formule: lignes.join(' ; '), hypotheses: hyp, mesures: src });
+    }
+    if (alloc && ((p.enfants || 0) > 0 || nais > 0)) return est('indication', { message: 'Allocation familiale unique de ' + alloc.v + ' €/mois dès le premier enfant, dégressive selon les revenus. Barème non précisé : ton montant ne peut pas être calculé.', mesures: [alloc.m.id] });
+    return est('aucune_mesure', { message: 'Aucune mesure calculable sur la famille pour ta situation.' });
+  }
+
+  /* ---------- Logement ---------- */
+  function effetLogement(p, ms) {
+    const apl = first(ms, 'apl_hausse_pct'), notaire = first(ms, 'frais_notaire_supprimes');
+    const src = [], lignes = [], hyp = [];
+    let mensuel = 0, unique = 0;
+    if (apl && p.aplMensuelle > 0) { mensuel += p.aplMensuelle * apl.v / 100; src.push(apl.m.id); lignes.push('APL +' + apl.v + ' %'); }
+    if (notaire && p.prixAchat > 0) {
+      const age = REF.anneeRef + 1 - p.anneeNaissance, amax = notaire.m.parametres.age_max_acheteur;
+      src.push(notaire.m.id);
+      if (age < amax) { unique += p.prixAchat * REF.fraisAcquisitionAncien; lignes.push('frais de notaire supprimés (' + Math.round(REF.fraisAcquisitionAncien * 1000) / 10 + ' % du prix)'); hyp.push('Frais estimés à ' + REF.fraisAcquisitionAncien * 100 + ' % du prix d\'un logement ancien ; la mesure ne précise pas si les droits de mutation sont inclus. Âge calculé en 2027.'); }
+    }
+    if (!mensuel && !unique) return est('aucune_mesure', { message: 'Aucune mesure calculable sur le logement pour ta situation.' });
+    const parts = [];
+    if (mensuel) parts.push('+' + r2(mensuel) + ' € par mois d\'APL');
+    if (unique) parts.push('jusqu\'à ' + Math.round(unique).toLocaleString('fr-FR') + ' € économisés à l\'achat');
+    return est('calcule', { valeurMensuelle: r2(mensuel), valeurAnnuelle: r2(mensuel * 12), valeurUnique: Math.round(unique), message: parts.join(' ; '), formule: lignes.join(' ; '), hypotheses: hyp, mesures: src });
+  }
+
+  /* ---------- Patrimoine et succession ---------- */
+  function effetPatrimoine(p, ms) {
+    const succ = first(ms, 'exoneration_succession_ligne_directe_eur'), isf = first(ms, 'isf_retabli'), herit = first(ms, 'seuil_heritage_meur');
+    const src = [], hyp = []; let gain = 0, calc = false; const textes = [];
+    if (succ && p.heritage > 0) {
+      const act = progressif(Math.max(0, p.heritage - REF.succession.abattementLigneDirecte), REF.succession.bareme);
+      const cand = progressif(Math.max(0, p.heritage - succ.v), REF.succession.bareme);
+      gain = act - cand; calc = true; src.push(succ.m.id);
+      hyp.push('Part reçue en ligne directe, abattement actuel de 100 000 €. La mesure est lue comme un abattement de ' + succ.v.toLocaleString('fr-FR') + ' € par héritier.');
+      textes.push(gain > 0 ? 'Droits de succession ramenés de ' + Math.round(act).toLocaleString('fr-FR') + ' € à ' + Math.round(cand).toLocaleString('fr-FR') + ' €' : 'Pas d\'effet : ton héritage reste sous le seuil.');
+    }
+    const ind = [];
+    if (isf && p.patrimoine >= REF.plancherIFI) { src.push(isf.m.id); ind.push('Rétablissement de l\'ISF : avec un patrimoine net de ' + Math.round(p.patrimoine).toLocaleString('fr-FR') + ' €, tu pourrais être concerné ; seuil et taux ne sont pas relevés de façon uniforme, donc non calculé.'); }
+    if (herit && p.heritage > herit.v * 1e6) { src.push(herit.m.id); ind.push('Taxation accrue des héritages supérieurs à ' + herit.v + ' M€ : ton héritage serait concerné ; taux non précisé.'); }
+    if (calc) return est('calcule', { valeurUnique: Math.round(gain), valeurAnnuelle: 0, message: textes.join(' ') + (ind.length ? ' — ' + ind.join(' ') : ''), formule: 'droits(héritage − abattement actuel) − droits(héritage − seuil du candidat)', hypotheses: hyp, mesures: src, indications: ind });
+    if (ind.length) return est('indication', { message: ind.join(' '), mesures: src });
+    return est('aucune_mesure', { message: 'Aucune mesure calculable sur le patrimoine pour ta situation.' });
+  }
+
   /* ---------- Orchestration ---------- */
   const DOMAINES = [
     { id: 'salaire', titre: 'Salaire minimum et salaires', fn: effetSalaire },
     { id: 'retraite', titre: 'Âge de départ à la retraite', fn: effetRetraite },
     { id: 'tva', titre: 'TVA et prix de l\'énergie', fn: effetTVA },
-    { id: 'hs', titre: 'Heures supplémentaires', fn: effetHS }
+    { id: 'hs', titre: 'Heures supplémentaires', fn: effetHS },
+    { id: 'ir', titre: 'Impôt sur le revenu', fn: effetIR },
+    { id: 'famille', titre: 'Famille et naissance', fn: effetFamille },
+    { id: 'logement', titre: 'Logement', fn: effetLogement },
+    { id: 'patrimoine', titre: 'Patrimoine et succession', fn: effetPatrimoine }
   ];
 
   function simuler(profil, candidats, mesuresParCandidat) {
@@ -219,5 +326,5 @@
     return res;
   }
 
-  return { REF, DOMAINES, simuler, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, annoncesGain };
+  return { REF, DOMAINES, simuler, irFoyer, effetIR, effetFamille, effetLogement, effetPatrimoine, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, annoncesGain };
 });

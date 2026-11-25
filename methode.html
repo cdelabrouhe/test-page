@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Méthode et limites — présidentielle 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet"><style>
+/* VOICE: fiche de lecture rigoureuse. IDEA: le dossier de presse comparé, thème par thème.
+   PICTURE: la matrice thèmes × candidats. COLOUR and TYPE: mêmes que la page candidats.
+   LAYOUT: titre, filtres, vue par thème (colonnes candidats) ou par candidat. */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#0d1020);--ink:light-dark(#141420,#eceef8);--mute:light-dark(#5d6070,#a3a7bd);--line:light-dark(#d9dbe4,#2c3150);--blue:light-dark(#000091,#9aa8ff);--soft:light-dark(#f3f4fa,#161a33);--red:light-dark(#e1000f,#ff6f6f)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--blue)}
+.band{padding:clamp(24px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header.band{border-top:10px solid var(--blue);padding-bottom:16px}
+h1{font-size:clamp(30px,4.6vw,48px);line-height:1.05;margin:0 0 10px;font-weight:800;font-stretch:112%;color:var(--blue);text-wrap:balance}
+.lede{margin:0;color:var(--mute);max-width:70ch}
+nav a{font-weight:600;margin-right:16px}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:20px 0}
+select,input{font:inherit;font-size:16px;min-height:44px;padding:8px 12px;border:2px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+select:focus,input:focus,.chip:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border:2px solid var(--blue);border-radius:999px;background:transparent;color:var(--blue);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--blue);color:var(--bg)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:16px;align-items:start}
+.col h2{font-size:20px;margin:0 0 4px;font-stretch:108%}
+.col .state{font-size:13px;color:var(--mute);margin:0 0 12px}
+.m{border:2px solid var(--ink);padding:12px 14px;margin-bottom:12px;background:var(--bg)}
+.m h3{margin:0 0 6px;font-size:16px;line-height:1.3;font-weight:700}
+.m p{margin:0 0 6px;font-size:14px;line-height:1.45}
+.fig{font-weight:700;color:var(--red);font-size:14px}
+.th{display:inline-block;font-size:12px;background:var(--soft);color:var(--blue);border-radius:999px;padding:1px 9px;margin-bottom:6px;font-weight:600}
+.fia{font-size:12px;color:var(--mute)}
+.div{font-size:13px;border-left:3px solid var(--red);padding-left:8px;margin:6px 0}
+.src a{font-size:12px;margin-right:8px;white-space:nowrap}
+.sim{font-size:12px;color:var(--blue);font-weight:700}
+.empty{color:var(--mute);border:2px dashed var(--line);padding:14px;font-size:14px}
+.note{font-size:13px;color:var(--mute);margin-top:24px;max-width:75ch}
+
+h2{font-size:22px;margin:28px 0 6px;font-stretch:108%}.wrap ul{max-width:75ch}</style></head><body>
+<header class="band"><div class="wrap"><nav><a href="index.html">Candidats</a><a href="programmes.html">Programmes</a><a href="simulateur.html">Simulateur</a><a href="methode.html" aria-current="page">Méthode</a></nav><h1>Méthode et limites</h1><p class="lede">Comment ce comparateur est construit, ce qu'il couvre et ce qu'il ne dit pas.</p></div></header>
+<main class="band" style="padding-top:0"><div class="wrap">
+<h2>Neutralité</h2><ul><li>Candidats toujours en ordre alphabétique du nom de famille.</li><li>Aucune mesure sans source ; aucun score global, aucun classement, aucun avis éditorial.</li><li>Quand deux sources se contredisent, la divergence est affichée.</li></ul>
+<h2>Qui est traité</h2><ul><li>Tous les candidats déclarés, sous condition ou pressentis ; Marine Le Pen est maintenue dans la liste en raison de l'incertitude judiciaire.</li><li>Les candidats retirés restent dans l'historique, pas dans le simulateur.</li><li>La liste est mise à jour à la main, après vérification, et non automatiquement.</li></ul>
+<h2>D'où viennent les mesures</h2><ul><li>Chaque mesure est étiquetée : « programme officiel » (site ou document du candidat), « presse » (déclarations rapportées) ou « recensement tiers » (site qui compile).</li><li>Beaucoup de programmes sont partiels ; certaines mesures datent d'une campagne précédente et sont signalées comme telles.</li><li>Pour une vingtaine de candidats mineurs, aucune fiche n'a pu être établie.</li></ul>
+<h2>Le simulateur</h2><ul><li>Tout est calculé dans ton navigateur : aucune donnée n'est envoyée ni enregistrée.</li><li>Il ne calcule que les mesures chiffrées dans les sources. « Non estimable » signifie que le programme est trop imprécis, pas qu'il n'a aucun effet.</li><li>Chaque résultat affiche sa formule et ses hypothèses (carrière continue, revenu imposable approché, hausses supposées entièrement répercutées, etc.).</li><li>Les règles de référence sont celles en vigueur à l'automne 2026 : SMIC du 1er juin 2026, barème de l'impôt sur le revenu 2026, âge légal de la retraite gelé à 62 ans 9 mois par la loi de financement de la Sécurité sociale pour 2026, droits de succession en ligne directe.</li><li>Résultats indicatifs : ils ne remplacent ni un simulateur officiel ni un conseil personnalisé.</li></ul>
+<h2>Ce qui n'est pas couvert</h2><ul><li>Fiscalité du capital (plus-values, flat tax), ISF et IFI chiffrés, aides sociales détaillées (RSA, prime d'activité), assurance-chômage.</li><li>L'évaluation de la faisabilité, du financement et des précédents de chaque mesure n'est pas encore faite.</li></ul>
+<h2>Données</h2><p class="note">Les fichiers sont dans le dossier <code>data/</code> du dépôt public : candidats, sources, thèmes et mesures par candidat.</p>
+</div></main></body></html>

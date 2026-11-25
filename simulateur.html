@@ -47,9 +47,9 @@ fieldset{border:2px solid var(--line);padding:14px 16px;margin:0 0 16px}legend{f
 details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px;padding:1px 9px;background:var(--soft);color:var(--blue);font-weight:600}
 </style></head><body>
 <header class="band"><div class="wrap">
-<nav><a href="index.html">Candidats</a><a href="programmes.html">Programmes</a><a href="simulateur.html" aria-current="page">Simulateur</a></nav>
+<nav><a href="index.html">Candidats</a><a href="programmes.html">Programmes</a><a href="simulateur.html" aria-current="page">Simulateur</a><a href="methode.html">Méthode</a></nav>
 <h1>Ce que les programmes changeraient pour toi</h1>
-<p class="lede">Quatre domaines pour l'instant : salaire minimum, âge de départ à la retraite, TVA et énergie, heures supplémentaires. Tout est calculé dans ton navigateur : rien n'est envoyé ni enregistré. Pas de note globale, pas de classement : les candidats sont par ordre alphabétique.</p>
+<p class="lede">Huit domaines pour l'instant : salaire minimum, retraite, TVA et énergie, heures supplémentaires, impôt sur le revenu, famille, logement, patrimoine et succession. Tout est calculé dans ton navigateur : rien n'est envoyé ni enregistré. Pas de note globale, pas de classement : les candidats sont par ordre alphabétique.</p>
 </div></header>
 <main class="band" style="padding-top:0"><div class="wrap">
 <form id="f"><fieldset><legend>Ta situation</legend><div class="form">
@@ -63,10 +63,21 @@ details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px
 <label>Gaz par mois (€)<input type="number" id="gaz" min="0" value="40"></label>
 <label>Carburant par mois (litres)<input type="number" id="carb" min="0" value="80"></label>
 <label>Heures supplémentaires par semaine<input type="number" id="hs" min="0" max="20" value="0"></label>
+</div></fieldset>
+<fieldset><legend>Ton foyer et tes projets (facultatif)</legend><div class="form">
+<label>En couple<select id="couple"><option value="0">Non</option><option value="1">Oui</option></select></label>
+<label>Salaire net mensuel du conjoint (€)<input type="number" id="conj" min="0" step="10" value="0"></label>
+<label>Enfants à charge<input type="number" id="enf" min="0" max="10" value="0"></label>
+<label>Naissances prévues d'ici 2032<input type="number" id="nais" min="0" max="5" value="0"></label>
+<label>Bénéficiaire de l'AAH<select id="aah"><option value="0">Non</option><option value="1">Oui</option></select></label>
+<label>APL perçues par mois (€)<input type="number" id="apl" min="0" value="0"></label>
+<label>Achat d'un logement ancien : prix (€)<input type="number" id="prix" min="0" step="1000" value="0"></label>
+<label>Héritage attendu en ligne directe (€)<input type="number" id="her" min="0" step="10000" value="0"></label>
+<label>Patrimoine net total (€)<input type="number" id="pat" min="0" step="10000" value="0"></label>
 </div></fieldset></form>
 <p id="etat" class="note"></p>
 <div id="out"></div>
-<p class="note">Ce simulateur ne couvre qu'une partie des mesures, et seulement celles qui sont chiffrées dans les sources. « Non estimable » veut dire que le programme est trop imprécis, pas qu'il n'a aucun effet. Les hypothèses sont détaillées sous chaque résultat. Références : SMIC au 1er juin 2026 (1 867,02 € brut, 1 477,93 € net par mois), âge légal figé à 62 ans 9 mois jusqu'en 2028 (LFSS 2026). Résultat indicatif, pas un conseil.</p>
+<p class="note">Ce simulateur ne couvre qu'une partie des mesures, et seulement celles qui sont chiffrées dans les sources. « Non estimable » veut dire que le programme est trop imprécis, pas qu'il n'a aucun effet. Les hypothèses sont détaillées sous chaque résultat. Références : SMIC au 1er juin 2026 (1 867,02 € brut, 1 477,93 € net par mois), âge légal figé à 62 ans 9 mois jusqu'en 2028 (LFSS 2026), barème de l'impôt sur le revenu 2026 (revenus 2025), droits de succession en ligne directe. Les champs « facultatif » ne servent qu'à ces calculs : laisse 0 si tu n'es pas concerné. Résultat indicatif, pas un conseil.</p>
 </div></main>
 <script src="js/engine.js"></script>
 <script>
@@ -74,7 +85,7 @@ details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $=id=>document.getElementById(id);let C=[],MS={};
 const eur=n=>(n>=0?'+':'−')+Math.abs(n).toLocaleString('fr-FR',{maximumFractionDigits:0})+' €';
-function profil(){const v=id=>+$(id).value||0;return{statut:'salarie',anneeNaissance:v('naiss'),anneeDebutCarriere:v('debut')||null,anneesSansTrimestre:v('vide'),salaireNetMensuel:v('net'),quotite:v('quot')||100,depensesTvaNormale:v('dep'),electriciteMois:v('elec'),energieMois:v('gaz'),carburantLitres:v('carb'),heuresSupSemaine:v('hs')}}
+function profil(){const v=id=>+$(id).value||0;return{statut:'salarie',anneeNaissance:v('naiss'),anneeDebutCarriere:v('debut')||null,anneesSansTrimestre:v('vide'),salaireNetMensuel:v('net'),quotite:v('quot')||100,depensesTvaNormale:v('dep'),electriciteMois:v('elec'),energieMois:v('gaz'),carburantLitres:v('carb'),heuresSupSemaine:v('hs'),couple:v('couple')===1,salaireConjointNetMensuel:v('conj'),enfants:v('enf'),naissances:v('nais'),aah:v('aah')===1,aplMensuelle:v('apl'),prixAchat:v('prix'),heritage:v('her'),patrimoine:v('pat')}}
 function eff(d,e){
  let h='<div class="dom"><h3>'+esc(d.titre)+'</h3>';
  if(e.statut==='calcule'){
@@ -82,13 +93,14 @@ function eff(d,e){
   h+='<div class="val '+(d.id==='retraite'?'':cls)+'">'+esc(e.message)+'</div>';
   if(e.lignes)h+='<ul>'+e.lignes.map(l=>'<li>'+esc(l.libelle)+' : '+eur(l.mensuel)+'/mois</li>').join('')+'</ul>';
   h+='<details><summary>Formule et hypothèses</summary><p>'+esc(e.formule||'')+'</p><ul>'+e.hypotheses.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></details>';
- }else if(e.statut==='non_estimable')h+='<p><span class="tag">non estimable</span> '+esc(e.message)+'</p>';
+ }else if(e.statut==='indication')h+='<p><span class="tag">à noter</span> '+esc(e.message)+'</p>';
+ else if(e.statut==='non_estimable')h+='<p><span class="tag">non estimable</span> '+esc(e.message)+'</p>';
  else h+='<p class="fia">'+esc(e.message)+'</p>';
  return h+'</div>';
 }
 function draw(){
  const r=Engine.simuler(profil(),C,MS);
- const nonNul=(d,e)=>e.statut==='calcule'&&(d.id==='retraite'?e.deltaMois!==0:(e.valeurAnnuelle||e.valeurMensuelle||0)!==0);
+ const nonNul=(d,e)=>e.statut==='indication'||(e.statut==='calcule'&&(d.id==='retraite'?e.deltaMois!==0:(e.valeurAnnuelle||e.valeurMensuelle||e.valeurUnique||0)!==0));
  const utile=c=>Engine.DOMAINES.some(d=>nonNul(d,c.effets[d.id]));
  const oui=r.filter(utile),non=r.filter(c=>!utile(c));
  $('out').innerHTML=oui.map(c=>'<section class="res"><h2>'+esc(c.nom)+'</h2>'+Engine.DOMAINES.filter(d=>nonNul(d,c.effets[d.id])).map(d=>eff(d,c.effets[d.id])).join('')+
@@ -101,7 +113,7 @@ Promise.all([fetch('data/candidats.json').then(r=>r.json())]).then(([c])=>{
   ids.forEach((id,i)=>{if(ds[i])MS[id]=ds[i]});
   C=c.candidats.filter(x=>MS[x.id]);
   $('etat').textContent=C.length+' candidats dont le programme a été relevé.';
-  document.querySelectorAll('#f input').forEach(i=>i.addEventListener('input',draw));
+  document.querySelectorAll('#f input,#f select').forEach(i=>i.addEventListener('input',draw));
   $('f').addEventListener('submit',e=>e.preventDefault());draw();
  });
 }).catch(()=>{$('out').innerHTML='<p class="empty">Données indisponibles.</p>'});

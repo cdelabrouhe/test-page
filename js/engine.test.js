@@ -15,4 +15,15 @@ t('HS Mélenchon',()=>{const r=E.effetHS(p,M('melenchon'));console.log(r.message
 t('simuler tout',()=>{const ids=fs.readdirSync('data/mesures').map(f=>f.replace('.json',''));const mp={};ids.forEach(i=>mp[i]=JSON.parse(fs.readFileSync('data/mesures/'+i+'.json','utf8')));
  const r=E.simuler(p,ids.map(i=>({id:i,nom:i})),mp);assert.strictEqual(r.length,ids.length);
  r.forEach(c=>console.log(c.id.padEnd(14),Object.values(c.effets).map(e=>e.statut[0]+(e.statut==='calcule'?'✓':'')).join(' ')))});
+t('IR célibataire 32 400 €',()=>assert.strictEqual(E.irFoyer({salaireNetMensuel:3000}).impot,2824));
+t('IR couple 2 enfants',()=>assert.strictEqual(E.irFoyer({couple:true,salaireNetMensuel:3000,salaireConjointNetMensuel:2000,enfants:2}).impot,1585));
+t('IR sous le seuil',()=>assert.strictEqual(E.irFoyer({salaireNetMensuel:1500}).impot,0));
+t('Le Maire: 3 enfants → IR supprimé',()=>{const r=E.effetIR({...p,couple:true,salaireConjointNetMensuel:2000,enfants:3,salaireNetMensuel:6000},M('le-maire'));assert.strictEqual(r.statut,'calcule');assert(r.valeurAnnuelle>0)});
+t('Le Maire: 1 enfant → 0',()=>assert.strictEqual(E.effetIR({...p,enfants:1,salaireNetMensuel:3000},M('le-maire')).valeurAnnuelle,0));
+t('Le Pen -30 ans',()=>{const r=E.effetIR({...p,anneeNaissance:2000,salaireNetMensuel:3000},M('le-pen'));assert.strictEqual(r.valeurAnnuelle,2824)});
+t('capital naissance Dupont-Aignan',()=>assert.strictEqual(E.effetFamille({...p,naissances:2},M('dupont-aignan')).valeurUnique,20000));
+t('APL Mélenchon',()=>assert.strictEqual(E.effetLogement({...p,aplMensuelle:200},M('melenchon')).valeurMensuelle,20));
+t('notaire Philippe <35 ans',()=>assert.strictEqual(E.effetLogement({...p,anneeNaissance:1995,prixAchat:200000},M('philippe')).valeurUnique,15000));
+t('succession Villepin 600 000 €',()=>{const r=E.effetPatrimoine({...p,heritage:600000},M('villepin'));assert.strictEqual(r.statut,'calcule');assert.strictEqual(r.valeurUnique,98194)});
+t('ISF indication',()=>assert.strictEqual(E.effetPatrimoine({...p,patrimoine:2000000},M('tondelier')).statut,'indication'));
 console.log(n,'tests');
