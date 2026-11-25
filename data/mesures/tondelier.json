@@ -1,6 +1,6 @@
 {
  "candidat": "tondelier",
- "etat_programme": "Projet 2027 des Écologistes (292 mesures selon la source, dont 48 « phares » ; 40 relevées ici). Le document officiel n'a pas pu être vérifié directement.",
+ "etat_programme": "Projet 2027 des Écologistes (292 mesures selon la source, dont 48 « phares »). 22 mesures relevées ici : les mesures « phare » et chiffrées de sept pages thématiques. Le document officiel n'a pas pu être vérifié directement.",
  "verifie_le": "2026-11-25",
  "mesures": [
   {
@@ -145,6 +145,145 @@
    "sources": [
     "v27-tondelier",
     "lg-ecolo"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-ret",
+   "theme": "retraites",
+   "intitule": "Abroger le recul de l'âge légal à 64 ans : retour à 62 ans, objectif de 60 ans pour les carrières précoces et pénibles ; conférence travail-retraite visant l'équilibre du régime en 2050",
+   "detail": null,
+   "chiffres": "62 ans ; 60 ans",
+   "sources": [
+    "v27-ton-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 62,
+    "objectif_carrieres_longues": 60
+   }
+  },
+  {
+   "id": "ton-apl",
+   "theme": "logement",
+   "intitule": "Revaloriser les APL de 10 %, avec un mécanisme empêchant leur répercussion sur les loyers ; renforcer les sanctions loi SRU (20 ou 25 % de logements sociaux)",
+   "detail": null,
+   "chiffres": "+10 %",
+   "sources": [
+    "v27-ton-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "apl_hausse_pct": 10
+   }
+  },
+  {
+   "id": "ton-af",
+   "theme": "famille",
+   "intitule": "Allocations familiales d'un même montant dès le premier enfant",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-ton-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-cot",
+   "theme": "travail",
+   "intitule": "Conditionner les exonérations de cotisations sociales à la hausse des salaires inférieurs à 2 000 € nets par mois ; congé climatique de 5 jours par an",
+   "detail": null,
+   "chiffres": "2 000 € nets ; 5 jours",
+   "sources": [
+    "v27-ton-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-prix",
+   "theme": "fiscalite-menages",
+   "intitule": "Encadrer les prix d'un panier de biens essentiels (logement, énergie, eau, transport, alimentation, culture)",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-ton-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-sante2",
+   "theme": "sante",
+   "intitule": "Dépassements d'honoraires plafonnés à 50 % du tarif de la Sécurité sociale et interdits pour la moitié des ménages les moins aisés ; prise en charge à 100 % des soins d'autonomie ; congé de deuil à 4 jours",
+   "detail": null,
+   "chiffres": "50 % ; 100 % ; 4 jours",
+   "sources": [
+    "v27-ton-sante"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-bio",
+   "theme": "environnement",
+   "intitule": "Agriculture biologique à 21 % des surfaces en 2030 et 25 % en 2032 ; moratoire sur les mégabassines, l'A69 et le canal Seine-Nord ; 110 km/h sur autoroute pour les thermiques",
+   "detail": null,
+   "chiffres": "21 % (2030) ; 25 % (2032) ; 110 km/h",
+   "sources": [
+    "v27-ton-autres"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-edu2",
+   "theme": "education",
+   "intitule": "Construire 150 000 logements étudiants et jeunes travailleurs ; +10 % de salaire pour les personnels de recherche ; Erasmus multiplié par cinq ; remplacer Parcoursup",
+   "detail": null,
+   "chiffres": "150 000 ; +10 % ; ×5",
+   "sources": [
+    "v27-ton-edu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-vss",
+   "theme": "institutions",
+   "intitule": "Loi intégrale contre les violences sexistes et sexuelles dotée de 3 Md€ ; services publics accessibles à 15 minutes ; loi anti-concentration des médias",
+   "detail": null,
+   "chiffres": "3 Md€ ; 15 min",
+   "sources": [
+    "v27-ton-autres"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-ue",
+   "theme": "europe",
+   "intitule": "Porter le budget de l'UE à 2 % du PIB européen en 2035, puis 5 % en 2050 ; affecter les 140 Md€ d'avoirs russes gelés aux réparations de guerre",
+   "detail": null,
+   "chiffres": "2 % (2035) ; 5 % (2050) ; 140 Md€",
+   "sources": [
+    "v27-ton-autres"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-def",
+   "theme": "defense",
+   "intitule": "Préparer l'armée à une guerre de haute intensité avec d'autres pays européens ; stratégie de résilience face à la guerre hybride ; relancer le désarmement nucléaire avec le Royaume-Uni",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-ton-autres"
    ],
    "fiabilite": "recensement_tiers",
    "simulable": false

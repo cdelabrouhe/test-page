@@ -26,4 +26,7 @@ t('APL Mélenchon',()=>assert.strictEqual(E.effetLogement({...p,aplMensuelle:200
 t('notaire Philippe <35 ans',()=>assert.strictEqual(E.effetLogement({...p,anneeNaissance:1995,prixAchat:200000},M('philippe')).valeurUnique,15000));
 t('succession Villepin 600 000 €',()=>{const r=E.effetPatrimoine({...p,heritage:600000},M('villepin'));assert.strictEqual(r.statut,'calcule');assert.strictEqual(r.valeurUnique,98194)});
 t('ISF indication',()=>assert.strictEqual(E.effetPatrimoine({...p,patrimoine:2000000},M('tondelier')).statut,'indication'));
+t('plafond QF 3000 (Dupont-Aignan)',()=>{const r=E.effetIR({...p,couple:true,salaireNetMensuel:7000,salaireConjointNetMensuel:3000,enfants:3},M('dupont-aignan'));assert.strictEqual(r.valeurAnnuelle,4604)});
+t('gaz Dupont-Aignan',()=>assert.strictEqual(E.effetTVA({...p,energieMois:50,electriciteMois:100,carburantLitres:0},M('dupont-aignan')).valeurMensuelle,60));
+t('Tondelier APL',()=>assert.strictEqual(E.effetLogement({...p,aplMensuelle:200},M('tondelier')).valeurMensuelle,20));
 console.log(n,'tests');

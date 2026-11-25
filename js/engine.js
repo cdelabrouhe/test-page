@@ -156,6 +156,8 @@
     }
     const elec = first(ms, 'baisse_facture_elec_pct');
     if (elec && El > 0) { src.push(elec.m.id); lignes.push({ libelle: 'Facture d\'électricité −' + elec.v + ' %', mensuel: El * elec.v / 100 }); }
+    const gaz = first(ms, 'baisse_gaz_pct');
+    if (gaz && E > 0) { src.push(gaz.m.id); lignes.push({ libelle: 'Prix du gaz −' + gaz.v + ' %', mensuel: E * gaz.v / 100 }); }
     const tarif = first(ms, 'baisse_tarif_energie_pct');
     if (tarif && (El > 0 || E > 0)) { src.push(tarif.m.id); lignes.push({ libelle: 'Tarifs électricité et gaz −' + tarif.v + ' %', mensuel: (El + E) * tarif.v / 100 }); }
     const carb = first(ms, 'baisse_carburant_cts');
@@ -212,7 +214,8 @@
     fraisAcquisitionAncien: 0.075, plancherIFI: 1300000
   });
   const progressif = (x, bareme) => { let prev = 0, tot = 0; for (const [lim, t] of bareme) { if (x > prev) tot += (Math.min(x, lim) - prev) * t; prev = lim; } return tot; };
-  function irFoyer(p) {
+  function irFoyer(p, opts) {
+    const plafDemi = (opts && opts.plafondDemiPart) || REF.ir.plafondDemiPart;
     const couple = !!p.couple, enf = p.enfants || 0;
     const rev = ((p.salaireNetMensuel || 0) + (couple ? (p.salaireConjointNetMensuel || 0) : 0)) * 12 * (1 - REF.ir.abattementSalaires);
     const base = couple ? 2 : 1;
@@ -220,8 +223,8 @@
     const brutAvec = progressif(rev / parts, REF.ir.tranches) * parts;
     const brutBase = progressif(rev / base, REF.ir.tranches) * base;
     const demis = (parts - base) * 2;
-    let maxAvantage = demis * REF.ir.plafondDemiPart;
-    if (!couple && enf > 0) maxAvantage += REF.ir.plafondParentIsole - REF.ir.plafondDemiPart; // parent isolé : 1re demi-part plafonnée à 4 262 €
+    let maxAvantage = demis * plafDemi;
+    if (!couple && enf > 0) maxAvantage += Math.max(0, REF.ir.plafondParentIsole - REF.ir.plafondDemiPart); // parent isolé : 1re demi-part plafonnée à 4 262 €
     let brut = Math.max(brutAvec, brutBase - maxAvantage);
     const [seuil, forf] = couple ? REF.ir.decote.couple : REF.ir.decote.seul;
     if (brut < seuil) brut = Math.max(0, brut - (forf - REF.ir.decote.taux * brut));
@@ -231,8 +234,9 @@
 
   function effetIR(p, ms) {
     const hits = [];
+    const qf = first(ms, 'plafond_demi_part');
     const lm = first(ms, 'famille_nombreuse_exoneree_ir'), lp = flat(ms, 'exoneration_ir').filter(x => x.m.parametres.age_max)[0] || null;
-    if (!lm && !lp) return est('aucune_mesure', { message: 'Aucune mesure simulable sur l\'impôt sur le revenu.' });
+    if (!lm && !lp && !qf) return est('aucune_mesure', { message: 'Aucune mesure simulable sur l\'impôt sur le revenu.' });
     if (!(p.salaireNetMensuel > 0)) return est('non_estimable', { message: 'Renseigne ton salaire net mensuel.' });
     const ir = irFoyer(p), src = [], hyp = HYP_IR.slice();
     let gain = 0, lib = [];
@@ -240,9 +244,10 @@
     if (lp) { src.push(lp.m.id); const age = REF.anneeRef + 1 - p.anneeNaissance;
       if (age < lp.m.parametres.age_max && !p.couple) { gain = ir.impot; lib.push('exonération pour les moins de ' + lp.m.parametres.age_max + ' ans'); hyp.push('Âge calculé en 2027. Mesure du programme de 2022, non confirmée pour 2027 ; lue comme une exonération totale.'); }
       else if (age < lp.m.parametres.age_max) return est('non_estimable', { message: 'Foyer en couple : l\'application de l\'exonération au foyer n\'est pas précisée.', mesures: src }); }
+    if (qf && (p.enfants || 0) > 0) { src.push(qf.m.id); const ir2 = irFoyer(p, { plafondDemiPart: qf.v }); const g = Math.max(0, ir.impot - ir2.impot); if (g > 0) { gain = Math.max(gain, g); lib.push('plafond du quotient familial relevé à ' + qf.v + ' € par demi-part'); hyp.push('Seul le plafond du quotient familial est modifié ; les autres paramètres du barème sont inchangés.'); } else src.push(qf.m.id); }
     if (!lib.length) return est('calcule', { valeurAnnuelle: 0, valeurMensuelle: 0, message: 'Pas d\'effet pour ta situation.', mesures: src });
     hyp.push('Ton impôt actuel estimé : ' + ir.impot + ' € par an (' + ir.parts + ' parts).');
-    return est('calcule', { valeurAnnuelle: ir.impot, valeurMensuelle: r2(ir.impot / 12), message: ir.impot > 0 ? '+' + ir.impot + ' € par an (impôt estimé supprimé)' : 'Tu ne paies pas d\'impôt estimé : pas d\'effet.',
+    return est('calcule', { valeurAnnuelle: Math.round(gain), valeurMensuelle: r2(gain / 12), message: gain > 0 ? '+' + Math.round(gain).toLocaleString('fr-FR') + ' € par an d\'impôt en moins (' + lib.join(' ; ') + ')' : 'Pas d\'effet : ton impôt estimé est déjà nul ou non modifié.',
       formule: lib.join(' ; '), hypotheses: hyp, mesures: src });
   }
 

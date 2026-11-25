@@ -1,6 +1,6 @@
 {
  "candidat": "bertrand",
- "etat_programme": "Pas de programme publié : positions issues de prises de position publiques relevées sur nousfrance.fr (61 mesures recensées, 36 relevées ici). Candidature confirmée le 27 août 2026, déclaration officielle attendue fin 2026.",
+ "etat_programme": "Pas de programme publié : positions issues de prises de position publiques relevées sur nousfrance.fr (61 mesures recensées, 36 relevées ici ; économie, sécurité et immigration relues en détail). Candidature confirmée le 27 août 2026, déclaration officielle attendue fin 2026.",
  "verifie_le": "2026-11-25",
  "mesures": [
   {
@@ -140,6 +140,42 @@
    "chiffres": null,
    "sources": [
     "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-ret2",
+   "theme": "retraites",
+   "intitule": "Départ anticipé possible avec décote pour ceux qui le souhaitent ; abaisser l'âge à partir duquel les femmes ne subissent plus de décote",
+   "detail": "Aucun âge ni taux chiffré.",
+   "chiffres": null,
+   "sources": [
+    "v27-ber-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-sec2",
+   "theme": "securite",
+   "intitule": "Rétablir les courtes peines de prison ; amendes payées immédiatement, sinon prélevées sur salaires ou prestations dont le RSA ; saisie généralisée des biens des trafiquants ; heures supplémentaires des forces de l'ordre mieux payées",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-ber-sec"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-immi2",
+   "theme": "immigration",
+   "intitule": "Aides au logement réservées aux étrangers installés durablement et légalement ; demande d'asile à déposer sous une semaine ; empreintes systématiques ; statut de réfugié réexaminé tous les 5 ans",
+   "detail": null,
+   "chiffres": "1 semaine ; 5 ans",
+   "sources": [
+    "v27-ber-immi"
    ],
    "fiabilite": "recensement_tiers",
    "simulable": false

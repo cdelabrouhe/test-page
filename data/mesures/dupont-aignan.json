@@ -1,6 +1,6 @@
 {
  "candidat": "dupont-aignan",
- "etat_programme": "Programme officiel « notre projet » de Debout la France (554 mesures recensées, 40 relevées ici). Candidature déclarée ; quatrième tentative.",
+ "etat_programme": "Programme officiel de Debout la France (554 mesures recensées). 35 mesures relevées ici : les pages thématiques de votons-2027.fr ont été lues pour les mesures chiffrées ou marquées « phare » ; les pages officielles « Retraites » (février 2024) et « Famille » (juin 2026) ont été consultées. Le programme officiel est en cours d'actualisation pour 2027. Candidature déclarée ; quatrième tentative.",
  "verifie_le": "2026-11-25",
  "mesures": [
   {
@@ -157,6 +157,297 @@
    "chiffres": "75 %",
    "sources": [
     "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-assem",
+   "theme": "institutions",
+   "intitule": "Réduire l'Assemblée nationale de 577 à 500 députés et le Sénat de 348 à 300 sénateurs ; supprimer les grandes régions",
+   "detail": null,
+   "chiffres": "500 députés ; 300 sénateurs",
+   "sources": [
+    "v27-nda-inst"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-millefeuille",
+   "theme": "finances-publiques",
+   "intitule": "Supprimer le millefeuille administratif et des agences : 40 Md€ d'économies par an au bout de 5 ans ; réduire de 10 Md€ en 3 ans les subventions aux associations jugées clientélistes",
+   "detail": null,
+   "chiffres": "40 Md€/an ; 10 Md€",
+   "sources": [
+    "v27-nda-inst"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-fraude",
+   "theme": "finances-publiques",
+   "intitule": "Économiser 20 Md€ sur la fraude sociale et viser 20 Md€ de lutte contre la fraude fiscale",
+   "detail": null,
+   "chiffres": "20 Md€ + 20 Md€",
+   "sources": [
+    "v27-nda-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-justice",
+   "theme": "securite",
+   "intitule": "Budget de la justice relevé de 10,1 à 15 Md€",
+   "detail": null,
+   "chiffres": "10,1 → 15 Md€",
+   "sources": [
+    "v27-nda-inst"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-prison",
+   "theme": "securite",
+   "intitule": "40 000 places de prison supplémentaires, dont 20 000 en casernes désaffectées ; 20 000 surveillants pénitentiaires supplémentaires ; frontières : 10 000 douaniers et policiers",
+   "detail": null,
+   "chiffres": "40 000 places ; 20 000 surveillants",
+   "sources": [
+    "v27-nda-sec"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-penal",
+   "theme": "securite",
+   "intitule": "Majorité pénale à 16 ans ; perpétuité réelle ; référendum sur la peine de mort pour les meurtres d'enfants ; abrogation de la loi de 2019 sur les peines de moins d'un an ; fin de l'ordonnance de 1945 sur les mineurs",
+   "detail": null,
+   "chiffres": "16 ans",
+   "sources": [
+    "v27-nda-sec"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-garde",
+   "theme": "defense",
+   "intitule": "Garde nationale de 100 000 réservistes ; service national civique obligatoire de trois mois, avec option militaire d'un an",
+   "detail": null,
+   "chiffres": "100 000 réservistes ; 3 mois",
+   "sources": [
+    "v27-nda-sec"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-armee",
+   "theme": "defense",
+   "intitule": "Passer de 15 à 20 frégates de premier rang ; 250 Rafale d'ici 2030 ; deux porte-avions supplémentaires ; drone MALE national",
+   "detail": null,
+   "chiffres": "20 frégates ; 250 Rafale (2030)",
+   "sources": [
+    "v27-nda-sec",
+    "v27-nda-eur"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-immi2",
+   "theme": "immigration",
+   "intitule": "Supprimer l'AME ; droit du sol supprimé par référendum ; 10 ans de résidence avant naturalisation ; rétablir le délit de séjour irrégulier ; 5 Md€ d'économies attendues",
+   "detail": null,
+   "chiffres": "10 ans ; 5 Md€",
+   "sources": [
+    "v27-nda-immi"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-ukraine",
+   "theme": "europe",
+   "intitule": "Mettre fin aux aides à l'Ukraine (estimées à 7 Md€ par an) ; paix en Ukraine et partenariat avec la Russie ; fin de la contribution nette à l'UE",
+   "detail": null,
+   "chiffres": "7 Md€/an",
+   "sources": [
+    "v27-nda-eur"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-elec",
+   "theme": "fiscalite-menages",
+   "intitule": "Diviser par deux le prix de l'électricité (tarif garanti de 10 c€/kWh)",
+   "detail": "Lu comme une baisse de 50 % de la facture ; l'abonnement n'est pas distingué.",
+   "chiffres": "−50 %",
+   "sources": [
+    "v27-nda-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "baisse_facture_elec_pct": 50
+   }
+  },
+  {
+   "id": "nda-gaz",
+   "theme": "fiscalite-menages",
+   "intitule": "Réduire de 20 % le prix du gaz",
+   "detail": null,
+   "chiffres": "−20 %",
+   "sources": [
+    "v27-nda-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "baisse_gaz_pct": 20
+   }
+  },
+  {
+   "id": "nda-tva0",
+   "theme": "fiscalite-menages",
+   "intitule": "TVA à zéro sur 50 produits",
+   "detail": "Liste des produits non relevée.",
+   "chiffres": null,
+   "sources": [
+    "v27-nda-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-is",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Impôt sur les sociétés réduit de moitié pour les entreprises qui réinvestissent en France ; baisse des impôts de production (3,2 % du PIB) ; 1 point d'IS en moins par tranche de 5 % d'actionnariat salarié (coût 1 Md€)",
+   "detail": null,
+   "chiffres": "−50 % d'IS",
+   "sources": [
+    "v27-nda-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-qf",
+   "theme": "famille",
+   "intitule": "Quotient familial : plafond porté à 3 000 € par demi-part",
+   "detail": null,
+   "chiffres": "3 000 €/demi-part",
+   "sources": [
+    "dlf-famille",
+    "v27-nda-eco"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "plafond_demi_part": 3000
+   }
+  },
+  {
+   "id": "nda-crèche",
+   "theme": "famille",
+   "intitule": "100 000 places de crèche en 5 ans ; chèque garde d'enfant universel modulé selon les revenus ; congé parental rémunéré à 75 % du SMIC, 3 ans (selon un relevé)",
+   "detail": null,
+   "chiffres": "100 000 places ; 75 % du SMIC",
+   "sources": [
+    "dlf-famille",
+    "v27-nda-eco"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false,
+   "divergence": "La page officielle ne précise ni montant ni durée du congé parental ; le relevé tiers cite 75 % du SMIC pendant 3 ans."
+  },
+  {
+   "id": "nda-donation",
+   "theme": "fiscalite-menages",
+   "intitule": "Plafond de donation par enfant ou petit-enfant relevé de 100 000 € ; délai entre donations ramené de 15 à 10 ans ; exonération portée à 90 % de la valeur des titres transmis",
+   "detail": null,
+   "chiffres": "+100 000 € ; 10 ans ; 90 %",
+   "sources": [
+    "v27-nda-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-logement",
+   "theme": "logement",
+   "intitule": "Prêt à taux zéro : plafond relevé de 100 000 € ; garantie des loyers impayés financée par 1 % du loyer ; surtaxe annuelle de 1,5 % en zone tendue (logements vacants) ; fin des zones à faibles émissions",
+   "detail": null,
+   "chiffres": "+100 000 € ; 1,5 %",
+   "sources": [
+    "v27-nda-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-ret",
+   "theme": "retraites",
+   "intitule": "Maintenir l'âge minimum de départ et la durée de cotisation actuels ; indexation des pensions au moins sur l'inflation ; demi-part fiscale pour les veuves rétablie",
+   "detail": "Page modifiée en février 2024 : position antérieure à la campagne 2027.",
+   "chiffres": "indexation ≥ inflation",
+   "sources": [
+    "dlf-retraites"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false,
+   "divergence": "« Actuels » renvoie à la réforme de 2010, antérieure à celle de 2023 : la position n'est pas chiffrée."
+  },
+  {
+   "id": "nda-peages",
+   "theme": "autres",
+   "intitule": "Péages d'autoroute supprimés d'ici 2030 ; retour à 90 km/h sur les routes départementales ; fin de la visite médicale du permis tous les 15 ans",
+   "detail": null,
+   "chiffres": "2030 ; 90 km/h",
+   "sources": [
+    "v27-nda-eco",
+    "v27-nda-clim"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-edu2",
+   "theme": "education",
+   "intitule": "Accès au lycée réservé aux titulaires du brevet ; contrôle continu réduit au bac ; budget des bourses triplé ; AESH limités à trois élèves par classe",
+   "detail": null,
+   "chiffres": "×3 bourses",
+   "sources": [
+    "v27-nda-edu"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-clim",
+   "theme": "environnement",
+   "intitule": "Garder le nucléaire à au moins 70 % de la production d'électricité (abandon de l'objectif de 50 % en 2035) ; fin de l'interdiction des moteurs thermiques en 2035 ; plan thorium sur 25 à 30 ans ; annuler la privatisation de 150 barrages",
+   "detail": null,
+   "chiffres": "70 % ; 2035",
+   "sources": [
+    "v27-nda-clim"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-renov",
+   "theme": "environnement",
+   "intitule": "Remplacer 10 millions de véhicules les plus consommateurs en 10 ans avec un bonus pour les voitures sous 3 l/100 km (8 Md€) ; fin de la hausse de la CSPE et 4 Md€ redirigés vers l'isolation et le nucléaire",
+   "detail": null,
+   "chiffres": "10 M véhicules ; 8 Md€ ; 4 Md€",
+   "sources": [
+    "v27-nda-clim"
    ],
    "fiabilite": "recensement_tiers",
    "simulable": false

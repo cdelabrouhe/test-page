@@ -677,5 +677,138 @@
   "media": "votons-2027.fr (relevé)",
   "date": "2026-11",
   "url": "https://votons-2027.fr/candidats/labib/programme"
+ },
+ {
+  "id": "v27-nda-eco",
+  "titre": "Programme de N. Dupont-Aignan : économie (132 mesures)",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme/economie"
+ },
+ {
+  "id": "v27-nda-inst",
+  "titre": "Programme de N. Dupont-Aignan : institutions (95 mesures)",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme/institutions"
+ },
+ {
+  "id": "v27-nda-sec",
+  "titre": "Programme de N. Dupont-Aignan : sécurité (87 mesures)",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme/securite"
+ },
+ {
+  "id": "v27-nda-immi",
+  "titre": "Programme de N. Dupont-Aignan : immigration (41 mesures)",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme/immigration"
+ },
+ {
+  "id": "v27-nda-eur",
+  "titre": "Programme de N. Dupont-Aignan : Europe (48 mesures)",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme/europe"
+ },
+ {
+  "id": "v27-nda-edu",
+  "titre": "Programme de N. Dupont-Aignan : éducation (82 mesures)",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme/education"
+ },
+ {
+  "id": "v27-nda-clim",
+  "titre": "Programme de N. Dupont-Aignan : écologie (53 mesures)",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme/climat"
+ },
+ {
+  "id": "dlf-retraites",
+  "titre": "Debout la France : page « Retraites » (modifiée le 5 février 2024)",
+  "media": "Debout la France (site officiel)",
+  "date": "2024-02-05",
+  "url": "https://www.debout-la-france.fr/projet/retraites/"
+ },
+ {
+  "id": "dlf-famille",
+  "titre": "Debout la France : page « Famille » (modifiée le 9 juin 2026)",
+  "media": "Debout la France (site officiel)",
+  "date": "2026-06-09",
+  "url": "https://www.debout-la-france.fr/projet/famille/"
+ },
+ {
+  "id": "v27-phi-eco",
+  "titre": "Programme de F. Philippot : économie",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/philippot/programme/economie"
+ },
+ {
+  "id": "v27-phi-sante",
+  "titre": "Programme de F. Philippot : santé et social",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/philippot/programme/sante"
+ },
+ {
+  "id": "v27-phi-autres",
+  "titre": "Programme de F. Philippot : sécurité, institutions, immigration, éducation, écologie",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/philippot/programme"
+ },
+ {
+  "id": "v27-ton-eco",
+  "titre": "Programme de M. Tondelier : économie",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/tondelier/programme/economie"
+ },
+ {
+  "id": "v27-ton-sante",
+  "titre": "Programme de M. Tondelier : santé et social",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/tondelier/programme/sante"
+ },
+ {
+  "id": "v27-ton-edu",
+  "titre": "Programme de M. Tondelier : éducation",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/tondelier/programme/education"
+ },
+ {
+  "id": "v27-ton-autres",
+  "titre": "Programme de M. Tondelier : écologie, institutions, Europe",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/tondelier/programme"
+ },
+ {
+  "id": "v27-ber-eco",
+  "titre": "Positions de X. Bertrand : économie",
+  "media": "votons-2027.fr (relevé de nousfrance.fr)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/bertrand/programme/economie"
+ },
+ {
+  "id": "v27-ber-sec",
+  "titre": "Positions de X. Bertrand : sécurité",
+  "media": "votons-2027.fr (relevé de nousfrance.fr)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/bertrand/programme/securite"
+ },
+ {
+  "id": "v27-ber-immi",
+  "titre": "Positions de X. Bertrand : immigration",
+  "media": "votons-2027.fr (relevé de nousfrance.fr)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/bertrand/programme/immigration"
  }
 ]

@@ -1,6 +1,6 @@
 {
  "candidat": "philippot",
- "etat_programme": "Programme officiel « Projet pour la France » des Patriotes (135 mesures recensées, 40 relevées ici).",
+ "etat_programme": "Programme officiel « Projet pour la France » des Patriotes (135 mesures recensées). 18 mesures relevées ici : les mesures « phare » et chiffrées des huit pages thématiques ; le programme compte très peu de chiffres.",
  "verifie_le": "2026-11-25",
  "mesures": [
   {
@@ -120,6 +120,102 @@
    "chiffres": null,
    "sources": [
     "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-sante2",
+   "theme": "sante",
+   "intitule": "Santé mentale renforcée ; accompagnement des jeunes sortant de l'ASE après 18 ans ; unités pour handicapés mentaux vieillissants dès 55 ans",
+   "detail": null,
+   "chiffres": "55 ans",
+   "sources": [
+    "v27-phi-sante"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-immi2",
+   "theme": "immigration",
+   "intitule": "Se soustraire au pacte migratoire européen (amende de 20 000 € par migrant refusé) ; nationalité et droits civiques conditionnés au français et à l'histoire de France",
+   "detail": null,
+   "chiffres": "20 000 €",
+   "sources": [
+    "v27-phi-autres"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-cash",
+   "theme": "finances-publiques",
+   "intitule": "Défendre l'argent liquide ; refuser l'euro numérique ; soutien aux cryptomonnaies",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-phi-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-frexit",
+   "theme": "europe",
+   "intitule": "Sortie de l'UE présentée comme source de 20 Md€ d'économies par an",
+   "detail": null,
+   "chiffres": "20 Md€/an",
+   "sources": [
+    "v27-phi-eco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-edu2",
+   "theme": "education",
+   "intitule": "Éducation civique exigeante au secondaire ; maintenir l'école à l'écart de l'IA ; revenir sur les restrictions de l'instruction en famille",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-phi-autres"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-ecol2",
+   "theme": "environnement",
+   "intitule": "Monopole public de l'électricité ; démantèlement des éoliennes ; thermiques maintenus au-delà de 2035 ; interdire l'abattage rituel sans étourdissement",
+   "detail": null,
+   "chiffres": "2035",
+   "sources": [
+    "v27-phi-autres"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-inst2",
+   "theme": "institutions",
+   "intitule": "Inéligibilité à vie pour corruption ; départementalisation des territoires d'outre-mer qui le souhaitent ; données sensibles hébergées sous loi française",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-phi-autres"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-sec2",
+   "theme": "securite",
+   "intitule": "Excuse de minorité sur décision motivée du juge ; pédocriminalité grande cause nationale avec castration chimique automatique en cas de récidive",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-phi-autres"
    ],
    "fiabilite": "recensement_tiers",
    "simulable": false
