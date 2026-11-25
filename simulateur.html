@@ -88,11 +88,12 @@ function eff(d,e){
 }
 function draw(){
  const r=Engine.simuler(profil(),C,MS);
- const utile=c=>Engine.DOMAINES.some(d=>c.effets[d.id].statut==='calcule');
+ const nonNul=(d,e)=>e.statut==='calcule'&&(d.id==='retraite'?e.deltaMois!==0:(e.valeurAnnuelle||e.valeurMensuelle||0)!==0);
+ const utile=c=>Engine.DOMAINES.some(d=>nonNul(d,c.effets[d.id]));
  const oui=r.filter(utile),non=r.filter(c=>!utile(c));
- $('out').innerHTML=oui.map(c=>'<section class="res"><h2>'+esc(c.nom)+'</h2>'+Engine.DOMAINES.filter(d=>c.effets[d.id].statut==='calcule').map(d=>eff(d,c.effets[d.id])).join('')+
+ $('out').innerHTML=oui.map(c=>'<section class="res"><h2>'+esc(c.nom)+'</h2>'+Engine.DOMAINES.filter(d=>nonNul(d,c.effets[d.id])).map(d=>eff(d,c.effets[d.id])).join('')+
   '<p class="fia"><a href="programmes.html">voir le programme</a></p></section>').join('')+
-  (non.length?'<p class="note" style="margin-top:8px"><strong>Rien d\'intéressant à dire pour ces candidats</strong> (aucune mesure chiffrée dans ces quatre domaines) : '+non.map(c=>esc(c.nom)).join(', ')+'.</p>':'');
+  (non.length?'<p class="note" style="margin-top:8px"><strong>Rien à signaler pour ta situation</strong> (mesure absente, trop imprécise ou sans effet sur toi) : '+non.map(c=>esc(c.nom)).join(', ')+'.</p>':'');
 }
 Promise.all([fetch('data/candidats.json').then(r=>r.json())]).then(([c])=>{
  const ids=(c.candidats||[]).map(x=>x.id);
