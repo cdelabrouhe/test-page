@@ -132,7 +132,10 @@
     "v27-branco"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "gratuite_universite": true
+   }
   },
   {
    "id": "bra-immi",

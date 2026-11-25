@@ -97,8 +97,11 @@
     "cp27-glu"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false,
-   "divergence": "Source unique, de type recensement : à confirmer."
+   "simulable": true,
+   "divergence": "Source unique, de type recensement : à confirmer.",
+   "parametres": {
+    "pension_minimale": 1200
+   }
   },
   {
    "id": "glu-ener",

@@ -23,12 +23,13 @@
       source: 'service-public.gouv.fr (A18825), LFSS 2026 — pour 1965, valeurs avril-décembre (les nés au 1er trimestre partent à 62 ans 9 mois)'
     },
     tva: { normal: 20, reduit: 5.5, source: 'taux en vigueur (CGI)' },
-    heuresSup: { majoration1: 25, majoration2: 50, seuilMajoration2: 8, plafondIRNet: 7500, reductionCotis: 11.31,
-      source: 'Code du travail L3121-36 ; art. 81 quater CGI ; réduction de cotisations salariales de 11,31 %' },
+    heuresSup: { majoration1: 25, majoration2: 50, seuilMajoration2: 8, plafondIRNet: 7500, reductionCotis: 11.31, tauxCsgCrds: 0.0953,
+      source: 'Code du travail L3121-36 ; art. 81 quater CGI (plafond de 7 500 € ; le doublement voté en première lecture du PLF 2027 n\'est pas en vigueur) ; réduction de cotisations salariales de 11,31 % ; CSG-CRDS 9,7 % sur 98,25 % du brut' },
     ratioNetBrut: 1477.93 / 1867.02,
     semainesTravaillees: 46
   };
 
+  const ACTIFS = ['salarie', 'fonctionnaire', 'enseignant', 'recherche'];
   /* ---------- Utilitaires ---------- */
   const r2 = n => Math.round(n * 100) / 100;
   const flat = (ms, key) => {
@@ -52,7 +53,7 @@
 
   /* ---------- SMIC et salaires ---------- */
   function effetSalaire(p, ms) {
-    if (p.statut !== 'salarie') return est('non_estimable', { message: 'Calcul réservé aux salariés.' });
+    if (!ACTIFS.includes(p.statut)) return est('aucune_mesure', { message: 'Calcul réservé aux personnes qui travaillent.' });
     const q = (p.quotite || 100) / 100;
     const net = p.salaireNetMensuel;
     if (!(net > 0)) return est('non_estimable', { message: 'Renseigne ton salaire net mensuel.' });
@@ -89,6 +90,7 @@
 
   /* ---------- Retraite ---------- */
   function effetRetraite(p, ms) {
+    if (p.statut === 'retraite') return est('aucune_mesure', { message: 'Déjà à la retraite : voir les mesures sur les pensions.' });
     if (!(p.anneeNaissance > 1940)) return est('non_estimable', { message: 'Renseigne ton année de naissance.' });
     const act = regleActuelle(p.anneeNaissance);
     const debutBrut = p.anneeDebutCarriere;
@@ -180,6 +182,7 @@
 
   /* ---------- Heures supplémentaires ---------- */
   function effetHS(p, ms) {
+    if (!ACTIFS.includes(p.statut)) return est('aucune_mesure', { message: 'Heures supplémentaires : réservé aux personnes qui travaillent.' });
     const mel1 = first(ms, 'majoration_hs_1'), mel2 = first(ms, 'majoration_hs_2');
     const autres = [['hs_exonerees', 'Exonération d\'impôt et de charges des heures au-delà de 35 h'], ['hs_defiscalisees', 'Défiscalisation des heures supplémentaires'], ['exoneration_salariale_ir_au_dela_h_hebdo', 'Exonération salariale et d\'impôt au-delà de 35 h'], ['exoneration_cotisations', 'Exonération de cotisations'], ['hausse_salaire_exoneree_pct', 'Exonération de charges sur les hausses de salaire']];
     const hits = autres.map(([k, t]) => [first(ms, k), t]).filter(x => x[0]);
@@ -196,9 +199,33 @@
         message: h > 0 ? '+' + r2(extra) + ' € brut par an' : 'Renseigne tes heures supplémentaires pour voir l\'effet.',
         formule: 'majoration à ' + mel2.v + ' % dès la ' + (seuil1 + 1) + 'e heure supplémentaire au lieu de la ' + (REF.heuresSup.seuilMajoration2 + 1) + 'e', hypotheses: hyp, mesures: [mel1.m.id] });
     }
-    return est('non_estimable', {
-      message: 'Le dispositif existe déjà (impôt exonéré jusqu\'à ' + REF.heuresSup.plafondIRNet + ' € nets par an et réduction de cotisations de ' + REF.heuresSup.reductionCotis + ' %) : l\'effet du programme dépend de précisions qui manquent.',
-      mesures: hits.map(x => x[0].m.id), hypotheses: hits.map(x => x[1]) });
+    // Mesures d'exonération : le salarié ne paie déjà aucune cotisation vieillesse sur ses heures sup (réduction de 11,31 %),
+    // seule reste la CSG-CRDS. L'effet calculable porte donc sur l'impôt de la part au-delà du plafond de 7 500 € nets.
+    const exo = hits.filter(([x]) => x.m.parametres.hausse_salaire_exoneree_pct === undefined);
+    if (!exo.length) return est('non_estimable', { message: 'Exonération de charges sur les hausses de salaire : elle dépend de ce que décide l\'employeur, effet individuel non calculable.', mesures: hits.map(x => x[0].m.id) });
+    if (!(p.salaireNetMensuel > 0)) return est('non_estimable', { message: 'Renseigne ton salaire net mensuel.', mesures: exo.map(x => x[0].m.id) });
+    if (!(h > 0)) return est('calcule', { valeurAnnuelle: 0, valeurMensuelle: 0, message: 'Renseigne tes heures supplémentaires pour voir l\'effet.', mesures: exo.map(x => x[0].m.id), hypotheses: [] });
+    const hsNet = hsNetAnnuel(p.salaireNetMensuel, h);
+    const m0 = exo[0][0].m, plafH = m0.parametres.plafond_h;
+    const hsHeuresAn = h * REF.semainesTravaillees;
+    const exonereCand = plafH ? hsNet * Math.min(1, plafH / hsHeuresAn) : hsNet;
+    const imposableAct = Math.max(0, hsNet - REF.heuresSup.plafondIRNet), imposableCand = Math.max(0, hsNet - Math.max(exonereCand, REF.heuresSup.plafondIRNet));
+    const irAct = irFoyer(p, { revenuAnnuelSupp: imposableAct }).impot, irCand = irFoyer(p, { revenuAnnuelSupp: imposableCand }).impot;
+    const gain = Math.max(0, irAct - irCand);
+    const hyp = ['Heures sup nettes estimées à ' + Math.round(hsNet).toLocaleString('fr-FR') + ' € par an : ' + h + ' h par semaine sur ' + REF.semainesTravaillees + ' semaines, majorées de 25 % jusqu\'à 8 h puis 50 %, au taux horaire net tiré de ton salaire.',
+      'Aujourd\'hui : impôt exonéré jusqu\'à ' + REF.heuresSup.plafondIRNet.toLocaleString('fr-FR') + ' € nets par an et aucune cotisation salariale vieillesse (réduction de ' + String(REF.heuresSup.reductionCotis).replace('.', ',') + ' %) ; la CSG-CRDS reste due.',
+      'Les cotisations patronales supprimées par certains programmes ne changent pas directement ta paie.'].concat(HYP_IR);
+    if (plafH) hyp.push('Exonération limitée à ' + plafH + ' heures par an.');
+    if (m0.parametres.csg_crds_maintenues) hyp.push('Le programme précise que la CSG et la CRDS restent dues.');
+    else { const csg = hsNet / (1 - REF.heuresSup.tauxCsgCrds) * REF.heuresSup.tauxCsgCrds; hyp.push('Si la CSG-CRDS était aussi supprimée (le texte dit « charges » sans préciser), il faudrait ajouter environ ' + Math.round(csg).toLocaleString('fr-FR') + ' € par an.'); }
+    if (m0.parametres.duree_annuelle_h) hyp.push('Le passage à ' + m0.parametres.duree_annuelle_h + ' h annuelles n\'est pas pris en compte : son effet sur la paie dépend des accords d\'entreprise.');
+    return est('calcule', { valeurAnnuelle: Math.round(gain), valeurMensuelle: r2(gain / 12),
+      message: gain > 0 ? '+' + Math.round(gain).toLocaleString('fr-FR') + ' € par an d\'impôt en moins sur tes heures sup' : 'Pas d\'effet : tes heures sup restent sous le plafond d\'exonération actuel (' + REF.heuresSup.plafondIRNet.toLocaleString('fr-FR') + ' € nets) ou tu n\'es pas imposable.',
+      formule: 'impôt actuel (heures sup imposées au-delà de 7 500 €) − impôt avec heures sup exonérées', hypotheses: hyp, mesures: exo.map(x => x[0].m.id) });
+  }
+  function hsNetAnnuel(netMensuel, h) {
+    const tauxNet = netMensuel / 151.67;
+    return (Math.min(h, REF.heuresSup.seuilMajoration2) * (1 + REF.heuresSup.majoration1 / 100) + Math.max(0, h - REF.heuresSup.seuilMajoration2) * (1 + REF.heuresSup.majoration2 / 100)) * tauxNet * REF.semainesTravaillees;
   }
 
 
@@ -217,7 +244,8 @@
   function irFoyer(p, opts) {
     const plafDemi = (opts && opts.plafondDemiPart) || REF.ir.plafondDemiPart;
     const couple = !!p.couple, enf = p.enfants || 0;
-    const rev = ((p.salaireNetMensuel || 0) + (couple ? (p.salaireConjointNetMensuel || 0) : 0)) * 12 * (1 - REF.ir.abattementSalaires);
+    const supp = (opts && opts.revenuAnnuelSupp) || 0; // revenu net annuel imposable en plus (ex. heures sup au-delà du plafond)
+    const rev = (((p.salaireNetMensuel || 0) + (couple ? (p.salaireConjointNetMensuel || 0) : 0)) * 12 + supp) * (1 - REF.ir.abattementSalaires);
     const base = couple ? 2 : 1;
     let parts = base; for (let i = 1; i <= enf; i++) parts += i <= 2 ? 0.5 : 1;
     const brutAvec = progressif(rev / parts, REF.ir.tranches) * parts;
@@ -255,12 +283,11 @@
   function effetFamille(p, ms) {
     const nais = p.naissances || 0, src = [], lignes = [], hyp = [];
     const cap = first(ms, 'capital_naissance'), baby = first(ms, 'montant_par_naissance');
-    const alloc = first(ms, 'montant_mensuel'), aah = first(ms, 'aah_hausse');
+    const alloc = first(ms, 'montant_mensuel');
     let unique = 0;
     if (cap && nais > 0) { unique += cap.v * nais; src.push(cap.m.id); lignes.push(nais + ' × ' + cap.v + ' € de capital, bloqué jusqu\'à la retraite'); }
     if (baby && nais > 0) { unique += baby.v * nais; src.push(baby.m.id); lignes.push(nais + ' × ' + baby.v + ' € placés à la naissance'); }
-    let mensuel = 0;
-    if (aah && p.aah) { mensuel = aah.v; src.push(aah.m.id); lignes.push('hausse de l\'AAH de ' + aah.v + ' €/mois'); hyp.push('Hausse de l\'AAH lue comme mensuelle et nette.'); }
+    const mensuel = 0; // l'AAH est traitée dans le domaine « minima sociaux, handicap, jeunes »
     if (unique > 0) hyp.push('Le capital est placé et non versé : tu n\'en disposes pas immédiatement.');
     if (mensuel || unique) {
       const parts = []; if (mensuel) parts.push('+' + mensuel + ' € par mois d\'AAH'); if (unique) parts.push('+' + unique.toLocaleString('fr-FR') + ' € placés pour les enfants à naître (épargne, pas du revenu disponible)');
@@ -307,6 +334,185 @@
     return est('aucune_mesure', { message: 'Aucune mesure calculable sur le patrimoine pour ta situation.' });
   }
 
+  /* ---------- Références 2026 : minima, pensions, fonction publique ---------- */
+  Object.assign(REF, {
+    aah: { max: 1041.59, source: 'AAH à taux plein au 1er avril 2026 (décret n° 2026-229 du 30 mars 2026)' },
+    rsa: { seul: 651.69, source: 'RSA personne seule au 1er avril 2026 (décret n° 2026-220 du 30 mars 2026)' },
+    aspa: { seul: 1043.59, source: 'ASPA personne seule au 1er janvier 2026 (Cnav)' },
+    inflation: { parAnnee: { 2027: 1.9, 2028: 1.6 }, defaut: 1.6,
+      source: 'Banque de France, projections du 15 septembre 2026 (1,9 % en 2027, 1,6 % en 2028) ; 1,6 % prolongé ensuite par hypothèse' },
+    pointIndice: { mensuel: 4.92278, source: 'valeur mensuelle du point, gelée depuis le 1er juillet 2023 (DGAFP)' },
+    retenuesFP: { pensionCivile: 0.111, csgCrds: 0.0953, source: 'retenue pour pension civile 11,10 % ; CSG-CRDS 9,7 % sur 98,25 % du traitement' },
+    fraisInscription: { licence: 178, master: 255, source: 'droits d\'inscription 2026-2027 (service-public.gouv.fr, universités) ; boursiers exonérés' }
+  });
+  const age2027 = p => REF.anneeRef + 1 - p.anneeNaissance;
+  const fmt = n => Math.round(n).toLocaleString('fr-FR');
+  const inflationAn = (annee, p) => (typeof p.inflationHyp === 'number' && p.inflationHyp >= 0) ? p.inflationHyp : (REF.inflation.parAnnee[annee] ?? REF.inflation.defaut);
+  // n revalorisations au 1er janvier, de 2028 à 2027 + n, chacune sur l'inflation de l'année précédente ; taux(i, k) = taux du programme
+  function indexCumul(p, n, taux) {
+    let a = 1, b = 1;
+    for (let k = 0; k < n; k++) { const i = inflationAn(2027 + k, p); a *= 1 + i / 100; b *= 1 + taux(i, k) / 100; }
+    return { statuQuo: a, programme: b };
+  }
+  const resultat = (lignes, hyp, src, ind, unique, extra) => {
+    const total = lignes.reduce((s, l) => s + l.mensuel, 0);
+    const parts = [];
+    if (lignes.length) parts.push(total === 0 ? 'Pas d\'effet mensuel' : (total > 0 ? '+' : '−') + fmt(Math.abs(total)) + ' € par mois' + ((extra && extra.suffixe) || ''));
+    if (unique) parts.push('+' + fmt(unique) + ' € en une fois');
+    return est('calcule', Object.assign({ valeurMensuelle: r2(total), valeurAnnuelle: r2(total * 12), valeurUnique: Math.round(unique || 0),
+      lignes: lignes.map(l => ({ libelle: l.libelle, mensuel: r2(l.mensuel) })), message: parts.join(' ; ') + (ind.length ? ' — ' + ind.join(' ') : ''),
+      formule: lignes.map(l => l.libelle).join(' ; '), hypotheses: hyp, mesures: src, indications: ind }, extra || {}));
+  };
+
+  /* ---------- Pensions des retraités ---------- */
+  function effetPension(p, ms) {
+    const gel = first(ms, 'revalorisation_pct'), plaf = first(ms, 'indexation_pensions_pct'), des = first(ms, 'desindexation_pensions'), sous = first(ms, 'seuil_sous_indexation');
+    const mins = flat(ms, 'pension_minimale'), cumul = first(ms, 'cumul_sans_cotisations');
+    if (!gel && !plaf && !des && !sous && !mins.length && !cumul) return est('aucune_mesure', { message: 'Aucune mesure sur le montant des pensions.' });
+    if (p.statut !== 'retraite') return est('aucune_mesure', { message: 'Mesures sur les pensions : choisis « retraité » pour les voir.' });
+    const P = p.pensionNette;
+    if (!(P > 0)) return est('non_estimable', { message: 'Renseigne ta pension nette mensuelle.' });
+    const lignes = [], hyp = [], src = [], ind = [];
+    const N = 5; let indexe = false;
+    if (gel) {
+      const r = indexCumul(p, N, (i, k) => k === 0 ? gel.v : i);
+      lignes.push({ libelle: 'Pensions gelées en ' + gel.m.parametres.annee, mensuel: -P * (r.statuQuo - r.programme) }); src.push(gel.m.id); indexe = true;
+      hyp.push('Les « petites retraites » seraient épargnées, mais le seuil n\'est pas précisé : le calcul suppose que ta pension est concernée.');
+    } else if (plaf) {
+      const n = plaf.m.parametres.duree_annees || N, r = indexCumul(p, n, () => plaf.v);
+      lignes.push({ libelle: 'Pensions revalorisées de ' + plaf.v + ' % par an pendant ' + n + ' ans', mensuel: -P * (r.statuQuo - r.programme) }); src.push(plaf.m.id); indexe = true;
+      hyp.push('Une désindexation plus forte au-delà d\'un seuil de revenus est évoquée sans chiffre : non prise en compte.');
+    } else if (des) {
+      const r = indexCumul(p, N, () => 0);
+      lignes.push({ libelle: 'Pensions non revalorisées sur le quinquennat', mensuel: -P * (r.statuQuo - r.programme) }); src.push(des.m.id); indexe = true;
+      hyp.push('Désindexation lue comme totale pendant cinq ans : c\'est une borne haute, le programme ne précise ni la durée ni l\'ampleur.');
+    }
+    if (indexe) hyp.push('Écart sur ta pension mensuelle en 2032, par rapport à une revalorisation sur l\'inflation chaque 1er janvier de 2028 à 2032. Inflation retenue : ' +
+      (typeof p.inflationHyp === 'number' && p.inflationHyp >= 0 ? String(p.inflationHyp).replace('.', ',') + ' % par an (ta valeur)' : '1,9 % en 2027 puis 1,6 % par an (Banque de France, septembre 2026, prolongé)') + '.');
+    if (sous && P > sous.v) { src.push(sous.m.id); ind.push('Revalorisation sous l\'inflation des pensions au-dessus de ' + fmt(sous.v) + ' €/mois si les comptes restent déséquilibrés : taux non précisé, non calculé.'); }
+    for (const { v, m } of mins) {
+      src.push(m.id);
+      const amin = m.parametres.age;
+      if (amin && age2027(p) < amin) { ind.push('Pension minimale de ' + fmt(v) + ' € à partir de ' + amin + ' ans : pas encore applicable à ton âge.'); break; }
+      const g = Math.max(0, v - P);
+      lignes.push({ libelle: 'Pension minimale de ' + fmt(v) + ' €', mensuel: g });
+      hyp.push('Ta pension est comparée au minimum, ASPA comprise si tu la touches. L\'ASPA garantit déjà ' + String(REF.aspa.seul).replace('.', ',') + ' € à une personne seule de 65 ans et plus, sous condition de ressources et récupérable sur la succession. Minimum lu comme net et mensuel ; conditions d\'accès : voir la fiche du candidat.');
+      break;
+    }
+    if (cumul && p.salaireCumulNet > 0) {
+      const brut = p.salaireCumulNet / REF.ratioNetBrut;
+      lignes.push({ libelle: 'Cumul emploi-retraite sans cotisation retraite', mensuel: brut * REF.heuresSup.reductionCotis / 100 }); src.push(cumul.m.id);
+      hyp.push('Cotisations salariales vieillesse (' + String(REF.heuresSup.reductionCotis).replace('.', ',') + ' % du brut) supprimées ; la cotisation chômage salariale est déjà nulle. En contrepartie, ces revenus ne créeraient plus de droits à une seconde pension, ce que les règles en vigueur au 1er janvier 2027 permettent sous conditions.');
+    } else if (cumul) ind.push('Cumul emploi-retraite sans cotisations : renseigne ton salaire en cumul pour voir l\'effet.');
+    if (!lignes.length) return ind.length ? est('indication', { message: ind.join(' '), mesures: src }) : est('aucune_mesure', { message: 'Aucune mesure calculable sur ta pension.' });
+    return resultat(lignes, hyp, src, ind, 0, { suffixe: indexe ? ' (écart en 2032)' : '' });
+  }
+
+  /* ---------- Minima sociaux, handicap, jeunes ---------- */
+  function effetMinima(p, ms) {
+    const age = age2027(p), lignes = [], hyp = [], src = [], ind = [];
+    let unique = 0;
+    const revenusActivite = ['salarie', 'fonctionnaire', 'enseignant', 'recherche'].includes(p.statut) ? (p.salaireNetMensuel || 0) : 0;
+    // AAH
+    const aahE = first(ms, 'aah_hausse'), aahP = first(ms, 'aah_hausse_pct');
+    if (p.aah && aahE) {
+      src.push(aahE.m.id);
+      if (aahE.m.parametres.aah_condition === 'handicap_lourd' && !p.incapacite80) ind.push('Hausse de l\'AAH de ' + aahE.v + ' € réservée au handicap lourd : pas d\'effet pour toi si ton taux d\'incapacité est inférieur à 80 %.');
+      else { lignes.push({ libelle: 'AAH +' + aahE.v + ' €', mensuel: aahE.v }); hyp.push('Hausse de l\'AAH lue comme mensuelle et nette.'); if (aahE.m.parametres.aah_condition) hyp.push('« Handicap lourd » lu comme un taux d\'incapacité d\'au moins 80 %.'); }
+    }
+    if (p.aah && aahP) {
+      src.push(aahP.m.id);
+      const g = REF.aah.max * aahP.v / 100;
+      lignes.push({ libelle: 'AAH +' + aahP.v + ' % (maximum porté de ' + String(REF.aah.max).replace('.', ',') + ' € à ' + fmt(REF.aah.max + g) + ' €)', mensuel: g });
+      hyp.push('Hausse appliquée au montant maximal ; l\'AAH étant différentielle, ton gain est le même tant que tu restes éligible.');
+      if (aahP.m.parametres.deconjugalisation) hyp.push('La fin de la prise en compte des revenus du conjoint est déjà en vigueur depuis octobre 2023 : pas d\'effet supplémentaire.');
+    }
+    // RSA, prime d'activité, ASS
+    const ria = first(ms, 'ria_socle');
+    if (ria && p.minimaMensuels > 0) {
+      src.push(ria.m.id);
+      lignes.push({ libelle: 'RSA, prime d\'activité et ASS fusionnés, réduits de ' + ria.m.parametres.baisse_pct + ' %', mensuel: -p.minimaMensuels * ria.m.parametres.baisse_pct / 100 });
+      hyp.push('Baisse de ' + ria.m.parametres.baisse_pct + ' % appliquée au total que tu perçois. Une autre source donne des montants forfaitaires (' + ria.v + ' € sans revenu, ' + ria.m.parametres.ria_insertion + ' € en insertion) : la règle exacte n\'est pas tranchée. ' + ria.m.parametres.heures_activite_hebdo + ' heures d\'activité par semaine seraient exigées.');
+    }
+    const plaf = first(ms, 'plafond_aides_pct_smic_net');
+    if (plaf) {
+      const aides = (p.minimaMensuels || 0) + (p.aplMensuelle || 0) + (p.aah ? REF.aah.max : 0), seuil = REF.smic.netMensuel * plaf.v / 100;
+      if (aides > seuil) { src.push(plaf.m.id); ind.push('Plafond des aides à ' + plaf.v + ' % du SMIC net (environ ' + fmt(seuil) + ' €) : avec environ ' + fmt(aides) + ' € d\'aides par mois, ton foyer pourrait être concerné. La règle par foyer n\'est pas précisée (l\'exemple du candidat, 1 685 € pour un couple avec deux enfants, dépasse 70 % d\'un SMIC), donc non calculé.'); }
+    }
+    const ga = first(ms, 'garantie_autonomie');
+    if (ga && age >= 18) {
+      const rev = revenusActivite + (p.pensionNette || 0) + (p.minimaMensuels || 0) + (p.aah ? REF.aah.max : 0);
+      if (rev < ga.v) { src.push(ga.m.id); ind.push('Garantie d\'autonomie au seuil de pauvreté (' + fmt(ga.v) + ' €/mois) : public et conditions non précisés dans la source ; si elle s\'appliquait à toi, elle compléterait tes revenus d\'environ ' + fmt(ga.v - rev) + ' € par mois.'); }
+    }
+    const rsa18 = first(ms, 'rsa_des_18_ans');
+    if (rsa18 && age >= 18 && age < 25 && p.statut !== 'etudiant' && p.statut !== 'retraite') {
+      src.push(rsa18.m.id);
+      const g = Math.max(0, REF.rsa.seul - revenusActivite);
+      lignes.push({ libelle: 'RSA ouvert dès 18 ans', mensuel: g });
+      hyp.push('Mesure lue comme l\'ouverture du RSA aux 18-24 ans. Montant d\'une personne seule sans aide au logement (' + String(REF.rsa.seul).replace('.', ',') + ' €), diminué de tes revenus d\'activité ; la prime d\'activité n\'est pas calculée.');
+    }
+    // Étudiants et jeunes
+    const bs = first(ms, 'bourse_supplement'), av = first(ms, 'avance_jeunesse'), re = first(ms, 'revenu_etudiant'), gu = first(ms, 'gratuite_universite'), r1 = first(ms, 'repas_1_euro'), per = first(ms, 'abondement_premier_emploi');
+    if (p.statut === 'etudiant') {
+      if (bs && p.boursier && p.niveauEtudes === 'L1L2') { src.push(bs.m.id); lignes.push({ libelle: '+' + fmt(bs.v) + ' € par an pour les boursiers de 1re et 2e année', mensuel: bs.v / 12 }); hyp.push('Supplément lu comme annuel, versé chacune des deux premières années.'); }
+      if (re) {
+        src.push(re.m.id);
+        const bourse = p.boursier ? (p.bourseMensuelle || 0) : 0;
+        lignes.push({ libelle: 'Revenu étudiant de ' + re.v + ' €/mois', mensuel: (re.v * 12 - bourse * 10) / 12 });
+        hyp.push('Revenu versé 12 mois, en remplacement de la bourse (versée 10 mois). Mesure relevée dans une source de 2022.');
+      }
+      if (gu && !p.boursier) {
+        src.push(gu.m.id);
+        const f = p.niveauEtudes === 'master' ? REF.fraisInscription.master : REF.fraisInscription.licence;
+        lignes.push({ libelle: 'Droits d\'inscription supprimés (' + f + ' € par an)', mensuel: f / 12 });
+        hyp.push('Droits d\'inscription 2026-2027 en ' + (p.niveauEtudes === 'master' ? 'master' : 'licence') + ' ; la CVEC (105 €) n\'est pas comptée. Les boursiers en sont déjà exonérés.');
+      }
+      if (r1) { src.push(r1.m.id); ind.push('Repas à 1 € pour tous les étudiants : déjà en vigueur depuis le 4 mai 2026, pas d\'effet supplémentaire.'); }
+    }
+    if (av && p.jeuneSansDiplomeNiEmploi && age >= 18 && age <= 24) { src.push(av.m.id); unique += av.v; hyp.push('Avance jeunesse de ' + fmt(av.v) + ' € : modalités de remboursement non précisées.'); }
+    if (per && age <= 26 && (p.statut === 'etudiant' || p.statut === 'sans_emploi')) { src.push(per.m.id); unique += per.v; hyp.push(per.v + ' € versés par l\'État sur un plan d\'épargne retraite au premier emploi : épargne bloquée jusqu\'à la retraite.'); }
+    if (!lignes.length && !unique) return ind.length ? est('indication', { message: ind.join(' '), mesures: src }) : est('aucune_mesure', { message: 'Aucune mesure calculable pour ta situation.' });
+    return resultat(lignes, hyp, src, ind, unique);
+  }
+
+  /* ---------- Enseignants et agents publics ---------- */
+  function effetFonction(p, ms) {
+    const pi = first(ms, 'point_indice_pct');
+    const cibles = ms.filter(m => m.parametres && ['enseignants', 'recherche'].includes(m.parametres.public));
+    if (!pi && !cibles.length) return est('aucune_mesure', { message: 'Aucune mesure sur la rémunération des agents publics.' });
+    if (!['fonctionnaire', 'enseignant', 'recherche'].includes(p.statut)) return est('aucune_mesure', { message: 'Mesures réservées aux agents publics.' });
+    const lignes = [], hyp = [], src = [], ind = [];
+    let max = null;
+    if (pi) {
+      src.push(pi.m.id);
+      if (p.traitementIndiciaire > 0) {
+        const R = REF.retenuesFP, g = p.traitementIndiciaire * pi.v / 100 * (1 - R.pensionCivile - R.csgCrds);
+        lignes.push({ libelle: 'Point d\'indice +' + pi.v + ' %', mensuel: g });
+        hyp.push('Hausse appliquée à ton traitement indiciaire brut (les primes ne suivent pas le point), puis convertie en net : retenue pour pension civile de 11,10 % et CSG-CRDS.');
+      } else ind.push('Point d\'indice +' + pi.v + ' % : renseigne ton traitement indiciaire brut (sur ta fiche de paie) pour voir l\'effet.');
+    }
+    const pub = p.statut === 'enseignant' ? 'enseignants' : p.statut === 'recherche' ? 'recherche' : null;
+    const m = pub && cibles.find(x => x.parametres.public === pub);
+    if (m) {
+      src.push(m.id);
+      const P = m.parametres, net = p.salaireNetMensuel || 0;
+      if (P.hausse_nette_mensuelle_min) {
+        lignes.push({ libelle: 'Revalorisation de ' + P.hausse_nette_mensuelle_min + ' à ' + P.hausse_nette_mensuelle_max + ' € net selon l\'avancement', mensuel: P.hausse_nette_mensuelle_min });
+        max = P.hausse_nette_mensuelle_max - P.hausse_nette_mensuelle_min;
+        hyp.push('Montant le plus bas de la fourchette retenu (début de carrière) ; jusqu\'à ' + P.hausse_nette_mensuelle_max + ' € en milieu de carrière.');
+      } else if (net > 0) {
+        const pmin = P.hausse_pct ?? P.hausse_pct_min, pmax = P.hausse_pct_max;
+        lignes.push({ libelle: (P.hausse_pct_min && !pmax ? 'Au moins +' : '+') + pmin + (pmax ? ' à ' + pmax : '') + ' % de salaire', mensuel: net * pmin / 100 });
+        if (pmax) { max = net * (pmax - pmin) / 100; hyp.push('Bas de la fourchette retenu ; jusqu\'à +' + fmt(net * pmax / 100) + ' € avec ' + pmax + ' %.'); }
+        hyp.push('Hausse appliquée à ton salaire net actuel, primes comprises, et atteinte en fin de quinquennat ; aucune autre évolution de carrière.' + (P.hausse_nette ? '' : ' Le texte ne dit pas brut ou net : appliquée au net.'));
+      } else ind.push('Renseigne ton salaire net mensuel.');
+    }
+    if (!lignes.length) return ind.length ? est('indication', { message: ind.join(' '), mesures: src }) : est('aucune_mesure', { message: 'Aucune mesure pour ton métier.' });
+    const r = resultat(lignes, hyp, src, ind, 0);
+    if (max) r.message = r.message.replace(' € par mois', ' € par mois (jusqu\'à +' + fmt(r.valeurMensuelle + max) + ' €)');
+    return r;
+  }
+
   /* ---------- Orchestration ---------- */
   const DOMAINES = [
     { id: 'salaire', titre: 'Salaire minimum et salaires', fn: effetSalaire },
@@ -316,7 +522,10 @@
     { id: 'ir', titre: 'Impôt sur le revenu', fn: effetIR },
     { id: 'famille', titre: 'Famille et naissance', fn: effetFamille },
     { id: 'logement', titre: 'Logement', fn: effetLogement },
-    { id: 'patrimoine', titre: 'Patrimoine et succession', fn: effetPatrimoine }
+    { id: 'patrimoine', titre: 'Patrimoine et succession', fn: effetPatrimoine },
+    { id: 'pension', titre: 'Pensions des retraités', fn: effetPension },
+    { id: 'minima', titre: 'Minima sociaux, handicap, jeunes et étudiants', fn: effetMinima },
+    { id: 'fonction', titre: 'Enseignants et agents publics', fn: effetFonction }
   ];
 
   function simuler(profil, candidats, mesuresParCandidat) {
@@ -331,5 +540,5 @@
     return res;
   }
 
-  return { REF, DOMAINES, simuler, irFoyer, effetIR, effetFamille, effetLogement, effetPatrimoine, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, annoncesGain };
+  return { REF, DOMAINES, simuler, irFoyer, effetIR, effetFamille, effetLogement, effetPatrimoine, regleActuelle, effetSalaire, effetRetraite, effetTVA, effetHS, effetPension, effetMinima, effetFonction, annoncesGain };
 });

@@ -83,7 +83,11 @@
     "v27-tondelier"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_pct": 15
+   }
   },
   {
    "id": "ton-jeun",
@@ -97,7 +101,8 @@
    "fiabilite": "recensement_tiers",
    "simulable": true,
    "parametres": {
-    "aah_hausse": 250
+    "aah_hausse": 250,
+    "rsa_des_18_ans": true
    }
   },
   {
@@ -250,7 +255,11 @@
     "v27-ton-edu"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "public": "recherche",
+    "hausse_pct": 10
+   }
   },
   {
    "id": "ton-vss",

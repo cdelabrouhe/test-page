@@ -120,7 +120,12 @@
     "v27-nda"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_pct": 15,
+    "hausse_nette": true
+   }
   },
   {
    "id": "nda-ener",
@@ -146,7 +151,8 @@
    "fiabilite": "recensement_tiers",
    "simulable": true,
    "parametres": {
-    "aah_hausse": 300
+    "aah_hausse": 300,
+    "aah_condition": "handicap_lourd"
    }
   },
   {

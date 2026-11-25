@@ -93,7 +93,8 @@
    "fiabilite": "recensement_tiers",
    "simulable": true,
    "parametres": {
-    "revenu_etudiant": 850
+    "revenu_etudiant": 850,
+    "repas_1_euro": true
    },
    "divergence": "Source datant de 2022."
   },

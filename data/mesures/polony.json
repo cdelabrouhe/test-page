@@ -52,7 +52,12 @@
     "v27-polony"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": true,
+   "parametres": {
+    "public": "enseignants",
+    "hausse_pct_min": 20,
+    "hausse_pct_max": 30
+   }
   },
   {
    "id": "pol-sec",
