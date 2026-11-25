@@ -1,0 +1,106 @@
+{
+ "candidat": "polony",
+ "etat_programme": "Pas de programme publié : positions issues de déclarations publiques (septembre-novembre 2026) relevées sur natachapolony2027.fr. Candidature annoncée le 14 octobre 2026.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "pol-eco",
+   "theme": "finances-publiques",
+   "intitule": "État stratège qui planifie les investissements essentiels et protège les filières vitales ; priorité française dans la commande publique",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "pol-carb",
+   "theme": "fiscalite-menages",
+   "intitule": "Taxe flottante sur les produits pétroliers, dont le montant baisse quand les prix de l'essence montent",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "taxe_flottante_carburants": true
+   }
+  },
+  {
+   "id": "pol-edf",
+   "theme": "environnement",
+   "intitule": "Renationalisation d'EDF, refus de privatiser les barrages, défense du nucléaire ; électricité abondante, décarbonée et à prix stable",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "pol-edu",
+   "theme": "education",
+   "intitule": "Fermeture des filières de bac pro tertiaire à faible insertion (50 % des bacs pro) ; loi de programmation sur 10 ans ; hausses de salaires des enseignants de 20 à 30 %",
+   "detail": null,
+   "chiffres": "50 % ; 20–30 % ; 10 ans",
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "pol-sec",
+   "theme": "securite",
+   "intitule": "Centres éducatifs fermés « qui fonctionnent réellement » pour les jeunes",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "pol-eur",
+   "theme": "europe",
+   "intitule": "Pression sur la BCE pour qu'elle cesse de relever ses taux",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "pol-immi",
+   "theme": "immigration",
+   "intitule": "Punir ceux qui enfreignent les règles et inviter à quitter le territoire ceux qui ne sont pas français",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "pol-inst",
+   "theme": "institutions",
+   "intitule": "Chantier contre la corruption et les conflits d'intérêts ; protection des lanceurs d'alerte ; consultation régulière par référendum",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-polony"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

@@ -60,7 +60,7 @@ select:focus,input:focus,.chip:focus-visible{outline:3px solid var(--blue);outli
 {
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const FIA={programme_officiel:'Programme officiel',presse:'Presse',recensement_tiers:'Recensement tiers'};
-const WAVE=['asselineau','batho','borne','bouamrane','hollande','arthaud','attal','becht','bertrand','cazeneuve','dupont-aignan','glucksmann','kazib','le-maire','le-pen','lisnard','melenchon','philippe','philippot','retailleau','roussel','tondelier','villepin','zemmour'];
+const WAVE=['branco','polony','labib','asselineau','batho','borne','bouamrane','hollande','arthaud','attal','becht','bertrand','cazeneuve','dupont-aignan','glucksmann','kazib','le-maire','le-pen','lisnard','melenchon','philippe','philippot','retailleau','roussel','tondelier','villepin','zemmour'];
 let themes=[],cands=[],data={},S={},theme='tous',sel=new Set(WAVE);
 const cols=document.getElementById('cols');
 function mcard(m){

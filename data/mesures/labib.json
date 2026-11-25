@@ -1,0 +1,71 @@
+{
+ "candidat": "labib",
+ "etat_programme": "Pas de programme publié : positions tirées de son intervention à la fête de l'Humanité 2026 (NPA-Révolutionnaires) ; 8 mesures relevées sur 13.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "lab-sal",
+   "theme": "travail",
+   "intitule": "Augmenter salaires et pensions de 400 € par mois pour tous ; aucun revenu sous 2 000 € net",
+   "detail": null,
+   "chiffres": "+400 € ; 2 000 € net",
+   "sources": [
+    "v27-labib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "hausse_salaires": 400,
+    "revenu_min_net": 2000
+   }
+  },
+  {
+   "id": "lab-35",
+   "theme": "travail",
+   "intitule": "Réduction du temps de travail sans perte de salaire ; interdiction des licenciements",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-labib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "lab-marges",
+   "theme": "finances-publiques",
+   "intitule": "Contrôle des marges de Total, Carrefour et Leclerc ; socialisation des grandes entreprises sans indemnité",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-labib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "lab-immi",
+   "theme": "immigration",
+   "intitule": "Liberté de circulation et d'installation ; régularisation de tous les sans-papiers ; opposition à Frontex",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-labib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "lab-inst",
+   "theme": "institutions",
+   "intitule": "Arrêt du fichage des populations et de la surveillance par drones",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-labib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

@@ -656,5 +656,26 @@
   "media": "votons-2027.fr (relevé)",
   "date": "2026-11",
   "url": "https://votons-2027.fr/candidats/bouamrane/programme"
+ },
+ {
+  "id": "v27-branco",
+  "titre": "Programme de Juan Branco pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/branco/programme"
+ },
+ {
+  "id": "v27-polony",
+  "titre": "Programme de Natacha Polony pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/polony/programme"
+ },
+ {
+  "id": "v27-labib",
+  "titre": "Programme de Selma Labib pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/labib/programme"
  }
 ]

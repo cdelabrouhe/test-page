@@ -1,0 +1,162 @@
+{
+ "candidat": "branco",
+ "etat_programme": "Programme officiel de Juan Branco (ruches.org/le-projet) : 281 mesures annoncées dans un recensement, 39 relevées ici ; 48 selon un autre décompte du même site.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "bra-inst",
+   "theme": "institutions",
+   "intitule": "RIC en toutes matières ; mandat révocable ; suppression du poste de Premier ministre ; abrogation du 49.3 ; fusion des hautes juridictions en une « Cour des peuples »",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-cot",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Baisse des cotisations sociales sur les salaires financée par une TVA sociale sur les biens non essentiels",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "baisse_cotisations_salariales": true,
+    "tva_sociale": true
+   }
+  },
+  {
+   "id": "bra-herit",
+   "theme": "fiscalite-menages",
+   "intitule": "Fin des droits de mutation à titre gratuit pour 90 % des foyers ; seuils relevés au-delà de 40 M€ ; taux confiscatoires à partir de 100 M€",
+   "detail": null,
+   "chiffres": "90 % exonérés ; 40 M€ ; 100 M€",
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "part_foyers_exoneres_pct": 90,
+    "seuil_taux_confiscatoire_meur": 100
+   }
+  },
+  {
+   "id": "bra-rsa",
+   "theme": "famille",
+   "intitule": "Déconditionnement du RSA et attribution automatique des minima sociaux",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "rsa_automatique": true
+   }
+  },
+  {
+   "id": "bra-bdf",
+   "theme": "finances-publiques",
+   "intitule": "Élection du gouverneur de la Banque de France ; rétablissement du circuit du Trésor",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-eur",
+   "theme": "europe",
+   "intitule": "Sortie de l'UE, de l'euro et de l'OTAN ; référendum sur un service militaire obligatoire (6 mois de tronc commun puis 12 mois de service civil ou 6 mois militaire)",
+   "detail": null,
+   "chiffres": "6 + 12 ou 6 mois",
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-def",
+   "theme": "defense",
+   "intitule": "Production d'un million de drones par an d'ici 2032, extensible à 5 millions en cas de conflit, dont 20 % d'intercepteurs",
+   "detail": null,
+   "chiffres": "1 million/an ; 20 %",
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-sec",
+   "theme": "securite",
+   "intitule": "Municipalisation de la police nationale ; suppression des BAC ; récépissé de contrôle d'identité ; doublement des agents des douanes ; fin du « modèle Badinter »",
+   "detail": null,
+   "chiffres": "×2 douanes",
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-sante",
+   "theme": "sante",
+   "intitule": "Fin de la tarification à l'acte ; mutuelles intégrées à une sécurité sociale unique ; industrie pharmaceutique publique ; suppression des ARS",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-edu",
+   "theme": "education",
+   "intitule": "Gratuité des études universitaires pour tout résident français ; +30 % de budget pour l'enseignement supérieur et la recherche, financé par la suppression du CIR ; fin de Parcoursup",
+   "detail": null,
+   "chiffres": "+30 %",
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-immi",
+   "theme": "immigration",
+   "intitule": "Critères d'intégration objectivables pour les régularisations ; regroupement familial conditionné ; asile traité au niveau consulaire",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "bra-ener",
+   "theme": "environnement",
+   "intitule": "Nationalisation de la distribution d'électricité ; sortie du marché européen de l'électricité ; construction de 14 EPR2",
+   "detail": null,
+   "chiffres": "14 EPR2",
+   "sources": [
+    "v27-branco"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}
