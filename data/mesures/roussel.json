@@ -1,0 +1,161 @@
+{
+ "candidat": "roussel",
+ "etat_programme": "Le relevé affiché renvoie au programme « La France des jours heureux » de la campagne de 2022 (180 propositions) : à confirmer par le programme 2027 du PCF.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "rou-ret",
+   "theme": "retraites",
+   "intitule": "Retraite à 60 ans à taux plein par une loi",
+   "detail": null,
+   "chiffres": "60 ans",
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 60
+   },
+   "divergence": "Source datant de 2022."
+  },
+  {
+   "id": "rou-35",
+   "theme": "travail",
+   "intitule": "Semaine de 32 heures sans baisse de salaire",
+   "detail": null,
+   "chiffres": "32 h",
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "duree_legale_h": 32
+   },
+   "divergence": "Source datant de 2022."
+  },
+  {
+   "id": "rou-banq",
+   "theme": "finances-publiques",
+   "intitule": "Pôle financier public par nationalisation de BNP Paribas, Société générale et Axa",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source datant de 2022."
+  },
+  {
+   "id": "rou-isf",
+   "theme": "fiscalite-menages",
+   "intitule": "Rétablir l'impôt sur la fortune avec taux et progressivité accentués ; supprimer des niches fiscales",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "isf_retabli": true
+   },
+   "divergence": "Source datant de 2022."
+  },
+  {
+   "id": "rou-carb",
+   "theme": "fiscalite-menages",
+   "intitule": "Blocage du prix des carburants à 1,60 € le litre ; baisse de 30 % des tarifs de l'électricité et du gaz",
+   "detail": null,
+   "chiffres": "1,60 €/L ; −30 %",
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "prix_carburant_max": 1.6,
+    "baisse_tarif_energie_pct": 30
+   },
+   "divergence": "Source datant de 2022."
+  },
+  {
+   "id": "rou-edu",
+   "theme": "education",
+   "intitule": "Revenu de 850 € par mois pour tous les étudiants ; repas à 1 € généralisé ; 18 000 postes par an de 2027 à 2031",
+   "detail": null,
+   "chiffres": "850 €/mois ; 90 000 postes",
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "revenu_etudiant": 850
+   },
+   "divergence": "Source datant de 2022."
+  },
+  {
+   "id": "rou-sante",
+   "theme": "sante",
+   "intitule": "Plan pour l'hôpital public ; loi-cadre sur la psychiatrie ; pôle public du médicament ; levée des brevets sur les vaccins",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "rou-ener",
+   "theme": "environnement",
+   "intitule": "140 Md€ par an pour une politique climatique conforme au Giec ; EDF, TotalEnergies et Engie réunis dans un pôle public ; transports publics gratuits",
+   "detail": null,
+   "chiffres": "140 Md€/an",
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "rou-fp",
+   "theme": "institutions",
+   "intitule": "500 000 emplois dans la fonction publique et les services publics ; IVG dans la Constitution",
+   "detail": null,
+   "chiffres": "500 000 emplois",
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "rou-eur",
+   "theme": "europe",
+   "intitule": "Fin des 3 % de déficit autorisés et du pacte de stabilité ; sortie de l'OTAN ; signature du TIAN",
+   "detail": null,
+   "chiffres": "3 %",
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "rou-immi",
+   "theme": "immigration",
+   "intitule": "Politique d'accueil humaniste ; prise en charge des mineurs non accompagnés ; voies légales sécurisées",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-roussel"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

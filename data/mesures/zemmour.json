@@ -1,0 +1,115 @@
+{
+ "candidat": "zemmour",
+ "etat_programme": "Candidature annoncée en 2026 sur TF1. Le relevé disponible (76 mesures recensées) renvoie au programme des élections européennes de 2024 et non à un programme présidentiel 2027 : à actualiser.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "zem-immi",
+   "theme": "immigration",
+   "intitule": "Quitter la CEDH ; renvoyer les étrangers détenus et les délinquants étrangers ; supprimer les subventions aux ONG pro-migrants",
+   "detail": "Le candidat a aussi promis de réduire de deux millions le nombre d'immigrés pendant le quinquennat.",
+   "chiffres": "−2 millions d'immigrés",
+   "sources": [
+    "v27-zemmour",
+    "i24-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source de 2024 (européennes), à confirmer pour 2027."
+  },
+  {
+   "id": "zem-eur",
+   "theme": "europe",
+   "intitule": "Supprimer la Commission européenne ; primauté du droit national (article 55) ; refus de tout nouvel élargissement ; refus d'une armée européenne",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source de 2024 (européennes)."
+  },
+  {
+   "id": "zem-ue",
+   "theme": "finances-publiques",
+   "intitule": "Réduire de 20 % la contribution de la France au budget de l'UE, plafonnée à 20 Md€ par an",
+   "detail": null,
+   "chiffres": "−20 % ; 20 Md€/an",
+   "sources": [
+    "v27-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source de 2024 (européennes)."
+  },
+  {
+   "id": "zem-norm",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Sobriété normative : deux normes supprimées pour une créée ; moratoire sur les accords de libre-échange ; droit de douane de 50 % sur les véhicules électriques chinois",
+   "detail": null,
+   "chiffres": "2 pour 1 ; 50 %",
+   "sources": [
+    "v27-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source de 2024 (européennes)."
+  },
+  {
+   "id": "zem-ener",
+   "theme": "environnement",
+   "intitule": "Supprimer l'interdiction des moteurs thermiques en 2035 ; supprimer les financements de l'éolien ; relance du nucléaire (500 Md€ à l'échelle européenne)",
+   "detail": null,
+   "chiffres": "500 Md€",
+   "sources": [
+    "v27-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source de 2024 (européennes)."
+  },
+  {
+   "id": "zem-elec",
+   "theme": "environnement",
+   "intitule": "Baisser les factures d'électricité en réduisant les taxes et en supprimant l'obligation faite à EDF de vendre un quart de sa production à ses concurrents",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "baisse_taxes_electricite": true
+   },
+   "divergence": "Source de 2024 (européennes)."
+  },
+  {
+   "id": "zem-fam",
+   "theme": "famille",
+   "intitule": "Mesures natalistes ; déduction du déficit de 50 % des dépenses de politique familiale ; Erasmus réservé aux jeunes Européens avec avantage pour les familles nombreuses",
+   "detail": null,
+   "chiffres": "50 %",
+   "sources": [
+    "v27-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source de 2024 (européennes)."
+  },
+  {
+   "id": "zem-sante",
+   "theme": "sante",
+   "intitule": "1 000 médecins salariés par l'État sur 5 ans ; suppression des soins gratuits de l'AME hors urgence ; retour à trois jours de carence dans la fonction publique",
+   "detail": null,
+   "chiffres": "1 000 médecins ; 3 jours",
+   "sources": [
+    "v27-zemmour"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Source de 2024 (européennes)."
+  }
+ ]
+}

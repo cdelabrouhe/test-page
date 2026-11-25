@@ -1,0 +1,185 @@
+{
+ "candidat": "cazeneuve",
+ "etat_programme": "Lettre aux Français « Tenir la promesse de la France » du 15 juillet 2026 : texte officiel avec 30 propositions, peu chiffré. Candidature annoncée le 16 juillet 2026.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "caz-ret",
+   "theme": "retraites",
+   "intitule": "Retraites fondées sur la durée de cotisation plutôt que sur le recul de l'âge ; pénibilité rétablie ; carrières longues ; emploi des seniors ; liberté de travailler plus longtemps",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "critere": "duree_cotisation",
+    "penibilite": true
+   }
+  },
+  {
+   "id": "caz-regle",
+   "theme": "finances-publiques",
+   "intitule": "Règle d'or sociale : toute exonération de cotisations compensée intégralement à la Sécurité sociale ; équilibre des comptes sociaux en cinq ans",
+   "detail": null,
+   "chiffres": "5 ans",
+   "sources": [
+    "cazeneuve-lettre",
+    "ps-cazeneuve"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-fisc",
+   "theme": "fiscalite-menages",
+   "intitule": "Imposer réellement très grandes fortunes, hauts revenus du capital et rentes ; rééquilibrer travail et capital ; réduire les niches fiscales",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-prod",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Baisse des impôts de production financée par la réduction des aides fiscales",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-jeun",
+   "theme": "famille",
+   "intitule": "2 000 € supplémentaires pour chaque étudiant boursier sur ses deux premières années ; avance jeunesse de 3 000 € pour les 18-24 ans sans diplôme ni emploi",
+   "detail": null,
+   "chiffres": "2 000 € ; 3 000 €",
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": true,
+   "parametres": {
+    "bourse_supplement": 2000,
+    "avance_jeunesse": 3000
+   }
+  },
+  {
+   "id": "caz-log",
+   "theme": "logement",
+   "intitule": "Grand plan de construction et de rénovation social et écologique ; accession à la propriété facilitée",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-sante",
+   "theme": "sante",
+   "intitule": "Revalorisation des métiers du soin ; santé mentale grande cause nationale ; prise en charge de la dépendance et soutien aux aidants",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-edu",
+   "theme": "education",
+   "intitule": "Enseignants mieux formés, payés et considérés ; philosophie en Seconde ; plan École-Climat-Solidarité sur dix ans",
+   "detail": null,
+   "chiffres": "10 ans",
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-sec",
+   "theme": "securite",
+   "intitule": "Police de proximité renforcée ; peines réellement exécutées ; fin de la comparution immédiate systématique",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-immi",
+   "theme": "immigration",
+   "intitule": "Droit d'asile maintenu, intégration (langue française, lois communes), fermeté contre l'immigration irrégulière et les filières criminelles",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-def",
+   "theme": "defense",
+   "intitule": "Réarmement proportionné à la menace ; industrie de défense consolidée ; OTAN sans abdication ; réserve citoyenne élargie",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-eur",
+   "theme": "europe",
+   "intitule": "Fin de l'unanimité au profit de la majorité ; politique migratoire à l'échelle européenne ; réforme budgétaire",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-inst",
+   "theme": "institutions",
+   "intitule": "Rétablir le septennat ; une dose de proportionnelle aux législatives ; discipline sur le 49.3 et les ordonnances",
+   "detail": null,
+   "chiffres": "7 ans",
+   "sources": [
+    "cazeneuve-lettre",
+    "ps-cazeneuve"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  },
+  {
+   "id": "caz-eco",
+   "theme": "environnement",
+   "intitule": "Rénovation massive des logements, transports collectifs, nucléaire et renouvelables, sortie des fossiles ; DATAR du climat",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "cazeneuve-lettre"
+   ],
+   "fiabilite": "programme_officiel",
+   "simulable": false
+  }
+ ]
+}

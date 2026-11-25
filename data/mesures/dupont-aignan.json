@@ -1,0 +1,165 @@
+{
+ "candidat": "dupont-aignan",
+ "etat_programme": "Programme officiel « notre projet » de Debout la France (554 mesures recensées, 40 relevées ici). Candidature déclarée ; quatrième tentative.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "nda-inst",
+   "theme": "institutions",
+   "intitule": "Référendum d'initiative citoyenne ; retour au septennat avec référendum révocatoire à mi-mandat ; 500 députés au lieu de 577",
+   "detail": null,
+   "chiffres": "7 ans ; 500 députés",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-agen",
+   "theme": "finances-publiques",
+   "intitule": "Supprimer progressivement les agences d'État (ADEME, ARS…) pour 20 Md€ par an au bout de 3 ans",
+   "detail": null,
+   "chiffres": "20 Md€/an",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-sec",
+   "theme": "securite",
+   "intitule": "10 000 policiers et gendarmes supplémentaires nets en 5 ans ; présomption de légitime défense ; majorité pénale à 16 ans ; perpétuité réelle",
+   "detail": null,
+   "chiffres": "10 000 ; 16 ans",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-immi",
+   "theme": "immigration",
+   "intitule": "Sortir de Schengen ; limiter le regroupement familial ; supprimer l'AME ; économique conditionnée au taux de chômage",
+   "detail": null,
+   "chiffres": "10 000 agents",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-carb",
+   "theme": "fiscalite-menages",
+   "intitule": "Baisser de 40 centimes le prix des carburants (17 CEE, 13 TVA, 10 marges des raffineurs)",
+   "detail": null,
+   "chiffres": "−40 cts/L",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "baisse_carburant_cts": 40
+   }
+  },
+  {
+   "id": "nda-hs",
+   "theme": "travail",
+   "intitule": "Défiscaliser les heures supplémentaires au-delà de 1 607 h/an, dans la limite de 300 h",
+   "detail": null,
+   "chiffres": "1 607 h ; 300 h",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "hs_defiscalisees": true,
+    "plafond_h": 300
+   }
+  },
+  {
+   "id": "nda-capital",
+   "theme": "famille",
+   "intitule": "Capital de 10 000 € pour chaque nouveau-né, bloqué jusqu'à la retraite et géré par un fonds public",
+   "detail": null,
+   "chiffres": "10 000 €",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "capital_naissance": 10000
+   }
+  },
+  {
+   "id": "nda-eur",
+   "theme": "europe",
+   "intitule": "Sortir de l'Union européenne et du marché européen de l'électricité ; sortir du commandement intégré de l'OTAN ; supprimer la contribution nette de la France",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-nda",
+    "e1-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-edu",
+   "theme": "education",
+   "intitule": "Uniforme obligatoire ; +30 % d'heures de français et de maths ; salaires nets des professeurs +15 % en 4 ans",
+   "detail": null,
+   "chiffres": "+30 % ; +15 %",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-ener",
+   "theme": "environnement",
+   "intitule": "Doubler MaPrimeRénov' (3 à 6 Md€) ; supprimer les aides à l'éolien et au solaire (10 Md€ d'économies) ; nucléaire à au moins 70 % de la production",
+   "detail": null,
+   "chiffres": "6 Md€ ; 10 Md€ ; 70 %",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "nda-sante",
+   "theme": "sante",
+   "intitule": "Pas de fermeture de maternité ; un hôpital à moins de 45 minutes en voiture ; AAH revalorisée d'environ 300 € pour le handicap lourd",
+   "detail": null,
+   "chiffres": "45 min ; +300 €",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "aah_hausse": 300
+   }
+  },
+  {
+   "id": "nda-eco",
+   "theme": "fiscalite-entreprises",
+   "intitule": "75 % de la commande publique à des produits français ; diviser par deux les normes administratives",
+   "detail": null,
+   "chiffres": "75 %",
+   "sources": [
+    "v27-nda"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

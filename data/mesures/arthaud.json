@@ -1,0 +1,107 @@
+{
+ "candidat": "arthaud",
+ "etat_programme": "Dépliant de Lutte ouvrière de novembre 2026 : 31 mesures recensées, 19 relevées ici. Programme anticapitaliste sans chiffrage budgétaire.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "art-smic",
+   "theme": "travail",
+   "intitule": "SMIC à 2 200 € ; augmentation des salaires, retraites et pensions, indexés sur l'inflation",
+   "detail": null,
+   "chiffres": "2 200 €",
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "smic_mensuel": 2200,
+    "indexation_inflation": true
+   }
+  },
+  {
+   "id": "art-lic",
+   "theme": "travail",
+   "intitule": "Interdire les licenciements ; partager le travail entre tous sans baisse de salaire en cas de baisse d'activité (y compris due à l'IA)",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "art-profits",
+   "theme": "finances-publiques",
+   "intitule": "Réquisitionner les profits des grands groupes pour les services publics ; exproprier sans indemnité les actionnaires, à commencer par le pétrole et l'armement",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "art-inst",
+   "theme": "institutions",
+   "intitule": "Collectivisation des grands moyens de production et des banques",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "art-sante",
+   "theme": "sante",
+   "intitule": "Lever les brevets sur les vaccins ; rouvrir les établissements de santé fermés ; suicide assisté encadré ; dépénalisation du cannabis ; interdiction des publicités pour l'alcool",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "art-ecol",
+   "theme": "environnement",
+   "intitule": "Contrôle des rejets par les riverains ; gratuité des transports en commun ; fin du secret commercial",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "art-immi",
+   "theme": "immigration",
+   "intitule": "Régulariser tous les sans-papiers ; liberté de circulation et d'installation ; droit de vote aux travailleurs immigrés",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "art-def",
+   "theme": "defense",
+   "intitule": "Refuser la course à l'armement ; retirer les troupes françaises d'Afrique",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-arthaud"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

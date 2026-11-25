@@ -1,0 +1,148 @@
+{
+ "candidat": "bertrand",
+ "etat_programme": "Pas de programme publié : positions issues de prises de position publiques relevées sur nousfrance.fr (61 mesures recensées, 36 relevées ici). Candidature confirmée le 27 août 2026, déclaration officielle attendue fin 2026.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "ber-ret",
+   "theme": "retraites",
+   "intitule": "Reporter l'âge légal de départ en retraite en lien avec l'allongement de la durée de vie",
+   "detail": "Une capitalisation est aussi évoquée par la presse. Une source précise que cette position est antérieure à 2027 : pas de position 2027 chiffrée.",
+   "chiffres": null,
+   "sources": [
+    "v27-bertrand",
+    "lcp-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "age_legal": null,
+    "report_age": true
+   },
+   "divergence": "Aucun âge chiffré relevé."
+  },
+  {
+   "id": "ber-hs",
+   "theme": "travail",
+   "intitule": "Heures au-delà de 35 h exonérées d'impôt et de charges sociales ; prime au travail annoncée pour près de la moitié des salariés",
+   "detail": null,
+   "chiffres": "35 h",
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "hs_exonerees": true
+   }
+  },
+  {
+   "id": "ber-div",
+   "theme": "fiscalite-entreprises",
+   "intitule": "Pas de dividendes sans contrepartie pour les salariés dans les entreprises de plus de 250 salariés ; partage du résultat obligatoire de 11 à 50 salariés",
+   "detail": null,
+   "chiffres": "> 250 sal. ; 11–50 sal.",
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-ve",
+   "theme": "fiscalite-menages",
+   "intitule": "Aucune taxation des voitures électriques",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-sec",
+   "theme": "securite",
+   "intitule": "Au moins 80 000 places de prison ; majorité pénale à 15 ans ; peine de prison automatique pour agressions contre policiers, pompiers ou maires ; attentats non libérables avant 50 ans",
+   "detail": null,
+   "chiffres": "80 000 places ; 15 ans ; 50 ans",
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-immi",
+   "theme": "immigration",
+   "intitule": "Quotas annuels fixés par le Parlement ; passeport républicain pour le regroupement familial ; fin des régularisations ; suppression de l'AME pour les adultes ; asile examiné en moins d'un mois",
+   "detail": null,
+   "chiffres": "1 mois",
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-sante",
+   "theme": "sante",
+   "intitule": "Assistant administratif financé par le département pour les médecins libéraux ; décharge administrative complète pour les jeunes médecins en zone rurale ; grande loi pluriannuelle de santé ; refus de l'installation obligatoire",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-edu",
+   "theme": "education",
+   "intitule": "Chef d'établissement responsable des écoles, collèges et lycées ; aucune fermeture de classe rurale sans accord du maire ; une œuvre ou un spectacle par élève",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-ecol",
+   "theme": "environnement",
+   "intitule": "Préférence pour le photovoltaïque hors terres agricoles ; limitation du développement des éoliennes ; transition sans faire payer classes moyennes et populaires",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-inst",
+   "theme": "institutions",
+   "intitule": "Mandat présidentiel unique de cinq ans ; recentrage de l'État sur le régalien, le reste géré localement ; adaptation des lois par territoire ; 1 % du budget de l'État pour la culture en 2032",
+   "detail": null,
+   "chiffres": "5 ans ; 1 % (2032)",
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ber-eur",
+   "theme": "europe",
+   "intitule": "Reprise du dialogue avec la Russie ; la France ne partagera jamais son siège à l'ONU ; Alliance méditerranéenne de contrôle de l'immigration avec Frontex",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-bertrand"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

@@ -1,0 +1,140 @@
+{
+ "candidat": "kazib",
+ "etat_programme": "Programme de Révolution permanente (anasse2027.fr) : 41 mesures recensées, 26 relevées ici.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "kaz-smic",
+   "theme": "travail",
+   "intitule": "Salaire minimum à 2 000 € net, hausse de 500 € des salaires, indexation sur l'inflation",
+   "detail": "Le site Élysée Scope évoque 1 800 € net (source non utilisée car non étayée).",
+   "chiffres": "2 000 € net ; +500 €",
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "smic_net_mensuel": 2000,
+    "hausse_salaires": 500
+   },
+   "divergence": "Un autre site cite 1 800 € net : à confirmer sur le programme officiel."
+  },
+  {
+   "id": "kaz-ret",
+   "theme": "retraites",
+   "intitule": "Retraite à 60 ans, 55 ans pour les métiers pénibles, sans condition d'annuités",
+   "detail": null,
+   "chiffres": "60 ans ; 55 ans",
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "age_legal": 60,
+    "penibles": 55,
+    "annuites": null
+   }
+  },
+  {
+   "id": "kaz-lic",
+   "theme": "travail",
+   "intitule": "Interdiction des licenciements",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "kaz-loy",
+   "theme": "logement",
+   "intitule": "Expropriation des logements vacants ; plafonnement et gel des loyers",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "gel_loyers": true
+   }
+  },
+  {
+   "id": "kaz-banq",
+   "theme": "finances-publiques",
+   "intitule": "Expropriation des groupes bancaires ; prêts à taux zéro ; fin des agios",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "kaz-sante",
+   "theme": "sante",
+   "intitule": "Sécurité sociale universelle financée par les employeurs ; nationalisation de l'industrie pharmaceutique ; accès libre et gratuit à l'IVG, à la PMA et aux parcours de transition",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "kaz-sec",
+   "theme": "securite",
+   "intitule": "Dissolution des corps spéciaux de police ; amnistie des manifestants ; légalisation encadrée du cannabis",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "kaz-immi",
+   "theme": "immigration",
+   "intitule": "Régularisation de tous les sans-papiers ; fermeture des centres de rétention ; droit de vote des immigrés",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "kaz-inst",
+   "theme": "institutions",
+   "intitule": "Fin de la Ve République, du Sénat et de la présidence ; assemblée unique ; élection directe des juges",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "kaz-def",
+   "theme": "defense",
+   "intitule": "Démantèlement de l'industrie d'armement française ; retrait des troupes françaises à l'étranger",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-kazib"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

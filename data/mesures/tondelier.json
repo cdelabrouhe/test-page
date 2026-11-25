@@ -1,0 +1,153 @@
+{
+ "candidat": "tondelier",
+ "etat_programme": "Projet 2027 des Écologistes (292 mesures selon la source, dont 48 « phares » ; 40 relevées ici). Le document officiel n'a pas pu être vérifié directement.",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "ton-smic",
+   "theme": "travail",
+   "intitule": "Salaire minimum à 2 000 € brut dès 2027",
+   "detail": "Plus de précisions à confirmer : montant en brut, non en net.",
+   "chiffres": "2 000 € brut",
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "smic_brut_mensuel": 2000
+   }
+  },
+  {
+   "id": "ton-isf",
+   "theme": "fiscalite-menages",
+   "intitule": "Rétablir la fiscalité sur la grande fortune ; ISF climatique ; TVA verte ; fiscalité des transports refondue",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-tondelier",
+    "lg-ecolo"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "isf_retabli": true
+   }
+  },
+  {
+   "id": "ton-loyer",
+   "theme": "logement",
+   "intitule": "Généralisation et pérennisation de l'encadrement des loyers ; encadrement des prix d'un panier de biens essentiels",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "encadrement_loyers": true
+   }
+  },
+  {
+   "id": "ton-adapt",
+   "theme": "environnement",
+   "intitule": "Plan d'adaptation climatique de 7 Md€ par an d'ici 2032 ; 120 000 km de pistes cyclables ; 21 % de bio en 2030 puis 25 % en 2032 ; 110 km/h sur autoroute pour les thermiques ; moratoire sur les mégabassines",
+   "detail": null,
+   "chiffres": "7 Md€/an ; 120 000 km",
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-sante",
+   "theme": "sante",
+   "intitule": "2 000 centres de santé d'ici 2030 ; remboursement à 100 % des soins essentiels à l'autonomie ; deux lois sur la fin de vie ; interdiction des PFAS",
+   "detail": null,
+   "chiffres": "2 000 centres",
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-edu",
+   "theme": "education",
+   "intitule": "Classes de 19 élèves en 2032 (12 en REP) ; +15 % de salaire des enseignants en 5 ans ; remplacer Parcoursup",
+   "detail": null,
+   "chiffres": "19 / 12 élèves ; +15 %",
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-jeun",
+   "theme": "famille",
+   "intitule": "Protection sociale étendue aux jeunes dès 18 ans ; hausse de 250 € de l'AAH",
+   "detail": null,
+   "chiffres": "+250 € AAH",
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": true,
+   "parametres": {
+    "aah_hausse": 250
+   }
+  },
+  {
+   "id": "ton-immi",
+   "theme": "immigration",
+   "intitule": "Droit du sol indépendamment de la situation des parents ; voies légales d'immigration ; fin des refoulements illégaux",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-sec",
+   "theme": "securite",
+   "intitule": "Police de proximité ; numerus clausus carcéral ; 9 000 magistrats sur dix ans ; légalisation encadrée du cannabis",
+   "detail": null,
+   "chiffres": "9 000 magistrats",
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-eur",
+   "theme": "europe",
+   "intitule": "Soutien politique et militaire à l'Ukraine ; arrêt des importations russes de gaz, d'uranium et d'engrais ; budget de l'UE à 2 % du PIB européen en 2035",
+   "detail": null,
+   "chiffres": "2 % (2035)",
+   "sources": [
+    "v27-tondelier"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "ton-inst",
+   "theme": "institutions",
+   "intitule": "Première République écologique et citoyenne ; proportionnelle intégrale aux législatives ; loi anti-concentration des médias",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-tondelier",
+    "lg-ecolo"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

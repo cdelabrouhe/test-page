@@ -1,0 +1,128 @@
+{
+ "candidat": "philippot",
+ "etat_programme": "Programme officiel « Projet pour la France » des Patriotes (135 mesures recensées, 40 relevées ici).",
+ "verifie_le": "2026-11-25",
+ "mesures": [
+  {
+   "id": "phi-eur",
+   "theme": "europe",
+   "intitule": "Quitter l'UE, l'euro, Schengen, la CEDH, l'OTAN et l'OMS ; créer une monnaie nationale",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-eco",
+   "theme": "finances-publiques",
+   "intitule": "Planification économique et protectionnisme ciblé ; fin des accords de libre-échange ; 20 Md€ par an d'économies grâce au Frexit (chiffre de la source)",
+   "detail": null,
+   "chiffres": "20 Md€/an",
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false,
+   "divergence": "Le chiffrage vient du programme, sans évaluation indépendante."
+  },
+  {
+   "id": "phi-banque",
+   "theme": "finances-publiques",
+   "intitule": "Abroger la loi de 1973 pour permettre des emprunts à la Banque de France ; Caisse nationale de réindustrialisation",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-ret",
+   "theme": "retraites",
+   "intitule": "Permettre de baisser l'âge de la retraite si les Français le souhaitent",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-immi",
+   "theme": "immigration",
+   "intitule": "Fin de l'immigration massive ; quitter Schengen et la CEDH ; fin de l'immigration de travail",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-sec",
+   "theme": "securite",
+   "intitule": "Police de proximité ; peines planchers ; expulsion des détenus étrangers ; prestations des parents de mineurs récidivistes conditionnées",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-inst",
+   "theme": "institutions",
+   "intitule": "RIC inscrit dans la Constitution ; révision de la Constitution uniquement par référendum ; inéligibilité à vie pour les élus condamnés pour corruption",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-edu",
+   "theme": "education",
+   "intitule": "Moitié du temps scolaire du primaire consacré au français ; fin du collège unique avec parcours différenciés dès 14 ans",
+   "detail": null,
+   "chiffres": "14 ans",
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-sante",
+   "theme": "sante",
+   "intitule": "Supprimer les ARS ; centres de santé locaux ; liberté vaccinale ; sortir de l'OMS",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  },
+  {
+   "id": "phi-ecol",
+   "theme": "environnement",
+   "intitule": "Quitter le marché européen de l'électricité ; investir dans le nucléaire ; moratoire sur l'éolien ; garder la voiture thermique au-delà de 2035",
+   "detail": null,
+   "chiffres": null,
+   "sources": [
+    "v27-philippot"
+   ],
+   "fiabilite": "recensement_tiers",
+   "simulable": false
+  }
+ ]
+}

@@ -502,5 +502,110 @@
   "media": "CNews",
   "date": "2026-11-12",
   "url": "https://www.cnews.fr/france/2026-11-12/presidentielle-2027-defenseur-dune-refonte-radicale-du-systeme-le-candidat"
+ },
+ {
+  "id": "v27-bertrand",
+  "titre": "Programme de Xavier Bertrand pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/bertrand/programme"
+ },
+ {
+  "id": "lcp-bertrand",
+  "titre": "Xavier Bertrand confirme qu'il sera candidat à l'élection présidentielle",
+  "media": "LCP",
+  "date": "2026-08-27",
+  "url": "https://lcp.fr/actualites/2027-figure-de-la-droite-xavier-bertrand-confirme-qu-il-sera-candidat-a-l-election"
+ },
+ {
+  "id": "cazeneuve-lettre",
+  "titre": "Tenir la promesse de la France : lettre aux Français de Bernard Cazeneuve",
+  "media": "La Convention (site officiel)",
+  "date": "2026-07-15",
+  "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf"
+ },
+ {
+  "id": "ps-cazeneuve",
+  "titre": "La candidature de Bernard Cazeneuve traduit la difficulté de notre personnel politique à se renouveler",
+  "media": "Public Sénat",
+  "date": "2026-07",
+  "url": "https://www.publicsenat.fr/actualites/politique/presidentielle-2027-la-candidature-de-bernard-cazeneuve-traduit-la-difficulte"
+ },
+ {
+  "id": "v27-roussel",
+  "titre": "Programme de Fabien Roussel pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/roussel/programme"
+ },
+ {
+  "id": "v27-tondelier",
+  "titre": "Programme de Marine Tondelier pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/tondelier/programme"
+ },
+ {
+  "id": "lg-ecolo",
+  "titre": "2027 : les écologistes veulent instaurer la première République écologique et citoyenne",
+  "media": "La Gazette de France (d'après l'AFP)",
+  "date": "2026",
+  "url": "https://www.lagazettefrance.fr/article/2027-les-ecologistes-veulent-instaurer-la-premiere-republique-ecologique-et-citoyenne"
+ },
+ {
+  "id": "v27-zemmour",
+  "titre": "Programme d'Éric Zemmour pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/zemmour/programme"
+ },
+ {
+  "id": "i24-zemmour",
+  "titre": "Éric Zemmour officialise sa candidature à l'élection présidentielle 2027",
+  "media": "i24NEWS",
+  "date": "2026",
+  "url": "https://www.i24news.tv/fr/actu/france/artc-eric-zemmour-officialise-sa-candidature-a-l-election-presidentielle-2027"
+ },
+ {
+  "id": "v27-nda",
+  "titre": "Programme de Nicolas Dupont-Aignan pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/dupont-aignan/programme"
+ },
+ {
+  "id": "e1-nda",
+  "titre": "Frexit : « La France doit quitter un système délétère »",
+  "media": "Europe 1",
+  "date": "2025-12-02",
+  "url": "https://www.europe1.fr/international/frexit-la-france-est-suffisamment-forte-pour-faire-sortir-dautres-pays-de-lunion-europeenne-assure-nicolas-dupont-aignan-873516"
+ },
+ {
+  "id": "v27-philippot",
+  "titre": "Programme de Florian Philippot pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/philippot/programme"
+ },
+ {
+  "id": "v27-arthaud",
+  "titre": "Programme de Nathalie Arthaud pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/arthaud/programme"
+ },
+ {
+  "id": "v27-kazib",
+  "titre": "Programme d'Anasse Kazib pour 2027",
+  "media": "votons-2027.fr (relevé)",
+  "date": "2026-11",
+  "url": "https://votons-2027.fr/candidats/kazib/programme"
+ },
+ {
+  "id": "parismatch-polony",
+  "titre": "Natacha Polony annonce sa candidature à l'élection présidentielle",
+  "media": "Paris Match Belgique",
+  "date": "2026-10-14",
+  "url": "https://www.parismatch.be/actualites/monde/2026/10/14/france-natacha-polony-annonce-sa-candidature-a-lelection-presidentielle-OUVKQKV6MBFQZCJKLBGST2N4CY/"
  }
 ]
