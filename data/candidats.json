@@ -96,7 +96,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "divers"
+   "famille": "souverainiste"
   },
   {
    "id": "attal",
@@ -262,7 +262,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "droite"
+   "famille": "souverainiste"
   },
   {
    "id": "durif",
@@ -444,7 +444,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "gauche"
+   "famille": "extreme_gauche"
   },
   {
    "id": "mikolajczak",
@@ -504,7 +504,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "divers"
+   "famille": "souverainiste"
   },
   {
    "id": "platret",
@@ -788,7 +788,7 @@
    ],
    "force": false,
    "traite": true,
-   "famille": "droite"
+   "famille": "souverainiste"
   },
   {
    "id": "ruffin",
@@ -940,7 +940,8 @@
   "centre": "Centre",
   "droite": "Droite",
   "extreme_droite": "Extrême droite",
+  "souverainiste": "Souverainistes",
   "divers": "Divers"
  },
- "note_familles": "Classement par étiquette de parti ou de mouvement, d'après les familles usuelles (nuances du ministère de l'Intérieur) et, pour les petits candidats, le libellé du site votons-2027.fr : il décrit l'appartenance partisane, pas le contenu des programmes. Sont rangés en « Divers » les candidats sans étiquette ou « ni droite ni gauche » (Riner, Polony), les souverainistes sans rattachement établi (Asselineau, Philippot) et ceux dont aucune source fiable ne donne le positionnement. Les sources divergent parfois (votons-2027.fr classe par exemple Mélenchon à l'extrême gauche) : un rattachement peut être discuté et ne vaut pas jugement."
+ "note_familles": "Classement par étiquette de parti ou de mouvement, d'après les familles usuelles (nuances du ministère de l'Intérieur) et, pour les petits candidats, le libellé du site votons-2027.fr : il décrit l'appartenance partisane, pas le contenu des programmes. « Souverainistes » regroupe les candidats qui se définissent d'abord par la défense de la souveraineté nationale (Asselineau, Dupont-Aignan, Philippot, Villiers) ; cette famille n'a pas de place sur l'axe gauche-droite. « Divers » regroupe les candidats sans étiquette ou « ni droite ni gauche » (Riner, Polony) et ceux dont aucune source fiable ne donne le positionnement. Les sources divergent parfois : un rattachement peut être discuté et ne vaut pas jugement."
 }

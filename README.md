@@ -22,7 +22,7 @@ Test en local : `python3 -m http.server` puis http://localhost:8000
 - **Mise à jour de la liste des candidats** : manuelle, lancée par l'utilisateur (skill `maj-candidats-2027`), avec validation avant publication. Pas de tâche automatique.
 
 ## Format des données
-- `candidats.json` : `id`, `nom`, `parti`, `statut` (declare, sous_condition, pressenti, retire), `famille` (extreme_gauche, gauche, ecologiste, centre, droite, extreme_droite, divers), `traite`, `force`, et en option `photo` (chemin d'une image locale, ex. `img/candidats/attal.jpg`) avec `photo_credit` (auteur et licence) ; sans photo, la page affiche les initiales.
+- `candidats.json` : `id`, `nom`, `parti`, `statut` (declare, sous_condition, pressenti, retire), `famille` (extreme_gauche, gauche, ecologiste, centre, droite, extreme_droite, souverainiste, divers), `traite`, `force`, et en option `photo` (chemin d'une image locale, ex. `img/candidats/attal.jpg`) avec `photo_credit` (auteur et licence) ; sans photo, la page affiche les initiales.
 - `mesures/<id>.json` : `candidat`, `etat_programme`, `verifie_le`, `mesures[]` (`id`, `theme`, `intitule`, `detail`, `chiffres`, `sources[]`, `fiabilite`, `simulable`, `parametres`, `divergence`).
 - `sources.json` : `id`, `titre`, `media`, `date`, `url`.
 
