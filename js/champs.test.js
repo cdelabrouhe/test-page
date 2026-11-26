@@ -89,4 +89,59 @@ t('contrôles de cohérence', () => {
   assert(C.CONTROLES.carriere({ statut: 'salarie', naiss: '1985', debut: '1990' })); assert.strictEqual(C.CONTROLES.carriere({ statut: 'salarie', naiss: '1985', debut: '2008' }), null);
   assert.strictEqual(C.CONTROLES.carriere({ statut: 'etudiant', naiss: '2005', debut: '2008' }), null);
 });
+t('nettoyer : garde les valeurs valides, écarte les champs inconnus et les valeurs invalides', () => {
+  const d = defauts();
+  assert.deepStrictEqual(C.nettoyer(d), d);
+  const r = C.nettoyer({ statut: 'retraite', naiss: '1955', net: 'abc', inconnu: '1', enf: 2, couple: '<script>', pat: '', evil: { a: 1 } });
+  assert.strictEqual(r.statut, 'retraite'); assert.strictEqual(r.naiss, '1955'); assert.strictEqual(r.enf, '2');
+  for (const k of ['net', 'inconnu', 'couple', 'evil']) assert(!(k in r), k);
+  assert.deepStrictEqual(C.nettoyer(null), {}); assert.deepStrictEqual(C.nettoyer('x'), {});
+});
+t('nettoyer : le profil d\'une situation restaurée est celui de la situation saisie', () => {
+  const v = { ...defauts(), statut: 'enseignant', naiss: '1980', enf: '2' };
+  assert.deepStrictEqual(C.profil({ ...defauts(), ...C.nettoyer(JSON.parse(JSON.stringify(v))) }), C.profil(v));
+});
+const faux = [
+  { id: 'a', type: 'nombre', val: 5, min: 0, max: 10, ancien: ['vieuxA'] },
+  { id: 'b', type: 'choix', val: 'x', options: [['x', 'X'], ['y', 'Y']] },
+  { id: 'c', type: 'nombre_facultatif', val: '' }
+];
+t('situation enregistrée : champ ajouté, supprimé, renommé, option retirée, valeur hors bornes', () => {
+  // supprimé (z) et inconnu : ignorés ; renommé (vieuxA -> a) : valeur reprise ; option retirée (b=w) et hors bornes : écartées
+  assert.deepStrictEqual(C.nettoyer({ vieuxA: '7', z: '1', b: 'w', c: '3' }, faux), { a: '7', c: '3' });
+  assert.deepStrictEqual(C.nettoyer({ a: '11' }, faux), {});           // hors bornes
+  assert.deepStrictEqual(C.nettoyer({ a: '4', d: '9' }, faux), { a: '4' }); // champ « d » (ajouté plus tard côté données) : absent, pas d'erreur
+});
+t('situation enregistrée : seuls les champs modifiés sont conservés, les valeurs par défaut restent celles du site', () => {
+  const e = C.exporter({ a: '5', b: 'y', c: '' }, new Set(['b']), faux);
+  assert.deepStrictEqual(e, { version: C.VERSION_FORMULAIRE, champs: { b: 'y' } });
+  const nouveauxDefauts = faux.map(f => f.id === 'a' ? { ...f, val: 8 } : f); // défaut de « a » change plus tard
+  const r = C.importer(JSON.stringify(e), nouveauxDefauts);
+  assert.strictEqual(r.perime, false); assert.deepStrictEqual(r.valeurs, { b: 'y' }); // « a » n'est pas figé à l'ancien défaut
+});
+t('situation enregistrée : version différente ou illisible = écartée', () => {
+  assert.strictEqual(C.importer(JSON.stringify({ version: C.VERSION_FORMULAIRE + 1, champs: { a: '1' } }), faux).perime, true);
+  assert.strictEqual(C.importer('{pas du json', faux).perime, true);
+  assert.strictEqual(C.importer(JSON.stringify({ champs: { a: '1' } }), faux).perime, true);
+  assert.strictEqual(C.importer('null', faux).perime, true);
+});
+t('signature du formulaire : toute suppression, renommage ou changement de type/options doit être actée', () => {
+  const sigPath = require('path').join(__dirname, 'champs.signature.json');
+  const actuelle = { version: C.VERSION_FORMULAIRE, champs: Object.fromEntries(C.CHAMPS.map(c => [c.id, { type: c.type, options: c.options ? c.options.map(o => o[0]) : null }])) };
+  if (process.argv.includes('--maj-signature')) { fs.writeFileSync(sigPath, JSON.stringify(actuelle, null, 1) + '\n'); console.log('signature mise à jour'); return; }
+  const ref = JSON.parse(fs.readFileSync(sigPath, 'utf8'));
+  const aide = ' → si la valeur enregistrée garde le même sens : renommage = ajouter `ancien: [...]` au nouveau champ ; suppression ou changement de liste = acceptable. Si le sens ou l\'unité change : augmenter VERSION_FORMULAIRE. Puis lancer `node js/champs.test.js --maj-signature`.';
+  const anciens = new Set(C.CHAMPS.flatMap(c => c.ancien || []));
+  const pb = [];
+  for (const [id, s] of Object.entries(ref.champs)) {
+    const c = C.CHAMPS.find(x => x.id === id);
+    if (!c) { if (!anciens.has(id) && ref.version === C.VERSION_FORMULAIRE) pb.push('champ « ' + id + ' » disparu sans `ancien`'); continue; }
+    if (c.type !== s.type) pb.push('champ « ' + id + ' » : type changé (' + s.type + ' → ' + c.type + ')');
+    const o = c.options ? c.options.map(x => x[0]) : null;
+    if (JSON.stringify(o) !== JSON.stringify(s.options) && ref.version === C.VERSION_FORMULAIRE) pb.push('champ « ' + id + ' » : options changées');
+  }
+  assert(pb.length === 0, pb.join(' ; ') + aide);
+  const ajoutes = C.CHAMPS.filter(c => !(c.id in ref.champs)).map(c => c.id);
+  assert(ref.version === C.VERSION_FORMULAIRE && ajoutes.length === 0, 'signature obsolète (' + (ajoutes.length ? 'champs ajoutés : ' + ajoutes.join(', ') : 'version changée') + ') : lancer `node js/champs.test.js --maj-signature`');
+});
 console.log(n, 'tests');

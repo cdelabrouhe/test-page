@@ -212,5 +212,51 @@
     return p;
   }
 
-  return { ACTIFS, GROUPES, CHAMPS, CONTROLES, visible, profil };
+  /* ---- Situation enregistrée localement ----
+     VERSION_FORMULAIRE : à augmenter quand le SENS ou l'UNITÉ d'un champ change sans changer son identifiant (ex. montant annuel
+     devenu mensuel) : les situations enregistrées avant sont alors écartées au lieu d'être relues de travers.
+     Champ renommé : garder l'ancien identifiant dans `ancien: ['ancienId']` du nouveau champ, la valeur est reprise.
+     Champ supprimé : rien à faire (valeur ignorée), mais `node js/champs.test.js --maj-signature` doit être lancé pour l'acter. */
+  const VERSION_FORMULAIRE = 1;
+
+  /* Ne garde que des champs connus et des valeurs valides (nombre fini dans les bornes, option existante).
+     brut : { idDuChamp: valeur } (anciens identifiants acceptés) → { idDuChamp: 'texte' }. */
+  function nettoyer(brut, champs) {
+    champs = champs || CHAMPS;
+    const out = {};
+    if (!brut || typeof brut !== 'object' || Array.isArray(brut)) return out;
+    for (const c of champs) {
+      const ids = [c.id].concat(c.ancien || []);
+      const k = ids.find(i => Object.prototype.hasOwnProperty.call(brut, i));
+      if (k === undefined) continue;
+      const v = brut[k];
+      if (typeof v !== 'string' && typeof v !== 'number') continue;
+      const s = String(v).trim();
+      if (c.options) { if (c.options.some(o => o[0] === s)) out[c.id] = s; continue; }
+      if (s === '') { if (c.type === 'nombre_facultatif') out[c.id] = ''; continue; }
+      const x = +s;
+      if (!Number.isFinite(x)) continue;
+      if ((c.min !== undefined && x < c.min) || (c.max !== undefined && x > c.max)) continue;
+      out[c.id] = s;
+    }
+    return out;
+  }
+
+  /* À enregistrer : seulement les champs que la personne a modifiés (les autres suivent les valeurs par défaut du site,
+     qui peuvent évoluer). valeurs : { id: 'texte' } ; touches : ensemble d'identifiants. */
+  function exporter(valeurs, touches, champs) {
+    const sel = {};
+    for (const c of champs || CHAMPS) if (touches.has(c.id) && c.id in valeurs) sel[c.id] = valeurs[c.id];
+    return { version: VERSION_FORMULAIRE, champs: nettoyer(sel, champs) };
+  }
+
+  /* Relecture d'une donnée enregistrée (texte JSON). → { valeurs, perime } ; perime = version différente ou illisible. */
+  function importer(texte, champs) {
+    let o;
+    try { o = JSON.parse(texte); } catch (e) { return { valeurs: {}, perime: true }; }
+    if (!o || typeof o !== 'object' || o.version !== VERSION_FORMULAIRE) return { valeurs: {}, perime: true };
+    return { valeurs: nettoyer(o.champs, champs), perime: false };
+  }
+
+  return { ACTIFS, GROUPES, CHAMPS, CONTROLES, VERSION_FORMULAIRE, visible, profil, nettoyer, exporter, importer };
 });

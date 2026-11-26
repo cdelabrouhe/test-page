@@ -1,0 +1,207 @@
+{
+ "version": 1,
+ "champs": {
+  "statut": {
+   "type": "choix",
+   "options": [
+    "salarie",
+    "fonctionnaire",
+    "enseignant",
+    "recherche",
+    "retraite",
+    "etudiant",
+    "sans_emploi"
+   ]
+  },
+  "naiss": {
+   "type": "nombre",
+   "options": null
+  },
+  "couple": {
+   "type": "oui_non",
+   "options": [
+    "0",
+    "1"
+   ]
+  },
+  "enf": {
+   "type": "nombre",
+   "options": null
+  },
+  "nais": {
+   "type": "nombre",
+   "options": null
+  },
+  "cpar": {
+   "type": "nombre",
+   "options": null
+  },
+  "net": {
+   "type": "nombre",
+   "options": null
+  },
+  "quot": {
+   "type": "nombre",
+   "options": null
+  },
+  "hs": {
+   "type": "nombre",
+   "options": null
+  },
+  "trait": {
+   "type": "nombre",
+   "options": null
+  },
+  "conj": {
+   "type": "nombre",
+   "options": null
+  },
+  "palim": {
+   "type": "nombre",
+   "options": null
+  },
+  "arrets": {
+   "type": "nombre",
+   "options": null
+  },
+  "debut": {
+   "type": "nombre",
+   "options": null
+  },
+  "vide": {
+   "type": "nombre",
+   "options": null
+  },
+  "pension": {
+   "type": "nombre",
+   "options": null
+  },
+  "cumul": {
+   "type": "nombre",
+   "options": null
+  },
+  "aah": {
+   "type": "oui_non",
+   "options": [
+    "0",
+    "1"
+   ]
+  },
+  "inc80": {
+   "type": "oui_non",
+   "options": [
+    "0",
+    "1"
+   ]
+  },
+  "minima": {
+   "type": "nombre",
+   "options": null
+  },
+  "bours": {
+   "type": "oui_non",
+   "options": [
+    "0",
+    "1"
+   ]
+  },
+  "bourse": {
+   "type": "nombre",
+   "options": null
+  },
+  "niv": {
+   "type": "choix",
+   "options": [
+    "L1L2",
+    "L3",
+    "master"
+   ]
+  },
+  "sdne": {
+   "type": "oui_non",
+   "options": [
+    "0",
+    "1"
+   ]
+  },
+  "occ": {
+   "type": "choix",
+   "options": [
+    "locataire",
+    "proprietaire"
+   ]
+  },
+  "loyer": {
+   "type": "nombre",
+   "options": null
+  },
+  "apl": {
+   "type": "nombre",
+   "options": null
+  },
+  "prix": {
+   "type": "nombre",
+   "options": null
+  },
+  "pat": {
+   "type": "nombre",
+   "options": null
+  },
+  "immo": {
+   "type": "nombre",
+   "options": null
+  },
+  "rp": {
+   "type": "nombre",
+   "options": null
+  },
+  "pv": {
+   "type": "nombre",
+   "options": null
+  },
+  "her": {
+   "type": "nombre",
+   "options": null
+  },
+  "don": {
+   "type": "nombre",
+   "options": null
+  },
+  "dep": {
+   "type": "nombre",
+   "options": null
+  },
+  "elec": {
+   "type": "nombre",
+   "options": null
+  },
+  "gaz": {
+   "type": "nombre",
+   "options": null
+  },
+  "carb": {
+   "type": "nombre",
+   "options": null
+  },
+  "prixc": {
+   "type": "nombre",
+   "options": null
+  },
+  "abo": {
+   "type": "nombre",
+   "options": null
+  },
+  "peages": {
+   "type": "nombre",
+   "options": null
+  },
+  "depass": {
+   "type": "nombre",
+   "options": null
+  },
+  "infl": {
+   "type": "nombre_facultatif",
+   "options": null
+  }
+ }
+}

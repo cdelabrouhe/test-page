@@ -55,6 +55,10 @@ h3.sub{margin:0 0 8px;font-size:13px;font-weight:700;color:var(--mute);text-tran
 .tip:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .tipbox{position:absolute;z-index:30;left:0;top:30px;width:min(340px,calc(100vw - 32px));background:var(--bg);color:var(--ink);border:2px solid var(--blue);border-radius:4px;padding:10px 12px;box-shadow:0 6px 18px rgb(0 0 0/.25);font-size:13px;line-height:1.45;font-weight:400}
 .tipbox p{margin:0}.tipbox p+p{margin-top:6px}.tipbox .sert{color:var(--mute)}.tipbox .sert strong{color:var(--ink)}
+.mem{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--soft);padding:10px 14px;margin-bottom:16px;font-size:14px}
+.mem p{margin:0;flex:1 1 280px}.mem small{display:block;color:var(--mute);font-size:12px;margin-top:2px}
+.mem button{font:inherit;font-size:14px;font-weight:600;border-radius:8px;border:1px solid var(--blue);background:#fff;color:var(--blue);padding:6px 12px;cursor:pointer}
+.mem button.main{background:var(--blue);color:#fff}.mem button[hidden]{display:none}
 .warn{margin:12px 0 0;color:var(--red);font-size:13px;font-weight:600}
 .res{border:2px solid var(--ink);padding:14px 16px;margin-bottom:16px}.res h2{margin:0 0 8px;font-size:22px;font-stretch:108%}
 .dom{border-top:1px solid var(--line);padding:8px 0;font-size:14px}.dom h3{margin:0;font-size:14px;color:var(--mute);font-weight:600}
@@ -64,9 +68,12 @@ details{font-size:13px;color:var(--mute)}.tag{font-size:12px;border-radius:999px
 <header class="band"><div class="wrap">
 <nav><a href="index.html">Candidats</a><a href="programmes.html">Programmes</a><a href="simulateur.html" aria-current="page">Simulateur</a><a href="evaluations.html">Évaluations</a><a href="methode.html">Méthode</a></nav>
 <h1>Ce que les programmes changeraient pour toi</h1>
-<p class="lede">Douze domaines pour l'instant : salaire minimum, âge de départ à la retraite, pensions, TVA et énergie, heures supplémentaires, impôt sur le revenu, famille, logement, patrimoine, épargne et successions, minima sociaux et étudiants, enseignants et agents publics, transports et péages. Tout est calculé dans ton navigateur : rien n'est envoyé ni enregistré. Pas de note globale, pas de classement : les candidats sont par ordre alphabétique.</p>
+<p class="lede">Treize domaines pour l'instant : salaire minimum, âge de départ à la retraite, pensions, TVA et énergie, heures supplémentaires, impôt sur le revenu, famille, logement, patrimoine, épargne et successions, minima sociaux et étudiants, enseignants et agents publics, transports et péages, santé. Tout est calculé dans ton navigateur : rien n'est envoyé à un serveur, et tu peux, si tu le veux, enregistrer ta situation sur cet appareil pour ne pas la ressaisir. Pas de note globale, pas de classement : les candidats sont par ordre alphabétique.</p>
 </div></header>
 <main class="band" style="padding-top:0"><div class="wrap">
+<div class="mem" id="mem"><p id="mem-txt" role="status"></p>
+<button type="button" class="main" id="mem-save">Enregistrer ma situation sur cet appareil</button>
+<button type="button" id="mem-clear" hidden>Effacer ma situation enregistrée</button></div>
 <form id="f" autocomplete="off" aria-label="Ta situation"></form>
 <p id="etat" class="note"></p>
 <div id="out"></div>
@@ -131,6 +138,31 @@ function maj(){majVisibilite();draw()}
 document.addEventListener('click',fermer);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ouvert){const b=ouvert.b;fermer();if(document.activeElement!==b){b.dataset.mute='1';b.focus();delete b.dataset.mute}}});
 rendre();majVisibilite();
+/* Situation conservée dans le navigateur de cet appareil (localStorage) : rien n'est envoyé à un serveur.
+   Seules les réponses modifiées par la personne sont enregistrées, avec un numéro de version du formulaire (voir js/champs.js). */
+const CLE='presidentielle2027.situation.v1';
+const mem={
+ brut(){try{return localStorage.getItem(CLE)}catch(e){return null}},
+ ecrire(v){try{localStorage.setItem(CLE,JSON.stringify(v));return true}catch(e){return false}},
+ effacer(){try{localStorage.removeItem(CLE);return true}catch(e){return false}},
+ dispo(){try{localStorage.setItem('_t','1');localStorage.removeItem('_t');return true}catch(e){return false}}
+};
+let actif=false;const touches=new Set();
+function memEtat(msg){
+ const dispo=mem.dispo();
+ $('mem-save').hidden=!dispo||actif;$('mem-clear').hidden=!actif;
+ $('mem-txt').innerHTML=esc(msg||(dispo?(actif?'Ta situation est enregistrée sur cet appareil et mise à jour à chaque modification.':'Tu peux enregistrer ta situation pour ne pas la ressaisir à ta prochaine visite.'):'Ton navigateur n\'autorise pas l\'enregistrement (navigation privée ou stockage bloqué) : la situation ne sera pas conservée.'))
+  +'<small>Elle reste dans ton navigateur, sur cet appareil : rien n\'est envoyé ni stocké sur un serveur. Seules les réponses que tu as modifiées sont conservées. Sur un ordinateur partagé, efface-la en partant.</small>';
+}
+function ecrire(){return mem.ecrire(Champs.exporter(lire(),touches))}
+function sauver(e){if(e&&e.target&&Champs.CHAMPS.some(c=>c.id===e.target.id))touches.add(e.target.id);if(actif&&!ecrire()){actif=false;memEtat('L\'enregistrement a échoué : la situation n\'est pas conservée.')}}
+{const brut=mem.brut();
+ if(brut!==null){const r=Champs.importer(brut);
+  if(r.perime){mem.effacer();memEtat('Le formulaire a changé depuis ton dernier passage : ta situation enregistrée n\'a pas pu être reprise et a été effacée. Tu peux la ressaisir puis l\'enregistrer à nouveau.')}
+  else{for(const id in r.valeurs){$(id).value=r.valeurs[id];touches.add(id)}actif=true;majVisibilite();memEtat(Object.keys(r.valeurs).length?'Ta situation enregistrée a été retrouvée et remplie. Elle est mise à jour à chaque modification.':'Ta situation enregistrée est vide : tu es sur les valeurs par défaut.')}}
+ else memEtat();}
+$('mem-save').addEventListener('click',()=>{const v=lire();for(const c of Champs.CHAMPS)if(String(v[c.id])!==String(c.val))touches.add(c.id);if(ecrire()){actif=true;memEtat('Situation enregistrée sur cet appareil. Elle sera remplie à ta prochaine visite et mise à jour à chaque modification.')}else memEtat('L\'enregistrement a échoué : la situation n\'est pas conservée.')});
+$('mem-clear').addEventListener('click',()=>{mem.effacer();actif=false;touches.clear();memEtat('Situation effacée de cet appareil. Le formulaire garde les valeurs affichées.')});
 function eff(d,e){
  let h='<div class="dom"><h3>'+esc(d.titre)+'</h3>';
  if(e.statut==='calcule'){
@@ -158,7 +190,7 @@ Promise.all([fetch('data/candidats.json').then(r=>r.json())]).then(([c])=>{
   ids.forEach((id,i)=>{if(ds[i])MS[id]=ds[i]});
   C=c.candidats.filter(x=>MS[x.id]);
   $('etat').textContent=C.length+' candidats dont le programme a été relevé.';
-  $('f').addEventListener('input',maj);$('f').addEventListener('change',maj);
+  $('f').addEventListener('input',e=>{maj();sauver(e)});$('f').addEventListener('change',e=>{maj();sauver(e)});
   $('f').addEventListener('submit',e=>e.preventDefault());draw();
  });
 }).catch(()=>{$('out').innerHTML='<p class="empty">Données indisponibles.</p>'});
