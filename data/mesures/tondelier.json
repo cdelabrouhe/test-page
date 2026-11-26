@@ -195,7 +195,10 @@
     "v27-ton-eco"
    ],
    "fiabilite": "recensement_tiers",
-   "simulable": false
+   "simulable": false,
+   "parametres": {
+    "des_enfant": 1
+   }
   },
   {
    "id": "ton-cot",

@@ -217,7 +217,10 @@
     "jda-retailleau"
    ],
    "fiabilite": "presse",
-   "simulable": false
+   "simulable": false,
+   "parametres": {
+    "fin_encadrement_loyers": true
+   }
   },
   {
    "id": "ret-ener",

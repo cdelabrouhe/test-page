@@ -71,7 +71,7 @@ fetch('data/evaluations.json').then(r=>r.json()).then(async E=>{
  await Promise.all(C.map(c=>fetch('data/mesures/'+c.id+'.json').then(r=>r.ok?r.json():null).then(d=>{if(d)MS[c.id]=d}).catch(()=>{})));
  $('fiches').innerHTML=E.fiches.map(f=>{
   const li=[];Object.keys(MS).sort().forEach(id=>MS[id].mesures.forEach(m=>{if(m.parametres&&f.cles.some(k=>k in m.parametres))li.push([C.find(c=>c.id===id).nom,m])}));
-  return '<section><h2 class="f">'+esc(f.titre)+'</h2>'+
+  return '<section><h2 class="f">'+esc(f.titre)+'</h2>'+(f.verifie_le?'<p class="note" style="margin-top:0">Vérifié le '+esc(new Date(f.verifie_le+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}))+'</p>':'')+
   '<h3>Candidats concernés</h3><p class="cand">'+(li.map(([n,m])=>'<span title="'+esc(m.intitule)+'">'+esc(n)+'</span>').join(', ')||'Aucun')+'</p>'+
   '<h3>Précédents</h3>'+items(f.precedents,p=>'<span class="k">'+esc(p.lieu)+(p.annee?', '+esc(p.annee):'')+'</span> — '+esc(p.resume)+' <span class="src">'+src(p.sources)+'</span>')+
   '<h3>Effets étudiés</h3>'+items(f.effets,p=>'<span class="k">'+esc(p.theme)+'</span> — '+esc(p.resume)+' <span class="src">'+src(p.sources)+'</span>')+

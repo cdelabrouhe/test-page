@@ -1,6 +1,6 @@
 {
- "verifie_le": "2026-11-25",
- "avertissement": "Chaque fiche rassemble des faits et des avis sourcés, sans note globale ni verdict. Les avis sont présentés avec le type de leur auteur. Quand une information n'a pas été trouvée dans les sources consultées, la fiche le dit. Cette première version couvre trois sujets et s'appuie sur une recherche limitée : elle n'est pas exhaustive.",
+ "verifie_le": "2026-11-26",
+ "avertissement": "Chaque fiche rassemble des faits et des avis sourcés, sans note globale ni verdict. Les avis sont présentés avec le type de leur auteur. Quand une information n'a pas été trouvée dans les sources consultées, la fiche le dit. Cette version couvre sept sujets et s'appuie sur une recherche limitée : elle n'est pas exhaustive. Chaque fiche porte sa propre date de vérification.",
  "grille": [
   {
    "id": "precedents",
@@ -55,7 +55,7 @@
     {
      "lieu": "France",
      "annee": "2010 à 2023",
-     "resume": "Les réformes successives ont relevé l'âge légal de 60 à 62 ans, puis à 64 ans ; la loi de financement de la Sécurité sociale pour 2026 en suspend la montée en charge.",
+     "resume": "Les réformes successives ont relevé l'âge légal de 60 à 62 ans (2010), puis à 64 ans (2023). La loi de financement de la Sécurité sociale pour 2026 suspend la montée en charge pour la génération 1964 et pour les personnes nées du 1er janvier au 31 mars 1965, avant sa reprise pour les générations suivantes ; l'âge d'ouverture des droits atteindrait 64 ans pour la génération 1969.",
      "sources": [
       "ev-meilleurtaux",
       "ev-cor-ra"
@@ -89,18 +89,24 @@
    "effets": [
     {
      "theme": "Emploi des seniors",
-     "resume": "Le taux d'emploi des plus de 60 ans a augmenté à la suite des réformes ; entre 2010 et 2020, les Français ont travaillé en moyenne 1,7 année de plus.",
+     "resume": "Après la réforme de 2010, la probabilité d'être en emploi à 60 ans est passée de 39 % à 55 % pour les femmes et de 28 % à 45 % pour les hommes. Pendant les années 2010, l'âge effectif de départ a augmenté de 2,1 ans et la durée passée en emploi de 1 an et 7 mois. La Cour des comptes conclut qu'un report de l'âge aurait un effet positif sur le taux moyen d'emploi, sans effet négatif sur la productivité.",
      "sources": [
-      "ev-vp-retraites",
-      "ev-meilleurtaux"
+      "ev-cdc-2025",
+      "ev-vp-retraites"
      ]
     },
     {
      "theme": "Situations de fragilité",
-     "resume": "Les ouvriers qualifiés ont passé en moyenne 0,8 année de plus « ni en emploi, ni en retraite » entre 60 et 62 ans (d'après un compte rendu du rapport de la Cour des comptes). L'Unédic notait aussi une hausse des allocataires indemnisés après 60 ans depuis la réforme de 2010.",
+     "resume": "En 2023, 1,6 million de personnes de 55 à 64 ans, sur 8,5 millions, n'étaient ni en emploi ni à la retraite, soit une sur cinq. Le recul de l'âge n'a allongé la durée en emploi que pour 66 % des ouvriers, contre plus de 85 % des professions intermédiaires et des cadres. Pour les ouvriers qualifiés, le temps « ni en emploi ni en retraite » a augmenté de 0,5 année sur la décennie et le temps en invalidité de 0,3 année. L'Unédic observait une petite hausse des entrées au chômage environ trois ans avant l'âge légal (6 000 à 10 000 personnes).",
      "sources": [
-      "ev-meilleurtaux",
-      "ev-cor-unedic"
+      "ev-cdc-2025"
+     ]
+    },
+    {
+     "theme": "Effets macroéconomiques simulés",
+     "resume": "Selon le COR (juin 2026), un an de plus sur l'âge d'ouverture des droits générerait entre 210 000 et 240 000 emplois supplémentaires, accroîtrait le PIB de 0,7 à 0,9 point et améliorerait durablement le solde public de 0,3 à 0,7 point de PIB. À court terme, le chômage augmenterait temporairement et environ un tiers des économies serait compensé par des dépenses sociales hors retraite.",
+     "sources": [
+      "ev-cor-ch6"
      ]
     },
     {
@@ -113,10 +119,25 @@
    ],
    "couts": [
     {
-     "auteur": "COR (projet de rapport 2026, d'après Groupama)",
-     "resume": "Scénario illustratif d'un report progressif de l'âge de départ : 64,4 ans en 2030, 65,8 ans en 2045 et 67,6 ans en 2070.",
+     "auteur": "COR (rapport annuel de juin 2026)",
+     "resume": "Scénario illustratif où l'ajustement reposerait uniquement sur l'âge : l'équilibre chaque année jusqu'en 2070 exigerait un âge moyen de départ de 64,2 ans en 2030, 65,6 ans en 2045 et 67,6 ans en 2070, soit 0,3, 1,2 et 3,0 ans de plus que la trajectoire à législation inchangée.",
      "sources": [
-      "ev-groupama-cor"
+      "ev-cor-ch6"
+     ]
+    },
+    {
+     "auteur": "Cour des comptes (février et mars 2025)",
+     "resume": "Un retour de l'âge d'ouverture des droits à 62 ans accroîtrait le déficit du système de retraites de 10,4 Md€ en 2035 (estimation demandée par les syndicats). La Cour évalue l'effet de la réforme de 2023 à environ 10 Md€ à l'horizon 2030, avec un effet ensuite plus limité.",
+     "sources": [
+      "ev-ps-moscovici",
+      "ev-bdt-cdc-fev25"
+     ]
+    },
+    {
+     "auteur": "COR (rapport annuel de juin 2026)",
+     "resume": "Pour comparaison, une hausse de cotisations d'environ 6 Md€ (0,2 point de PIB) réduirait l'emploi de 25 000 à 50 000 postes à court terme s'il s'agit de cotisations employeurs, et de 15 000 à 30 000 s'il s'agit de cotisations salariales.",
+     "sources": [
+      "ev-cor-ch6"
      ]
     },
     {
@@ -127,7 +148,7 @@
      ]
     },
     {
-     "auteur": "Aucun chiffrage indépendant du coût d'un retour à 60 ans n'a été trouvé dans les sources consultées.",
+     "auteur": "Aucun chiffrage indépendant du coût d'un retour à 60 ans n'a été trouvé dans les sources consultées (celui de la Cour des comptes porte sur 62 ans).",
      "resume": "",
      "sources": []
     }
@@ -136,9 +157,18 @@
     {
      "organisation": "Cour des comptes",
      "type": "institution publique",
-     "position": "Constate la hausse du taux d'emploi des seniors après les réformes et analyse les effets des paramètres du système sur l'emploi et la compétitivité.",
+     "position": "Constate la hausse du taux d'emploi des seniors après les réformes, juge qu'un report de l'âge aurait un effet positif sur l'emploi sans nuire à la productivité, relève que la part des seniors ni en emploi ni en retraite reste importante, et chiffre à 10,4 Md€ en 2035 le coût d'un retour à 62 ans.",
      "sources": [
-      "ev-vp-retraites"
+      "ev-cdc-2025",
+      "ev-ps-moscovici"
+     ]
+    },
+    {
+     "organisation": "Conseil d'orientation des retraites",
+     "type": "institution publique",
+     "position": "Parmi les leviers d'équilibre, indique qu'il peut être envisagé de relever l'âge effectif de départ, l'allongement de la durée d'activité ayant un double effet favorable sur l'équilibre financier ; chiffre aussi les effets d'une hausse de cotisations ou d'une modération de l'indexation.",
+     "sources": [
+      "ev-cor-ch6"
      ]
     },
     {
@@ -164,21 +194,30 @@
      "sources": [
       "ev-atterres"
      ]
+    },
+    {
+     "organisation": "Force ouvrière",
+     "type": "syndicat",
+     "position": "Estime que le rapport de la Cour des comptes confirme ce que le syndicat répète sur le creusement des inégalités avec le recul de l'âge légal ; relève que la Cour appelle à des mesures pour les seniors les plus fragiles.",
+     "sources": [
+      "ev-fo-cdc"
+     ]
     }
    ],
    "contraintes": [
     {
-     "resume": "Le calendrier légal actuel est gelé à 62 ans et 9 mois jusqu'en janvier 2028 par la loi de financement de la Sécurité sociale pour 2026 ; toute autre trajectoire exige une loi.",
+     "resume": "La loi de financement de la Sécurité sociale pour 2026 suspend la montée en charge de l'âge légal pour la génération 1964 et les personnes nées du 1er janvier au 31 mars 1965 (62 ans et 9 mois), puis le calendrier reprend ; toute autre trajectoire exige une loi.",
      "sources": [
       "ev-cor-ra"
      ]
     }
    ],
    "connaissance": {
-    "etabli": "Les reports d'âge ont accru l'emploi des seniors en France et dans la plupart des pays de l'OCDE.",
-    "debattu": "Le poids des effets négatifs pour certaines catégories (carrières longues, métiers pénibles), et l'efficacité du seul levier de l'âge.",
-    "inconnu": "Le coût net d'un retour à 60 ans n'est pas chiffré dans les sources consultées."
-   }
+    "etabli": "Les reports d'âge ont accru l'emploi des seniors en France (Cour des comptes) et dans la plupart des pays de l'OCDE.",
+    "debattu": "Le poids des effets négatifs pour certaines catégories (carrières longues, métiers pénibles, invalidité), la part des économies compensée par d'autres dépenses sociales (environ un tiers à court terme selon le COR) et l'efficacité du seul levier de l'âge.",
+    "inconnu": "Le coût net d'un retour à 60 ans n'est pas chiffré dans les sources consultées ; seul un retour à 62 ans l'est (Cour des comptes)."
+   },
+   "verifie_le": "2026-11-26"
   },
   {
    "id": "smic",
@@ -206,6 +245,14 @@
      "resume": "Introduction d'un salaire minimum national. Les premières évaluations citées par le groupe d'experts français relèvent un effet sur les salaires limité par une application différée et des ajustements de durée du travail, et des effets à court terme limités sur l'emploi et les prix.",
      "sources": [
       "ev-smic-2016"
+     ]
+    },
+    {
+     "lieu": "France",
+     "annee": "2026",
+     "resume": "Le ministre du Travail a annoncé le 9 novembre 2026 une hausse de 1,6 % du SMIC au 1er décembre, présentée comme l'anticipation de la revalorisation de janvier : environ 12,51 € brut de l'heure, soit environ 1 897 € brut et 1 502 € net par mois. D'après la presse, le décret n'était pas publié : ces montants sont des calculs.",
+     "sources": [
+      "ev-selectra-smic-dec26"
      ]
     }
    ],
@@ -239,12 +286,19 @@
      "sources": [
       "ev-smic-2019"
      ]
+    },
+    {
+     "theme": "Méta-analyses récentes",
+     "resume": "Le CAE (juin 2026) cite des méta-analyses où l'élasticité médiane de l'emploi au salaire minimum est d'environ −0,13 à −0,15 selon les passages de la note, avec 40 % d'études trouvant des effets positifs ; les effets sont plus forts pour les bas salaires, quand le chômage est élevé et quand le salaire minimum est élevé par rapport au salaire médian.",
+     "sources": [
+      "ev-cae-91"
+     ]
     }
    ],
    "couts": [
     {
      "auteur": "Institut Montaigne (2024)",
-     "resume": "Un SMIC à 1 600 € net (+14 %) coûterait 19 Md€ par an (17 Md€ en estimation basse), avec 10,5 Md€ de charge additionnelle d'ici 2027 en cas d'indexation sur l'inflation. Le chiffrage initial du Nouveau Front populaire (3,5 Md€) ne portait que sur l'effet prix immédiat.",
+     "resume": "Un SMIC à 1 600 € net (+14 % par rapport au SMIC de 2024) coûterait 19 Md€ par an (17 Md€ en estimation basse), avec 10,5 Md€ de charge additionnelle d'ici 2027 en cas d'indexation sur l'inflation. Le chiffrage initial du Nouveau Front populaire (3,5 Md€) ne portait que sur l'effet prix immédiat.",
      "sources": [
       "ev-mont-nfp",
       "ev-mont-budget"
@@ -258,10 +312,17 @@
      ]
     },
     {
-     "auteur": "France Stratégie",
+     "auteur": "France Stratégie (étude plus ancienne)",
      "resume": "Environ 50 Md€ par an sont consacrés aux allègements du coût du travail, en lien avec le niveau du SMIC.",
      "sources": [
       "ev-strat-smic"
+     ]
+    },
+    {
+     "auteur": "Conseil d'analyse économique (juin 2026)",
+     "resume": "Les allègements généraux de cotisations représentent 74 Md€ en 2026 ; le coût employeur au SMIC est tombé à 44 % du coût du travail du salaire médian. Le CAE propose de désindexer progressivement ces allègements du SMIC, en avertissant qu'une désindexation durable pourrait augmenter les coûts du travail.",
+     "sources": [
+      "ev-cae-91"
      ]
     }
    ],
@@ -305,21 +366,31 @@
      "sources": [
       "ev-idep"
      ]
+    },
+    {
+     "organisation": "Conseil d'analyse économique",
+     "type": "institution publique",
+     "position": "Estime que les effets sur l'emploi des allègements sont aujourd'hui probablement plus faibles qu'à leur création et que, pour les salaires de 1 à 1,4 SMIC, 100 € de revenu net supplémentaire peuvent coûter 300 à 400 € à l'employeur.",
+     "sources": [
+      "ev-cae-91"
+     ]
     }
    ],
    "contraintes": [
     {
-     "resume": "Le coût pour les finances publiques passe en grande partie par les allègements de cotisations employeurs, qui représentent environ 50 Md€ par an et évoluent avec le SMIC.",
+     "resume": "Le coût pour les finances publiques passe en grande partie par les allègements de cotisations employeurs, qui évoluent avec le SMIC : 74 Md€ en 2026 selon le CAE (77,3 Md€ dans le rapport 2025 de la Cour des comptes).",
      "sources": [
-      "ev-strat-smic"
+      "ev-cae-91",
+      "ev-cdc-lfss-2025"
      ]
     }
    ],
    "connaissance": {
     "etabli": "Une hausse du SMIC augmente les salaires les plus bas ; son coût pour les finances publiques passe en grande partie par les allègements de cotisations.",
     "debattu": "L'ampleur des effets sur l'emploi : les estimations vont de milliers de créations à des centaines de milliers de destructions selon les hypothèses et les auteurs.",
-    "inconnu": "Pas d'étude identifiée sur une hausse aussi forte que +14 % à +35 % en France dans les sources consultées."
-   }
+    "inconnu": "Par rapport au niveau annoncé pour décembre 2026 (environ 1 502 € net), les propositions des candidats vont d'environ +13 % (1 700 € net) à plus de +30 % (2 000 € net). Aucune étude sur des hausses de cette ampleur en France n'a été trouvée dans les sources consultées."
+   },
+   "verifie_le": "2026-11-26"
   },
   {
    "id": "tva",
@@ -444,6 +515,679 @@
     "etabli": "La TVA est payée par tous les ménages ; une hausse est répercutée en grande partie sur les prix.",
     "debattu": "La répercussion des baisses de TVA sur les prix, l'effet net d'un transfert vers la TVA sur l'emploi et la compétitivité.",
     "inconnu": "Le chiffrage de la baisse de TVA sur l'énergie (taux de répercussion et consommation) n'est pas disponible dans les sources consultées."
+   },
+   "verifie_le": "2026-11-25"
+  },
+  {
+   "id": "patrimoine",
+   "verifie_le": "2026-11-26",
+   "titre": "Imposition du patrimoine : rétablir l'ISF, taxer les très hauts patrimoines",
+   "cles": [
+    "isf_retabli",
+    "seuil_patrimoine_meur",
+    "seuil_patrimoine_immo_meur"
+   ],
+   "precedents": [
+    {
+     "lieu": "France",
+     "annee": "2018",
+     "resume": "L'impôt de solidarité sur la fortune a été remplacé par l'impôt sur la fortune immobilière (IFI). Le comité d'évaluation de France Stratégie estime la perte de recettes à 3,1 Md€ en 2018 et à plus de 4 Md€ en 2022 (6,3 Md€ de recettes d'ISF supposées contre 1,83 Md€ d'IFI).",
+     "sources": [
+      "ev-fs-cerfc-2023"
+     ]
+    },
+    {
+     "lieu": "France",
+     "annee": "2012-2013",
+     "resume": "Une nouvelle tranche à 45 % et la hausse des prélèvements sociaux ont accru de 0,6 point les départs parmi les contribuables les plus touchés, soit 150 à 350 foyers du 1 % le plus aisé selon le CAE.",
+     "sources": [
+      "ev-ps-cae-exil"
+     ]
+    },
+    {
+     "lieu": "Norvège",
+     "annee": "2022",
+     "resume": "Selon l'étude de l'Institut de l'entreprise, les départs de résidents très fortunés auraient plus que doublé, d'environ 130 par an à 261 en 2022. Gabriel Zucman répond que les impôts sur la fortune norvégien, suédois et allemand exonéraient largement les biens professionnels, ce qui rendait leurs taux effectifs faibles.",
+     "sources": [
+      "ev-idep-zucman",
+      "ev-an-zucman-2026"
+     ]
+    }
+   ],
+   "effets": [
+    {
+     "theme": "Investissement et activité",
+     "resume": "Le comité de France Stratégie n'a identifié aucun effet de l'ISF sur l'activité des entreprises de taille intermédiaire, et n'a pas observé de déplacement d'actifs hors de l'immobilier après le passage à l'IFI. Il conclut que beaucoup de questions restent ouvertes.",
+     "sources": [
+      "ev-fs-cerfc-2023"
+     ]
+    },
+    {
+     "theme": "Départs à l'étranger",
+     "resume": "Selon le CAE, le taux moyen de départ fiscal est de 0,38 % ; 0,28 % des 0,1 % de plus hauts revenus du capital sont partis en 2017, et la transformation de l'ISF en IFI n'a réduit les départs que de 0,2 point. Le CAE note aussi que, si un actionnaire détenant plus de 10 % d'une entreprise part, son chiffre d'affaires baisse en moyenne de 15 % après cinq ans. Le comité de France Stratégie observe, depuis 2018, plus de retours que de départs (environ 380 contre 260 par an) sans pouvoir établir un lien de causalité.",
+     "sources": [
+      "ev-ps-cae-exil",
+      "ev-fs-cerfc-2023"
+     ]
+    },
+    {
+     "theme": "Optimisation fiscale",
+     "resume": "Le CAE estime que, pour chaque euro de recettes attendu d'une hausse d'impôt sur les grandes fortunes, 54 centimes sont perdus par des réponses comportementales comme l'optimisation, et juge que le débat se concentre trop sur l'exil. L'Institut de l'entreprise retient une érosion de l'assiette de 14 % à 34 % à moyen terme. Gabriel Zucman estime que l'évasion peut atteindre 40 à 50 % en l'absence d'échange d'informations et que l'exil est un choix de politique publique, que sa proposition combat en maintenant l'impôt plusieurs années après le départ.",
+     "sources": [
+      "ev-ps-cae-exil",
+      "ev-idep-zucman",
+      "ev-an-zucman-2026"
+     ]
+    },
+    {
+     "theme": "Imposition effective au sommet",
+     "resume": "Le diagnostic est contesté. Gabriel Zucman s'appuie sur une étude de l'Institut des politiques publiques de 2023 pour dire que les plus grandes fortunes paient un taux effectif faible. François Geerolf (OFCE) estime que, sur une base homogène, les 75 foyers du sommet paient à peu près le taux du 9e décile, et l'Institut de l'entreprise juge que l'écart disparaît quand le calcul est rendu cohérent, tout en reconnaissant une dégressivité résiduelle dans le 1 % le plus aisé.",
+     "sources": [
+      "ev-an-zucman-2026",
+      "ev-geerolf-zucman",
+      "ev-idep-zucman"
+     ]
+    }
+   ],
+   "couts": [
+    {
+     "auteur": "Gabriel Zucman (audition à l'Assemblée, 6 mai 2026)",
+     "resume": "Pour un impôt plancher de 2 % sur les patrimoines de plus de 100 M€, environ 20 Md€ par an, dans une fourchette de 15 à 25 Md€, en soulignant l'incertitude liée à l'absence de statistiques officielles sur les patrimoines.",
+     "sources": [
+      "ev-an-zucman-2026"
+     ]
+    },
+    {
+     "auteur": "Conseil d'analyse économique",
+     "resume": "Appliqué à la taxe Zucman, le taux de perte comportementale réduirait le rendement estimé de 15 Md€ à moins de 7,5 Md€.",
+     "sources": [
+      "ev-ps-cae-exil"
+     ]
+    },
+    {
+     "auteur": "Institut de l'entreprise (étude pour le groupe « Trop, c'est trop ! »)",
+     "resume": "Rendement statique ramené d'environ 24 Md€ à environ 5,5 Md€ une fois l'impôt sur les sociétés déjà payé déduit ; perte de production de 1,3 % à 1,8 % du PIB à long terme et solde budgétaire net central d'environ −11,5 Md€ par an. Étude réalisée pour un groupe de plaidoyer.",
+     "sources": [
+      "ev-idep-zucman"
+     ]
+    },
+    {
+     "auteur": "Sénat, commission des finances (juin 2025)",
+     "resume": "Reprend l'estimation de 20 Md€ de Gabriel Zucman (à 5 Md€ près) et cite une évaluation de 2 à 3 Md€ liée au traitement de l'impôt sur les sociétés dans le calcul.",
+     "sources": [
+      "ev-senat-ipf-2025"
+     ]
+    }
+   ],
+   "avis": [
+    {
+     "organisation": "Comité d'évaluation des réformes de la fiscalité du capital",
+     "type": "institution publique (France Stratégie)",
+     "position": "N'identifie pas d'effet de l'ISF sur l'activité des entreprises de taille intermédiaire et juge que les liens entre réformes, départs et retours ne sont pas établis.",
+     "sources": [
+      "ev-fs-cerfc-2023"
+     ]
+    },
+    {
+     "organisation": "Conseil d'analyse économique",
+     "type": "institution publique",
+     "position": "Juge l'exil fiscal limité et l'optimisation plus importante ; estime que les effets d'un nouvel impôt sur la fortune sur l'activité seraient très faibles.",
+     "sources": [
+      "ev-ps-cae-exil"
+     ]
+    },
+    {
+     "organisation": "Gabriel Zucman",
+     "type": "économiste, auteur de la proposition",
+     "position": "Défend un impôt plancher de 2 % pour les patrimoines de plus de 100 M€, avec maintien de l'impôt après un départ et paiement possible en titres pour les entreprises en croissance.",
+     "sources": [
+      "ev-an-zucman-2026"
+     ]
+    },
+    {
+     "organisation": "Sénat, commission des finances",
+     "type": "commission parlementaire",
+     "position": "N'a pas adopté la proposition de loi ; invoque le risque de censure constitutionnelle d'un taux de 2 % sans plafonnement, l'impossibilité d'anticiper l'exil et les effets sur le capital-risque et les start-ups.",
+     "sources": [
+      "ev-senat-ipf-2025"
+     ]
+    },
+    {
+     "organisation": "Institut de l'entreprise",
+     "type": "think tank (étude pour un groupe de plaidoyer)",
+     "position": "Conclut que ni l'« anomalie » fiscale ni le rendement annoncé ne résistent à un calcul cohérent.",
+     "sources": [
+      "ev-idep-zucman"
+     ]
+    },
+    {
+     "organisation": "François Geerolf (OFCE)",
+     "type": "économiste (publication personnelle)",
+     "position": "Juge le diagnostic chiffré de la taxe Zucman non fondé et le remède inadapté, tout en reconnaissant un vrai sujet de fond.",
+     "sources": [
+      "ev-geerolf-zucman"
+     ]
+    }
+   ],
+   "contraintes": [
+    {
+     "resume": "Selon le rapport du Sénat, le Conseil constitutionnel a admis un taux de 0,5 % sans plafonnement et n'a validé 1,8 % qu'avec un plafonnement ; un taux de 2 % sans plafonnement s'exposerait à la censure. Gabriel Zucman soutient qu'un plancher de 2 % porterait le taux global de prélèvement des plus grandes fortunes à environ 50 % de leur revenu, comme pour un ménage moyen.",
+     "sources": [
+      "ev-senat-ipf-2025",
+      "ev-an-zucman-2026"
+     ]
+    },
+    {
+     "resume": "Aucune analyse du droit européen ni de la faisabilité juridique d'un maintien de l'impôt après un départ à l'étranger n'a été trouvée dans les sources consultées.",
+     "sources": []
+    },
+    {
+     "resume": "Gabriel Zucman indique que l'absence de statistiques officielles sur les patrimoines au sommet rend l'estimation incertaine.",
+     "sources": [
+      "ev-an-zucman-2026"
+     ]
+    }
+   ],
+   "connaissance": {
+    "etabli": "Les départs fiscaux observés sont rares à l'échelle de l'ensemble des plus aisés, et la réponse par l'optimisation réduit le rendement attendu d'un impôt sur les grandes fortunes.",
+    "debattu": "Le rendement (de 2 à 3 Md€ jusqu'à 20 Md€ selon les auteurs), l'existence et l'ampleur de la sous-imposition au sommet, les effets sur l'investissement et les entreprises à fort poids économique, la conformité à la Constitution d'un taux de 2 %.",
+    "inconnu": "Les positions des syndicats et des organisations non gouvernementales n'ont pas été collectées, donc l'équilibre des avis reste à compléter. Aucune évaluation propre n'a été trouvée pour la contribution unique de 5 % au-delà de 100 M€ (Glucksmann) ni pour la taxation du patrimoine immobilier de plus de 10 M€ (Le Maire)."
+   }
+  },
+  {
+   "id": "cotisations-csg",
+   "verifie_le": "2026-11-26",
+   "titre": "Baisse des cotisations sociales, CSG et TVA sociale",
+   "cles": [
+    "baisse_cotisations_salariales",
+    "baisse_cotisations_salariales_md",
+    "cotisations_transferees_md",
+    "csg_salaires_progressive",
+    "tva_sociale",
+    "exoneration_cotisations",
+    "hausse_salaire_exoneree_pct",
+    "gain_smic_mensuel"
+   ],
+   "precedents": [
+    {
+     "lieu": "France",
+     "annee": "depuis 1993",
+     "resume": "Des allègements généraux de cotisations patronales sur les bas salaires existent depuis 1993 ; ils représentent 74 Md€ en 2026 selon le CAE, et la Cour des comptes en relevait 77,3 Md€ dans son rapport 2025.",
+     "sources": [
+      "ev-cae-91",
+      "ev-cdc-lfss-2025"
+     ]
+    },
+    {
+     "lieu": "France",
+     "annee": "2013-2018",
+     "resume": "Le crédit d'impôt pour la compétitivité et l'emploi (CICE) : France Stratégie estime son effet à 100 000 emplois pour un coût de 18 Md€ en 2016 par une approche microéconomique, 160 000 par une approche macroéconomique, et ne relève pas de résultats probants sur l'investissement.",
+     "sources": [
+      "ev-fs-cice-2020"
+     ]
+    },
+    {
+     "lieu": "France et Allemagne",
+     "annee": "1995 et 2007",
+     "resume": "Des transferts de charges sociales vers la TVA ont précédé une amélioration de la compétitivité selon COE-Rexecode ; ces épisodes combinaient plusieurs mesures. En Allemagne, le taux normal de TVA est passé de 16 % à 19 % en 2007.",
+     "sources": [
+      "ev-rexecode",
+      "ev-ofce-tva"
+     ]
+    }
+   ],
+   "effets": [
+    {
+     "theme": "Emploi à bas salaire",
+     "resume": "Selon le CAE, les effets sur l'emploi des allègements sont avérés mais probablement nettement plus faibles aujourd'hui qu'à leur création dans les années 1990, quand le chômage et le coût du SMIC étaient élevés.",
+     "sources": [
+      "ev-cae-91"
+     ]
+    },
+    {
+     "theme": "Taux marginaux implicites",
+     "resume": "Le CAE relève que, pour un salaire de 1 à 1,6 SMIC, le taux marginal implicite atteint environ 60 à 65 % : 100 € de revenu net supplémentaire peuvent coûter 300 à 400 € à l'employeur.",
+     "sources": [
+      "ev-cae-91"
+     ]
+    },
+    {
+     "theme": "Financement par la TVA",
+     "resume": "Selon l'Insee, une hausse de 3 points du taux normal laisserait, après trois ans, le niveau de vie des ménages inférieur de 5,0 Md€ en termes réels, et augmenterait légèrement les inégalités et la pauvreté (microsimulation, sous hypothèses de diffusion aux prix).",
+     "sources": [
+      "ev-insee-tva"
+     ]
+    },
+    {
+     "theme": "Effets du lien entre SMIC et allègements",
+     "resume": "Selon la Fondation IFRAP, pour la hausse du SMIC de 1,6 %, le coût annuel d'un salarié au SMIC augmenterait de près de 1 000 € pour moins de 9 € nets de plus par mois, du fait de la baisse des allègements de charges.",
+     "sources": [
+      "ev-ifrap-smic"
+     ]
+    }
+   ],
+   "couts": [
+    {
+     "auteur": "Conseil d'analyse économique (juin 2026)",
+     "resume": "Le chiffre de 74 Md€ pour les allègements généraux surestime le coût net, car il ignore les emplois créés et les recettes et économies qu'ils entraînent.",
+     "sources": [
+      "ev-cae-91"
+     ]
+    },
+    {
+     "auteur": "Cour des comptes (rapport 2025 sur la Sécurité sociale)",
+     "resume": "Relève 77,3 Md€ d'allègements de cotisations patronales qui pèsent sur les comptes de la Sécurité sociale et sur le maintien des salariés au SMIC, et appelle à mieux maîtriser leur dynamique.",
+     "sources": [
+      "ev-cdc-lfss-2025"
+     ]
+    },
+    {
+     "auteur": "France Stratégie (CICE)",
+     "resume": "Environ 18 Md€ de coût en 2016 pour environ 100 000 emplois selon l'approche microéconomique.",
+     "sources": [
+      "ev-fs-cice-2020"
+     ]
+    },
+    {
+     "auteur": "Candidats (chiffres annoncés, sans chiffrage indépendant trouvé)",
+     "resume": "Baisse de 50 Md€ de cotisations salariales compensée surtout par 3 points de TVA (Le Maire) ; bascule de plus de 200 Md€ de cotisations vers une CSG universelle pour un gain d'environ 100 € par mois au SMIC (Villepin) ; baisse de la CSG sur les salaires, rendue progressive (Glucksmann).",
+     "sources": []
+    }
+   ],
+   "avis": [
+    {
+     "organisation": "Conseil d'analyse économique",
+     "type": "institution publique",
+     "position": "Recommande de désindexer progressivement les allègements généraux du SMIC et de maintenir de forts allègements ciblés sur les moins de 25 ans et les personnes les plus éloignées de l'emploi.",
+     "sources": [
+      "ev-cae-91"
+     ]
+    },
+    {
+     "organisation": "Cour des comptes",
+     "type": "institution publique",
+     "position": "Appelle à mieux maîtriser la dynamique des allègements généraux de cotisations patronales.",
+     "sources": [
+      "ev-cdc-lfss-2025"
+     ]
+    },
+    {
+     "organisation": "France Stratégie",
+     "type": "institution publique",
+     "position": "Conclut que le CICE a eu des effets positifs mais limités sur l'emploi et sans résultats probants sur l'investissement.",
+     "sources": [
+      "ev-fs-cice-2020"
+     ]
+    },
+    {
+     "organisation": "COE-Rexecode",
+     "type": "institut d'études économiques",
+     "position": "Relève une amélioration de la compétitivité après les transferts de charges vers la TVA en France et en Allemagne.",
+     "sources": [
+      "ev-rexecode"
+     ]
+    },
+    {
+     "organisation": "Fondation Jean-Jaurès",
+     "type": "think tank",
+     "position": "Propose, avec une hausse progressive du SMIC, un recentrage des exonérations de charges.",
+     "sources": [
+      "ev-jj-smic"
+     ]
+    },
+    {
+     "organisation": "Gouvernement (réponse à une question écrite, 2018)",
+     "type": "institution publique",
+     "position": "Écarte une CSG générale et progressive : la CSG finance des prestations universelles, une progressivité générale ferait supporter la charge aux revenus moyens et élevés à rendement constant et soulèverait des contraintes constitutionnelles.",
+     "sources": [
+      "ev-qe-csg-2018"
+     ]
+    }
+   ],
+   "contraintes": [
+    {
+     "resume": "Selon le gouvernement de l'époque, une CSG progressive devrait tenir compte de l'ensemble des revenus et de la situation du foyer, ce qui est contraint par la Constitution, et ferait contribuer à des niveaux différents des contribuables aux revenus d'activité identiques.",
+     "sources": [
+      "ev-qe-csg-2018"
+     ]
+    },
+    {
+     "resume": "Le CAE avertit qu'une désindexation durable des allègements pourrait augmenter le coût du travail et appelle à étudier la question avec le SMIC.",
+     "sources": [
+      "ev-cae-91"
+     ]
+    },
+    {
+     "resume": "Aucune analyse de compatibilité avec le droit européen d'une TVA sociale n'a été trouvée dans les sources consultées.",
+     "sources": []
+    }
+   ],
+   "connaissance": {
+    "etabli": "Les allègements de cotisations sur les bas salaires ont favorisé l'emploi peu qualifié ; leur coût est élevé (74 à 77 Md€) et leurs effets sur l'emploi sont aujourd'hui probablement plus faibles qu'à l'origine.",
+    "debattu": "L'ampleur des effets sur l'emploi (de 100 000 à 160 000 emplois pour le CICE selon l'approche), le meilleur profil des allègements et l'effet d'une bascule vers la CSG ou la TVA sur le pouvoir d'achat selon les ménages.",
+    "inconnu": "Aucune évaluation indépendante des chiffrages des candidats (50 Md€ pour Le Maire, plus de 200 Md€ pour Villepin) ni d'une CSG progressive à grande échelle n'a été trouvée. Les positions des syndicats et des organisations patronales sur ces propositions n'ont pas été collectées."
+   }
+  },
+  {
+   "id": "politique-familiale",
+   "verifie_le": "2026-11-26",
+   "titre": "Politique familiale : allocation dès le premier enfant et congé parental",
+   "cles": [
+    "des_enfant",
+    "conge_parental_pct_smic",
+    "conge_parental_duree_mois"
+   ],
+   "precedents": [
+    {
+     "lieu": "France",
+     "annee": "2015",
+     "resume": "La réforme du congé parental (PreParE) a raccourci la durée d'indemnisation si les deux parents ne partagent pas le congé ; l'étude d'impact attendait un effet proche de celui de l'Allemagne, où la part des pères était passée de 3 % à 21 % en trois ans.",
+     "sources": [
+      "ev-senat-prepare-2023",
+      "ev-ofce-pb88"
+     ]
+    },
+    {
+     "lieu": "Allemagne",
+     "annee": "2007",
+     "resume": "L'allocation parentale (Elterngeld) couvre 65 % du revenu antérieur, avec un plancher de 300 € et un plafond de 1 800 €, pendant 12 mois pour le congé de base ; les pères représentaient 25,3 % des bénéficiaires en 2021, contre 20,9 % en 2015.",
+     "sources": [
+      "ev-senat-prepare-2023"
+     ]
+    },
+    {
+     "lieu": "France (outre-mer)",
+     "annee": "",
+     "resume": "Dans les départements d'outre-mer, les allocations familiales sont déjà versées dès le premier enfant.",
+     "sources": [
+      "ev-an-af-2025"
+     ]
+    }
+   ],
+   "effets": [
+    {
+     "theme": "Recours des pères au congé parental",
+     "resume": "Après la réforme de 2015, le recours des pères au congé à taux plein est passé de 0,5 % à 0,8 % ; 70 % des pères à temps partiel n'y ont pas eu recours, contre 25 % des mères. Le nombre de pères bénéficiaires est passé de 19 000 en 2014 à 15 000 en 2020, contre un objectif initial de 100 000.",
+     "sources": [
+      "ev-ofce-pb88",
+      "ev-senat-prepare-2023"
+     ]
+    },
+    {
+     "theme": "Emploi des mères",
+     "resume": "Selon la Drees, les mères de jeunes enfants ayant déjà travaillé avaient 9 points de plus de chances d'occuper un emploi à temps plein en 2018 qu'en 2014. Une étude de France Stratégie et du HCFEA estime que le raccourcissement de la durée a augmenté de 20 points l'emploi des mères la troisième année après la naissance. La Drees note toutefois que les mères les plus exposées à la pauvreté ne travaillent pas plus souvent à temps complet, et le Haut Conseil relève une hausse de 2 points de la part des mères au chômage entre 2015 et 2017.",
+     "sources": [
+      "ev-senat-prepare-2023"
+     ]
+    },
+    {
+     "theme": "Bénéficiaires du congé",
+     "resume": "Le nombre de familles bénéficiaires a diminué de moitié, de 514 000 à 255 000 entre 2013 et 2020, et la dépense a baissé de 61,3 % entre 2014 et 2022. L'IGAS note que la réforme a surtout accéléré la baisse du nombre d'allocataires.",
+     "sources": [
+      "ev-senat-prepare-2023",
+      "ev-igas-prepare-2018"
+     ]
+    },
+    {
+     "theme": "Allocation dès le premier enfant et natalité",
+     "resume": "La rapporteure d'une proposition de loi à l'Assemblée (2025) reconnaît qu'une allocation de 70 € ne suffirait pas à elle seule à faire augmenter les naissances, la fécondité étant de 1,62 enfant par femme. Aucune étude mesurant l'effet d'une allocation de 350 € sur la natalité n'a été trouvée dans les sources consultées.",
+     "sources": [
+      "ev-an-af-2025"
+     ]
+    }
+   ],
+   "couts": [
+    {
+     "auteur": "Édouard Philippe (annonce du candidat)",
+     "resume": "Une allocation unique de 350 € par mois dès le premier enfant, évoquée à « autour d'un milliard d'euros » par le candidat ; aucun chiffrage indépendant n'a été trouvé.",
+     "sources": [
+      "ev-ps-fam-cand"
+     ]
+    },
+    {
+     "auteur": "Assemblée nationale (proposition de loi de 2025, allocation de 70 € dès le premier enfant)",
+     "resume": "La direction de la Sécurité sociale estime le coût à 1,5 à 2 Md€ si l'allocation s'appliquait aux bénéficiaires actuels, ce que le texte ne prévoit pas ; la simulation LexImpact donne une économie nette d'environ 660 M€. Les allocations familiales représentaient environ 14 Md€ en 2024.",
+     "sources": [
+      "ev-an-af-2025"
+     ]
+    },
+    {
+     "auteur": "Sénat (rapport de 2023 sur le congé parental)",
+     "resume": "Porter la PreParE à taux plein au niveau du RSA (607,75 €, soit +41 %) coûterait environ 300 M€.",
+     "sources": [
+      "ev-senat-prepare-2023"
+     ]
+    },
+    {
+     "auteur": "Aucun chiffrage du congé parental de 36 mois à 75 % du SMIC (Dupont-Aignan) n'a été trouvé dans les sources consultées.",
+     "resume": "",
+     "sources": []
+    }
+   ],
+   "avis": [
+    {
+     "organisation": "Sénat, commission des affaires sociales",
+     "type": "commission parlementaire",
+     "position": "Constate que la PreParE n'a pas permis un meilleur partage entre parents et juge qu'une nouvelle réforme est indispensable (huit propositions, dont l'alignement sur les indemnités journalières à terme).",
+     "sources": [
+      "ev-senat-prepare-2023"
+     ]
+    },
+    {
+     "organisation": "OFCE",
+     "type": "centre de recherche",
+     "position": "Estime que revaloriser l'indemnisation est une piste à retenir mais qu'elle ne suffira probablement pas, le non-recours des pères à temps partiel montrant que le niveau d'indemnisation n'est pas le seul facteur.",
+     "sources": [
+      "ev-ofce-pb88"
+     ]
+    },
+    {
+     "organisation": "IGAS",
+     "type": "institution publique",
+     "position": "Observe que la part des pères parmi les bénéficiaires n'est passée que de 3 % à 6,2 % entre 2014 et 2018 et que leur nombre a diminué.",
+     "sources": [
+      "ev-igas-prepare-2018"
+     ]
+    },
+    {
+     "organisation": "Hélène Périvier et Grégory Verdugo",
+     "type": "économistes (auditionnés par le Sénat)",
+     "position": "Selon eux, une partie des pères ne demande pas l'allocation parce qu'ils supposent n'y avoir pas droit.",
+     "sources": [
+      "ev-senat-prepare-2023"
+     ]
+    }
+   ],
+   "contraintes": [
+    {
+     "resume": "Le barème de dégressivité de l'allocation unique de 350 € n'est pas précisé : sans lui, le coût et la liste des gagnants et des perdants ne peuvent pas être établis.",
+     "sources": []
+    },
+    {
+     "resume": "Pour une allocation forfaitaire qui remplace des prestations modulées, le rapport de l'Assemblée relève des perdants parmi les familles nombreuses, notamment celles ayant des enfants de plus de 14 ans qui perdent des majorations.",
+     "sources": [
+      "ev-an-af-2025"
+     ]
+    }
+   ],
+   "connaissance": {
+    "etabli": "La réforme de 2015 a surtout réduit le nombre de bénéficiaires et n'a pas fait augmenter le recours des pères ; elle a accru l'emploi des mères la troisième année suivant la naissance.",
+    "debattu": "Les effets sur les mères les plus modestes (pauvreté, chômage) et l'effet d'une allocation ou d'un congé mieux rémunéré sur la natalité et le partage des tâches.",
+    "inconnu": "Aucune étude de l'effet d'une allocation dès le premier enfant sur la natalité n'a été trouvée. Le coût d'une allocation de 350 € et les effets d'un congé de 36 mois à 75 % du SMIC n'ont pas d'évaluation indépendante. Les positions des associations familiales et des syndicats n'ont pas été collectées."
+   }
+  },
+  {
+   "id": "loyers",
+   "verifie_le": "2026-11-26",
+   "titre": "Encadrement et gel des loyers",
+   "cles": [
+    "encadrement_loyers",
+    "gel_loyers",
+    "fin_encadrement_loyers"
+   ],
+   "precedents": [
+    {
+     "lieu": "France",
+     "annee": "2019-2026",
+     "resume": "L'encadrement des loyers, expérimenté depuis la loi Elan de 2018, s'applique dans environ 70 communes dont Paris, Lille et Lyon. Le Parlement a définitivement voté le 19 novembre 2026 sa prolongation de deux ans (148 voix contre 95 à l'Assemblée), après un vote du Sénat par 325 voix contre 17 ; la version retenue n'étend ni ne renforce le dispositif.",
+     "sources": [
+      "ev-lcp-loyers-nov26",
+      "ev-ps-loyers-sen"
+     ]
+    },
+    {
+     "lieu": "France",
+     "annee": "2017",
+     "resume": "Un premier encadrement, à Paris et à Lille, a été annulé par les juridictions administratives (Lille le 27 septembre 2017, Paris le 14 novembre 2017).",
+     "sources": [
+      "ev-cgedd-2017"
+     ]
+    },
+    {
+     "lieu": "États-Unis (San Francisco)",
+     "annee": "1994",
+     "resume": "Une extension du contrôle des loyers a réduit de 20 % la mobilité des locataires couverts, mais les propriétaires concernés ont réduit de 15 % l'offre de logements locatifs, ce qui aurait augmenté les loyers de l'ensemble de la ville de 5,1 %.",
+     "sources": [
+      "ev-aer-diamond"
+     ]
+    }
+   ],
+   "effets": [
+    {
+     "theme": "Niveau des loyers à Paris",
+     "resume": "Selon l'Apur, l'encadrement a réduit les loyers parisiens d'environ 5 % entre juillet 2019 et juin 2024 (79 à 82 € par mois), davantage pour les très petits logements (−13,1 % de moins de 18 m²) et peu pour les grands logements. L'effet augmente avec le temps (−8,2 % sur la dernière période, à lire avec prudence à cause des Jeux olympiques). L'étude s'appuie sur des annonces et non sur des baux signés.",
+     "sources": [
+      "ev-apur-2025"
+     ]
+    },
+    {
+     "theme": "Niveau des loyers dans les autres villes",
+     "resume": "Selon l'IPP (mai 2026), les loyers annoncés sont inférieurs de 2 % à 4 % à ceux de communes comparables non encadrées deux ans après la mise en place, l'écart se creusant avec le temps.",
+     "sources": [
+      "ev-ipp-125"
+     ]
+    },
+    {
+     "theme": "Offre locative",
+     "resume": "Selon l'Apur, aucune baisse durable de l'offre n'est directement imputable à l'encadrement à Paris (résultat de +6,3 % avec la période du Covid, de −10,2 % sans). Selon l'IPP, le rapport entre le nombre d'annonces et le parc baisse d'environ 1 point (environ 8 % en valeur relative) dans les zones encadrées, avec Paris comme exception ; la baisse peut refléter une réduction de l'offre, des occupations plus longues ou un report vers d'autres canaux.",
+     "sources": [
+      "ev-apur-2025",
+      "ev-ipp-125"
+     ]
+    },
+    {
+     "theme": "Qui y gagne",
+     "resume": "Selon l'IPP, les locataires gagnent environ 612 M€ par an (500 à 800 € par ménage à Paris), les propriétaires perdent 432 M€ et l'État et la Sécurité sociale 181 M€. Les gains nets sont positifs pour les huit premiers déciles de revenus ; à Paris, le dixième décile capte 70 M€ contre 22 M€ pour le premier.",
+     "sources": [
+      "ev-ipp-125"
+     ]
+    },
+    {
+     "theme": "Respect du plafond",
+     "resume": "Plus d'un tiers des baux signés de 2020 à 2024 dépassent le plafond selon l'IPP (35,6 % à Paris), et 43,2 % des annonces parisiennes de juillet 2023 à juin 2024 dépassent le loyer de référence majoré selon l'Apur ; les données ne distinguent pas les compléments de loyer justifiés des abus.",
+     "sources": [
+      "ev-ipp-125",
+      "ev-apur-2025"
+     ]
+    },
+    {
+     "theme": "Mobilité et qualité",
+     "resume": "La littérature citée par l'IPP indique une mobilité réduite à long terme et une qualité parfois en baisse ; ces effets n'ont pas été mesurés en France à ce stade.",
+     "sources": [
+      "ev-ipp-125"
+     ]
+    }
+   ],
+   "couts": [
+    {
+     "auteur": "IPP (mai 2026)",
+     "resume": "Pas de dépense budgétaire directe : le coût du dispositif se traduit par un transfert des propriétaires vers les locataires (432 M€ par an de revenus nets perdus) et par 181 M€ de recettes fiscales en moins.",
+     "sources": [
+      "ev-ipp-125"
+     ]
+    },
+    {
+     "auteur": "Aucun chiffrage du coût de contrôle (observatoires, sanctions) ni d'un gel général des loyers n'a été trouvé dans les sources consultées.",
+     "resume": "",
+     "sources": []
+    }
+   ],
+   "avis": [
+    {
+     "organisation": "Institut des politiques publiques",
+     "type": "centre de recherche",
+     "position": "Recommande un registre national des locations et un encadrement limité dans l'espace et le temps, accompagné de politiques de logement social et de construction, et une évaluation séparée de l'indexation entre deux baux.",
+     "sources": [
+      "ev-ipp-125"
+     ]
+    },
+    {
+     "organisation": "OFCE",
+     "type": "centre de recherche",
+     "position": "Titre de son billet de juin 2025 : l'encadrement des loyers est nécessaire mais insuffisant.",
+     "sources": [
+      "ev-ofce-loyers-2025"
+     ]
+    },
+    {
+     "organisation": "Paris, Lille et autres collectivités expérimentatrices",
+     "type": "collectivités territoriales (parties prenantes)",
+     "position": "Souhaitent que l'encadrement soit conforté au vu de leur évaluation et de résultats jugés favorables sur leurs territoires.",
+     "sources": [
+      "ev-collectivites-2025"
+     ]
+    },
+    {
+     "organisation": "CLCV, FNAIM, UNIS (position en 2017)",
+     "type": "association de consommateurs et organisations de professionnels de l'immobilier",
+     "position": "La CLCV défendait les plafonds de loyers comme protection des personnes vulnérables ; la FNAIM et l'UNIS y voyaient un frein à l'investissement.",
+     "sources": [
+      "ev-cgedd-2017"
+     ]
+    },
+    {
+     "organisation": "CGEDD",
+     "type": "institution publique",
+     "position": "En 2017, jugeait le lien de causalité entre l'encadrement et le ralentissement des loyers non démontrable et estimait qu'il faut quatre ans d'application pour évaluer.",
+     "sources": [
+      "ev-cgedd-2017"
+     ]
+    },
+    {
+     "organisation": "Ministre du Logement",
+     "type": "institution publique",
+     "position": "S'est dit favorable à une prolongation de deux ans des expérimentations en cours.",
+     "sources": [
+      "ev-seloger-jeanbrun"
+     ]
+    }
+   ],
+   "contraintes": [
+    {
+     "resume": "Le dispositif reste une expérimentation : la prolongation votée en novembre 2026 court pour deux ans dans les communes déjà concernées, sans extension ni pérennisation ; une généralisation ou une pérennisation exigerait une nouvelle loi.",
+     "sources": [
+      "ev-ps-loyers-sen",
+      "ev-lcp-loyers-nov26"
+     ]
+    },
+    {
+     "resume": "L'IPP relève une gouvernance éclatée, des moyens limités et une notion de complément de loyer peu claire, qui nuisent au respect des plafonds.",
+     "sources": [
+      "ev-ipp-125"
+     ]
+    },
+    {
+     "resume": "Le premier dispositif a été annulé en 2017 pour avoir été appliqué à une commune et non à l'agglomération.",
+     "sources": [
+      "ev-cgedd-2017",
+      "ev-ofce-loyers-2025"
+     ]
+    }
+   ],
+   "connaissance": {
+    "etabli": "À Paris et dans d'autres villes encadrées, les loyers annoncés sont inférieurs de quelques points (2 à 5 % selon l'Apur et l'IPP) à ce qu'ils seraient sans encadrement, et une part importante des annonces ou des baux dépasse le plafond.",
+    "debattu": "Les effets sur l'offre locative (aucune baisse durable imputable à Paris selon l'Apur, un léger recul des annonces dans les zones encadrées selon l'IPP, −15 % à San Francisco), le ciblage des gains selon les revenus, et les effets de long terme sur la mobilité et la qualité.",
+    "inconnu": "Aucune étude d'un gel général des loyers en France n'a été trouvée. Les évaluations françaises sont récentes et reposent sur des annonces, pas sur des baux signés ; le plus ancien rapport officiel (2017) date d'une période où le dispositif venait d'être appliqué."
    }
   }
  ]
